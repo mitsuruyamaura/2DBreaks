@@ -1,0 +1,7312 @@
+fileFormatVersion: 2
+guid: cd28a7dfad1f5461ab0c5fce3f83f2b3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3791302226927766031
+    second: tsumu3_1_0
+  - first:
+      213: 1104689073879848048
+    second: tsumu3_1_1
+  - first:
+      213: -3281505236531314586
+    second: tsumu3_1_2
+  - first:
+      213: 1699796510234003475
+    second: tsumu3_1_3
+  - first:
+      213: -1854507605124972369
+    second: tsumu3_1_4
+  - first:
+      213: -3490524804118004460
+    second: tsumu3_1_5
+  - first:
+      213: 6438886305681332127
+    second: tsumu3_1_6
+  - first:
+      213: 4950458584791911858
+    second: tsumu3_1_7
+  - first:
+      213: 5654430228489354726
+    second: tsumu3_1_8
+  - first:
+      213: 3087706210763843306
+    second: tsumu3_1_9
+  - first:
+      213: -5590676833659708839
+    second: tsumu3_1_10
+  - first:
+      213: -7197328544846228147
+    second: tsumu3_1_11
+  - first:
+      213: 7585026558865804122
+    second: tsumu3_1_12
+  - first:
+      213: -8980496071806940122
+    second: tsumu3_1_13
+  - first:
+      213: -3296002043980283715
+    second: tsumu3_1_14
+  - first:
+      213: -3423917204454438878
+    second: tsumu3_1_15
+  - first:
+      213: -3652697884680238697
+    second: tsumu3_1_16
+  - first:
+      213: -3560844683805927971
+    second: tsumu3_1_17
+  - first:
+      213: -1895223286832043645
+    second: tsumu3_1_18
+  - first:
+      213: -6984672054796557162
+    second: tsumu3_1_19
+  - first:
+      213: 8644194628619345371
+    second: tsumu3_1_20
+  - first:
+      213: 1528602084165024395
+    second: tsumu3_1_21
+  - first:
+      213: 1918699610979159977
+    second: tsumu3_1_22
+  - first:
+      213: -4494849448840145866
+    second: tsumu3_1_23
+  - first:
+      213: 3091514306974679481
+    second: tsumu3_1_24
+  - first:
+      213: -4417079656683589245
+    second: tsumu3_1_25
+  - first:
+      213: -7489451247392150379
+    second: tsumu3_1_26
+  - first:
+      213: -7810861832007663741
+    second: tsumu3_1_27
+  - first:
+      213: -8155496348534369597
+    second: tsumu3_1_28
+  - first:
+      213: -1265059816236536600
+    second: tsumu3_1_29
+  - first:
+      213: 7783936343809329335
+    second: tsumu3_1_30
+  - first:
+      213: 7732028011510166050
+    second: tsumu3_1_31
+  - first:
+      213: 747710661748600810
+    second: tsumu3_1_32
+  - first:
+      213: 2999803249749736793
+    second: tsumu3_1_33
+  - first:
+      213: -4945656461128467881
+    second: tsumu3_1_34
+  - first:
+      213: -4222476761928218269
+    second: tsumu3_1_35
+  - first:
+      213: 2800358590392055249
+    second: tsumu3_1_36
+  - first:
+      213: 5569530017445579389
+    second: tsumu3_1_37
+  - first:
+      213: 7863257567306067449
+    second: tsumu3_1_38
+  - first:
+      213: 9094359791558899475
+    second: tsumu3_1_39
+  - first:
+      213: -2041258500249903788
+    second: tsumu3_1_40
+  - first:
+      213: -6118054805813606696
+    second: tsumu3_1_41
+  - first:
+      213: 6846947013027808822
+    second: tsumu3_1_42
+  - first:
+      213: -1835094945296929692
+    second: tsumu3_1_43
+  - first:
+      213: -3503770048915573548
+    second: tsumu3_1_44
+  - first:
+      213: 868720070996505476
+    second: tsumu3_1_45
+  - first:
+      213: 4204592894656402674
+    second: tsumu3_1_46
+  - first:
+      213: 6359227815817902282
+    second: tsumu3_1_47
+  - first:
+      213: 588373052627348066
+    second: tsumu3_1_48
+  - first:
+      213: -1065696392243580155
+    second: tsumu3_1_49
+  - first:
+      213: 7774247921231936943
+    second: tsumu3_1_50
+  - first:
+      213: -1470566040491670012
+    second: tsumu3_1_51
+  - first:
+      213: -6276255708650672766
+    second: tsumu3_1_52
+  - first:
+      213: -1334234859533177676
+    second: tsumu3_1_53
+  - first:
+      213: 5594237684508883326
+    second: tsumu3_1_54
+  - first:
+      213: 2398070324270480080
+    second: tsumu3_1_55
+  - first:
+      213: 4118116367775982396
+    second: tsumu3_1_56
+  - first:
+      213: -2742434491437734698
+    second: tsumu3_1_57
+  - first:
+      213: 2360564317827253628
+    second: tsumu3_1_58
+  - first:
+      213: -6551077391727527182
+    second: tsumu3_1_59
+  - first:
+      213: 8717531708211062057
+    second: tsumu3_1_60
+  - first:
+      213: -8692256804147109037
+    second: tsumu3_1_61
+  - first:
+      213: -377976295759695188
+    second: tsumu3_1_62
+  - first:
+      213: -1566103934261773594
+    second: tsumu3_1_63
+  - first:
+      213: 2621587809616245606
+    second: tsumu3_1_64
+  - first:
+      213: 6444877894043896085
+    second: tsumu3_1_65
+  - first:
+      213: -1637016030601578042
+    second: tsumu3_1_66
+  - first:
+      213: -9096034108950951701
+    second: tsumu3_1_67
+  - first:
+      213: -310757246753112154
+    second: tsumu3_1_68
+  - first:
+      213: -8358844365282526080
+    second: tsumu3_1_69
+  - first:
+      213: 1919829220223955513
+    second: tsumu3_1_70
+  - first:
+      213: -3757439557116589010
+    second: tsumu3_1_71
+  - first:
+      213: 548117578258608957
+    second: tsumu3_1_72
+  - first:
+      213: -7448897351062742218
+    second: tsumu3_1_73
+  - first:
+      213: -6076561354877583071
+    second: tsumu3_1_74
+  - first:
+      213: 561890153796440770
+    second: tsumu3_1_75
+  - first:
+      213: 5899351000043663602
+    second: tsumu3_1_76
+  - first:
+      213: 6841327974099454692
+    second: tsumu3_1_77
+  - first:
+      213: 6264593939409009212
+    second: tsumu3_1_78
+  - first:
+      213: -3176156174057179761
+    second: tsumu3_1_79
+  - first:
+      213: -4007891816332996401
+    second: tsumu3_1_80
+  - first:
+      213: -3570123384147766438
+    second: tsumu3_1_81
+  - first:
+      213: 2539772348306713266
+    second: tsumu3_1_82
+  - first:
+      213: -966763156435313443
+    second: tsumu3_1_83
+  - first:
+      213: -3851000525837101716
+    second: tsumu3_1_84
+  - first:
+      213: -6369035170194819256
+    second: tsumu3_1_85
+  - first:
+      213: 698141120779738826
+    second: tsumu3_1_86
+  - first:
+      213: -7330305601181041104
+    second: tsumu3_1_87
+  - first:
+      213: -4823995706870950267
+    second: tsumu3_1_88
+  - first:
+      213: 386475769941700122
+    second: tsumu3_1_89
+  - first:
+      213: -687791557160377365
+    second: tsumu3_1_90
+  - first:
+      213: 6749203372007576882
+    second: tsumu3_1_91
+  - first:
+      213: -977818906407817411
+    second: tsumu3_1_92
+  - first:
+      213: -68033572482965104
+    second: tsumu3_1_93
+  - first:
+      213: -412096553594900000
+    second: tsumu3_1_94
+  - first:
+      213: 5760451865504992214
+    second: tsumu3_1_95
+  - first:
+      213: -431468486213435691
+    second: tsumu3_1_96
+  - first:
+      213: -4833431045932402510
+    second: tsumu3_1_97
+  - first:
+      213: 3155936394266593505
+    second: tsumu3_1_98
+  - first:
+      213: 7728030607970421833
+    second: tsumu3_1_99
+  - first:
+      213: 1529017667727660258
+    second: tsumu3_1_100
+  - first:
+      213: 2009865133777685389
+    second: tsumu3_1_101
+  - first:
+      213: -6756180960836415850
+    second: tsumu3_1_102
+  - first:
+      213: -3714910412058484613
+    second: tsumu3_1_103
+  - first:
+      213: -1843680144202489678
+    second: tsumu3_1_104
+  - first:
+      213: 8933294023125586628
+    second: tsumu3_1_105
+  - first:
+      213: -8216334448022383584
+    second: tsumu3_1_106
+  - first:
+      213: -7744203271991817435
+    second: tsumu3_1_107
+  - first:
+      213: -6471441270098748233
+    second: tsumu3_1_108
+  - first:
+      213: 7353403582711516958
+    second: tsumu3_1_109
+  - first:
+      213: 867696074965859823
+    second: tsumu3_1_110
+  - first:
+      213: 2499708835443766191
+    second: tsumu3_1_111
+  - first:
+      213: -2782501005999531784
+    second: tsumu3_1_112
+  - first:
+      213: -9139735350461438400
+    second: tsumu3_1_113
+  - first:
+      213: -6273136596042691110
+    second: tsumu3_1_114
+  - first:
+      213: 2783775197436571950
+    second: tsumu3_1_115
+  - first:
+      213: -1191278245259601884
+    second: tsumu3_1_116
+  - first:
+      213: -4940586831931860038
+    second: tsumu3_1_117
+  - first:
+      213: 9065178768584322044
+    second: tsumu3_1_118
+  - first:
+      213: 6009674523390826136
+    second: tsumu3_1_119
+  - first:
+      213: 3095235854973600810
+    second: tsumu3_1_120
+  - first:
+      213: -2620554343774809786
+    second: tsumu3_1_121
+  - first:
+      213: -8647410152435369185
+    second: tsumu3_1_122
+  - first:
+      213: 6599317113791998835
+    second: tsumu3_1_123
+  - first:
+      213: -485066731259070177
+    second: tsumu3_1_124
+  - first:
+      213: -1764783335681765125
+    second: tsumu3_1_125
+  - first:
+      213: 2452468013544324884
+    second: tsumu3_1_126
+  - first:
+      213: 3053505988893742566
+    second: tsumu3_1_127
+  - first:
+      213: -3738221200634157071
+    second: tsumu3_1_128
+  - first:
+      213: 3493365418235616052
+    second: tsumu3_1_129
+  - first:
+      213: -5513106798194510557
+    second: tsumu3_1_130
+  - first:
+      213: 9107420396991666384
+    second: tsumu3_1_131
+  - first:
+      213: 5098144609722496579
+    second: tsumu3_1_132
+  - first:
+      213: 4491450666343344048
+    second: tsumu3_1_133
+  - first:
+      213: 7353345531321414203
+    second: tsumu3_1_134
+  - first:
+      213: -2653274759109546819
+    second: tsumu3_1_135
+  - first:
+      213: 3180710687638855943
+    second: tsumu3_1_136
+  - first:
+      213: -345960677135251667
+    second: tsumu3_1_137
+  - first:
+      213: 4021470819678715764
+    second: tsumu3_1_138
+  - first:
+      213: -6219495821864052051
+    second: tsumu3_1_139
+  - first:
+      213: -1089655230067793775
+    second: tsumu3_1_140
+  - first:
+      213: 1145900003685099762
+    second: tsumu3_1_141
+  - first:
+      213: 733220722260051252
+    second: tsumu3_1_142
+  - first:
+      213: 7679001635139194224
+    second: tsumu3_1_143
+  - first:
+      213: -6640599012107529062
+    second: tsumu3_1_144
+  - first:
+      213: 336019982061694706
+    second: tsumu3_1_145
+  - first:
+      213: 5868242896268994766
+    second: tsumu3_1_146
+  - first:
+      213: -463745787049271780
+    second: tsumu3_1_147
+  - first:
+      213: 7479876926530549809
+    second: tsumu3_1_148
+  - first:
+      213: 1943064575584544592
+    second: tsumu3_1_149
+  - first:
+      213: 3226490487763841658
+    second: tsumu3_1_150
+  - first:
+      213: 5697162461618492535
+    second: tsumu3_1_151
+  - first:
+      213: 1630651805744414396
+    second: tsumu3_1_152
+  - first:
+      213: 9039895586517932461
+    second: tsumu3_1_153
+  - first:
+      213: 1831208034132528913
+    second: tsumu3_1_154
+  - first:
+      213: 6701443090753082577
+    second: tsumu3_1_155
+  - first:
+      213: -4954574733231852672
+    second: tsumu3_1_156
+  - first:
+      213: -2647784255788154682
+    second: tsumu3_1_157
+  - first:
+      213: -3054952740134755197
+    second: tsumu3_1_158
+  - first:
+      213: -999379967882351516
+    second: tsumu3_1_159
+  - first:
+      213: -7723034679223423923
+    second: tsumu3_1_160
+  - first:
+      213: 3829079191029804401
+    second: tsumu3_1_161
+  - first:
+      213: 8298760399593916711
+    second: tsumu3_1_162
+  - first:
+      213: 4188180777870207537
+    second: tsumu3_1_163
+  - first:
+      213: -2756591354228200704
+    second: tsumu3_1_164
+  - first:
+      213: 4779296696960291725
+    second: tsumu3_1_165
+  - first:
+      213: 7524506940188994236
+    second: tsumu3_1_166
+  - first:
+      213: -6723490577007969495
+    second: tsumu3_1_167
+  - first:
+      213: -5253125154385096901
+    second: tsumu3_1_168
+  - first:
+      213: -7076989626344901172
+    second: tsumu3_1_169
+  - first:
+      213: -8646400240168763998
+    second: tsumu3_1_170
+  - first:
+      213: 1709717554831055145
+    second: tsumu3_1_171
+  - first:
+      213: 8072500222714238476
+    second: tsumu3_1_172
+  - first:
+      213: 3911675526732443597
+    second: tsumu3_1_173
+  - first:
+      213: 1715324243930504720
+    second: tsumu3_1_174
+  - first:
+      213: 3308217140235116268
+    second: tsumu3_1_175
+  - first:
+      213: -2274857574459228023
+    second: tsumu3_1_176
+  - first:
+      213: -42595840198897010
+    second: tsumu3_1_177
+  - first:
+      213: -7948849131769276026
+    second: tsumu3_1_178
+  - first:
+      213: -7105602636754173407
+    second: tsumu3_1_179
+  - first:
+      213: -2613203502239990056
+    second: tsumu3_1_180
+  - first:
+      213: -6486026569478636780
+    second: tsumu3_1_181
+  - first:
+      213: -4084013837435294100
+    second: tsumu3_1_182
+  - first:
+      213: -2052686145583589372
+    second: tsumu3_1_183
+  - first:
+      213: 4502756458795724524
+    second: tsumu3_1_184
+  - first:
+      213: -2320020932415068672
+    second: tsumu3_1_185
+  - first:
+      213: -6782326421201089005
+    second: tsumu3_1_186
+  - first:
+      213: -6579436283520203627
+    second: tsumu3_1_187
+  - first:
+      213: -8840399233696606767
+    second: tsumu3_1_188
+  - first:
+      213: -4775799931952123421
+    second: tsumu3_1_189
+  - first:
+      213: 130652131806554632
+    second: tsumu3_1_190
+  - first:
+      213: -7629637751714034569
+    second: tsumu3_1_191
+  - first:
+      213: 7227854675181466817
+    second: tsumu3_1_192
+  - first:
+      213: 5629230459853187220
+    second: tsumu3_1_193
+  - first:
+      213: -7193431168630237990
+    second: tsumu3_1_194
+  - first:
+      213: -8024716327896857076
+    second: tsumu3_1_195
+  - first:
+      213: 7954640883800707873
+    second: tsumu3_1_196
+  - first:
+      213: -4001979845995515759
+    second: tsumu3_1_197
+  - first:
+      213: -2105705694810020694
+    second: tsumu3_1_198
+  - first:
+      213: 8060436778370377884
+    second: tsumu3_1_199
+  - first:
+      213: 7640167093664426725
+    second: tsumu3_1_200
+  - first:
+      213: 7731619259427309657
+    second: tsumu3_1_201
+  - first:
+      213: 1711467033524243095
+    second: tsumu3_1_202
+  - first:
+      213: -6839399270252685729
+    second: tsumu3_1_203
+  - first:
+      213: 7600693006271743076
+    second: tsumu3_1_204
+  - first:
+      213: -8635991564576361761
+    second: tsumu3_1_205
+  - first:
+      213: -2517003844206493832
+    second: tsumu3_1_206
+  - first:
+      213: 5420726543106700102
+    second: tsumu3_1_207
+  - first:
+      213: 3219201571766284087
+    second: tsumu3_1_208
+  - first:
+      213: 6691420426775676432
+    second: tsumu3_1_209
+  - first:
+      213: -975616960402544180
+    second: tsumu3_1_210
+  - first:
+      213: 8296000295973237610
+    second: tsumu3_1_211
+  - first:
+      213: -2677579677281815466
+    second: tsumu3_1_212
+  - first:
+      213: -1030528876546407146
+    second: tsumu3_1_213
+  - first:
+      213: -7061529581799774849
+    second: tsumu3_1_214
+  - first:
+      213: 1350033260593825514
+    second: tsumu3_1_215
+  - first:
+      213: 6904444706374356628
+    second: tsumu3_1_216
+  - first:
+      213: 5706068202447477817
+    second: tsumu3_1_217
+  - first:
+      213: 8812457410143928304
+    second: tsumu3_1_218
+  - first:
+      213: 854447824956834119
+    second: tsumu3_1_219
+  - first:
+      213: 4011416945068295042
+    second: tsumu3_1_220
+  - first:
+      213: 7610211077078368818
+    second: tsumu3_1_221
+  - first:
+      213: -274901079226032462
+    second: tsumu3_1_222
+  - first:
+      213: -1045603974336633383
+    second: tsumu3_1_223
+  - first:
+      213: 8971449540458807713
+    second: tsumu3_1_224
+  - first:
+      213: 8064236917091909883
+    second: tsumu3_1_225
+  - first:
+      213: 5920901599584847217
+    second: tsumu3_1_226
+  - first:
+      213: -2064202914803411344
+    second: tsumu3_1_227
+  - first:
+      213: -4218964772952592117
+    second: tsumu3_1_228
+  - first:
+      213: 7940936062207365074
+    second: tsumu3_1_229
+  - first:
+      213: -4110665637379961946
+    second: tsumu3_1_230
+  - first:
+      213: -7681951414068093966
+    second: tsumu3_1_231
+  - first:
+      213: 6609828640854688109
+    second: tsumu3_1_232
+  - first:
+      213: -8487349405499279451
+    second: tsumu3_1_233
+  - first:
+      213: 2867761253546812472
+    second: tsumu3_1_234
+  - first:
+      213: -883367692740923926
+    second: tsumu3_1_235
+  - first:
+      213: 7434229361341405101
+    second: tsumu3_1_236
+  - first:
+      213: 230481427279663789
+    second: tsumu3_1_237
+  - first:
+      213: 6219710643199896208
+    second: tsumu3_1_238
+  - first:
+      213: -2281840515943515421
+    second: tsumu3_1_239
+  - first:
+      213: -3961032739190350206
+    second: tsumu3_1_240
+  - first:
+      213: -953655172138370801
+    second: tsumu3_1_241
+  - first:
+      213: -521912162497918701
+    second: tsumu3_1_242
+  - first:
+      213: 4242233995413879465
+    second: tsumu3_1_243
+  - first:
+      213: 2175699269281869793
+    second: tsumu3_1_244
+  - first:
+      213: -5132478772297262084
+    second: tsumu3_1_245
+  - first:
+      213: 5175992412787383830
+    second: tsumu3_1_246
+  - first:
+      213: 1206996886383740291
+    second: tsumu3_1_247
+  - first:
+      213: -1402286989796908193
+    second: tsumu3_1_248
+  - first:
+      213: -7396831389342165220
+    second: tsumu3_1_249
+  - first:
+      213: 7876183126828692973
+    second: tsumu3_1_250
+  - first:
+      213: 8611904106563261955
+    second: tsumu3_1_251
+  - first:
+      213: -7329091989509286993
+    second: tsumu3_1_252
+  - first:
+      213: -3506361637484431389
+    second: tsumu3_1_253
+  - first:
+      213: -3998299883375868545
+    second: tsumu3_1_254
+  - first:
+      213: 8549081398400967348
+    second: tsumu3_1_255
+  - first:
+      213: -6616458678258545415
+    second: tsumu3_1_256
+  - first:
+      213: 3016943674467093147
+    second: tsumu3_1_257
+  - first:
+      213: -306304827049055750
+    second: tsumu3_1_258
+  - first:
+      213: -4863250584414188677
+    second: tsumu3_1_259
+  - first:
+      213: 2609268501116483894
+    second: tsumu3_1_260
+  - first:
+      213: -1657050659640389120
+    second: tsumu3_1_261
+  - first:
+      213: -6521176704413665075
+    second: tsumu3_1_262
+  - first:
+      213: 4029907357567763106
+    second: tsumu3_1_263
+  - first:
+      213: 2786896748615407061
+    second: tsumu3_1_264
+  - first:
+      213: -1508394308836916412
+    second: tsumu3_1_265
+  - first:
+      213: -4191987683624101053
+    second: tsumu3_1_266
+  - first:
+      213: 9101882051861117731
+    second: tsumu3_1_267
+  - first:
+      213: 7143130267697641220
+    second: tsumu3_1_268
+  - first:
+      213: -928413070236793900
+    second: tsumu3_1_269
+  - first:
+      213: -7881032417420554790
+    second: tsumu3_1_270
+  - first:
+      213: -5771580877725421049
+    second: tsumu3_1_271
+  - first:
+      213: -3117868089013631617
+    second: tsumu3_1_272
+  - first:
+      213: -3086265901916195076
+    second: tsumu3_1_273
+  - first:
+      213: -8981081340414065109
+    second: tsumu3_1_274
+  - first:
+      213: 8427869397961178606
+    second: tsumu3_1_275
+  - first:
+      213: -3694154846597367512
+    second: tsumu3_1_276
+  - first:
+      213: -8266492539746094488
+    second: tsumu3_1_277
+  - first:
+      213: -8511909159633465301
+    second: tsumu3_1_278
+  - first:
+      213: -3919189722813581980
+    second: tsumu3_1_279
+  - first:
+      213: -8015771196431946754
+    second: tsumu3_1_280
+  - first:
+      213: 662548710082829449
+    second: tsumu3_1_281
+  - first:
+      213: 4874948342962116755
+    second: tsumu3_1_282
+  - first:
+      213: -4078404474137142997
+    second: tsumu3_1_283
+  - first:
+      213: 5293936954634542381
+    second: tsumu3_1_284
+  - first:
+      213: 6949649738695947834
+    second: tsumu3_1_285
+  - first:
+      213: 6407111168360773043
+    second: tsumu3_1_286
+  - first:
+      213: 9150510819863193268
+    second: tsumu3_1_287
+  - first:
+      213: -4967186625071255977
+    second: tsumu3_1_288
+  - first:
+      213: 1894922188299553000
+    second: tsumu3_1_289
+  - first:
+      213: 580268663130892550
+    second: tsumu3_1_290
+  - first:
+      213: 7028264734027825758
+    second: tsumu3_1_291
+  - first:
+      213: 6837784281899003747
+    second: tsumu3_1_292
+  - first:
+      213: -7033657509505113400
+    second: tsumu3_1_293
+  - first:
+      213: 8909191750258023823
+    second: tsumu3_1_294
+  - first:
+      213: -3168829335230611526
+    second: tsumu3_1_295
+  - first:
+      213: -3425950788604684235
+    second: tsumu3_1_296
+  - first:
+      213: -548935785847126887
+    second: tsumu3_1_297
+  - first:
+      213: -4188757428029527269
+    second: tsumu3_1_298
+  - first:
+      213: -5736898454524503352
+    second: tsumu3_1_299
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tsumu3_1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52874a1b52e094c7b9425f4a6d20d80e
+      internalID: -3791302226927766031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356dce00b791f403191d0bbc0ce7c3c5
+      internalID: 1104689073879848048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70da17a1b91244e5fbd22524c8e97b45
+      internalID: -3281505236531314586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_3
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac3ac8e8af7d04adbb48301f68edff83
+      internalID: 1699796510234003475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_4
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21797f2a133248a2b889d0a67606989
+      internalID: -1854507605124972369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_5
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c871fc0e4df7d4bdcbbd40b63e4cbfbf
+      internalID: -3490524804118004460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_6
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baf3532223ccd435896ee4239bb4b93f
+      internalID: 6438886305681332127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_7
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ea1d90527a148f492bb84d9cb64d11
+      internalID: 4950458584791911858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_8
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e91bfa3061d5143c2b760b8b72a6f1b4
+      internalID: 5654430228489354726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_9
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2eb8f314c7b04c7a9017025f1f00c76
+      internalID: 3087706210763843306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_10
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2223b878bf0b4e00871ab549c34fcd6
+      internalID: -5590676833659708839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_11
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e107ce7a2c04b8e8dd874879eab2e5
+      internalID: -7197328544846228147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_12
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f695c0b7846040eabeee1cd493cd947
+      internalID: 7585026558865804122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_13
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee194f20990a7400595c0e5b1e8359a1
+      internalID: -8980496071806940122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_14
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 2010.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eec81d43d66a40ed90843315ac0ae6d
+      internalID: -3296002043980283715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d854e01c4c4f4158a721b8822db9f2d
+      internalID: -3423917204454438878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_16
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb7aca8cc8ce4506b9433960e0a42a7
+      internalID: -3652697884680238697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_17
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b6510f884a545ba937b8cf034544f9
+      internalID: -3560844683805927971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_18
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2c277410d4d4fa182648d135b3cb51
+      internalID: -1895223286832043645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_19
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce92fe88c10954a7ca2ac3b08bf08b28
+      internalID: -6984672054796557162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_20
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7147afd21a764627a96c134dfb668b3
+      internalID: 8644194628619345371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_21
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8fdccaa877974601a204326ac5d00ce
+      internalID: 1528602084165024395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_22
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6189410247e28496db6aef3350cac26b
+      internalID: 1918699610979159977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_23
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407a944b96e7a44e8ac2a118b10b9611
+      internalID: -4494849448840145866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_24
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1caa208083bd4446b0272dc7428c593
+      internalID: 3091514306974679481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_25
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af310ae957316419092ccf7bbbb8273e
+      internalID: -4417079656683589245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_26
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff1a01d95ab0e40e19792357a2b10270
+      internalID: -7489451247392150379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_27
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0997409a2af3844a5930254356abce26
+      internalID: -7810861832007663741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_28
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b08132476aa74cd3a9ce19ed2824994
+      internalID: -8155496348534369597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_29
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1905.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2166aa4f29124f80823bfcb47122612
+      internalID: -1265059816236536600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27bcb7e6025e46228f435875490601a
+      internalID: 7783936343809329335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_31
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2a27eb37dec49648778f718553597f
+      internalID: 7732028011510166050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_32
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 353bc3591629f4f519e8db101d7b2271
+      internalID: 747710661748600810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_33
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b2917df1cbf0404485d638414ad82de
+      internalID: 2999803249749736793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_34
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba497fc317bc34fc287985be1de80050
+      internalID: -4945656461128467881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_35
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c35a7b74de642b2882f48739c937f8
+      internalID: -4222476761928218269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_36
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d793128edea3436a915d665f752b6fe
+      internalID: 2800358590392055249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_37
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c56e83bd21627442496d57c273b7472a
+      internalID: 5569530017445579389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_38
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1b2c8c10e9044188e0823a3f1355c0
+      internalID: 7863257567306067449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_39
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098419dfeb1a04288a4540d2114536b2
+      internalID: 9094359791558899475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_40
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c109f027f2246f8a5850b380567d3e
+      internalID: -2041258500249903788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_41
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8450acca4c8649849eb2975373eeb71
+      internalID: -6118054805813606696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_42
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6714f07816670459a97013142a2228ed
+      internalID: 6846947013027808822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_43
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b13791242dfa414fa038a0367818d10
+      internalID: -1835094945296929692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_44
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1800.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad85b39c1aff4267a70efa9658d6815
+      internalID: -3503770048915573548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16d35ca59add4118ad9bd8cf507c5a8
+      internalID: 868720070996505476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_46
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa079f4abba546cbbc1aa63935824ef
+      internalID: 4204592894656402674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_47
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f010a00334d14be3932edf7f0188c13
+      internalID: 6359227815817902282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_48
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d183e2de1928458b897c6e896746b1a
+      internalID: 588373052627348066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_49
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c239f39bde5d145538f2f86a0f435817
+      internalID: -1065696392243580155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_50
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 369ae95ffbf234aa98deac58761c7180
+      internalID: 7774247921231936943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_51
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089b1f750588743f982996dc0f790864
+      internalID: -1470566040491670012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_52
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b2d3681adb74e2d8d1d14e56466754
+      internalID: -6276255708650672766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_53
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7bc0f1eacad41c5801335d34704261
+      internalID: -1334234859533177676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_54
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd1905397c2e64bd89d7a7599c1389ec
+      internalID: 5594237684508883326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_55
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22199a905496e4eccabb11d178d596bf
+      internalID: 2398070324270480080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_56
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170bef67aa8cd4c89ab15baf8ebd04e8
+      internalID: 4118116367775982396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_57
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b623faff8df24dd3a1e5d3a53abbb25
+      internalID: -2742434491437734698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_58
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c9d21b89ee34cb187e532a3a61320a
+      internalID: 2360564317827253628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_59
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1695.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ea57365a3f84362895f9256b8dbd81
+      internalID: -6551077391727527182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc850ef447c540e8a2effefd39ef42b
+      internalID: 8717531708211062057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_61
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5bf4477c72d427ba9818de49fe3c18
+      internalID: -8692256804147109037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_62
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f4e1438b1b74e218652c72006be29b
+      internalID: -377976295759695188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_63
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30b6fa23e9964fae8e7a4fed5a72cd2
+      internalID: -1566103934261773594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_64
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a6f796d34d148bcabcedb46f767ff1
+      internalID: 2621587809616245606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_65
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1649691e42d6e4971bd0df1d8d8cab52
+      internalID: 6444877894043896085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_66
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333aaee9e701f4ca6af14d01a2b188f7
+      internalID: -1637016030601578042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_67
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d79fd10fb1ca47bbbb5fb01ac6c2130
+      internalID: -9096034108950951701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_68
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9898ae07ec7846a684a3a48b38ebf70
+      internalID: -310757246753112154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_69
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 142a5fba594a6433cb60da080bea012a
+      internalID: -8358844365282526080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_70
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5148778b1f8474652bb461b9d3431170
+      internalID: 1919829220223955513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_71
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b6b2a4bdc2b74f6d9600032e46fe635
+      internalID: -3757439557116589010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_72
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a59908453fde43a0a480c81e7daf06e
+      internalID: 548117578258608957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_73
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77214ad5c259a4346beb1b29df681975
+      internalID: -7448897351062742218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_74
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1590.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f7fd150031f4ab697c74e4cb497833
+      internalID: -6076561354877583071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93b99d1da5ee2420cb3bdc0e4136ab26
+      internalID: 561890153796440770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_76
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c52acd7d031404fa88cb4f8995b264
+      internalID: 5899351000043663602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_77
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff772b2ddac1c4d9abb9becc76ec24b5
+      internalID: 6841327974099454692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_78
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dede7805d7fb24ea8a1752ae715f7fbb
+      internalID: 6264593939409009212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_79
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306df69bb1532424382b2f04e98a8d5a
+      internalID: -3176156174057179761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_80
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ef8b974e37a4150a3edb8582a6bbf6
+      internalID: -4007891816332996401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_81
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5e1218b6db7c4c28a4045258a135f59
+      internalID: -3570123384147766438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_82
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7540f1525874630998b6bcbc22c18c
+      internalID: 2539772348306713266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_83
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab17aaec431bf473193c47a1cc8b4155
+      internalID: -966763156435313443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_84
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f64762221f04fa7aaf793380b62def
+      internalID: -3851000525837101716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_85
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887d308698a3f4dd9851a5b48972f105
+      internalID: -6369035170194819256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_86
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b88ca7ee09145e884a7048432fe3fb
+      internalID: 698141120779738826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_87
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28dbba0034ff0449fb895872577756f8
+      internalID: -7330305601181041104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_88
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656190679528f40f9b8533c78fb0466d
+      internalID: -4823995706870950267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_89
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1485.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97d3b22c70a9485bab9f46670e707c7
+      internalID: 386475769941700122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20377bb3db615415aa7d4bc95d572e0a
+      internalID: -687791557160377365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_91
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc19e317950a4b5a9e0701a73cc87b1
+      internalID: 6749203372007576882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_92
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517714ac571044db8a92ae7f7b0394dd
+      internalID: -977818906407817411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_93
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c9abced82114635adc58596272eb90
+      internalID: -68033572482965104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_94
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176c4f77f62e2460a927a3abe1f45893
+      internalID: -412096553594900000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_95
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62c92d0985e441458ca80b135ca5597
+      internalID: 5760451865504992214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_96
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e8bdb2a2a0f34c84836396c73b0912f
+      internalID: -431468486213435691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_97
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c37279c177a4484b285370c92a4718
+      internalID: -4833431045932402510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_98
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46fb0ff6da7954b8188efea9bd0d31fe
+      internalID: 3155936394266593505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_99
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797294132a1644ecc828ca1acc66f2a6
+      internalID: 7728030607970421833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_100
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a5929fc234fb431f88e0ccc08781543
+      internalID: 1529017667727660258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_101
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a43808826504f4da22866a97034494
+      internalID: 2009865133777685389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_102
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48db33255fc994eeea910aea9b766184
+      internalID: -6756180960836415850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_103
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe8e87cff62d4e73a3e72720d9eab6b
+      internalID: -3714910412058484613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_104
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1380.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08d0274ccc5446c79f6a789370b8b2a
+      internalID: -1843680144202489678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615e8717ea07d4d46a1739a0899b39ff
+      internalID: 8933294023125586628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_106
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df22fa8766824addabd7a263b469c7a
+      internalID: -8216334448022383584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_107
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af98d3b7cee8949a99aec604e29e9177
+      internalID: -7744203271991817435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_108
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 975eae326f9b44a1486bba8f39c46e79
+      internalID: -6471441270098748233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_109
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db179435d1fa04fad89333d45acb8e68
+      internalID: 7353403582711516958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_110
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340f42650c8f640739e6584ef6c5ee8b
+      internalID: 867696074965859823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_111
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6324d9419acd84513b9d5a6558fed23c
+      internalID: 2499708835443766191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_112
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a17bb1bb4b41540daa768a9a7e719d0a
+      internalID: -2782501005999531784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_113
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc548df1c21e24cdeb24ad398f9468a3
+      internalID: -9139735350461438400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_114
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eac8c4b176954496aaccc4d52af9898
+      internalID: -6273136596042691110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_115
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b6d09e737bc49c29d8a578c18396e4
+      internalID: 2783775197436571950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_116
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d976dd4ac42bb4c3caef1c5c2cbf78c3
+      internalID: -1191278245259601884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_117
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f417066c64e45c1a256ed2a97313e1
+      internalID: -4940586831931860038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_118
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d8d6a95637d4a9581308962b525dbc
+      internalID: 9065178768584322044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_119
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1275.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b875c8d3ba8a452a80f24e3d686b84f
+      internalID: 6009674523390826136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec542dcff552645379f3e020c33e52b1
+      internalID: 3095235854973600810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_121
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ea1e5de3211497cab589884d6558c0
+      internalID: -2620554343774809786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_122
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9505a12325bb34fe0ad733b99fb57cc4
+      internalID: -8647410152435369185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_123
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c72257b2dbdc42dfb44c82fc1203c4f
+      internalID: 6599317113791998835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_124
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58e3ea882e64486f9f0ead12c41dcf5
+      internalID: -485066731259070177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_125
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6764f26cfe0ef45d38dfc1dbe90c4299
+      internalID: -1764783335681765125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_126
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b24b2f828a2a94b7bb46c2312f2d842c
+      internalID: 2452468013544324884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_127
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b89762573031414ebf090c1ddb3f24e
+      internalID: 3053505988893742566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_128
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa871ce5ec7ad48f8aa2e6c14588836e
+      internalID: -3738221200634157071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_129
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce7dc7045e79a4305a36649485dcca82
+      internalID: 3493365418235616052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_130
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b0f53f4a24f4221ac72899f9b5e9ea
+      internalID: -5513106798194510557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_131
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e27eb7f6f9a42ca940898dc62eaf03
+      internalID: 9107420396991666384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_132
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 274625311c4704d63b72181a83e3a98a
+      internalID: 5098144609722496579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_133
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30190edb8f1fc44d4827c661b333d6c0
+      internalID: 4491450666343344048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_134
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1170.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6faebc70422450dbd6b1b9d70c4e4a
+      internalID: 7353345531321414203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_135
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3113dbc8839754aa08a5309fdb90ad4f
+      internalID: -2653274759109546819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_136
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070926d3c12f94a3e84c8488e02a4db8
+      internalID: 3180710687638855943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_137
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb515f4dd6774186a7fe3fbdf4956a8
+      internalID: -345960677135251667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_138
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd98d5ed0d904a3d96bab253dece147
+      internalID: 4021470819678715764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_139
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5e2de1709804339b35459eaadd8b3e
+      internalID: -6219495821864052051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_140
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b533e86666a44b7887abcc3637b40e
+      internalID: -1089655230067793775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_141
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9133f3b1e94e445508aca19eb8122b2d
+      internalID: 1145900003685099762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_142
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60f2fdf3e91a4b32a1cf50db05fae6c
+      internalID: 733220722260051252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_143
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a3d21a66db046819da0ff591fe1c64
+      internalID: 7679001635139194224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_144
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de29f91cfb1bf49729e76ca14c739c84
+      internalID: -6640599012107529062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_145
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0275ab672d41439c9b80e7e1b95ac11
+      internalID: 336019982061694706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_146
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf54e6308dff431f9d1cf8e0f8cb86d
+      internalID: 5868242896268994766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_147
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8b29c6e0c104949b628ab1bd09257b
+      internalID: -463745787049271780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_148
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b40812680e948449a669a4df4ac5b5
+      internalID: 7479876926530549809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_149
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1065.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04319f2cb64045ed94e3e2934e66aac
+      internalID: 1943064575584544592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_150
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a209db655b8e04fb3872c263b90d2e55
+      internalID: 3226490487763841658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_151
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f1108fd68b24871bfe3a68bf502da3
+      internalID: 5697162461618492535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_152
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4388961fe2741bd95ca0dc3b984cdb
+      internalID: 1630651805744414396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_153
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06aafa2c8fa3b44a8b19d9600acd1395
+      internalID: 9039895586517932461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_154
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c2c29ec4e804fc09dfc92b74cb1bf2
+      internalID: 1831208034132528913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_155
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011a14b2db3314aa491b551dd8b0e0b6
+      internalID: 6701443090753082577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_156
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00fe67e24d0a14a7aa23ac2d6db5266e
+      internalID: -4954574733231852672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_157
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251e358b986bb455d8080a8c2a67fc6e
+      internalID: -2647784255788154682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_158
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00dd2ed8ebd764b0a889af615ea85f79
+      internalID: -3054952740134755197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_159
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb2ae39e829648799d23c261bf36436
+      internalID: -999379967882351516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_160
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 762a4a6d1b873436b8248024d92d1d21
+      internalID: -7723034679223423923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_161
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8147b36bf349748a8bb06fd9bcf7a3e2
+      internalID: 3829079191029804401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_162
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce645e0da79224c3293e1c96a964bfda
+      internalID: 8298760399593916711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_163
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6136c82073c640fe869ff15af9a2f00
+      internalID: 4188180777870207537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_164
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 960.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60a89f11594b49078180a6cfc71734b
+      internalID: -2756591354228200704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_165
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f247eed5ea6834dc494e5d9529f4f6b6
+      internalID: 4779296696960291725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_166
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1da003de8947c4340bbb36d2565baf11
+      internalID: 7524506940188994236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_167
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a397a0fa5e041c399eaedbde5ba146
+      internalID: -6723490577007969495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_168
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24dbf4becfeef479bbb0e6ecaf540cf2
+      internalID: -5253125154385096901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_169
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d946e256670f4fb3b9ed520edd48f08
+      internalID: -7076989626344901172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_170
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fbaf7b14a1dd406c88049b0c9576da5
+      internalID: -8646400240168763998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_171
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78468526ed0b84ce5b965f4b12cda64c
+      internalID: 1709717554831055145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_172
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd47dcc7017ed449f9be049d3b3cead8
+      internalID: 8072500222714238476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_173
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c314ab2b5e354821a670b7430d889d9
+      internalID: 3911675526732443597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_174
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de94fed2a6c45418abc09315d10f5a0e
+      internalID: 1715324243930504720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_175
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42de94d834b3b4250b1e858df4f0936f
+      internalID: 3308217140235116268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_176
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63e4137a9b9d443baad58a1348f80d1
+      internalID: -2274857574459228023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_177
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479343ef1f08547efab6e662ea8b40d6
+      internalID: -42595840198897010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_178
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55b47b925e174fee8022ddcc4854106
+      internalID: -7948849131769276026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_179
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 855.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a24cca187ea74df6ab6c18443f340f2
+      internalID: -7105602636754173407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_180
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8839623ccfb544d6faf74ccb083f998d
+      internalID: -2613203502239990056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_181
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9afd14b831eb4b79808d8f4ea7c5ddf
+      internalID: -6486026569478636780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_182
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451552fed8d194cc8a33b86a0c746443
+      internalID: -4084013837435294100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_183
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3989286f4d44f69bf96e36ec95e217
+      internalID: -2052686145583589372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_184
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e41d8f5191174023b80bcf1e1548243
+      internalID: 4502756458795724524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_185
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c57f90a1d494e019784212316cc8b5
+      internalID: -2320020932415068672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_186
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4f091f7846f4b038695cb90590d4db
+      internalID: -6782326421201089005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_187
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f9edb05fd53417893bdd304fb306f6
+      internalID: -6579436283520203627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_188
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e88a50afa9b47ddb503b122933e75e
+      internalID: -8840399233696606767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_189
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d2d87f90f2e404780dfb5c31e6e643
+      internalID: -4775799931952123421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_190
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ce817900baf4ab5b4f6411965b8c75
+      internalID: 130652131806554632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_191
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39dcc9bc8208a44d595b79662c6e61c2
+      internalID: -7629637751714034569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_192
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f980040a2674d03ab1fe110363dd1d
+      internalID: 7227854675181466817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_193
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44611be841c8546f6a02b11952f3899b
+      internalID: 5629230459853187220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_194
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 750.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5dacf023d684836be207efae6ed063
+      internalID: -7193431168630237990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_195
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a43e827c4e64f228d4a18f3be7bb43
+      internalID: -8024716327896857076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_196
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7842e3bc37af5428d863b098308e5eb6
+      internalID: 7954640883800707873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_197
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc46cc067fe0d4485b3e6466932ea945
+      internalID: -4001979845995515759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_198
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a4dc5f7a37a84907b9a2d3a50741ada
+      internalID: -2105705694810020694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_199
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feac91cde99d04ced9140c67ca756f5c
+      internalID: 8060436778370377884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_200
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1edef9019ac3b44baafa46fa358913d3
+      internalID: 7640167093664426725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_201
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f4b1fb6afead4a60988660e74da99a4
+      internalID: 7731619259427309657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_202
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7981ffe1c9a649db88c29bb37275da7
+      internalID: 1711467033524243095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_203
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38fcf78b0754d490da7fbb74259e4ec0
+      internalID: -6839399270252685729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_204
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f983f5e1adc714f7785fde316cbfe8ff
+      internalID: 7600693006271743076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_205
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96f43b3e687eb4525914e4eeede0b90e
+      internalID: -8635991564576361761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_206
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc5ce6da62c0e4cfdadd2c18ba6c52cf
+      internalID: -2517003844206493832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_207
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd70928a790ad45d795ec456993f7925
+      internalID: 5420726543106700102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_208
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c367d80fb4d45433c942501f63952823
+      internalID: 3219201571766284087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_209
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 645.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490b364df707c41eb9d35e3f7de49961
+      internalID: 6691420426775676432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_210
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f24dd1c27ac54985abae15e3a73c816
+      internalID: -975616960402544180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_211
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c8961175bef4af29887f823a061ecb
+      internalID: 8296000295973237610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_212
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df7442a9feab243138e04c14911c5f78
+      internalID: -2677579677281815466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_213
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b86bb8dbf3dc478a88cc3ad91ae6295
+      internalID: -1030528876546407146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_214
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f442ccfc03334a71900b213a448f909
+      internalID: -7061529581799774849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_215
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b63286a792149a5985a477052163b6
+      internalID: 1350033260593825514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_216
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c132d50e01619415797bd0b36144aad9
+      internalID: 6904444706374356628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_217
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ced2e2fb8d841d7b3b904febcc8e83
+      internalID: 5706068202447477817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_218
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d43d0d643c546f4a8c387d42996390
+      internalID: 8812457410143928304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_219
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd15d061d3914a98bf83220db369d8f
+      internalID: 854447824956834119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_220
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d76fa42abbf644cc78022bb3dbfae333
+      internalID: 4011416945068295042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_221
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12b19a9cfff4438596d070016d9f4c0
+      internalID: 7610211077078368818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_222
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 360e3c5baee214b03a9e3b97e20908a0
+      internalID: -274901079226032462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_223
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c15a65cf2fbb4e72a6b080868121840
+      internalID: -1045603974336633383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_224
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 540.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af29cd6fcf534c5d8c1d927ab63f22e
+      internalID: 8971449540458807713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_225
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb83f54d6e20641cc97f28b47753477b
+      internalID: 8064236917091909883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_226
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009cd46a70c504f1486e5fe44815da3e
+      internalID: 5920901599584847217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_227
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145a92f412a5f4ead9c957ac68c925e8
+      internalID: -2064202914803411344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_228
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 155a2ffe5e1c542488a534e275a2ce7c
+      internalID: -4218964772952592117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_229
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57201f8eda90459cb33011beb3f331e
+      internalID: 7940936062207365074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_230
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c899eacc4ab4b07a7e2eef375447a0
+      internalID: -4110665637379961946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_231
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f81eb39fdcbd54bd58566d9b441e125b
+      internalID: -7681951414068093966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_232
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca7f88b1051f4867aba9de445d179eb
+      internalID: 6609828640854688109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_233
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed988c4c79de4b1a82397aac932785e
+      internalID: -8487349405499279451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_234
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f4f19c9b7804f768d3c7bb5b542ff4
+      internalID: 2867761253546812472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_235
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714236f01c2ff4fe3b7dfe6f307b4db7
+      internalID: -883367692740923926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_236
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9d55d5d85cf4b8b85dda50a75b7c35
+      internalID: 7434229361341405101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_237
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8370f23a7e59b4adaa4a75caeca76b5a
+      internalID: 230481427279663789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_238
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f21d49c4a4a4c318c937f7aac7f7d2
+      internalID: 6219710643199896208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_239
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 435.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20991dcdd90e345348cb9ad099fae746
+      internalID: -2281840515943515421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_240
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f9680e5d7664e38bcb21cd7751738d
+      internalID: -3961032739190350206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_241
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 890a9447f463b42e694938b2a637b883
+      internalID: -953655172138370801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_242
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0674b19b5c984fc998fa1f4e4dbaf6b
+      internalID: -521912162497918701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_243
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d4ab083f58c4753b0dc4853d727336
+      internalID: 4242233995413879465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_244
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0da8a649e3079463690fb9d46e7582aa
+      internalID: 2175699269281869793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_245
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cded23b357fa847ab916ed9f575752b9
+      internalID: -5132478772297262084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_246
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d33f3187daf3d4f4b89cd053dd1dddde
+      internalID: 5175992412787383830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_247
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad3bbe91de2d04f2b8f3c9755e8b3775
+      internalID: 1206996886383740291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_248
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b09be334d6d4e4bdaa03f530afdbd009
+      internalID: -1402286989796908193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_249
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf548a90ed8249cd8b0621c9a0b3d25
+      internalID: -7396831389342165220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_250
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857858b67d9354280a856819d4ff8986
+      internalID: 7876183126828692973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_251
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07c081ace4dd9471193144fc37bf1989
+      internalID: 8611904106563261955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_252
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243c90a0ed85b4fc2aa6a0ce8ae7a64a
+      internalID: -7329091989509286993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_253
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7bf6d3c53594bc7a966b6dd03c240a
+      internalID: -3506361637484431389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_254
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 330.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dc0bbce526f249f3b03219748b50be7
+      internalID: -3998299883375868545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_255
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09736b1bd173410f91c035361e94942
+      internalID: 8549081398400967348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_256
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131680314a1d049e79d90a87e2e80ed8
+      internalID: -6616458678258545415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_257
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65d3ac713a354205a0726618d26e353
+      internalID: 3016943674467093147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_258
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4e6473b538348d096c77c6fc753d15
+      internalID: -306304827049055750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_259
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0493ee45479584dc2a92eb12c848ce06
+      internalID: -4863250584414188677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_260
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59704ccc9b96248dd8bfd937b3320a77
+      internalID: 2609268501116483894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_261
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41fe0186d5359469c809e76535ea0b7c
+      internalID: -1657050659640389120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_262
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4f68fa7e1844b5c97dc7062458acd3
+      internalID: -6521176704413665075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_263
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f414dcff78c1a4fb08cf239a1449cf6e
+      internalID: 4029907357567763106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_264
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf951301525274f9e99ed142d6d748aa
+      internalID: 2786896748615407061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_265
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1357e8f22e416411aa1bb6e801d2603c
+      internalID: -1508394308836916412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_266
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5f13e1267ba4644acb56df80f03e7b
+      internalID: -4191987683624101053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_267
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20692d03f1a341c8914648a0e4dba42
+      internalID: 9101882051861117731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_268
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbb38c96cd2a4b48ac3864acf288112
+      internalID: 7143130267697641220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_269
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 225.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5bec3976935a49ea82a86bd81a8178f
+      internalID: -928413070236793900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_270
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddec20e329da445f1ad4b48ef8cc099c
+      internalID: -7881032417420554790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_271
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b230781fcfc20455bb7d8a9d879e6104
+      internalID: -5771580877725421049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_272
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b33521e25e242f58ace57e9e7c7f03
+      internalID: -3117868089013631617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_273
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb9b1b8dfb1c24e5faa82fb2e9f4f021
+      internalID: -3086265901916195076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_274
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba3629d79e8b431eb3170f5b4ff0210
+      internalID: -8981081340414065109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_275
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e0f8c43d6544f5faeda08e95e7ce3a
+      internalID: 8427869397961178606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_276
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f590b14c13d4cb4b23bbfdeb7b6344
+      internalID: -3694154846597367512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_277
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939816b1c066640ff9807dc6d9758a0a
+      internalID: -8266492539746094488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_278
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 708a37707c8b1432b96db65a80d3a4f2
+      internalID: -8511909159633465301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_279
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b4a0d1cd7e64a6fb2756bc520d468b
+      internalID: -3919189722813581980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_280
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5460bbc6b18b746f09197680a4732972
+      internalID: -8015771196431946754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_281
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f7836ac839f47ba836cd4b57574e95
+      internalID: 662548710082829449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_282
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3126609411f0047efa502ebb55fc7323
+      internalID: 4874948342962116755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_283
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4160d0b51b308403dafa5807d874d134
+      internalID: -4078404474137142997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_284
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 120.2
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703883ed2964e4a5e89cd8eaed18c0e9
+      internalID: 5293936954634542381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_285
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5dac4e3931d47e287fdc8c2618ca51
+      internalID: 6949649738695947834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_286
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5d4849144a043609bbaa86a0305f46
+      internalID: 6407111168360773043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_287
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f80ecd1f57e4400eae67b6f0c39948d
+      internalID: 9150510819863193268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_288
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3683f46a13d04014917f007f47dcbd6
+      internalID: -4967186625071255977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_289
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160c6d441ec8d47d4846f696768158ec
+      internalID: 1894922188299553000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_290
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5561828d5205a4964bc1a9d1d7925e60
+      internalID: 580268663130892550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_291
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aafdbe0cbe9c443f9eb867f8ff6cda4
+      internalID: 7028264734027825758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_292
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8da30ed4558149d9be019c720eb8aa8
+      internalID: 6837784281899003747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_293
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0267e860599004302aabc83a80b83f7e
+      internalID: -7033657509505113400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_294
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4066f9da77b334f09856834245d44d12
+      internalID: 8909191750258023823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_295
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799f17398cbb1474b82387dfffe8340c
+      internalID: -3168829335230611526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_296
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1ea91e3671c4a34bf2d3d329a8ff25
+      internalID: -3425950788604684235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_297
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f7e329e76704d37b3bfa0afcaa5eb7
+      internalID: -548935785847126887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_298
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b079fecb8cafb48fb8907aad3120f99d
+      internalID: -4188757428029527269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tsumu3_1_299
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 15.199997
+        width: 75.2
+        height: 105.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71df50cb83c6e4042a7cecf0cd2e2bb3
+      internalID: -5736898454524503352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6ec63af3ad3bc436cb1a36050231c70c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
