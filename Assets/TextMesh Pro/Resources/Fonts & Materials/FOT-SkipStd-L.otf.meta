@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: e643277f0b00c47a2a62f49e4667a4d8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FOT-Skip Std
+  fontNames:
+  - FOT-Skip Std
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 62b0433465b79454999ea2759bdce3aa, type: 3}
+  - {fileID: 12800000, guid: d197008fc7ca14caaab466a4c54663a6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

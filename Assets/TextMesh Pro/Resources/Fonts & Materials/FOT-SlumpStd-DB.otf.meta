@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 874c3669bd8a64a7e96ed08ab9251f47
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: FOT-Slump Std
+  fontNames:
+  - FOT-Slump Std
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f3b177aecec254c15a90825908afe883, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
