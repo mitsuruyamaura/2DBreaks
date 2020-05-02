@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4000909836040357962
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1312389714919806073}
+  - component: {fileID: 799555882239021543}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: SoundManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1312389714919806073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000909836040357962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.301235, y: -1.965936, z: 29.03125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799555882239021543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000909836040357962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bc2761d3df0dc4693af33bd8c6507b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGM:
+  - clip: {fileID: 8300000, guid: 62aa5ce21febd3044b0c7632191465ae, type: 3}
+    loopTime: 0
+    endTime: 110
+  - clip: {fileID: 8300000, guid: 29b98b6c74d02c6498978009cd84e5b4, type: 3}
+    loopTime: 0
+    endTime: 106
+  - clip: {fileID: 8300000, guid: ffae1ae99e3556d4996c09a721f6e12e, type: 3}
+    loopTime: 0
+    endTime: 110
+  - clip: {fileID: 8300000, guid: 8cd8460b7708d584992a4c993dfda96b, type: 3}
+    loopTime: 0
+    endTime: 124
+  SE:
+  - {fileID: 8300000, guid: 271a4f90c73a06b44bed5389523449c7, type: 3}
+  - {fileID: 8300000, guid: 9c2d1835585add3438232bb8c6e8978c, type: 3}
+  - {fileID: 8300000, guid: bc73496ce4f807844883333ab29ef1cb, type: 3}
+  Voice: []
+  audioMixer: {fileID: 24100000, guid: 27a7cba63d99ac340abb4dade04311f7, type: 2}

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad8ceadec8e2e48bc8b6d64a948b0eb4, type: 3}
+  m_Name: StageData
+  m_EditorClassIdentifier: 
+  stageDatas:
+  - stageNum: 1
+    stageSpriteName: tsumu1_1
+    ballSpeed: 6
+    ballPower: 1
+    minLineLength: 0.7
+    lineDuration: 1.2
+    initMaxLife: 5
+    initBattleTime: 120
+    startPosition: {x: -3.035, y: 2.68, z: 0}
+  - stageNum: 2
+    stageSpriteName: tsumu2_1
+    ballSpeed: 8
+    ballPower: 1
+    minLineLength: 0.8
+    lineDuration: 1
+    initMaxLife: 4
+    initBattleTime: 100
+    startPosition: {x: -3.035, y: 2.68, z: 0}
+  - stageNum: 3
+    stageSpriteName: tsumu3_1
+    ballSpeed: 10
+    ballPower: 1
+    minLineLength: 0.9
+    lineDuration: 0.8
+    initMaxLife: 3
+    initBattleTime: 90
+    startPosition: {x: -3.035, y: 2.68, z: 0}
