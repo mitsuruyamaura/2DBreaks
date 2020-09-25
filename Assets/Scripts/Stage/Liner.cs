@@ -16,16 +16,16 @@ public class Liner : MonoBehaviour
     public float lineWidth;
     [Header("ラインの出現時間")]
     public float duration;
-    [Header("ゲーム管理クラス")]
-    public GameMaster gameMaster;
+    //[Header("ゲーム管理クラス")]
+    //public GameMaster gameMaster;
 
     private Vector3 touchPos; //マウスのクリック地点
     
     private void Update() {
-        if ((gameMaster.gameState == GAME_STATE.PLAY) || (gameMaster.gameState == GAME_STATE.WARNING)) {
+        //if ((gameMaster.gameState == GAME_STATE.PLAY) || (gameMaster.gameState == GAME_STATE.WARNING)) {
             // ラインを引く
             DrawLine();
-        }
+        //}
     }
 
     /// <summary>

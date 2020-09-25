@@ -6,6 +6,11 @@ TagManager:
   tags:
   - GameMaster
   - Ball
+  - SoundManager
+  - FadeCanvas
+  - FxTemporaire
+  - CharaBall
+  - EnemyBall
   layers:
   - Default
   - TransparentFX
