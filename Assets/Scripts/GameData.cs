@@ -11,6 +11,8 @@ public class GameData : MonoBehaviour
 
     public int currentHp;
 
+    public int money;
+
     public UIManager uiManager;
 
     void Awake() {
@@ -26,5 +28,12 @@ public class GameData : MonoBehaviour
 
     public void Initialize() {
         currentHp = charaData.hp;
+    }
+
+    /// <summary>
+    /// お金を増減する
+    /// </summary>
+    public void ProcMoney(int amount) {
+        money += amount;
     }
 }

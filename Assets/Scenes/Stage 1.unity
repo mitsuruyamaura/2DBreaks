@@ -123,6 +123,41 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &72247817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72247818}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &72247818
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72247817}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2100448822}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &74568173
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,11 +392,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1395783681}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 5.3, y: -120.8}
+  m_AnchoredPosition: {x: 0, y: -118.2}
   m_SizeDelta: {x: 160, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152560808
@@ -397,7 +432,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 000
+  m_Text: 00
 --- !u!222 &152560809
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -458,7 +493,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a9994687817ba458cd2bbf3ba355d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 5
+  money: 100
+  appearance: 100
+  treasureBoxPrefab: {fileID: 8397480517659561397, guid: c5e6b6a18c618904497b87fd78aa8b73,
+    type: 3}
+  canvasTran: {fileID: 72247818}
 --- !u!70 &185091207
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -893,6 +933,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  money: 0
+  appearance: 0
+  treasureBoxPrefab: {fileID: 0}
+  canvasTran: {fileID: 0}
 --- !u!1 &261960994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,8 +1118,8 @@ MonoBehaviour:
   linePrefab: {fileID: 5018778843096801463, guid: 91b1bdf0816cb744988aa7f228927fec,
     type: 3}
   lineLength: 0.3
-  lineWidth: 0.3
-  duration: 0.5
+  lineWidth: 0.2
+  duration: 0.25
 --- !u!850595691 &378494405
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1292,6 +1336,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  money: 0
+  appearance: 0
+  treasureBoxPrefab: {fileID: 0}
+  canvasTran: {fileID: 0}
 --- !u!70 &563932597
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1441,6 +1489,7 @@ MonoBehaviour:
     power: 5
     speed: 5
   currentHp: 0
+  money: 0
   uiManager: {fileID: 1690049085}
 --- !u!4 &585487579
 Transform:
@@ -1490,7 +1539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00024414062}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 23.700073, y: 23.70044}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603750807
@@ -1671,7 +1720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0be2ab0829c10684fbef0e36c5ebd220, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 303d32cbb53287d4d9cca16746de1290, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1701,12 +1750,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1395783681}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -16.03}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 240, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &776284085
 GameObject:
@@ -1843,7 +1892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -86.29999}
+  m_AnchoredPosition: {x: 0, y: -86.25}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1160008049
@@ -2163,8 +2212,8 @@ RectTransform:
   - {fileID: 148174964}
   - {fileID: 1188698651}
   - {fileID: 1955493863}
-  - {fileID: 152560807}
   - {fileID: 673389353}
+  - {fileID: 152560807}
   m_Father: {fileID: 886053821}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2646,6 +2695,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 15
+  money: 0
+  appearance: 0
+  treasureBoxPrefab: {fileID: 0}
+  canvasTran: {fileID: 0}
 --- !u!1 &1886300009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,6 +2961,7 @@ RectTransform:
   - {fileID: 200867379}
   - {fileID: 261960995}
   - {fileID: 74568174}
+  - {fileID: 72247818}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2991,7 +3045,7 @@ PrefabInstance:
     - target: {fileID: 4868923296741293339, guid: 473358e0c99939d4fb47f31795a153f7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 78.75
+      value: 79
       objectReference: {fileID: 0}
     - target: {fileID: 4868923296741293339, guid: 473358e0c99939d4fb47f31795a153f7,
         type: 3}

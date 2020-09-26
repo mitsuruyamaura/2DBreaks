@@ -7,6 +7,16 @@ public class EnemyBall : MonoBehaviour
 {
     public int hp;
 
+    public int money;
+
+    public int appearance;
+
+    public TreasureBox treasureBoxPrefab;
+
+    public Transform canvasTran;
+
+    private bool isDelete;
+
     void Start()
     {
         // 最初のスケールを保持
@@ -51,8 +61,22 @@ public class EnemyBall : MonoBehaviour
                 sequence.Append(transform.DOLocalRotate(new Vector3(0, 720, 0), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
 
                 // Hpが0以下になったら
-                if (hp <= 0)
+                if (hp <= 0 && !isDelete)
                 {
+                    isDelete = true;
+                    // TODO チェイン判定。お金が増える
+
+                    // 宝箱生成判定
+                    if (JudgeTreasureBox()) {
+                        Vector3 scale = treasureBoxPrefab.transform.localScale;
+                        TreasureBox treasureBox = Instantiate(treasureBoxPrefab, transform, false);
+                        treasureBox.transform.SetParent(canvasTran);
+                        treasureBox.transform.localScale = scale;
+                    }
+
+                    // お金を加算
+                    GameData.instance.ProcMoney(money);
+
                     // 回転させながらスケールを0にする
                     sequence.Join(transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InCirc));
 
@@ -61,5 +85,17 @@ public class EnemyBall : MonoBehaviour
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// 宝箱生成判定
+    /// </summary>
+    /// <returns></returns>
+    private bool JudgeTreasureBox() {
+        if (Random.Range(0, 100) <= appearance) {
+            return true;
+        } else {
+            return false;
+        }    
     }
 }

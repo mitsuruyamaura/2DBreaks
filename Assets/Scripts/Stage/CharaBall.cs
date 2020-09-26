@@ -119,8 +119,8 @@ public class CharaBall : MonoBehaviour
             // ボールの向きをいれる
             Vector2 dir = transform.position - col.gameObject.transform.position;
 
-            // ボールに速度を加える（Randomな速度で跳ね返す）
-            rb.velocity = dir * speed * Random.Range(1.0f, 2.0f) * transform.localScale.x;
+            // ボールに速度を加える
+            rb.velocity = dir * speed * transform.localScale.x;    // （混乱したらRandomな速度で跳ね返す） * Random.Range(1.0f, 2.0f) 
         }
     }
 
