@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using DG.Tweening;
 
@@ -27,6 +26,11 @@ public class EnemyBall : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D col) {
+
+        if (col.gameObject.tag == "Liner") {
+            return;
+        }
+
 
         // CharaBallに接触したら
         if (col.gameObject.tag == "CharaBall")

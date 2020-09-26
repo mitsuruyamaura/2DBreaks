@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3079975942335591445}
   - component: {fileID: 2914169323305443625}
   - component: {fileID: 2914929793143511911}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4882,7 +4882,7 @@ GameObject:
   - component: {fileID: 3071750527292477623}
   - component: {fileID: 2913871659520918919}
   - component: {fileID: 2915239764189656623}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9763,7 +9763,7 @@ GameObject:
   - component: {fileID: 2914505379614016649}
   - component: {fileID: 2915716589377171927}
   - component: {fileID: 3112136552562767223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14695,7 +14695,7 @@ GameObject:
   - component: {fileID: 3080200384535319241}
   - component: {fileID: 2886748444861371353}
   - component: {fileID: 2915306982934934711}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SparksDonw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19567,7 +19567,7 @@ GameObject:
   - component: {fileID: 2914477007685780887}
   - component: {fileID: 2914927507029367821}
   - component: {fileID: 1150327543246509621}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24590,7 +24590,7 @@ GameObject:
   - component: {fileID: 3071740606168305667}
   - component: {fileID: 2913983110344907879}
   - component: {fileID: 2915678010447312461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29463,9 +29463,9 @@ GameObject:
   - component: {fileID: 6083158811373211728}
   - component: {fileID: 4232264868828454528}
   - component: {fileID: -1135679563436396606}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LineObject
-  m_TagString: Player
+  m_TagString: Liner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

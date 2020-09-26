@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// ボールの制御用クラス
@@ -10,15 +12,30 @@ public class CharaBall : MonoBehaviour
     [Header("ボールの威力。現在はプレイヤーへのダメージに使用")]
     public int power;
 
+    public int hp;
+
     //[Header("ゲーム管理クラス")]
     //public GameMaster gameMaster;
 
     private Rigidbody2D rb;
     private Vector2 breakDirection;
 
+    [SerializeField]
+    private Image imgChara;
+
+    private const float AnimeTimeSec = 0.25f;
+    private const int AnimeRepeatCount = 3;
+    private int count;
+    private float defaultAlpha;
+    private bool isBlinking = false;
+    private string blinkLayerName = "BlinkPlayer";
+    private string defaultLayerName;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        defaultAlpha = imgChara.color.a;
+        defaultLayerName = LayerMask.LayerToName(gameObject.layer);
     }
 
     void Update()
@@ -97,7 +114,7 @@ public class CharaBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Liner")
         {
             // ボールの向きをいれる
             Vector2 dir = transform.position - col.gameObject.transform.position;
@@ -105,5 +122,53 @@ public class CharaBall : MonoBehaviour
             // ボールに速度を加える（Randomな速度で跳ね返す）
             rb.velocity = dir * speed * Random.Range(1.0f, 2.0f) * transform.localScale.x;
         }
+    }
+
+    /// <summary>
+    /// Hpを増減
+    /// </summary>
+    /// <param name="amount"></param>
+    public void UpdateHp(int amount)
+    {
+        GameData.instance.currentHp += amount;
+        GameData.instance.uiManager.UpdateDisplayGameTime();
+
+        if (amount < 0 && !isBlinking) {
+            isBlinking = true;
+            // 点滅
+            DOTween.Clear();
+            Blink();
+        }
+
+        if (GameData.instance.currentHp <= 0) {
+            GameData.instance.currentHp = 0;
+
+            // GameOver
+            rb.velocity *= 0.96f;
+        }
+    }
+
+    /// <summary>
+    /// キャラを点滅
+    /// </summary>
+    private void Blink() {
+        gameObject.layer = LayerMask.NameToLayer(blinkLayerName);
+        var startColor = imgChara.color;
+        startColor.a = 0f;
+        imgChara.color = startColor;
+
+        DOTween.ToAlpha(() => imgChara.color, value => imgChara.color = value, defaultAlpha, AnimeTimeSec)
+            .SetEase(Ease.Linear)
+            .OnComplete(() => {
+                count += 1;
+                if (count < AnimeRepeatCount) {
+                    // 一定回数繰り返し.
+                    Blink();
+                } else {
+                    isBlinking = false;
+                    gameObject.layer = LayerMask.NameToLayer(defaultLayerName);
+                    count = 0;
+                }
+            });
     }
 }
