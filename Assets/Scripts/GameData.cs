@@ -9,11 +9,9 @@ public class GameData : MonoBehaviour
 
     public CharaData charaData;
 
-    public int currentHp;
-
     public int money;
 
-    public UIManager uiManager;
+    public int battleTime;
 
     void Awake() {
         if (instance == null) {
@@ -22,12 +20,6 @@ public class GameData : MonoBehaviour
         } else {
             Destroy(gameObject);
         }
-
-        Initialize();
-    }
-
-    public void Initialize() {
-        currentHp = charaData.hp;
     }
 
     /// <summary>

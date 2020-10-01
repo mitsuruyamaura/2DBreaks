@@ -23,6 +23,9 @@ public class CharaBall : MonoBehaviour
     [SerializeField]
     private Image imgChara;
 
+    [SerializeField]
+    private Button btnChara;
+
     private const float AnimeTimeSec = 0.25f;
     private const int AnimeRepeatCount = 3;
     private int count;
@@ -31,11 +34,21 @@ public class CharaBall : MonoBehaviour
     private string blinkLayerName = "BlinkPlayer";
     private string defaultLayerName;
 
+    public GameManager gameManager;    // TODO 後でPrivateにする
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         defaultAlpha = imgChara.color.a;
         defaultLayerName = LayerMask.LayerToName(gameObject.layer);
+    }
+
+    /// <summary>
+    /// インスタンスした際に呼び出す
+    /// </summary>
+    /// <param name="gameManager"></param>
+    public void SetUpCharaBall(GameManager gameManager) {
+        this.gameManager = gameManager;
     }
 
     void Update()
@@ -130,8 +143,9 @@ public class CharaBall : MonoBehaviour
     /// <param name="amount"></param>
     public void UpdateHp(int amount)
     {
-        GameData.instance.currentHp += amount;
-        GameData.instance.uiManager.UpdateDisplayGameTime();
+        gameManager.currentHp += amount;
+       
+        // TODO HPゲージ作ったらUIの更新処理追加
 
         if (amount < 0 && !isBlinking) {
             isBlinking = true;
@@ -140,8 +154,8 @@ public class CharaBall : MonoBehaviour
             Blink();
         }
 
-        if (GameData.instance.currentHp <= 0) {
-            GameData.instance.currentHp = 0;
+        if (gameManager.currentHp <= 0) {
+            gameManager.currentHp = 0;
 
             // GameOver
             rb.velocity *= 0.96f;
