@@ -27,7 +27,7 @@ public class Obstacle_Needles : Hole
 
         // 移動。XとY両方に数値が入ると斜めに動く
         loopSeq.Append(transform.DOMove(new Vector2(posX, posY), moveTime)).SetRelative().SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
-
+        loopSeq.Join(transform.DOShakeScale(moveTime).SetEase(Ease.Linear).SetLoops(-1, LoopType.Incremental));
         // 回転
         if (isRotate) {
             loopSeq.Join(transform.DORotate(new Vector3(0, 0, 360), 1.0f, RotateMode.FastBeyond360)).SetEase(Ease.Linear).SetLoops(-1, LoopType.Incremental);
