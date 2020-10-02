@@ -6,11 +6,11 @@ using DG.Tweening;
 public class Hole : MonoBehaviour
 {
     public int power;
+    protected RectTransform rectTransform;
 
-
-    void Start()
+    protected virtual void Start()
     {
-        RectTransform rectTransform = GetComponent<RectTransform>();
+        rectTransform = GetComponent<RectTransform>();
         Vector2 startSize = rectTransform.sizeDelta;
 
         rectTransform.sizeDelta = new Vector2(0, startSize.y);
@@ -22,14 +22,12 @@ public class Hole : MonoBehaviour
         sequence.Join(rectTransform.DOShakePosition(1.0f, 3, 20, 180).SetEase(Ease.Linear));
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    protected virtual void OnCollisionEnter2D(Collision2D col)
     {
-
         if (col.gameObject.tag == "Liner")
         {
             return;
         }
-
 
         // CharaBallに接触したら
         if (col.gameObject.tag == "CharaBall")
@@ -37,6 +35,8 @@ public class Hole : MonoBehaviour
             // CharaBallクラスを取得できるか判定
             if (col.gameObject.TryGetComponent(out CharaBall charaBall))
             {
+                BeforeTriggerEffect(charaBall);
+
                 // Hpを減少させる
                 charaBall.UpdateHp(-power);
 
@@ -45,7 +45,25 @@ public class Hole : MonoBehaviour
 
                 // キャラを回転
                 sequence.Append(charaBall.transform.DOLocalRotate(new Vector3(0, 0, 720), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
+
+                AfterTriggerEffect(charaBall);
             }
         }
+    }
+
+    /// <summary>
+    /// 接触判定時に最初に追加する処理
+    /// </summary>
+    /// <param name="charaBall"></param>
+    protected virtual void BeforeTriggerEffect(CharaBall charaBall) {
+
+    }
+
+    /// <summary>
+    /// 接触判定時に最後に追加する処理
+    /// </summary>
+    /// <param name="charaBall"></param>
+    protected virtual void AfterTriggerEffect(CharaBall charaBall) {
+
     }
 }
