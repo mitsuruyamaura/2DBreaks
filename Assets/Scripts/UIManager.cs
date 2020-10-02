@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     private Image imgHp;
 
     [SerializeField]
-    private Text txtPhaseStart;
+    private Text txtStageInfo;
 
     [SerializeField]
     private Text txtPhaseCount;
@@ -44,16 +44,29 @@ public class UIManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     public IEnumerator DispayPhaseStart(int currentPhaseCount) {
-        txtPhaseStart.text = "Phase " + currentPhaseCount.ToString() + "\n";
+        txtStageInfo.text = "Phase " + currentPhaseCount.ToString() + "\n";
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(phaseCountCanvasGroup.DOFade(1.0f, 0.5f));
-        yield return new WaitForSeconds(0.5f);
+        
+        yield return new WaitForSeconds(1.5f);
+        sequence.Append(txtStageInfo.DOText("", 0f).SetEase(Ease.Linear));
+        sequence.Append(txtStageInfo.DOText("Ready", 1.0f).SetEase(Ease.Linear));
+        sequence.Append(txtStageInfo.DOText("", 0f).SetEase(Ease.Linear));
+      
+        yield return new WaitForSeconds(1.5f);
+        sequence.Append(txtStageInfo.DOText("GO!!", 0f).SetEase(Ease.Linear));
+        sequence.Join(txtStageInfo.transform.DOScale(new Vector3(3.0f, 3.0f, 3.0f), 1.0f).SetEase(Ease.Linear));
+        sequence.Join(phaseCountCanvasGroup.DOFade(0f, 1.0f));
+    }
 
-        sequence.Append(txtPhaseStart.DOText("Ready", 0.5f).SetEase(Ease.Linear));
-        yield return new WaitForSeconds(0.5f);
-        txtPhaseStart.text = "GO!!";
+    public void DisplayGameOver() {
+        phaseCountCanvasGroup.DOFade(1.0f, 0.5f);
+        txtStageInfo.DOText("GameOver...", 1.5f).SetEase(Ease.Linear);
+    }
 
-        sequence.Append(phaseCountCanvasGroup.DOFade(0f, 0.5f));
+    public void DisplayStageClear() {
+        phaseCountCanvasGroup.DOFade(1.0f, 0.5f);
+        txtStageInfo.DOText("Stage Clear!!", 1.5f).SetEase(Ease.Linear);
     }
 }

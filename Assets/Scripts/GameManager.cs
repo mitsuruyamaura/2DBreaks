@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     public CharaBall charaBall;
 
+
     public enum GameState {
         Wait,
         Ready,
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
         int appearEnemyCount = Random.Range(2, 5); 
         for (int i = 0; i < appearEnemyCount; i++) {
             GameObject enemy = Instantiate(enemyObjPrefab, enemyAppearTran[i], false);
-            enemy.GetComponent<EnemyBall>().SetUpEnemyBall(this);
+            enemy.GetComponent<EnemyBall>().SetUpEnemyBall(this, canvasTran);
             enemyObjList.Add(enemy);
             yield return new WaitForSeconds(0.15f);
         }
@@ -119,8 +120,15 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void CheckRemainingEnemies() {
         if (enemyObjList.Count == 0) {
-            gameState = GameState.Wait;
-            StartCoroutine(PreparateNextPhase());
+            if (currentPhaseCount >= maxPhaseCount) {
+                // ステージクリア
+                gameState = GameState.Result;
+                uiManager.DisplayStageClear();
+            } else {
+                // 次のPhaseの準備
+                gameState = GameState.Wait;
+                StartCoroutine(PreparateNextPhase());
+            }
         }
     }
 
@@ -133,6 +141,8 @@ public class GameManager : MonoBehaviour
         currentPhaseCount++;
         uiManager.UpdateDisplayPhaseCount(currentPhaseCount, maxPhaseCount);
 
+        yield return new WaitForSeconds(0.5f);
+
         // キャラがスタート地点にいなければ、キャラの位置をスタート地点へ戻す
         if (charaBall.transform.position != startCharaTran.position) {
             yield return StartCoroutine(ResetCharaPosition());
@@ -141,7 +151,7 @@ public class GameManager : MonoBehaviour
         // Phaseに合わせた敵を生成
         yield return StartCoroutine(GenerateEnemys());
 
-        // Phaseに合わせた障害物を生成
+        // TODO Phaseに合わせた障害物を生成
         //yield return StartCoroutine(GenerateObstructs());
 
         // 画面にPhase数を表示

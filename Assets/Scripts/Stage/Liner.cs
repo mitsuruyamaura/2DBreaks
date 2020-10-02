@@ -31,12 +31,10 @@ public class Liner : MonoBehaviour
             //DrawLine();
         //}
 
-        if (gameManager.gameState != GameManager.GameState.Play) {
-            return;
+        if (gameManager.gameState == GameManager.GameState.Play || gameManager.gameState == GameManager.GameState.Result) {
+            // ラインを引く Result中も弾いて遊べるようにする
+            DrawLine();
         }
-
-        // ラインを引く
-        DrawLine();
     }
 
     /// <summary>
