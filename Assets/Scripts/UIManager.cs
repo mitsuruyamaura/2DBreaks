@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
     /// Phaseスタート表示
     /// </summary>
     /// <returns></returns>
-    public IEnumerator DispayPhaseStart(int currentPhaseCount) {
+    public IEnumerator DispayPhaseStart(int currentPhaseCount) {        
         txtStageInfo.text = "Phase " + currentPhaseCount.ToString() + "\n";
 
         Sequence sequence = DOTween.Sequence();
@@ -58,6 +58,9 @@ public class UIManager : MonoBehaviour
         sequence.Append(txtStageInfo.DOText("GO!!", 0f).SetEase(Ease.Linear));
         sequence.Join(txtStageInfo.transform.DOScale(new Vector3(3.0f, 3.0f, 3.0f), 1.0f).SetEase(Ease.Linear));
         sequence.Join(phaseCountCanvasGroup.DOFade(0f, 1.0f));
+
+        yield return new WaitForSeconds(1.5f);
+        txtStageInfo.transform.localScale = Vector3.one;
     }
 
     public void DisplayGameOver() {
