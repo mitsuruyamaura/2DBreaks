@@ -8,7 +8,7 @@ public class Hole : MonoBehaviour
     public int power;
 
 
-    void Start()
+    protected virtual void Start()
     {
         RectTransform rectTransform = GetComponent<RectTransform>();
         Vector2 startSize = rectTransform.sizeDelta;
@@ -22,7 +22,7 @@ public class Hole : MonoBehaviour
         sequence.Join(rectTransform.DOShakePosition(1.0f, 3, 20, 180).SetEase(Ease.Linear));
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    protected virtual void OnCollisionEnter2D(Collision2D col)
     {
 
         if (col.gameObject.tag == "Liner")

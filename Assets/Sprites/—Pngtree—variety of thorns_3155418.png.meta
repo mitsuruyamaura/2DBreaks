@@ -1,0 +1,502 @@
+fileFormatVersion: 2
+guid: 3349e0a3ad85a554497399883e8c9b6e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -550518357058911909
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_0"
+  - first:
+      213: 3074329157311322398
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_1"
+  - first:
+      213: -6956452726865200618
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_2"
+  - first:
+      213: -4745527309059690144
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_3"
+  - first:
+      213: -1926008998180178009
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_4"
+  - first:
+      213: 6700729585611343625
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_5"
+  - first:
+      213: 9023051933577056200
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_6"
+  - first:
+      213: -1081082459100640291
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_7"
+  - first:
+      213: 9085344324446681786
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_8"
+  - first:
+      213: -4931098661543539195
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_9"
+  - first:
+      213: -3103438886063904626
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_10"
+  - first:
+      213: 544725937448170289
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_11"
+  - first:
+      213: -6978061145488363825
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_12"
+  - first:
+      213: -1529111507496036613
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_13"
+  - first:
+      213: 6336683478171986210
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_14"
+  - first:
+      213: -4610818987462151594
+    second: "\u2014Pngtree\u2014variety of thorns_3155418_15"
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_0"
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 733
+        width: 446
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b510c25987a2c58f0800000000000000
+      internalID: -550518357058911909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_1"
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 616
+        width: 354
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19da2084163aaa20800000000000000
+      internalID: 3074329157311322398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_2"
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 317
+        width: 260
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61af66e0a17b57f90800000000000000
+      internalID: -6956452726865200618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_3"
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 545
+        width: 180
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061f4972e00842eb0800000000000000
+      internalID: -4745527309059690144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_4"
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 454
+        width: 157
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a7b34545017545e0800000000000000
+      internalID: -1926008998180178009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_5"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 317
+        width: 465
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907805e5e06cdfc50800000000000000
+      internalID: 6700729585611343625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_6"
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 417
+        width: 164
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf03ca6de1583d70800000000000000
+      internalID: 9023051933577056200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_7"
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 325
+        width: 162
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb86643b393ff0f0800000000000000
+      internalID: -1081082459100640291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_8"
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 153
+        width: 161
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba71c0e680a51e70800000000000000
+      internalID: 9085344324446681786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_9"
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 35
+        width: 434
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e0b46b4e7319bb0800000000000000
+      internalID: -4931098661543539195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_10"
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 59
+        width: 187
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e88e60e96ce5ee4d0800000000000000
+      internalID: -3103438886063904626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_11"
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 150
+        width: 120
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1333a81aa514f8700800000000000000
+      internalID: 544725937448170289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_12"
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 46
+        width: 317
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcee53a0c52f82f90800000000000000
+      internalID: -6978061145488363825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_13"
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 41
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf69cbd7f2187cae0800000000000000
+      internalID: -1529111507496036613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_14"
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 6
+        width: 265
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229278adc0c60f750800000000000000
+      internalID: 6336683478171986210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u2014Pngtree\u2014variety of thorns_3155418_15"
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 25
+        width: 142
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65231b06f841300c0800000000000000
+      internalID: -4610818987462151594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
