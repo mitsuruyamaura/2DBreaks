@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
     private Text txtGameTime;
 
     [SerializeField]
+    private Text txtMoney;
+
+    [SerializeField]
     private Image imgHp;
 
     [SerializeField]
@@ -28,6 +31,13 @@ public class UIManager : MonoBehaviour
         float value = (float)currentTime / GameData.instance.battleTime;
         imgHp.DOFillAmount(value, 1.0f).SetEase(Ease.Linear);
         txtGameTime.text = currentTime.ToString();
+    }
+
+    /// <summary>
+    /// Moneyの表示を更新
+    /// </summary>
+    public void UpdateDisplayMoney() {
+        txtMoney.text = GameData.instance.money.ToString();
     }
 
     /// <summary>
