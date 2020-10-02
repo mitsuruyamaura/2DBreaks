@@ -2465,7 +2465,7 @@ GameObject:
   - component: {fileID: 814463965}
   - component: {fileID: 814463964}
   m_Layer: 5
-  m_Name: txtPhaseStart
+  m_Name: txtStageInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3815,7 +3815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtGameTime: {fileID: 152560808}
   imgHp: {fileID: 673389351}
-  txtPhaseStart: {fileID: 814463965}
+  txtStageInfo: {fileID: 814463965}
   txtPhaseCount: {fileID: 1051587741}
   phaseCountCanvasGroup: {fileID: 1932042485}
 --- !u!4 &1690049086
@@ -4399,7 +4399,7 @@ GameObject:
   - component: {fileID: 1932042486}
   - component: {fileID: 1932042485}
   m_Layer: 5
-  m_Name: imgPhaseStart
+  m_Name: imgStageInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

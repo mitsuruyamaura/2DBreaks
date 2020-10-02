@@ -47,8 +47,9 @@ public class EnemyBall : MonoBehaviour
     }
 
 
-    public void SetUpEnemyBall(GameManager gameManager) {
+    public void SetUpEnemyBall(GameManager gameManager, Transform canvasTran) {
         this.gameManager = gameManager;
+        this.canvasTran = canvasTran;
     }
 
 
