@@ -515,8 +515,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 15
-  money: 0
-  appearance: 0
-  treasureBoxPrefab: {fileID: 0}
+  money: 500
+  appearance: 50
+  treasureBoxPrefab: {fileID: 8397480517659561397, guid: c5e6b6a18c618904497b87fd78aa8b73,
+    type: 3}
   canvasTran: {fileID: 0}
   slider: {fileID: 6583340188874978544}

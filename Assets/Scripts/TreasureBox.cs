@@ -78,7 +78,7 @@ public class TreasureBox : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
 
         GameObject treasure = Instantiate(treasurePrefab, transform, false);
-        sequence.Append(treasure.transform.DOMoveY(2.0f, 0.5f).SetEase(Ease.Linear));
+        sequence.Append(treasure.transform.DOMoveY(2.0f, 0.5f).SetEase(Ease.Linear).SetRelative());
         sequence.Join(treasure.transform.DOLocalRotate(new Vector3(0, 720, 0), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
 
         yield return new WaitForSeconds(0.5f);

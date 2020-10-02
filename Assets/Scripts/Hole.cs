@@ -7,6 +7,7 @@ public class Hole : MonoBehaviour
 {
     public int power;
     protected RectTransform rectTransform;
+    protected GameManager gameManager;
 
     protected virtual void Start()
     {
@@ -20,6 +21,10 @@ public class Hole : MonoBehaviour
 
         sequence.Append(rectTransform.DOSizeDelta(startSize, 1.0f).SetEase(Ease.OutCirc));
         sequence.Join(rectTransform.DOShakePosition(1.0f, 3, 20, 180).SetEase(Ease.Linear));
+    }
+
+    public void SetUpObstacle(GameManager gameManager) {
+        this.gameManager = gameManager;
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D col)

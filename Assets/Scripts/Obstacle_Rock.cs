@@ -6,25 +6,25 @@ using UnityEngine;
 public class Obstacle_Rock : Hole
 {
     public int hp;
-    Sequence effectSeq;
 
-    protected override void Start() {
-        base.Start();
-        effectSeq = DOTween.Sequence();
-    }
-
-    protected override void OnCollisionEnter2D(Collision2D col) {
-        base.OnCollisionEnter2D(col);
-    }
+    public int money;
 
     protected override void AfterTriggerEffect(CharaBall charaBall) {
         hp -= charaBall.power;
-     
+
+        Sequence effectSeq = DOTween.Sequence();
         effectSeq.Append(transform.DOShakeScale(1.0f).SetEase(Ease.Linear));
 
         if (hp <= 0) {
-            effectSeq.Append(rectTransform.DOSizeDelta(new Vector2(0, rectTransform.sizeDelta.y), 0.5f).SetEase(Ease.Linear));
-            Destroy(gameObject, 0.5f);
+            // お金を加算
+            GameData.instance.ProcMoney(money);
+
+            // お金の表示を更新
+            gameManager.uiManager.UpdateDisplayMoney();
+
+            // 縮小して破壊
+            effectSeq.Join(rectTransform.DOSizeDelta(new Vector2(0, rectTransform.sizeDelta.y), 1.0f).SetEase(Ease.Linear));
+            Destroy(gameObject, 1.0f);
         }
     }
 }

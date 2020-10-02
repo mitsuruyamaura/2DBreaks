@@ -99,6 +99,9 @@ public class EnemyBall : MonoBehaviour
                     // お金を加算
                     GameData.instance.ProcMoney(money);
 
+                    // お金の表示を更新
+                    gameManager.uiManager.UpdateDisplayMoney();
+
                     // 回転させながらスケールを0にする
                     //sequence.Join(transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InCirc));
 
