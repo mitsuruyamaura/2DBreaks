@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     private Image imgHp;
 
     [SerializeField]
+    private Text txtPhaseStart;
+
+    [SerializeField]
     private Text txtPhaseCount;
 
     [SerializeField]
@@ -28,17 +31,29 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Phase数表示
+    /// Phase数の表示を更新
+    /// </summary>
+    /// <param name="currentPhaseCount"></param>
+    public void UpdateDisplayPhaseCount(int currentPhaseCount, int maxPhaseCount) {
+        txtPhaseCount.text = currentPhaseCount.ToString();
+        txtPhaseCount.text += " / " + maxPhaseCount.ToString();
+    }
+
+    /// <summary>
+    /// Phaseスタート表示
     /// </summary>
     /// <returns></returns>
-    public IEnumerator DispayPhaseCount(int currentPhaseCount) {
-        txtPhaseCount.text = "Phase " + currentPhaseCount.ToString() + "\n";
+    public IEnumerator DispayPhaseStart(int currentPhaseCount) {
+        txtPhaseStart.text = "Phase " + currentPhaseCount.ToString() + "\n";
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(phaseCountCanvasGroup.DOFade(1.0f, 0.5f));
-        
-        txtPhaseCount.text += sequence.Append(txtPhaseCount.DOText("Ready", 0.5f).SetEase(Ease.Linear));
         yield return new WaitForSeconds(0.5f);
-        txtPhaseCount.text = "GO!!";
+
+        sequence.Append(txtPhaseStart.DOText("Ready", 0.5f).SetEase(Ease.Linear));
+        yield return new WaitForSeconds(0.5f);
+        txtPhaseStart.text = "GO!!";
+
+        sequence.Append(phaseCountCanvasGroup.DOFade(0f, 0.5f));
     }
 }

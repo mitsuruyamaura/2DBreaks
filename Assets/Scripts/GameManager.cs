@@ -33,9 +33,10 @@ public class GameManager : MonoBehaviour
     public Transform[] enemyAppearTran;
     public List<GameObject> enemyObjList = new List<GameObject>();
 
+    public int maxPhaseCount;
     public Transform startCharaTran;
 
-    public GameObject charaObj;
+    public CharaBall charaBall;
 
     public enum GameState {
         Wait,
@@ -46,17 +47,16 @@ public class GameManager : MonoBehaviour
 
     public GameState gameState = GameState.Wait;
 
-    IEnumerator Start()
-    {
+    IEnumerator Start() {
+        // 初期化
         yield return StartCoroutine(Initialize());
 
+        // ゲームの準備(Phaseごと)
         yield return StartCoroutine(PreparateNextPhase());
 
 
-
+        // 残り時間の表示を更新
         uiManager.UpdateDisplayGameTime(currentTime);
-
-        yield return null;
     }
 
     /// <summary>
@@ -72,8 +72,9 @@ public class GameManager : MonoBehaviour
 
         currentPhaseCount = 0;
 
-        // キャラ生成
+        // TODO キャラ生成(今はPublicで入れている)
 
+        // TODO キャラのスタート地点を登録(今はPublicで入れている)
 
         yield break;
     }
@@ -118,20 +119,33 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void CheckRemainingEnemies() {
         if (enemyObjList.Count == 0) {
+            gameState = GameState.Wait;
             StartCoroutine(PreparateNextPhase());
         }
     }
 
-
+    /// <summary>
+    /// Phaseの準備
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator PreparateNextPhase() {
+        // Phase数を加算
         currentPhaseCount++;
-        yield return StartCoroutine(ResetCharaPosition());
+        uiManager.UpdateDisplayPhaseCount(currentPhaseCount, maxPhaseCount);
 
+        // キャラがスタート地点にいなければ、キャラの位置をスタート地点へ戻す
+        if (charaBall.transform.position != startCharaTran.position) {
+            yield return StartCoroutine(ResetCharaPosition());
+        }
+
+        // Phaseに合わせた敵を生成
         yield return StartCoroutine(GenerateEnemys());
 
+        // Phaseに合わせた障害物を生成
         //yield return StartCoroutine(GenerateObstructs());
 
-        yield return StartCoroutine(uiManager.DispayPhaseCount(currentPhaseCount));
+        // 画面にPhase数を表示
+        yield return StartCoroutine(uiManager.DispayPhaseStart(currentPhaseCount));
 
         gameState = GameState.Play;
     }
@@ -141,10 +155,13 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     private IEnumerator ResetCharaPosition() {
+        float waiTime = 1.0f;
+        // キャラの動きを止める
+        charaBall.StopMoveBall();
         // スタート位置へ戻す
-        charaObj.transform.DOMove(startCharaTran.position, 1.0f).SetEase(Ease.Linear);
+        charaBall.transform.DOMove(startCharaTran.position, waiTime).SetEase(Ease.Linear);
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(waiTime);
     }
 
 

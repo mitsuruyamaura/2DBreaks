@@ -104,6 +104,8 @@ public class EnemyBall : MonoBehaviour
                     // 内側に小さくする ドロップ内容で消える処理を分岐
                     sequence.Join(GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 100), 0.5f).SetEase(Ease.Linear));
 
+                    gameManager.RemoveEnemyList(gameObject);
+
                     // スケールが0になるタイミングで破棄
                     Destroy(gameObject, 0.5f);
                 }
