@@ -28,13 +28,17 @@ public class GameManager : MonoBehaviour
     public EnemyData enemyPrefab;
     public ItemDetail itemPrefab;
     public TreasureData treasurePrefab;
+    public GameObject obstacleObjPrefab;
 
     public GameObject enemyObjPrefab;
     public Transform[] enemyAppearTran;
     public List<GameObject> enemyObjList = new List<GameObject>();
+    public List<GameObject> obstacleObjList = new List<GameObject>();
 
     public int maxPhaseCount;
     public Transform startCharaTran;
+
+    public Transform[] obstaclesTran;
 
     public CharaBall charaBall;
 
@@ -103,6 +107,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     private IEnumerator GenerateObstructs() {
+
+        for (int i = 0; i < 1; i++) {
+            GameObject obstacle = Instantiate(obstacleObjPrefab, obstaclesTran[i], false);
+            obstacleObjList.Add(obstacle);
+        }
+
         yield break;
     }
 
@@ -141,6 +151,13 @@ public class GameManager : MonoBehaviour
         currentPhaseCount++;
         uiManager.UpdateDisplayPhaseCount(currentPhaseCount, maxPhaseCount);
 
+        if (obstacleObjList.Count > 0) {
+            foreach (GameObject obj in obstacleObjList) {
+                Destroy(obj);
+            }
+            obstacleObjList.Clear();
+        }
+
         yield return new WaitForSeconds(0.5f);
 
         // キャラがスタート地点にいなければ、キャラの位置をスタート地点へ戻す
@@ -151,8 +168,8 @@ public class GameManager : MonoBehaviour
         // Phaseに合わせた敵を生成
         yield return StartCoroutine(GenerateEnemys());
 
-        // TODO Phaseに合わせた障害物を生成
-        //yield return StartCoroutine(GenerateObstructs());
+        // Phaseに合わせた障害物を生成
+        yield return StartCoroutine(GenerateObstructs());
 
         // 画面にPhase数を表示
         yield return StartCoroutine(uiManager.DispayPhaseStart(currentPhaseCount));
