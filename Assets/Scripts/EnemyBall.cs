@@ -22,6 +22,8 @@ public class EnemyBall : MonoBehaviour
 
     private int maxHp;
 
+    private GameManager gameManager;
+
     void Start()
     {
         capsuleCol = GetComponent<CapsuleCollider2D>();
@@ -43,6 +45,12 @@ public class EnemyBall : MonoBehaviour
         sequence.AppendInterval(0.15f);
         sequence.Join(transform.DOScale(startScale, 0.15f).SetEase(Ease.InCirc));
     }
+
+
+    public void SetUpEnemyBall(GameManager gameManager) {
+        this.gameManager = gameManager;
+    }
+
 
     private void OnCollisionEnter2D(Collision2D col) {
 
