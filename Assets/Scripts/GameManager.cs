@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
 
     public CharaBall charaBall;
 
+    public GameObject obstacleRockPrefab;
+    public GameObject enemyKumaPrefab;
+
 
     public enum GameState {
         Wait,
@@ -97,9 +100,11 @@ public class GameManager : MonoBehaviour
             enemyObjList.Add(enemy);
             yield return new WaitForSeconds(0.15f);
         }
-        
-        
-        
+        GameObject kuma = Instantiate(enemyKumaPrefab, enemyAppearTran[4], false);
+        kuma.GetComponent<EnemyBall>().SetUpEnemyBall(this, canvasTran);
+        enemyObjList.Add(kuma);
+
+
     }
 
     /// <summary>
@@ -110,8 +115,12 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 1; i++) {
             GameObject obstacle = Instantiate(obstacleObjPrefab, obstaclesTran[i], false);
+            obstacle.GetComponent<Hole>().SetUpObstacle(this);
             obstacleObjList.Add(obstacle);
         }
+        GameObject rock = Instantiate(obstacleRockPrefab, obstaclesTran[1], false);
+        rock.GetComponent<Hole>().SetUpObstacle(this);
+        obstacleObjList.Add(rock);
 
         yield break;
     }
@@ -130,6 +139,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void CheckRemainingEnemies() {
         if (enemyObjList.Count == 0) {
+            // ObstacleListをクリア
+            ClearObstacleList();
+
             if (currentPhaseCount >= maxPhaseCount) {
                 // ステージクリア
                 gameState = GameState.Result;
@@ -143,20 +155,25 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Phaseの準備
+    /// ObstacleListをクリア
     /// </summary>
-    /// <returns></returns>
-    private IEnumerator PreparateNextPhase() {
-        // Phase数を加算
-        currentPhaseCount++;
-        uiManager.UpdateDisplayPhaseCount(currentPhaseCount, maxPhaseCount);
-
+    private void ClearObstacleList() {
         if (obstacleObjList.Count > 0) {
             foreach (GameObject obj in obstacleObjList) {
                 Destroy(obj);
             }
             obstacleObjList.Clear();
         }
+    }
+
+    /// <summary>
+    /// Phaseの準備
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator PreparateNextPhase() {
+        // Phase数を加算
+        currentPhaseCount++;
+        uiManager.UpdateDisplayPhaseCount(currentPhaseCount, maxPhaseCount);    
 
         yield return new WaitForSeconds(0.5f);
 
