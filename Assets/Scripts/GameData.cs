@@ -13,6 +13,8 @@ public class GameData : MonoBehaviour
 
     public int battleTime;
 
+    public int chooseStageNo;
+
     void Awake() {
         if (instance == null) {
             instance = this;
