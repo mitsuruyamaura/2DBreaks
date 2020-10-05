@@ -36,6 +36,10 @@ public class CharaBall : MonoBehaviour
 
     public GameManager gameManager;    // TODO 後でPrivateにする
 
+
+    private Vector2 afterVelocity = Vector2.zero;
+    private Vector2 normalVector = Vector2.zero;  
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -122,18 +126,39 @@ public class CharaBall : MonoBehaviour
     /// </summary>
     public void RestartMoveBall()
     {
+
         rb.velocity = breakDirection;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Liner")
-        {
-            // ボールの向きをいれる
-            Vector2 dir = transform.position - col.gameObject.transform.position;
+        
+        Vector2 reflectVector = Vector2.zero;
+        if (col.gameObject.tag == "Liner" ) {
+        //normalVector = col.contacts[0].normal;
+        //Vector2 reflectVector = Vector2.Reflect(afterVelocity, normalVector);
+
+        //if (col.gameObject.tag == "Liner")
+        //{
+        // ボールの向きをいれる
+        Vector2 dir = transform.position - col.gameObject.transform.position;
+
+
+        //reflectVector = Vector2.Reflect(afterVelocity, dir);
+
+        rb.velocity = dir * speed;    //  * transform.localScale.x
 
             // ボールに速度を加える
-            rb.velocity = dir * speed * transform.localScale.x;    // （混乱したらRandomな速度で跳ね返す） * Random.Range(1.0f, 2.0f) 
+            //rb.velocity = reflectVector * speed * transform.localScale.x;    // （混乱したらRandomな速度で跳ね返す） * Random.Range(1.0f, 2.0f) 
+            afterVelocity = rb.velocity;
+        }
+
+
+        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "EnemyBall") {
+            normalVector = col.contacts[0].normal;
+            reflectVector = Vector2.Reflect(afterVelocity, normalVector);
+            rb.velocity = reflectVector;
+            afterVelocity = rb.velocity;
         }
     }
 
