@@ -44,7 +44,7 @@ public class StageSelectManager : MonoBehaviour
     /// </summary>
     /// <param name="isSwitch"></param>
     public void ActivateCharaSelectPopUp(float alpha, bool isSwitch) {
-        Debug.Log(alpha);
+        // 画面のタップを制御
         charaSelectPopUp.canvasGroup.blocksRaycasts = isSwitch;
         charaSelectPopUp.canvasGroup.DOFade(alpha, 1.0f).SetEase(Ease.Linear);
     }

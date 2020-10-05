@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 225056394}
   m_Layer: 5
   m_Name: Wall_Bottom
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 402824350}
   m_Layer: 5
   m_Name: Wall_Top
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1934,6 +1934,7 @@ MonoBehaviour:
     speed: 5
   money: 0
   battleTime: 60
+  chooseStageNo: 0
 --- !u!4 &585487579
 Transform:
   m_ObjectHideFlags: 0
@@ -2187,7 +2188,7 @@ GameObject:
   - component: {fileID: 620024091}
   m_Layer: 5
   m_Name: Wall_Right
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3911,7 +3912,7 @@ GameObject:
   - component: {fileID: 1676129530}
   m_Layer: 5
   m_Name: Wall_Left
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4168,7 +4169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98311fde0ff1d44c8b9efdfc45e8155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7.5
   power: 5
   hp: 20
   imgChara: {fileID: 1703845452}
