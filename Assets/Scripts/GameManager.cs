@@ -84,7 +84,10 @@ public class GameManager : MonoBehaviour
 
         // TODO キャラのスタート地点を登録(今はPublicで入れている)
 
-        yield break;
+        // 手球を体力の数だけ生成する
+        yield return StartCoroutine(uiManager.GenerateCueBalls(currentHp));
+
+        //yield break;
     }
 
     /// <summary>
@@ -115,11 +118,11 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 1; i++) {
             GameObject obstacle = Instantiate(obstacleObjPrefab, obstaclesTran[i], false);
-            obstacle.GetComponent<Hole>().SetUpObstacle(this);
+            obstacle.GetComponent<ObstacleBase>().SetUpObstacle(this);
             obstacleObjList.Add(obstacle);
         }
         GameObject rock = Instantiate(obstacleRockPrefab, obstaclesTran[1], false);
-        rock.GetComponent<Hole>().SetUpObstacle(this);
+        rock.GetComponent<ObstacleBase>().SetUpObstacle(this);
         obstacleObjList.Add(rock);
 
         yield break;
@@ -195,17 +198,20 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// キャラの位置をスタート位置へ戻す
+    /// キャラを停止させてスタート位置へ戻す
     /// </summary>
     /// <returns></returns>
-    private IEnumerator ResetCharaPosition() {
-        float waiTime = 1.0f;
+    public IEnumerator ResetCharaPosition(float waiTime = 1.0f) {
         // キャラの動きを止める
         charaBall.StopMoveBall();
+
         // スタート位置へ戻す
         charaBall.transform.DOMove(startCharaTran.position, waiTime).SetEase(Ease.Linear);
 
         yield return new WaitForSeconds(waiTime);
+
+        // 手球を弾けるようにする
+        charaBall.ChangeActivateCollider(true);
     }
 
 

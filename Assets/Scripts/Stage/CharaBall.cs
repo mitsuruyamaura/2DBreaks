@@ -26,6 +26,9 @@ public class CharaBall : MonoBehaviour
     [SerializeField]
     private Button btnChara;
 
+    [SerializeField]
+    private CapsuleCollider2D capsuleCol;
+
     private const float AnimeTimeSec = 0.25f;
     private const int AnimeRepeatCount = 3;
     private int count;
@@ -118,6 +121,17 @@ public class CharaBall : MonoBehaviour
         breakDirection = rb.velocity;
         // ボールの速度ベクトルを0にして止める
         rb.velocity = Vector2.zero;
+
+        // ボールを弾けないようにする
+        ChangeActivateCollider(false);
+    }
+
+    /// <summary>
+    /// ボールのコライダー制御
+    /// </summary>
+    /// <param name="isSwitch"></param>
+    public void ChangeActivateCollider(bool isSwitch) {
+        capsuleCol.enabled = isSwitch;
     }
 
     /// <summary>
@@ -128,8 +142,13 @@ public class CharaBall : MonoBehaviour
         rb.velocity = breakDirection;
     }
 
+    /// <summary>
+    /// 弾いたり、弾かれた際の処理
+    /// </summary>
+    /// <param name="col"></param>
     private void OnCollisionEnter2D(Collision2D col)
     {                
+        // Linerで弾いた場合
         if (col.gameObject.tag == "Liner") 
         {
             // ボールの向きをいれる
@@ -142,6 +161,7 @@ public class CharaBall : MonoBehaviour
             procVelocity = rb.velocity;
         }
 
+        // 的球や壁に接触した場合
         if (col.gameObject.tag == "Wall" || col.gameObject.tag == "EnemyBall") 
         {
             // 接触したオブジェクトの接触情報を壁に垂直な単位ベクトルとして取得
@@ -165,6 +185,9 @@ public class CharaBall : MonoBehaviour
     public void UpdateHp(int amount)
     {
         gameManager.currentHp += amount;
+
+        // UI上にある手球を減らす
+        gameManager.uiManager.UpdateDisplayCueBallCount(gameManager.currentHp);
        
         // TODO HPゲージ作ったらUIの更新処理追加
 
@@ -177,6 +200,8 @@ public class CharaBall : MonoBehaviour
 
         if (gameManager.currentHp <= 0) {
             gameManager.currentHp = 0;
+
+            gameManager.gameState = GameManager.GameState.Result;
 
             // GameOver
             rb.velocity *= 0.96f;
