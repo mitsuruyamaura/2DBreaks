@@ -36,6 +36,9 @@ public class CharaBall : MonoBehaviour
 
     public GameManager gameManager;    // TODO 後でPrivateにする
 
+
+    private Vector2 procVelocity = Vector2.zero;　　　// Velocity計算保持用
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -126,14 +129,32 @@ public class CharaBall : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Liner")
+    {                
+        if (col.gameObject.tag == "Liner") 
         {
             // ボールの向きをいれる
             Vector2 dir = transform.position - col.gameObject.transform.position;
 
             // ボールに速度を加える
-            rb.velocity = dir * speed * transform.localScale.x;    // （混乱したらRandomな速度で跳ね返す） * Random.Range(1.0f, 2.0f) 
+            rb.velocity = dir * speed;    //  * transform.localScale.x   // （混乱したらRandomな速度で跳ね返す） * Random.Range(1.0f, 2.0f) 
+
+            // 次の計算用にVelocityの値を保持しておく
+            procVelocity = rb.velocity;
+        }
+
+        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "EnemyBall") 
+        {
+            // 接触したオブジェクトの接触情報を壁に垂直な単位ベクトルとして取得
+            Vector2 normalVector = col.contacts[0].normal;
+
+            // 跳ね返り用のベクトル(反射角度)をReflectメソッドを利用して計算(第1引数でボールの速度、第2引数は壁に垂直な単位ベクトル)
+            Vector2 reflectVector = Vector2.Reflect(procVelocity, normalVector);
+
+            // 速度を更新
+            rb.velocity = reflectVector;
+
+            // 次の計算用にVelocityの値を保持しておく
+            procVelocity = rb.velocity;
         }
     }
 
