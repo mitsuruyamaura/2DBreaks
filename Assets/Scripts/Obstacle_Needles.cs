@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Obstacle_Needles : Hole
+public class Obstacle_Needles : ObstacleBase
 {
     [Header("移動時間。大きいほどゆっくり動く")]
     public float moveTime;
@@ -37,6 +37,15 @@ public class Obstacle_Needles : Hole
             transform.rotation = Quaternion.identity;
             loopSeq.Join(transform.DORotate(new Vector3(0, 0, 360), 1.0f, RotateMode.FastBeyond360)).SetEase(Ease.Linear).SetLoops(-1, LoopType.Incremental);
         }
+    }
+
+    protected override void BeforeTriggerEffect(CharaBall charaBall) {
+        // TODO 時間を減少させる
+        //charaBall.UpdateHp(-power);
+
+        // TODO キャラ点滅
+        
+
     }
 
     protected override void AfterTriggerEffect(CharaBall charaBall) {

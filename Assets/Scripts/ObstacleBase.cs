@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Hole : MonoBehaviour
+public class ObstacleBase : MonoBehaviour
 {
     public int power;
     protected RectTransform rectTransform;
@@ -41,9 +41,6 @@ public class Hole : MonoBehaviour
             if (col.gameObject.TryGetComponent(out CharaBall charaBall))
             {
                 BeforeTriggerEffect(charaBall);
-
-                // Hpを減少させる
-                charaBall.UpdateHp(-power);
 
                 // Sequence初期化
                 Sequence sequence = DOTween.Sequence();

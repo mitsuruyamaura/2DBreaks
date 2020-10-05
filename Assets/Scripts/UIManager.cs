@@ -24,6 +24,18 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private CanvasGroup phaseCountCanvasGroup;
 
+    [SerializeField]
+    private List<GameObject> cueBallList = new List<GameObject>();
+
+    [SerializeField]
+    private GameObject cueBallPrefab;
+
+    [SerializeField]
+    private Transform cueBallTran;
+
+    private int maxBallCount;
+
+
     /// <summary>
     /// ゲーム時間の表示を更新
     /// </summary>
@@ -81,5 +93,33 @@ public class UIManager : MonoBehaviour
     public void DisplayStageClear() {
         phaseCountCanvasGroup.DOFade(1.0f, 0.5f);
         txtStageInfo.DOText("Stage Clear!!", 1.5f).SetEase(Ease.Linear);
+    }
+
+    /// <summary>
+    /// 手球の残数を画面上に生成
+    /// </summary>
+    /// <param name="ballCount"></param>
+    /// <returns></returns>
+    public IEnumerator GenerateCueBalls(int ballCount) {
+        maxBallCount = ballCount;
+        for (int i = 0; i < ballCount; i++) {
+            GameObject cueBall = Instantiate(cueBallPrefab, cueBallTran, false);
+            cueBallList.Add(cueBall);
+            yield return new WaitForSeconds(0.15f);
+        }
+    }
+
+    /// <summary>
+    /// 手球の残数の表示を更新
+    /// </summary>
+    /// <param name="amount"></param>
+    public void UpdateDisplayCueBallCount(int amount) {
+        for (int i = 0; i < maxBallCount; i++) {
+            if (i < amount) {
+                cueBallList[i].SetActive(true);
+            } else {
+                cueBallList[i].SetActive(false);
+            }
+        }
     }
 }
