@@ -12,6 +12,7 @@ TagManager:
   - CharaBall
   - EnemyBall
   - Liner
+  - Wall
   layers:
   - Default
   - TransparentFX
