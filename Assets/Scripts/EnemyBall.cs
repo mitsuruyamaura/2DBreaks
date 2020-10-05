@@ -85,36 +85,67 @@ public class EnemyBall : MonoBehaviour
                 // Hpが0以下になったら
                 if (hp <= 0)
                 {
-                    capsuleCol.enabled = false;
-                    // TODO チェイン判定。お金が増える
+                    DestroyEnemy(sequence);
+                    //capsuleCol.enabled = false;
+                    //// TODO チェイン判定。お金が増える
 
-                    // 宝箱生成判定
-                    if (JudgeTreasureBox()) {
-                        Vector3 scale = treasureBoxPrefab.transform.localScale;
-                        TreasureBox treasureBox = Instantiate(treasureBoxPrefab, transform, false);
-                        treasureBox.transform.SetParent(canvasTran);
-                        treasureBox.transform.localScale = scale;
-                    }
+                    //// 宝箱生成判定
+                    //if (JudgeTreasureBox()) {
+                    //    Vector3 scale = treasureBoxPrefab.transform.localScale;
+                    //    TreasureBox treasureBox = Instantiate(treasureBoxPrefab, transform, false);
+                    //    treasureBox.transform.SetParent(canvasTran);
+                    //    treasureBox.transform.localScale = scale;
+                    //}
 
-                    // お金を加算
-                    GameData.instance.ProcMoney(money);
+                    //// お金を加算
+                    //GameData.instance.ProcMoney(money);
 
-                    // お金の表示を更新
-                    gameManager.uiManager.UpdateDisplayMoney();
+                    //// お金の表示を更新
+                    //gameManager.uiManager.UpdateDisplayMoney();
 
-                    // 回転させながらスケールを0にする
-                    //sequence.Join(transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InCirc));
+                    //// 回転させながらスケールを0にする
+                    ////sequence.Join(transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InCirc));
 
-                    // 内側に小さくする ドロップ内容で消える処理を分岐
-                    sequence.Join(GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 100), 0.5f).SetEase(Ease.Linear));
+                    //// 内側に小さくする ドロップ内容で消える処理を分岐
+                    //sequence.Join(GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 100), 0.5f).SetEase(Ease.Linear));
 
-                    gameManager.RemoveEnemyList(gameObject);
+                    //gameManager.RemoveEnemyList(gameObject);
 
-                    // スケールが0になるタイミングで破棄
-                    Destroy(gameObject, 0.5f);
+                    //// スケールが0になるタイミングで破棄
+                    //Destroy(gameObject, 0.5f);
                 }
             }
         }
+    }
+
+    public void DestroyEnemy(Sequence sequence) {
+        capsuleCol.enabled = false;
+        // TODO チェイン判定。お金が増える
+
+        // 宝箱生成判定
+        if (JudgeTreasureBox()) {
+            Vector3 scale = treasureBoxPrefab.transform.localScale;
+            TreasureBox treasureBox = Instantiate(treasureBoxPrefab, transform, false);
+            treasureBox.transform.SetParent(canvasTran);
+            treasureBox.transform.localScale = scale;
+        }
+
+        // お金を加算
+        GameData.instance.ProcMoney(money);
+
+        // お金の表示を更新
+        gameManager.uiManager.UpdateDisplayMoney();
+
+        // 回転させながらスケールを0にする
+        //sequence.Join(transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InCirc));
+
+        // 内側に小さくする ドロップ内容で消える処理を分岐
+        sequence.Join(GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 100), 0.5f).SetEase(Ease.Linear));
+
+        gameManager.RemoveEnemyList(gameObject);
+
+        // スケールが0になるタイミングで破棄
+        Destroy(gameObject, 0.5f);
     }
 
     /// <summary>

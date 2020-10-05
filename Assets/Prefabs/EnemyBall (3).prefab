@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a9994687817ba458cd2bbf3ba355d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 20
   money: 100
   appearance: 50
   treasureBoxPrefab: {fileID: 8397480517659561397, guid: c5e6b6a18c618904497b87fd78aa8b73,

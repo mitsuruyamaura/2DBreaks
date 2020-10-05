@@ -259,4 +259,6 @@ public class GameManager : MonoBehaviour
 
         nextAppearCount = Random.Range(10, 16);
     }
+
+
 }
