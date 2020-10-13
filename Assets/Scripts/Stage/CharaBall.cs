@@ -101,15 +101,14 @@ public class CharaBall : MonoBehaviour
         //}
 
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-            // 角度によって速度が変化してしまうのでnormalizedで正規化して同じ速度ベクトルにする
-            //Vector2 direction = new Vector2(Random.Range(-2.5f, 2.5f), 1).normalized;
+        //if (Input.GetMouseButtonDown(0)) {
+        //   // 角度によって速度が変化してしまうのでnormalizedで正規化して同じ速度ベクトルにする
+        //   Vector2 direction = new Vector2(Random.Range(-2.5f, 2.5f), 1).normalized;
 
-            // ボールを打ち出す(摩擦や空気抵抗、重力を切ってあるので、ずっと同じ速度で動き続ける)
-            //rb.velocity = direction * speed * transform.localScale.x;
+        //    // ボールを打ち出す(摩擦や空気抵抗、重力を切ってあるので、ずっと同じ速度で動き続ける)
+        //    rb.velocity = direction * speed * transform.localScale.x;
 
-            //gameMaster.gameState = GAME_STATE.PLAY;
+        //    //gameMaster.gameState = GAME_STATE.PLAY;
         //}
     }
 

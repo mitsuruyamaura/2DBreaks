@@ -673,7 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charaData:
     charaNo: 0
-    hp: 60
+    hp: 3
     power: 5
     speed: 5
   money: 0
