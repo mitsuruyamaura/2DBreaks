@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;　　　//　未
+using DG.Tweening;
 
 public class BattleManager : MonoBehaviour
 {
@@ -214,10 +214,11 @@ public class BattleManager : MonoBehaviour
     /// 敵をリストから削除
     /// </summary>
     /// <param name="enemy"></param>
-    public void RemoveEnemyList(GameObject enemy) {
-        enemyObjList.Remove(enemy);
+    public void RemoveEnemyList(EnemyBall enemy) {
+        enemyBallList.Remove(enemy);
         CheckRemainingEnemies();
     }
+
 
     /// <summary>
     /// 敵の残数を確認

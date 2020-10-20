@@ -11,11 +11,13 @@ public class EnemyBall : MonoBehaviour
 
     private int maxHp;
 
-    public Slider slider;
+    public Slider hpSlider;
 
     private CapsuleCollider2D capsuleCol;
 
     private BattleManager gameManager;
+
+    private Transform canvasTran;
 
 
     // 未
@@ -25,7 +27,7 @@ public class EnemyBall : MonoBehaviour
 
     public TreasureBox treasureBoxPrefab;
 
-    public Transform canvasTran;
+
 
 
 
@@ -57,6 +59,12 @@ public class EnemyBall : MonoBehaviour
         this.canvasTran = canvasTran;
     }
 
+    /// <summary>
+    /// 体力ゲージの表示を更新
+    /// </summary>
+    private void UpdateHpGauge() {
+        hpSlider.DOValue((float)hp / maxHp, 0.5f);
+    }
 
     private void OnCollisionEnter2D(Collision2D col) {
 
@@ -81,14 +89,14 @@ public class EnemyBall : MonoBehaviour
                 hp -= charaBall.power;
 
                 // Hpゲージに反映
-                slider.DOValue(Mathf.Clamp((float) hp / maxHp, 0, 1), 0.5f);
+                hpSlider.DOValue(Mathf.Clamp((float) hp / maxHp, 0, 1), 0.5f);
 
                 // Sequence初期化
                 Sequence sequence = DOTween.Sequence();
 
                 // 敵を回転(Hpゲージは回転させないので、逆回転させて回っていないように見せる)
                 sequence.Append(transform.DOLocalRotate(new Vector3(0, 720, 0), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
-                sequence.Join(slider.transform.DOLocalRotate(new Vector3(0, -720, 0), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
+                sequence.Join(hpSlider.transform.DOLocalRotate(new Vector3(0, -720, 0), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
 
                 // Hpが0以下になったら
                 if (hp <= 0)
@@ -154,7 +162,7 @@ public class EnemyBall : MonoBehaviour
         // 内側に小さくする ドロップ内容で消える処理を分岐
         sequence.Join(GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 100), 0.5f).SetEase(Ease.Linear));
 
-        //gameManager.RemoveEnemyList(gameObject);
+        gameManager.RemoveEnemyList(this);
 
         // スケールが0になるタイミングで破棄
         Destroy(gameObject, 0.5f);

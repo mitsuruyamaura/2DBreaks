@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
 
     private BattleManager gameManager;
 
+    private Transform canvasTran;
+
 
     /// <summary>
     /// 的球の設定
@@ -134,7 +136,7 @@ public class Enemy : MonoBehaviour
         // 内側に小さくする ドロップ内容で消える処理を分岐
         sequence.Join(GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 100), duration).SetEase(Ease.Linear));
 
-        //gameManager.RemoveEnemyList(gameObject);
+        //gameManager.RemoveEnemyList(this);
 
         // スケールが0になるタイミングで破棄
         Destroy(gameObject, duration);
