@@ -6,8 +6,19 @@ using DG.Tweening;
 
 public class EnemyBall : MonoBehaviour
 {
+    [Header("的球の体力")]
     public int hp;
 
+    private int maxHp;
+
+    public Slider slider;
+
+    private CapsuleCollider2D capsuleCol;
+
+    private BattleManager gameManager;
+
+
+    // 未
     public int money;
 
     public int appearance;
@@ -16,23 +27,17 @@ public class EnemyBall : MonoBehaviour
 
     public Transform canvasTran;
 
-    public Slider slider;
 
-    private CapsuleCollider2D capsuleCol;
-
-    private int maxHp;
-
-    private GameManager gameManager;
 
     void Start()
     {
         capsuleCol = GetComponent<CapsuleCollider2D>();
 
         // 最初のスケールを保持
-        Vector3 startScale = transform.localScale;
+        Vector2 startScale = transform.localScale;
 
         // 最小化
-        transform.localScale = Vector3.zero;
+        transform.localScale = Vector2.zero;
 
         maxHp = hp;
 
@@ -47,7 +52,7 @@ public class EnemyBall : MonoBehaviour
     }
 
 
-    public void SetUpEnemyBall(GameManager gameManager, Transform canvasTran) {
+    public void SetUpEnemyBall(BattleManager gameManager, Transform canvasTran) {
         this.gameManager = gameManager;
         this.canvasTran = canvasTran;
     }
@@ -55,10 +60,13 @@ public class EnemyBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col) {
 
-        if (col.gameObject.tag == "Liner") {
-            return;
-        }
+        //Debug.Log(col.gameObject.tag);
 
+        //if (col.gameObject.tag == "Liner" || col.gameObject.tag == "CueLine") {
+        //    return;
+        //}
+
+        //Debug.Log(col.gameObject.tag);
 
         // CharaBallに接触したら
         if (col.gameObject.tag == "CharaBall")
@@ -118,6 +126,10 @@ public class EnemyBall : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 敵の破棄
+    /// </summary>
+    /// <param name="sequence"></param>
     public void DestroyEnemy(Sequence sequence) {
         capsuleCol.enabled = false;
         // TODO チェイン判定。お金が増える
@@ -134,7 +146,7 @@ public class EnemyBall : MonoBehaviour
         GameData.instance.ProcMoney(money);
 
         // お金の表示を更新
-        gameManager.uiManager.UpdateDisplayMoney();
+        //gameManager.uiManager.UpdateDisplayMoney();
 
         // 回転させながらスケールを0にする
         //sequence.Join(transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InCirc));
@@ -142,7 +154,7 @@ public class EnemyBall : MonoBehaviour
         // 内側に小さくする ドロップ内容で消える処理を分岐
         sequence.Join(GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 100), 0.5f).SetEase(Ease.Linear));
 
-        gameManager.RemoveEnemyList(gameObject);
+        //gameManager.RemoveEnemyList(gameObject);
 
         // スケールが0になるタイミングで破棄
         Destroy(gameObject, 0.5f);
