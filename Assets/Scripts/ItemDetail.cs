@@ -13,10 +13,10 @@ public class ItemDetail : MonoBehaviour
 
     private UnityEvent unityEvent;
 
-    private GameManager gameManager;
+    private BattleManager gameManager;
 
 
-    public void SetUpItemDetail(ItemData itemData, GameManager gameManager) {
+    public void SetUpItemDetail(ItemData itemData, BattleManager gameManager) {
         this.itemData = itemData;
         this.gameManager = gameManager;
 

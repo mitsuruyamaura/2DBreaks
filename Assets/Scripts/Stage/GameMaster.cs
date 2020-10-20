@@ -22,7 +22,7 @@ public class GameMaster : MonoBehaviour
     [Header("ブロック生成クラス")]
     public InitBlocks initBlocks;
     [Header("ライン管理クラス")]
-    public Liner liner;
+    public CueLiner liner;
     [Header("ボール管理クラス")]
     public BallController ball;  
     [Header("ライフ管理クラス")]
@@ -55,7 +55,7 @@ public class GameMaster : MonoBehaviour
                 initBlocks.blockPos.transform.position = data.startPosition;
                 ball.speed = data.ballSpeed;
                 ball.power = data.ballPower;
-                liner.lineLength = data.minLineLength;
+                liner.mixLineLength = data.minLineLength;
                 liner.duration = data.lineDuration;
                 life.initLife = data.initMaxLife;
                 battleTime.currentBattleTime = data.initBattleTime;

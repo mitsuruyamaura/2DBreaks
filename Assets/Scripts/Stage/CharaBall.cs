@@ -7,17 +7,29 @@ using UnityEngine.UI;
 /// </summary>
 public class CharaBall : MonoBehaviour
 {
-    [Header("ボールの速度")]
+    [Header("手球の速度")]
     public float speed;
-    [Header("ボールの威力。現在はプレイヤーへのダメージに使用")]
+    [Header("手球の攻撃力")]
     public int power;
 
     public int hp;
 
+
+
+
+    private Vector2 procVelocity = Vector2.zero;   // Velocity計算保持用
+
+    private Rigidbody2D rb;
+
+    [SerializeField]
+    private CapsuleCollider2D capsuleCol;
+
+    public BattleManager battleManager;    // TODO 後でPrivateにする
+    //　未
+
     //[Header("ゲーム管理クラス")]
     //public GameMaster gameMaster;
 
-    private Rigidbody2D rb;
     private Vector2 breakDirection;
 
     [SerializeField]
@@ -26,8 +38,7 @@ public class CharaBall : MonoBehaviour
     [SerializeField]
     private Button btnChara;
 
-    [SerializeField]
-    private CapsuleCollider2D capsuleCol;
+
 
     private const float AnimeTimeSec = 0.25f;
     private const int AnimeRepeatCount = 3;
@@ -37,10 +48,7 @@ public class CharaBall : MonoBehaviour
     private string blinkLayerName = "BlinkPlayer";
     private string defaultLayerName;
 
-    public GameManager gameManager;    // TODO 後でPrivateにする
 
-
-    private Vector2 procVelocity = Vector2.zero;　　　// Velocity計算保持用
 
     void Awake()
     {
@@ -50,11 +58,12 @@ public class CharaBall : MonoBehaviour
     }
 
     /// <summary>
-    /// インスタンスした際に呼び出す
+    /// 手球の初期設定。インスタンスした際に呼び出す
     /// </summary>
-    /// <param name="gameManager"></param>
-    public void SetUpCharaBall(GameManager gameManager) {
-        this.gameManager = gameManager;
+    /// <param name="battelManager"></param>
+    public void SetUpCharaBall(BattleManager battelManager) {
+        this.battleManager = battelManager;
+        hp = GameData.instance.charaBallHp;
     }
 
     void Update()
@@ -183,10 +192,10 @@ public class CharaBall : MonoBehaviour
     /// <param name="amount"></param>
     public void UpdateHp(int amount)
     {
-        gameManager.currentHp += amount;
+        battleManager.currentHp += amount;
 
         // UI上にある手球を減らす
-        gameManager.uiManager.UpdateDisplayCueBallCount(gameManager.currentHp);
+        battleManager.uiManager.UpdateDisplayIconRemainingBall(battleManager.currentHp);
        
         // TODO HPゲージ作ったらUIの更新処理追加
 
@@ -197,10 +206,10 @@ public class CharaBall : MonoBehaviour
             Blink();
         }
 
-        if (gameManager.currentHp <= 0) {
-            gameManager.currentHp = 0;
+        if (battleManager.currentHp <= 0) {
+            battleManager.currentHp = 0;
 
-            gameManager.gameState = GameManager.GameState.Result;
+            battleManager.gameState = BattleManager.GameState.Result;
 
             // GameOver
             rb.velocity *= 0.96f;

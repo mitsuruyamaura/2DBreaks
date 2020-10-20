@@ -10,7 +10,7 @@ public class Obstacle_Hole : ObstacleBase
         charaBall.UpdateHp(-power);
 
         // スタート位置へ戻す
-        StartCoroutine(gameManager.ResetCharaPosition(2.0f));
+        StartCoroutine(battleManager.RestartCharaPosition(2.0f));
     }
 
     protected override void OnCollisionEnter2D(Collision2D col) {
@@ -18,6 +18,19 @@ public class Obstacle_Hole : ObstacleBase
 
         if (col.gameObject.tag == "EnemyBall") {
             if (col.gameObject.TryGetComponent(out EnemyBall enemy)) {
+                // Sequence初期化
+                Sequence sequence = DOTween.Sequence();
+
+                // 敵を回転
+                sequence.Append(enemy.transform.DOLocalRotate(new Vector3(0, 720, 0), 0.5f, RotateMode.FastBeyond360).SetEase(Ease.Linear));
+
+                // 敵を破壊
+                enemy.DestroyEnemy(sequence);
+            }
+        }
+
+        if (col.gameObject.tag == "EnemyBall") {
+            if (col.gameObject.TryGetComponent(out Enemy enemy)) {
                 // Sequence初期化
                 Sequence sequence = DOTween.Sequence();
 

@@ -20,7 +20,7 @@ public class Obstacle_Rock : ObstacleBase
             GameData.instance.ProcMoney(money);
 
             // お金の表示を更新
-            gameManager.uiManager.UpdateDisplayMoney();
+            battleManager.uiManager.UpdateDisplayMoney();
 
             // 縮小して破壊
             effectSeq.Join(rectTransform.DOSizeDelta(new Vector2(0, rectTransform.sizeDelta.y), 1.0f).SetEase(Ease.Linear));

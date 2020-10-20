@@ -1,39 +1,40 @@
-﻿using DG.Tweening;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
+    private List<GameObject> iconRemainingBallList = new List<GameObject>();
+
+    [SerializeField]
+    private GameObject iconRemainingBallPrefab;
+
+    [SerializeField]
+    private Transform remainingBallTran;
+
+
+    // 未
+
+    [SerializeField, HideInInspector]
     private Text txtGameTime;
 
-    [SerializeField]
+    [SerializeField, HideInInspector]
     private Text txtMoney;
 
-    [SerializeField]
+    [SerializeField, HideInInspector]
     private Image imgHp;
 
-    [SerializeField]
+    [SerializeField, HideInInspector]
     private Text txtStageInfo;
 
-    [SerializeField]
+    [SerializeField, HideInInspector]
     private Text txtPhaseCount;
 
-    [SerializeField]
+    [SerializeField, HideInInspector]
     private CanvasGroup phaseCountCanvasGroup;
-
-    [SerializeField]
-    private List<GameObject> cueBallList = new List<GameObject>();
-
-    [SerializeField]
-    private GameObject cueBallPrefab;
-
-    [SerializeField]
-    private Transform cueBallTran;
-
-    private int maxBallCount;
 
 
     /// <summary>
@@ -100,12 +101,13 @@ public class UIManager : MonoBehaviour
     /// </summary>
     /// <param name="ballCount"></param>
     /// <returns></returns>
-    public IEnumerator GenerateCueBalls(int ballCount) {
-        maxBallCount = ballCount;
+    public IEnumerator GenerateIconRemainingBalls(int ballCount) {
+        //yield return null;
         for (int i = 0; i < ballCount; i++) {
-            GameObject cueBall = Instantiate(cueBallPrefab, cueBallTran, false);
-            cueBallList.Add(cueBall);
             yield return new WaitForSeconds(0.15f);
+            GameObject icon = Instantiate(iconRemainingBallPrefab, remainingBallTran, false);
+            iconRemainingBallList.Add(icon);
+            
         }
     }
 
@@ -113,12 +115,12 @@ public class UIManager : MonoBehaviour
     /// 手球の残数の表示を更新
     /// </summary>
     /// <param name="amount"></param>
-    public void UpdateDisplayCueBallCount(int amount) {
-        for (int i = 0; i < maxBallCount; i++) {
+    public void UpdateDisplayIconRemainingBall(int amount) {
+        for (int i = 0; i < iconRemainingBallList.Count; i++) {
             if (i < amount) {
-                cueBallList[i].SetActive(true);
+                iconRemainingBallList[i].SetActive(true);
             } else {
-                cueBallList[i].SetActive(false);
+                iconRemainingBallList[i].SetActive(false);
             }
         }
     }
