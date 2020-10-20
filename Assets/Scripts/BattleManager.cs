@@ -1,15 +1,42 @@
-﻿using DG.Tweening;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class GameManager : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
-    public int currentTime;
-
-    public int currentHp;
-
     public UIManager uiManager;
+
+    [SerializeField]
+    private CharaBall charaBallPrefab;
+
+    [SerializeField]
+    private Transform startCharaTran;
+
+    private CharaBall charaBall;
+
+    [SerializeField]
+    private EnemyBall enemyBallPrefab;
+
+    [SerializeField]
+    private List<EnemyBall> enemyBallList = new List<EnemyBall>();
+
+    [SerializeField]
+    private Transform canvasTran;
+
+    [SerializeField]
+    private Transform leftBottomTran;
+
+    [SerializeField]
+    private Transform rightTopTran;
+
+    [SerializeField]
+    private Transform enemyPlace;
+
+    // 未
+    public int currentTime;
+    
+    public int currentHp;
 
     public int currentPhaseCount;
 
@@ -18,9 +45,6 @@ public class GameManager : MonoBehaviour
 
     private float timer;
 
-    public Transform canvasTran;
-    public Transform leftBottomTran;
-    public Transform rightTopTran;
 
     public List<EnemyData> enemyList = new List<EnemyData>();
 
@@ -36,11 +60,11 @@ public class GameManager : MonoBehaviour
     public List<GameObject> obstacleObjList = new List<GameObject>();
 
     public int maxPhaseCount;
-    public Transform startCharaTran;
+    
 
     public Transform[] obstaclesTran;
 
-    public CharaBall charaBall;
+    //public CharaBall charaBall;
 
     public GameObject obstacleRockPrefab;
     public GameObject enemyKumaPrefab;
@@ -60,7 +84,7 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(Initialize());
 
         // ゲームの準備(Phaseごと)
-        yield return StartCoroutine(PreparateNextPhase());
+        //yield return StartCoroutine(PreparateNextPhase());
 
 
         // 残り時間の表示を更新
@@ -85,9 +109,25 @@ public class GameManager : MonoBehaviour
         // TODO キャラのスタート地点を登録(今はPublicで入れている)
 
         // 手球を体力の数だけ生成する
-        yield return StartCoroutine(uiManager.GenerateCueBalls(currentHp));
+        yield return StartCoroutine(uiManager.GenerateIconRemainingBalls(currentHp));
+
+        // GenerateCharaBallメソッドで手球の生成処理し、戻り値で変数に代入
+        charaBall = GenerateCharaBall();
+
+        // 敵を生成
+        yield return StartCoroutine(GenerateEnemys());
 
         //yield break;
+    }
+
+    /// <summary>
+    /// 手球の生成
+    /// </summary>
+    /// <returns></returns>
+    private CharaBall GenerateCharaBall() {
+        CharaBall chara = Instantiate(charaBallPrefab, startCharaTran, false);
+        chara.SetUpCharaBall(this);
+        return chara;
     }
 
     /// <summary>
@@ -96,18 +136,60 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator GenerateEnemys() {
 
-        int appearEnemyCount = Random.Range(2, 5); 
-        for (int i = 0; i < appearEnemyCount; i++) {
-            GameObject enemy = Instantiate(enemyObjPrefab, enemyAppearTran[i], false);
-            enemy.GetComponent<EnemyBall>().SetUpEnemyBall(this, canvasTran);
-            enemyObjList.Add(enemy);
-            yield return new WaitForSeconds(0.15f);
+        //int appearEnemyCount = Random.Range(2, 5); 
+        //for (int i = 0; i < appearEnemyCount; i++) {
+        //    GameObject enemy = Instantiate(enemyObjPrefab, enemyAppearTran[i], false);
+        //    enemy.GetComponent<EnemyBall>().SetUpEnemyBall(this, canvasTran);
+        //    enemyObjList.Add(enemy);
+        //    yield return new WaitForSeconds(0.15f);
+        //}
+        //GameObject kuma = Instantiate(enemyKumaPrefab, enemyAppearTran[4], false);
+        //kuma.GetComponent<EnemyBall>().SetUpEnemyBall(this, canvasTran);
+        //enemyObjList.Add(kuma);
+
+        // 生成する目標数をランダムで設定
+        int appearEnemyCount = Random.Range(2, 5);
+
+        // 生成した数をカウント用
+        int count = 0;
+
+        // 生成した数が目標数になるまでループする。目標数になったら生成終了し、ループを抜ける
+        while (count < appearEnemyCount) {
+
+            // Transform情報を代入
+            Transform enemyTran = canvasTran;
+
+            // 位置を画面内に収まる範囲でランダムに設定
+            enemyTran.position = new Vector2(Random.Range(leftBottomTran.localPosition.x, rightTopTran.localPosition.x), Random.Range(leftBottomTran.localPosition.y, rightTopTran.localPosition.y));
+
+            // 設定した位置に対してRayを発射
+            RaycastHit2D hit = Physics2D.Raycast(enemyTran.position, Vector3.forward);
+
+            // Rayに当たったオブジェクトを表示。何もないときは null
+            Debug.Log(hit.collider);
+            
+            // もしも何もRayに当たらない場合(Rayに何か当たった場合にはその位置には生成しないので、ループの最初からやり直す)
+            if (hit.collider == null) {
+
+                // 敵を生成
+                EnemyBall enemyBall = Instantiate(enemyBallPrefab, canvasTran, false);
+
+                // 親子関係を設定
+                enemyBall.transform.SetParent(enemyPlace);
+
+                // 敵の位置をランダムで設定した位置に設定
+                enemyBall.transform.localPosition = enemyTran.position;
+
+                // 敵の生成カウントを加算
+                count++;
+
+                // 敵の管理リストに追加
+                enemyBallList.Add(enemyBall);
+
+                // 少し待機して、ループを最初から繰り返す
+                yield return new WaitForSeconds(0.15f);
+            }         
         }
-        GameObject kuma = Instantiate(enemyKumaPrefab, enemyAppearTran[4], false);
-        kuma.GetComponent<EnemyBall>().SetUpEnemyBall(this, canvasTran);
-        enemyObjList.Add(kuma);
-
-
     }
 
     /// <summary>
@@ -132,10 +214,11 @@ public class GameManager : MonoBehaviour
     /// 敵をリストから削除
     /// </summary>
     /// <param name="enemy"></param>
-    public void RemoveEnemyList(GameObject enemy) {
-        enemyObjList.Remove(enemy);
+    public void RemoveEnemyList(EnemyBall enemy) {
+        enemyBallList.Remove(enemy);
         CheckRemainingEnemies();
     }
+
 
     /// <summary>
     /// 敵の残数を確認
@@ -182,7 +265,7 @@ public class GameManager : MonoBehaviour
 
         // キャラがスタート地点にいなければ、キャラの位置をスタート地点へ戻す
         if (charaBall.transform.position != startCharaTran.position) {
-            yield return StartCoroutine(ResetCharaPosition());
+            yield return StartCoroutine(RestartCharaPosition());
         }
 
         // Phaseに合わせた敵を生成
@@ -201,7 +284,7 @@ public class GameManager : MonoBehaviour
     /// キャラを停止させてスタート位置へ戻す
     /// </summary>
     /// <returns></returns>
-    public IEnumerator ResetCharaPosition(float waiTime = 1.0f) {
+    public IEnumerator RestartCharaPosition(float waiTime = 1.0f) {
         // キャラの動きを止める
         charaBall.StopMoveBall();
 

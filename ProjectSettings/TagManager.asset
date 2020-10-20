@@ -14,6 +14,7 @@ TagManager:
   - Liner
   - Wall
   - Hole
+  - CueLine
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Enemy
   - Player
   - BlinkPlayer
-  - 
+  - CueLine
   - 
   - 
   - 

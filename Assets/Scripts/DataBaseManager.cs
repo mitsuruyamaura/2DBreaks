@@ -7,7 +7,7 @@ public class DataBaseManager : MonoBehaviour
 {
     public static DataBaseManager instance;
 
-    public GameManager gameManager;
+    public BattleManager gameManager;
 
     public List<CharaData> charaDataList = new List<CharaData>();
     public List<BattleStageData> battleStageDataList = new List<BattleStageData>();

@@ -7,7 +7,9 @@ public class ObstacleBase : MonoBehaviour
 {
     public int power;
     protected RectTransform rectTransform;
-    protected GameManager gameManager;
+
+    [SerializeField]
+    protected BattleManager battleManager;
 
     protected virtual void Start()
     {
@@ -23,8 +25,8 @@ public class ObstacleBase : MonoBehaviour
         sequence.Join(rectTransform.DOShakePosition(1.0f, 3, 20, 180).SetEase(Ease.Linear));
     }
 
-    public void SetUpObstacle(GameManager gameManager) {
-        this.gameManager = gameManager;
+    public void SetUpObstacle(BattleManager battleManager) {
+        this.battleManager = battleManager;
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D col)
