@@ -49,6 +49,12 @@ public class ResultPopUp : MonoBehaviour
 
 
     public void SetUpResultPopUp(BattleManager battleManager, int money, int battleTime, int remainingballCount) {
+        Debug.Log(money);
+        Debug.Log(battleTime);
+        Debug.Log(remainingballCount);
+
+        canvasGroup.alpha = 0;
+
         canvasGroup.DOFade(1.0f, 1.0f);
 
         this.battleManager = battleManager;
@@ -156,10 +162,16 @@ public class ResultPopUp : MonoBehaviour
         sequence.Append(DOTween.To(() => initValue,
                     (num) => {
                         initValue = num;
-                        txtTimeBonus.text = num.ToString();
+                        txtTotalMoney.text = num.ToString();
                     },
-                    GameData.instance.totalMoney + totalPoint,
+                    totalPoint,
                     1.0f).OnComplete(() => { initValue = 0; }).SetEase(Ease.InCirc));
+
+
+        sequence.AppendInterval(1.0f);
+
+        // 今回のゲーム内で獲得したMoneyをMoney総数に加算
+        GameData.instance.ProcMoney(totalPoint);
 
         // 各ボタンを押せるようにする
         btnClosePopUp.interactable = true;

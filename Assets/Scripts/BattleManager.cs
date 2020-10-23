@@ -255,16 +255,20 @@ public class BattleManager : MonoBehaviour
             ClearObstacleList();
 
             // 今回のゲーム内で獲得したMoneyをMoney総数に加算
-            GameData.instance.ProcMoney(money);
+            //GameData.instance.ProcMoney(money);
 
             gameState = GameState.Result;
             Debug.Log(gameState);
 
-            // リザルト表示ポップアップを生成
-            ResultPopUp resultPopUp = Instantiate(resultPopUpPrefab, canvasTran, false);
+            // スタート地点へ戻す
+            RestartCharaPosition(1.0f);
 
-            // ポップアップを設定
-            resultPopUp.SetUpResultPopUp(this, money, currentTime, charaBall.GetCharaBallHp());
+            // 障害物を消す
+            ClearObstacleList();
+
+            // リザルト表示生成
+            StartCoroutine(GenerateResultPopUp());
+
 
             //if (currentPhaseCount >= maxPhaseCount) {
             //    // ステージクリア
@@ -394,5 +398,15 @@ public class BattleManager : MonoBehaviour
         // TODO アイテム用のリストに追加
 
         nextAppearCount = Random.Range(10, 16);
+    }
+
+    private IEnumerator GenerateResultPopUp() {
+        yield return new WaitForSeconds(1.0f);
+
+        // リザルト表示ポップアップを生成
+        ResultPopUp resultPopUp = Instantiate(resultPopUpPrefab, canvasTran, false);
+
+        // ポップアップを設定
+        resultPopUp.SetUpResultPopUp(this, money, currentTime, charaBall.GetCharaBallHp());
     }
 }
