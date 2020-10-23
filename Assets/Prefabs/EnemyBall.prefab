@@ -304,7 +304,7 @@ RectTransform:
   m_GameObject: {fileID: 8271438500429366537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 8271438499943993864}
   m_Father: {fileID: 0}
@@ -402,9 +402,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a9994687817ba458cd2bbf3ba355d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 5
   hpSlider: {fileID: 8271438499943993867}
   money: 100
-  appearance: 50
+  appearance: 0
   treasureBoxPrefab: {fileID: 8397480517659561397, guid: c5e6b6a18c618904497b87fd78aa8b73,
     type: 3}

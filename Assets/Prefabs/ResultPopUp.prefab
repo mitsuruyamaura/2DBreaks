@@ -400,6 +400,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4567081595803846479}
+  - component: {fileID: 2492869305407488983}
+  - component: {fileID: 8400908457799688552}
   m_Layer: 5
   m_Name: ResultPopUp
   m_TagString: Untagged
@@ -437,6 +439,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &2492869305407488983
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4567081595803846478}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &8400908457799688552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4567081595803846478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c8c117dce8edd46ba57e7ae44c85b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtMoney: {fileID: 4567081596743008156}
+  txtTimeBonus: {fileID: 4567081596783220358}
+  txtBallBonus: {fileID: 4567081597557186168}
+  txtTotalMoney: {fileID: 3260597151440115176}
+  txtDiscriptionTimeBonus: {fileID: 4567081596268280204}
+  txtDiscriptionBallBonus: {fileID: 4567081597224082519}
+  btnClosePopUp: {fileID: 5929767396143601642}
+  btnExitGame: {fileID: 8965205821911642903}
+  canvasGroup: {fileID: 2492869305407488983}
+  magnifyingTimePoint: 100
+  magnifyingBallPoint: 500
 --- !u!1 &4567081595916473723
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,14 +8,16 @@ public class GameData : MonoBehaviour
 
     public int charaBallHp;
 
-    [HideInInspector]
-    public CharaData charaData;
-
-    [HideInInspector]
-    public int money;
-
-    [HideInInspector]
+    [Header("バトル時間の設定値")]
     public int battleTime;
+
+    [Header("Money総数")]
+    public int totalMoney;
+
+    // 未
+
+    [HideInInspector]
+    public CharaData charaData;   
 
     [HideInInspector]
     public int chooseStageNo;
@@ -30,9 +32,9 @@ public class GameData : MonoBehaviour
     }
 
     /// <summary>
-    /// お金を増減する
+    /// Moneyの総額を増減する
     /// </summary>
     public void ProcMoney(int amount) {
-        money += amount;
+        totalMoney += amount;
     }
 }

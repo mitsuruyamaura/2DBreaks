@@ -33,17 +33,34 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private Transform enemyPlace;
 
-    // 未
+    [Header("バトルの残り時間")]
     public int currentTime;
-    
+
+    private float timer;           // 計測用
+
+    private int money;
+
+    public enum GameState {
+        Wait,
+        Ready,
+        Play,
+        Result
+    }
+
+    public GameState gameState = GameState.Wait;
+
+
+    [SerializeField]
+    private ResultPopUp resultPopUpPrefab;
+
+    // 未
+
     public int currentHp;
 
     public int currentPhaseCount;
 
     public int itemAppearCount;
     public int nextAppearCount;
-
-    private float timer;
 
 
     public List<EnemyData> enemyList = new List<EnemyData>();
@@ -70,25 +87,22 @@ public class BattleManager : MonoBehaviour
     public GameObject enemyKumaPrefab;
 
 
-    public enum GameState {
-        Wait,
-        Ready,
-        Play,
-        Result
-    }
 
-    public GameState gameState = GameState.Wait;
-
-    IEnumerator Start() {
+    public IEnumerator Start() {
         // 初期化
         yield return StartCoroutine(Initialize());
 
         // ゲームの準備(Phaseごと)
         //yield return StartCoroutine(PreparateNextPhase());
 
+        
 
         // 残り時間の表示を更新
-        uiManager.UpdateDisplayGameTime(currentTime);
+        uiManager.UpdateDisplayBattleTime(currentTime);
+
+        // Moneyの表示を更新
+        uiManager.UpdateDisplayMoney(money);
+
     }
 
     /// <summary>
@@ -96,9 +110,15 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     public IEnumerator Initialize() {
+        gameState = GameState.Wait;
+        Debug.Log(gameState);
+
         // 初期値設定
         currentHp = GameData.instance.charaData.hp;
         currentTime = GameData.instance.battleTime;
+
+        // Moneyの初期値設定
+        money = 0;
 
         nextAppearCount = Random.Range(10, 16);
 
@@ -117,6 +137,9 @@ public class BattleManager : MonoBehaviour
         // 敵を生成
         yield return StartCoroutine(GenerateEnemys());
 
+        gameState = GameState.Play;
+
+        Debug.Log(gameState);
         //yield break;
     }
 
@@ -180,6 +203,9 @@ public class BattleManager : MonoBehaviour
                 // 敵の位置をランダムで設定した位置に設定
                 enemyBall.transform.localPosition = enemyTran.position;
 
+                // 敵の初期設定
+                enemyBall.SetUpEnemyBall(this, canvasTran);
+
                 // 敵の生成カウントを加算
                 count++;
 
@@ -224,19 +250,34 @@ public class BattleManager : MonoBehaviour
     /// 敵の残数を確認
     /// </summary>
     public void CheckRemainingEnemies() {
-        if (enemyObjList.Count == 0) {
+        if (enemyBallList.Count == 0) {
             // ObstacleListをクリア
             ClearObstacleList();
 
-            if (currentPhaseCount >= maxPhaseCount) {
-                // ステージクリア
-                gameState = GameState.Result;
-                uiManager.DisplayStageClear();
-            } else {
-                // 次のPhaseの準備
-                gameState = GameState.Wait;
-                StartCoroutine(PreparateNextPhase());
-            }
+            // 今回のゲーム内で獲得したMoneyをMoney総数に加算
+            GameData.instance.ProcMoney(money);
+
+            gameState = GameState.Result;
+            Debug.Log(gameState);
+
+            // リザルト表示ポップアップを生成
+            ResultPopUp resultPopUp = Instantiate(resultPopUpPrefab, canvasTran, false);
+
+            // ポップアップを設定
+            resultPopUp.SetUpResultPopUp(this, money, currentTime, charaBall.GetCharaBallHp());
+
+            //if (currentPhaseCount >= maxPhaseCount) {
+            //    // ステージクリア
+            //    gameState = GameState.Result;
+            //    uiManager.DisplayStageClear();
+
+            //    // 今回のゲーム内で獲得したMoneyをMoney総数に加算
+            //    GameData.instance.ProcMoney(money);
+            //} else {
+            //    // 次のPhaseの準備
+            //    gameState = GameState.Wait;
+            //    StartCoroutine(PreparateNextPhase());
+            //}
         }
     }
 
@@ -321,7 +362,19 @@ public class BattleManager : MonoBehaviour
             }
         }
         // ゲーム時間の表示を更新
-        uiManager.UpdateDisplayGameTime(currentTime);
+        uiManager.UpdateDisplayBattleTime(currentTime);
+    }
+
+    /// <summary>
+    /// Moneyを加算
+    /// </summary>
+    public void AddMoney(int amount) {
+        // moneyを加算
+        money += amount;
+        Debug.Log(money);
+
+        // Moneyの表示を更新
+        uiManager.UpdateDisplayMoney(money);
     }
 
     /// <summary>
@@ -342,6 +395,4 @@ public class BattleManager : MonoBehaviour
 
         nextAppearCount = Random.Range(10, 16);
     }
-
-
 }

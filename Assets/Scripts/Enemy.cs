@@ -17,9 +17,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Slider hpSlider;
 
-    private BattleManager gameManager;
+    private BattleManager battleManager;
 
     private Transform canvasTran;
+
+    public int money;
 
 
     /// <summary>
@@ -28,8 +30,8 @@ public class Enemy : MonoBehaviour
     /// <param name="gameManager"></param>
     /// <param name="canvasTran"></param>
     public void SetUpEnemyBall(BattleManager gameManager, Transform canvasTran) {
-        this.gameManager = gameManager;
-        //this.canvasTran = canvasTran;
+        this.battleManager = gameManager;
+        this.canvasTran = canvasTran;
     }
 
     void Start() {
@@ -137,6 +139,9 @@ public class Enemy : MonoBehaviour
         sequence.Join(GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 100), duration).SetEase(Ease.Linear));
 
         //gameManager.RemoveEnemyList(this);
+
+        // Moneyを加算
+        battleManager.AddMoney(money);
 
         // スケールが0になるタイミングで破棄
         Destroy(gameObject, duration);

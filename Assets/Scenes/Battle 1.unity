@@ -2960,7 +2960,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00000
+  m_Text: 0
 --- !u!222 &960324859
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4669,6 +4669,7 @@ MonoBehaviour:
   enemyPlace: {fileID: 714252978}
   currentTime: 0
   gameState: 0
+  resultPopUpPrefab: {fileID: 0}
   currentHp: 0
   currentPhaseCount: 0
   itemAppearCount: 0

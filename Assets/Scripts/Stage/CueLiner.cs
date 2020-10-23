@@ -25,7 +25,7 @@ public class CueLiner : MonoBehaviour
     private Vector2 touchPos; //マウスのクリック地点
 
     [SerializeField]
-    private BattleManager gameManager;
+    private BattleManager battleManager;
 
     private void Update() {
         //if ((gameMaster.gameState == GAME_STATE.PLAY) || (gameMaster.gameState == GAME_STATE.WARNING)) {
@@ -33,7 +33,7 @@ public class CueLiner : MonoBehaviour
             //DrawLine();
         //}
 
-        if (gameManager.gameState == BattleManager.GameState.Play || gameManager.gameState == BattleManager.GameState.Result) {
+        if (battleManager.gameState == BattleManager.GameState.Play || battleManager.gameState == BattleManager.GameState.Result) {
             // ラインを引く Result中も弾いて遊べるようにする
             DrawLine();
         }

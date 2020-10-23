@@ -16,11 +16,8 @@ public class Obstacle_Rock : ObstacleBase
         effectSeq.Append(transform.DOShakeScale(1.0f).SetEase(Ease.Linear));
 
         if (hp <= 0) {
-            // お金を加算
-            GameData.instance.ProcMoney(money);
-
-            // お金の表示を更新
-            battleManager.uiManager.UpdateDisplayMoney();
+            // Moneyを加算
+            battleManager.AddMoney(money);
 
             // 縮小して破壊
             effectSeq.Join(rectTransform.DOSizeDelta(new Vector2(0, rectTransform.sizeDelta.y), 1.0f).SetEase(Ease.Linear));
