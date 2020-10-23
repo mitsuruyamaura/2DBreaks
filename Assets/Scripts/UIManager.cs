@@ -15,17 +15,19 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Transform remainingBallTran;
 
+    [SerializeField]
+    private Image imgTimeGauge;
+
+    [SerializeField]
+    private Text txtBattleTime;
+
+    [SerializeField]
+    private Text txtMoney;
+
 
     // 未
 
-    [SerializeField, HideInInspector]
-    private Text txtGameTime;
 
-    [SerializeField, HideInInspector]
-    private Text txtMoney;
-
-    [SerializeField, HideInInspector]
-    private Image imgHp;
 
     [SerializeField, HideInInspector]
     private Text txtStageInfo;
@@ -38,19 +40,48 @@ public class UIManager : MonoBehaviour
 
 
     /// <summary>
-    /// ゲーム時間の表示を更新
+    /// 手球の残数を画面上に生成
     /// </summary>
-    public void UpdateDisplayGameTime(int currentTime) {
-        float value = (float)currentTime / GameData.instance.battleTime;
-        imgHp.DOFillAmount(value, 1.0f).SetEase(Ease.Linear);
-        txtGameTime.text = currentTime.ToString();
+    /// <param name="ballCount"></param>
+    /// <returns></returns>
+    public IEnumerator GenerateIconRemainingBalls(int ballCount) {
+        //yield return null;
+        for (int i = 0; i < ballCount; i++) {
+            yield return new WaitForSeconds(0.15f);
+            GameObject icon = Instantiate(iconRemainingBallPrefab, remainingBallTran, false);
+            iconRemainingBallList.Add(icon);
+
+        }
     }
 
     /// <summary>
-    /// Moneyの表示を更新
+    /// 手球の残数の表示を更新
     /// </summary>
-    public void UpdateDisplayMoney() {
-        txtMoney.text = GameData.instance.money.ToString();
+    /// <param name="amount"></param>
+    public void UpdateDisplayIconRemainingBall(int amount) {
+        for (int i = 0; i < iconRemainingBallList.Count; i++) {
+            if (i < amount) {
+                iconRemainingBallList[i].SetActive(true);
+            } else {
+                iconRemainingBallList[i].SetActive(false);
+            }
+        }
+    }
+
+    /// <summary>
+    /// ゲーム時間の表示を更新
+    /// </summary>
+    public void UpdateDisplayBattleTime(int currentTime) {
+        float value = (float)currentTime / GameData.instance.battleTime;
+        imgTimeGauge.DOFillAmount(value, 1.0f).SetEase(Ease.Linear);
+        txtBattleTime.text = currentTime.ToString();
+    }
+
+    /// <summary>
+    /// 現在までに獲得しているMoneyの表示を更新
+    /// </summary>
+    public void UpdateDisplayMoney(int money) {
+        txtMoney.text = money.ToString();
     }
 
     /// <summary>
@@ -94,34 +125,5 @@ public class UIManager : MonoBehaviour
     public void DisplayStageClear() {
         phaseCountCanvasGroup.DOFade(1.0f, 0.5f);
         txtStageInfo.DOText("Stage Clear!!", 1.5f).SetEase(Ease.Linear);
-    }
-
-    /// <summary>
-    /// 手球の残数を画面上に生成
-    /// </summary>
-    /// <param name="ballCount"></param>
-    /// <returns></returns>
-    public IEnumerator GenerateIconRemainingBalls(int ballCount) {
-        //yield return null;
-        for (int i = 0; i < ballCount; i++) {
-            yield return new WaitForSeconds(0.15f);
-            GameObject icon = Instantiate(iconRemainingBallPrefab, remainingBallTran, false);
-            iconRemainingBallList.Add(icon);
-            
-        }
-    }
-
-    /// <summary>
-    /// 手球の残数の表示を更新
-    /// </summary>
-    /// <param name="amount"></param>
-    public void UpdateDisplayIconRemainingBall(int amount) {
-        for (int i = 0; i < iconRemainingBallList.Count; i++) {
-            if (i < amount) {
-                iconRemainingBallList[i].SetActive(true);
-            } else {
-                iconRemainingBallList[i].SetActive(false);
-            }
-        }
     }
 }

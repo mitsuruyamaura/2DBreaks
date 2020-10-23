@@ -239,4 +239,13 @@ public class CharaBall : MonoBehaviour
                 }
             });
     }
+
+
+    /// <summary>
+    /// Hpを取得
+    /// </summary>
+    /// <returns></returns>
+    public int GetCharaBallHp() {
+        return hp;
+    }
 }

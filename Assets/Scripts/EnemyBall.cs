@@ -15,13 +15,15 @@ public class EnemyBall : MonoBehaviour
 
     private CapsuleCollider2D capsuleCol;
 
-    private BattleManager gameManager;
+    private BattleManager battleManager;
 
     private Transform canvasTran;
 
+    public int money;
+
 
     // 未
-    public int money;
+
 
     public int appearance;
 
@@ -55,7 +57,7 @@ public class EnemyBall : MonoBehaviour
 
 
     public void SetUpEnemyBall(BattleManager gameManager, Transform canvasTran) {
-        this.gameManager = gameManager;
+        this.battleManager = gameManager;
         this.canvasTran = canvasTran;
     }
 
@@ -150,8 +152,7 @@ public class EnemyBall : MonoBehaviour
             treasureBox.transform.localScale = scale;
         }
 
-        // お金を加算
-        GameData.instance.ProcMoney(money);
+        //GameData.instance.ProcMoney(money);
 
         // お金の表示を更新
         //gameManager.uiManager.UpdateDisplayMoney();
@@ -162,7 +163,10 @@ public class EnemyBall : MonoBehaviour
         // 内側に小さくする ドロップ内容で消える処理を分岐
         sequence.Join(GetComponent<RectTransform>().DOSizeDelta(new Vector2(0, 100), 0.5f).SetEase(Ease.Linear));
 
-        gameManager.RemoveEnemyList(this);
+        battleManager.RemoveEnemyList(this);
+
+        // Money を加算
+        battleManager.AddMoney(money);
 
         // スケールが0になるタイミングで破棄
         Destroy(gameObject, 0.5f);

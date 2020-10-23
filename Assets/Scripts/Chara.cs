@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Chara : MonoBehaviour {
+
     [Header("手球の速度")]
     public float speed;
 
@@ -124,5 +125,13 @@ public class Chara : MonoBehaviour {
     /// <param name="isSwitch"></param>
     public void ChangeActivateCollider(bool isSwitch) {
         capsuleCol.enabled = isSwitch;
+    }
+
+    /// <summary>
+    /// Hpを取得
+    /// </summary>
+    /// <returns></returns>
+    public int GetCharaBallHp() {
+        return hp;
     }
 }
