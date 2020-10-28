@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ResultPopUp : MonoBehaviour
 {
-    private BattleManager battleManager;
-
+    // UI関連  同名のゲームオブジェクトをアサインする
     [SerializeField]
     private Text txtMoney;
 
@@ -34,66 +33,112 @@ public class ResultPopUp : MonoBehaviour
     private Button btnExitGame;
 
     [SerializeField]
-    private CanvasGroup canvasGroup;
+    private CanvasGroup canvasGroup;    // ResultPopUp ゲームオブジェクトのCanvasGroupをアサインする
 
-    [SerializeField]
+
+    [SerializeField, Header("残り時間ボーナス倍率")]
     private int magnifyingTimePoint;
 
-    [SerializeField]
+    [SerializeField, Header("手球残数ボーナス倍率")]
     private int magnifyingBallPoint;
 
 
-    private bool isSelectBtn;   // 重複でボタンを押せないように制御
+    private bool isSelectBtn;   // 重複してボタンを押せないように制御
 
+    private BattleManager battleManager;
 
-
-
-    public void SetUpResultPopUp(BattleManager battleManager, int money, int battleTime, int remainingballCount) {
+    /// <summary>
+    /// リザルトポップアップの初期設定
+    /// </summary>
+    /// <param name="battleManager"></param>
+    /// <param name="money"></param>
+    /// <param name="battleTime"></param>
+    /// <param name="remainingballCount"></param>
+    /// <param name="isClear">true = クリア, false = ゲームオーバー</param>
+    public void SetUpResultPopUp(BattleManager battleManager, int money, int battleTime, int remainingballCount, bool isClear) {
         Debug.Log(money);
         Debug.Log(battleTime);
         Debug.Log(remainingballCount);
 
+        // 一度リザルトポップアップを見えなくする
         canvasGroup.alpha = 0;
 
+        // 徐々にリザルトポップアップを表示
         canvasGroup.DOFade(1.0f, 1.0f);
 
         this.battleManager = battleManager;
 
+        // 各ボタンにメソッドを登録
         btnClosePopUp.onClick.AddListener(OnClickClosePopUp);
-        btnExitGame.onClick.AddListener(ExitGame);
+        btnExitGame.onClick.AddListener(OnClickExitGame);
 
+        // Money表示処理中はボタンを押せない状態にしておく
         btnClosePopUp.interactable = false;
         btnExitGame.interactable = false;
 
-        DispayResult(money, battleTime, remainingballCount);
+        // 各ボーナス倍率を表示
+        txtDiscriptionTimeBonus.text = "( battleTime × " + magnifyingTimePoint + " )";
+
+        txtDiscriptionBallBonus.text = "(RemainingBall × " + magnifyingBallPoint + " )";
+
+        // リザルトの内容を表示
+        DispayResult(money, battleTime, remainingballCount, isClear);
     }
 
+    /// <summary>
+    /// リザルトポップアップを閉じる
+    /// </summary>
     private void OnClickClosePopUp() {
+
+        // まだボタンが押されていなければ
         if (!isSelectBtn) {
+
+            // ボタンの重複・連続タップ防止
             isSelectBtn = true;
 
+            // ゲームを再度スタートする
             StartCoroutine(RestartGame());
         }
     }
 
+    /// <summary>
+    /// ゲームを再度スタート
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator RestartGame() {
+
+        // 徐々にリザルトポップアップを透明にする
         canvasGroup.DOFade(0f, 1.0f);
 
         yield return new WaitForSeconds(1.0f);
 
+        // 現在のシーン名を取得
         string sceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(sceneName);
-    }
 
-    private void OnClickExitGame() {
-        if (!isSelectBtn) {
-            isSelectBtn = true;
-            ExitGame();
-        }
+        // シーンの読み込み・遷移
+        SceneManager.LoadScene(sceneName);
     }
 
     /// <summary>
     /// ゲームを終了する
+    /// </summary>
+    private void OnClickExitGame() {
+
+        // いずれかのボタンが押されているなら
+        if (isSelectBtn) {
+            // このメソッドは処理しない
+            return;
+        }
+
+        // ボタンの重複・連続タップ防止
+        isSelectBtn = true;
+       
+        // ゲーム終了処理
+        ExitGame();   　
+    }
+
+    /// <summary>
+    /// ゲーム終了の実処理
     /// </summary>
     public void ExitGame() {
 
@@ -110,7 +155,14 @@ public class ResultPopUp : MonoBehaviour
 #endif
     }
 
-    private void DispayResult(int money, int battleTime, int remainingballCount) {
+    /// <summary>
+    /// リザルトポップアップに今回のゲームのリザルト内容を表示
+    /// </summary>
+    /// <param name="money"></param>
+    /// <param name="battleTime"></param>
+    /// <param name="remainingballCount"></param>
+    /// <param name="isClear">true = クリア, false = ゲームオーバー</param>
+    private void DispayResult(int money, int battleTime, int remainingballCount, bool isClear) {
 
         // 獲得したMoneyを表示
         // 計算用の初期値を設定
@@ -137,7 +189,7 @@ public class ResultPopUp : MonoBehaviour
                         initValue = num;
                         txtTimeBonus.text = num.ToString();
                     },
-                    battleTime * magnifyingTimePoint,
+                    isClear ? battleTime * magnifyingTimePoint : 0,
                     1.0f).OnComplete(() => { initValue = 0; }).SetEase(Ease.InCirc));
 
         // ④シーケンス処理を0.5秒だけ待機
@@ -149,7 +201,7 @@ public class ResultPopUp : MonoBehaviour
                         initValue = num;
                         txtBallBonus.text = num.ToString();
                     },
-                    remainingballCount * magnifyingBallPoint,
+                    isClear ? remainingballCount * magnifyingBallPoint : 0,
                     1.0f).OnComplete(() => { initValue = 0; }).SetEase(Ease.InCirc));
 
 
@@ -173,7 +225,7 @@ public class ResultPopUp : MonoBehaviour
         // 今回のゲーム内で獲得したMoneyをMoney総数に加算
         GameData.instance.ProcMoney(totalPoint);
 
-        // 各ボタンを押せるようにする
+        // リザルトの表示が終了したので、各ボタンを押せるようにする
         btnClosePopUp.interactable = true;
         btnExitGame.interactable = true;
     }

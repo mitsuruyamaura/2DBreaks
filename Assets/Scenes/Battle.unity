@@ -250,9 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fb10e02622fd2418b3087d329d2f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 5
-  rectTransform: {fileID: 0}
-  gameManager: {fileID: 0}
 --- !u!70 &74568176
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -769,9 +766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fb10e02622fd2418b3087d329d2f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 5
-  rectTransform: {fileID: 0}
-  gameManager: {fileID: 0}
 --- !u!70 &200867381
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1079,11 +1073,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  hpSlider: {fileID: 0}
   money: 0
   appearance: 0
   treasureBoxPrefab: {fileID: 0}
-  canvasTran: {fileID: 0}
-  slider: {fileID: 176842823}
 --- !u!1 &261960994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,9 +1129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fb10e02622fd2418b3087d329d2f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 5
-  rectTransform: {fileID: 0}
-  gameManager: {fileID: 0}
 --- !u!70 &261960997
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1299,13 +1289,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27614b9ee70845f3a919964d2cab65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineParent: {fileID: 283497543}
-  linePrefab: {fileID: 5018778843096801463, guid: 91b1bdf0816cb744988aa7f228927fec,
-    type: 3}
-  lineLength: 0.3
-  lineWidth: 0.2
+  cuelinePrefab: {fileID: 0}
+  mixLineLength: 0
   duration: 0.15
-  gameManager: {fileID: 1802480620}
+  gameMaster: {fileID: 0}
+  battleManager: {fileID: 1802480620}
 --- !u!1 &334348193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,11 +1773,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  hpSlider: {fileID: 0}
   money: 0
   appearance: 0
   treasureBoxPrefab: {fileID: 0}
-  canvasTran: {fileID: 0}
-  slider: {fileID: 870022135}
 --- !u!70 &563932597
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1933,13 +1920,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debb4bd2e884f514cac278d019fd5010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  charaBallHp: 0
+  battleTime: 60
+  totalMoney: 0
   charaData:
     charaNo: 0
     hp: 3
     power: 5
     speed: 5
-  money: 0
-  battleTime: 60
   chooseStageNo: 0
 --- !u!4 &585487579
 Transform:
@@ -3469,9 +3457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fb10e02622fd2418b3087d329d2f62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 5
-  rectTransform: {fileID: 0}
-  gameManager: {fileID: 0}
 --- !u!70 &1193704137
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4128,16 +4113,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8c6d3cb0da08b408a5a31ba8f9ff46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtGameTime: {fileID: 152560808}
+  iconRemainingBallList: []
+  iconRemainingBallPrefab: {fileID: 0}
+  remainingBallTran: {fileID: 0}
+  imgTimeGauge: {fileID: 0}
+  txtBattleTime: {fileID: 0}
   txtMoney: {fileID: 960324858}
-  imgHp: {fileID: 673389351}
   txtStageInfo: {fileID: 814463965}
+  canvasGroupStageInfo: {fileID: 1932042485}
   txtPhaseCount: {fileID: 1051587741}
-  phaseCountCanvasGroup: {fileID: 1932042485}
-  cueBallList: []
-  cueBallPrefab: {fileID: 3615683762524118218, guid: ed5c953378fa2e34b91ba2e1b1ea30ff,
-    type: 3}
-  cueBallTran: {fileID: 1803650920}
 --- !u!4 &1690049086
 Transform:
   m_ObjectHideFlags: 0
@@ -4275,10 +4259,10 @@ MonoBehaviour:
   speed: 7.5
   power: 5
   hp: 20
+  capsuleCol: {fileID: 1703845450}
+  battleManager: {fileID: 0}
   imgChara: {fileID: 1703845452}
   btnChara: {fileID: 1703845454}
-  capsuleCol: {fileID: 1703845450}
-  gameManager: {fileID: 1802480620}
 --- !u!70 &1703845450
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4522,46 +4506,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee4897eebc545e48bfaa5da3b35bd08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTime: 0
-  currentHp: 0
   uiManager: {fileID: 1690049085}
-  currentPhaseCount: 0
-  itemAppearCount: 0
-  nextAppearCount: 0
+  charaBallPrefab: {fileID: 0}
+  startCharaTran: {fileID: 2124966772}
+  enemyBallPrefab: {fileID: 0}
+  enemyBallList: []
   canvasTran: {fileID: 2100448822}
   leftBottomTran: {fileID: 1267719055}
   rightTopTran: {fileID: 72247818}
-  enemyList: []
-  charaPrefab:
-    charaNo: 0
-    hp: 0
-    power: 0
-    speed: 0
+  enemyPlace: {fileID: 0}
+  currentTime: 0
+  gameState: 0
+  obstacleList: []
+  resultPopUpPrefab: {fileID: 0}
+  currentHp: 0
+  currentPhaseCount: 0
+  itemAppearCount: 0
+  nextAppearCount: 0
   itemPrefab: {fileID: 4091242005741798139, guid: 24868027264461240b67394a9ed6e015,
     type: 3}
-  obstacleObjPrefab: {fileID: 4461149324234487458, guid: 828b15ca599f51243b474b77d7d8de04,
-    type: 3}
-  enemyObjPrefab: {fileID: 8271438500429366537, guid: 901b07c7c88a7ea48a03441cdee38c0c,
-    type: 3}
-  enemyAppearTran:
-  - {fileID: 1193704135}
-  - {fileID: 200867379}
-  - {fileID: 261960995}
-  - {fileID: 74568174}
-  - {fileID: 912131590}
-  enemyObjList: []
-  obstacleObjList: []
+  obstacleObjPrefab: {fileID: 0}
   maxPhaseCount: 3
-  startCharaTran: {fileID: 2124966772}
   obstaclesTran:
   - {fileID: 7899128756769832657}
   - {fileID: 630347015018678227}
-  charaBall: {fileID: 1703845449}
-  obstacleRockPrefab: {fileID: 8474729429748429319, guid: 34b82098fd2dd1d4d89a200f56f774a4,
-    type: 3}
-  enemyKumaPrefab: {fileID: 6583340190710842071, guid: d6d60a8ad133a9945ad202a4362f7384,
-    type: 3}
-  gameState: 0
+  obstacleRockPrefab: {fileID: 0}
 --- !u!1 &1803650919
 GameObject:
   m_ObjectHideFlags: 0

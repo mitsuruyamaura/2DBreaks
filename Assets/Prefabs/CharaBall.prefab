@@ -369,9 +369,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 1
+  m_LinearDrag: 1
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -387,7 +387,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 3489542681402820902}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 70708a6f6832e41fbba6f82cd05f48c4, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -409,8 +409,8 @@ MonoBehaviour:
   speed: 7.5
   power: 5
   hp: 20
-  battleManager: {fileID: 0}
   capsuleCol: {fileID: 3489542681402820907}
+  battleManager: {fileID: 0}
   imgChara: {fileID: 3489542681402820909}
   btnChara: {fileID: 3489542681402820911}
 --- !u!114 &3489542681402820911

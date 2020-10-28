@@ -42,60 +42,63 @@ public class BattleManager : MonoBehaviour
 
     public enum GameState {
         Wait,
-        Ready,
         Play,
-        Result
+        Result,
+        GameOver
     }
 
     public GameState gameState = GameState.Wait;
 
+    [SerializeField]
+    private List<ObstacleBase> obstacleList = new List<ObstacleBase>();
 
     [SerializeField]
     private ResultPopUp resultPopUpPrefab;
 
+    [Header("最大フェーズ数")]
+    public int maxPhaseCount;
+
     // 未
 
+    [HideInInspector]
     public int currentHp;
 
+    [HideInInspector]
     public int currentPhaseCount;
 
+    [HideInInspector]
     public int itemAppearCount;
+
+    [HideInInspector]
     public int nextAppearCount;
 
-
-    public List<EnemyData> enemyList = new List<EnemyData>();
-
-    public CharaData charaPrefab;
-    public EnemyData enemyPrefab;
+    [HideInInspector]
     public ItemDetail itemPrefab;
+
+    [HideInInspector]
     public TreasureData treasurePrefab;
-    public GameObject obstacleObjPrefab;
 
-    public GameObject enemyObjPrefab;
-    public Transform[] enemyAppearTran;
-    public List<GameObject> enemyObjList = new List<GameObject>();
-    public List<GameObject> obstacleObjList = new List<GameObject>();
+    [HideInInspector]
+    public ObstacleBase obstacleObjPrefab;
 
-    public int maxPhaseCount;
-    
-
+    [HideInInspector]
     public Transform[] obstaclesTran;
 
-    //public CharaBall charaBall;
+    [HideInInspector]
+    public ObstacleBase obstacleRockPrefab;
 
-    public GameObject obstacleRockPrefab;
-    public GameObject enemyKumaPrefab;
-
-
+    [SerializeField]
+    private ItemManager itemManager;
 
     public IEnumerator Start() {
+        gameState = GameState.Wait;
+        //Debug.Log(gameState);
+
         // 初期化
         yield return StartCoroutine(Initialize());
 
         // ゲームの準備(Phaseごと)
-        //yield return StartCoroutine(PreparateNextPhase());
-
-        
+        yield return StartCoroutine(PreparateNextPhase());    
 
         // 残り時間の表示を更新
         uiManager.UpdateDisplayBattleTime(currentTime);
@@ -110,11 +113,9 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     public IEnumerator Initialize() {
-        gameState = GameState.Wait;
-        Debug.Log(gameState);
-
         // 初期値設定
         currentHp = GameData.instance.charaData.hp;
+
         currentTime = GameData.instance.battleTime;
 
         // Moneyの初期値設定
@@ -128,6 +129,9 @@ public class BattleManager : MonoBehaviour
 
         // TODO キャラのスタート地点を登録(今はPublicで入れている)
 
+        itemManager.SetUpItemManager(this);
+
+
         // 手球を体力の数だけ生成する
         yield return StartCoroutine(uiManager.GenerateIconRemainingBalls(currentHp));
 
@@ -135,11 +139,11 @@ public class BattleManager : MonoBehaviour
         charaBall = GenerateCharaBall();
 
         // 敵を生成
-        yield return StartCoroutine(GenerateEnemys());
+        //yield return StartCoroutine(GenerateEnemys());
 
-        gameState = GameState.Play;
+        //gameState = GameState.Play;
 
-        Debug.Log(gameState);
+        //Debug.Log(gameState);
         //yield break;
     }
 
@@ -151,6 +155,23 @@ public class BattleManager : MonoBehaviour
         CharaBall chara = Instantiate(charaBallPrefab, startCharaTran, false);
         chara.SetUpCharaBall(this);
         return chara;
+    }
+
+    /// <summary>
+    /// キャラを停止させてスタート位置へ戻す
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator RestartCharaPosition(float waiTime = 1.0f) {
+        // キャラの動きを止める
+        charaBall.StopMoveBall();
+
+        // スタート位置へ戻す
+        charaBall.transform.DOMove(startCharaTran.position, waiTime).SetEase(Ease.Linear);
+
+        yield return new WaitForSeconds(waiTime);
+
+        // 手球を弾けるようにする
+        charaBall.ChangeActivateCollider(true);
     }
 
     /// <summary>
@@ -218,23 +239,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 障害物を生成
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator GenerateObstructs() {
 
-        for (int i = 0; i < 1; i++) {
-            GameObject obstacle = Instantiate(obstacleObjPrefab, obstaclesTran[i], false);
-            obstacle.GetComponent<ObstacleBase>().SetUpObstacle(this);
-            obstacleObjList.Add(obstacle);
-        }
-        GameObject rock = Instantiate(obstacleRockPrefab, obstaclesTran[1], false);
-        rock.GetComponent<ObstacleBase>().SetUpObstacle(this);
-        obstacleObjList.Add(rock);
-
-        yield break;
-    }
 
     /// <summary>
     /// 敵をリストから削除
@@ -251,97 +256,42 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     public void CheckRemainingEnemies() {
         if (enemyBallList.Count == 0) {
-            // ObstacleListをクリア
-            ClearObstacleList();
 
-            // 今回のゲーム内で獲得したMoneyをMoney総数に加算
-            //GameData.instance.ProcMoney(money);
+            // 現在のフェーズ数が最大フェーズ数と同じか超えたら
+            if (currentPhaseCount >= maxPhaseCount) {
+                // 今回のゲーム内で獲得したMoneyをMoney総数に加算
+                //GameData.instance.ProcMoney(money);
 
-            gameState = GameState.Result;
-            Debug.Log(gameState);
+                // ゲームクリアの状態
+                gameState = GameState.Result;
+                Debug.Log(gameState);
 
-            // スタート地点へ戻す
-            RestartCharaPosition(1.0f);
+                // ObstacleListをクリアして、障害物を消す
+                ClearObstacleList();
 
-            // 障害物を消す
-            ClearObstacleList();
+                // クリア表示
+                uiManager.DisplayStageClear();
 
-            // リザルト表示生成
-            StartCoroutine(GenerateResultPopUp());
+                // スタート地点へ戻す
+                //StartCoroutine(RestartCharaPosition(1.0f));
+
+                // リザルトポップアップ生成
+                StartCoroutine(GenerateResultPopUp(true));
 
 
-            //if (currentPhaseCount >= maxPhaseCount) {
-            //    // ステージクリア
-            //    gameState = GameState.Result;
-            //    uiManager.DisplayStageClear();
+                // ステージクリア
+                //gameState = GameState.Result;
+                //uiManager.DisplayStageClear();
 
-            //    // 今回のゲーム内で獲得したMoneyをMoney総数に加算
-            //    GameData.instance.ProcMoney(money);
-            //} else {
-            //    // 次のPhaseの準備
-            //    gameState = GameState.Wait;
-            //    StartCoroutine(PreparateNextPhase());
-            //}
-        }
-    }
-
-    /// <summary>
-    /// ObstacleListをクリア
-    /// </summary>
-    private void ClearObstacleList() {
-        if (obstacleObjList.Count > 0) {
-            foreach (GameObject obj in obstacleObjList) {
-                Destroy(obj);
+                // 今回のゲーム内で獲得したMoneyをMoney総数に加算
+                //GameData.instance.ProcMoney(money);
+            } else {
+                // 次のPhaseの準備
+                gameState = GameState.Wait;
+                StartCoroutine(PreparateNextPhase());
             }
-            obstacleObjList.Clear();
         }
     }
-
-    /// <summary>
-    /// Phaseの準備
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator PreparateNextPhase() {
-        // Phase数を加算
-        currentPhaseCount++;
-        uiManager.UpdateDisplayPhaseCount(currentPhaseCount, maxPhaseCount);    
-
-        yield return new WaitForSeconds(0.5f);
-
-        // キャラがスタート地点にいなければ、キャラの位置をスタート地点へ戻す
-        if (charaBall.transform.position != startCharaTran.position) {
-            yield return StartCoroutine(RestartCharaPosition());
-        }
-
-        // Phaseに合わせた敵を生成
-        yield return StartCoroutine(GenerateEnemys());
-
-        // Phaseに合わせた障害物を生成
-        yield return StartCoroutine(GenerateObstructs());
-
-        // 画面にPhase数を表示
-        yield return StartCoroutine(uiManager.DispayPhaseStart(currentPhaseCount));
-
-        gameState = GameState.Play;
-    }
-
-    /// <summary>
-    /// キャラを停止させてスタート位置へ戻す
-    /// </summary>
-    /// <returns></returns>
-    public IEnumerator RestartCharaPosition(float waiTime = 1.0f) {
-        // キャラの動きを止める
-        charaBall.StopMoveBall();
-
-        // スタート位置へ戻す
-        charaBall.transform.DOMove(startCharaTran.position, waiTime).SetEase(Ease.Linear);
-
-        yield return new WaitForSeconds(waiTime);
-
-        // 手球を弾けるようにする
-        charaBall.ChangeActivateCollider(true);
-    }
-
 
     void Update() {
         if (gameState != GameState.Play) {
@@ -355,14 +305,15 @@ public class BattleManager : MonoBehaviour
             itemAppearCount++;
 
             if (itemAppearCount >= nextAppearCount) {
-                GenerateItems();
+                PreparateGenerateItems();
                 itemAppearCount = 0;
             }
 
             if (currentTime <= 0) {
                 currentTime = 0;
-                // TODO GameUp
 
+                // ゲームオーバー処理
+                GameUp();
             }
         }
         // ゲーム時間の表示を更新
@@ -382,31 +333,128 @@ public class BattleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// アイテムを生成
+    /// 障害物を破棄し、ObstacleListをクリア
     /// </summary>
-    private void GenerateItems() {
+    private void ClearObstacleList() {
+        if (obstacleList.Count > 0) {
+            foreach (ObstacleBase obstacle in obstacleList) {
+                Destroy(obstacle.gameObject);
+            }
+            obstacleList.Clear();
+        }
+    }
+
+    /// <summary>
+    /// ゲームオーバー処理
+    /// </summary>
+    public void GameUp() {
+
+        // ゲームの進行状態をゲームオーバー状態に変更
+        gameState = GameState.GameOver;
+        Debug.Log(gameState);
+
+        // ゲームオーバー表示
+        uiManager.DisplayGameOver();
+
+        // リザルトポップアップ生成
+        StartCoroutine(GenerateResultPopUp());
+    }
+
+    /// <summary>
+    /// リザルトポップアップを生成
+    /// </summary>
+    /// <param name="isClear"></param>
+    /// <returns></returns>
+    private IEnumerator GenerateResultPopUp(bool isClear = false) {
+        yield return new WaitForSeconds(2.0f);
+
+        // リザルトポップアップを生成
+        ResultPopUp resultPopUp = Instantiate(resultPopUpPrefab, canvasTran, false);
+
+        // リザルトポップアップを設定
+        resultPopUp.SetUpResultPopUp(this, money, currentTime, charaBall.Hp, isClear);
+    }
+   
+    /// <summary>
+    /// Phaseの準備
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator PreparateNextPhase() {
+        // Phase数を加算
+        currentPhaseCount++;
+
+        Debug.Log("現在のフェーズ : " + currentPhaseCount);
+
+        // Phase表示を更新
+        uiManager.UpdateDisplayPhaseCount(currentPhaseCount, maxPhaseCount);    
+
+        yield return new WaitForSeconds(0.5f);
+
+        // キャラがスタート地点にいなければ、キャラの位置をスタート地点へ戻す
+        if (charaBall.transform.position != startCharaTran.position) {
+            yield return StartCoroutine(RestartCharaPosition());
+        }
+
+        // Phaseに合わせた敵を生成
+        yield return StartCoroutine(GenerateEnemys());
+
+        // Phaseに合わせた障害物を生成
+        //yield return StartCoroutine(GenerateObstructs());
+
+        // 画面中央に開始するPhase数とStartを表示
+        yield return StartCoroutine(uiManager.DispayPhaseStart(currentPhaseCount));
+
+        gameState = GameState.Play;
+    }
+
+
+    //　未
+
+
+    /// <summary>
+    /// アイテム生成の準備
+    /// </summary>
+    private void PreparateGenerateItems() {
         // 生成位置を画面内の1点にランダムで設定
         Vector2 generatePos = new Vector2(Random.Range(leftBottomTran.position.x, rightTopTran.position.x), Random.Range(leftBottomTran.position.y, rightTopTran.position.y));
 
+        // アイテム生成
+        itemManager.GenerateItem(canvasTran, generatePos);
+
         // TODO アイテム生成 DataBaseManagerから戻り値としてItemDataを貰って、それを使ってインスタンスする
-        ItemDetail item = Instantiate(itemPrefab, canvasTran, false);
-        item.transform.position = generatePos;
+        //ItemDetail item = Instantiate(itemPrefab, canvasTran, false);
+        //item.transform.position = generatePos;
 
         // 
-        item.SetUpItemDetail(DataBaseManager.instance.itemDataList[Random.Range(0, DataBaseManager.instance.itemDataList.Count)], this);
+        //item.SetUpItemDetail(DataBaseManager.instance.itemDataList[Random.Range(0, DataBaseManager.instance.itemDataList.Count)], this);
 
         // TODO アイテム用のリストに追加
 
         nextAppearCount = Random.Range(10, 16);
     }
 
-    private IEnumerator GenerateResultPopUp() {
-        yield return new WaitForSeconds(1.0f);
+    /// <summary>
+    /// 障害物を生成
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator GenerateObstructs() {
 
-        // リザルト表示ポップアップを生成
-        ResultPopUp resultPopUp = Instantiate(resultPopUpPrefab, canvasTran, false);
+        for (int i = 0; i < 1; i++) {
+            ObstacleBase obstacle = Instantiate(obstacleObjPrefab, obstaclesTran[i], false);
+            obstacle.GetComponent<ObstacleBase>().SetUpObstacle(this);
+            obstacleList.Add(obstacle);
+        }
+        ObstacleBase rock = Instantiate(obstacleRockPrefab, obstaclesTran[1], false);
+        rock.GetComponent<ObstacleBase>().SetUpObstacle(this);
+        obstacleList.Add(rock);
 
-        // ポップアップを設定
-        resultPopUp.SetUpResultPopUp(this, money, currentTime, charaBall.GetCharaBallHp());
+        yield break;
+    }
+
+    public CharaBall CharaBall
+    {
+        get {
+            return charaBall;
+        }
     }
 }

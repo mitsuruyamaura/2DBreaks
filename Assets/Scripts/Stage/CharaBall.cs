@@ -25,6 +25,19 @@ public class CharaBall : MonoBehaviour
     private CapsuleCollider2D capsuleCol;
 
     public BattleManager battleManager;    // TODO 後でPrivateにする
+
+
+    /// <summary>
+    /// hp用プロパティ
+    /// </summary>
+    /// <returns></returns>
+    public int Hp
+    {
+        set {　hp = value;  }
+        get {　return hp;  }
+    }
+
+
     //　未
 
     //[Header("ゲーム管理クラス")]
@@ -119,6 +132,11 @@ public class CharaBall : MonoBehaviour
 
         //    //gameMaster.gameState = GAME_STATE.PLAY;
         //}
+        //if (rb.velocity != Vector2.zero) {
+        //    rb.velocity *= 0.995f;
+            
+        //}
+        //procVelocity = rb.velocity;
     }
 
     /// <summary>
@@ -192,10 +210,10 @@ public class CharaBall : MonoBehaviour
     /// <param name="amount"></param>
     public void UpdateHp(int amount)
     {
-        battleManager.currentHp += amount;
+        hp += amount;
 
         // UI上にある手球を減らす
-        battleManager.uiManager.UpdateDisplayIconRemainingBall(battleManager.currentHp);
+        battleManager.uiManager.UpdateDisplayIconRemainingBall(hp);
        
         // TODO HPゲージ作ったらUIの更新処理追加
 
@@ -209,10 +227,18 @@ public class CharaBall : MonoBehaviour
         if (battleManager.currentHp <= 0) {
             battleManager.currentHp = 0;
 
-            battleManager.gameState = BattleManager.GameState.Result;
+            //battleManager.gameState = BattleManager.GameState.Result;
 
             // GameOver
-            rb.velocity *= 0.96f;
+            //rb.velocity *= 0.96f;
+
+            // 手球を停止
+            StopMoveBall();
+
+            Debug.Log("Game Over");
+
+            // ゲームオーバー処理
+            battleManager.GameUp();
         }
     }
 
@@ -238,14 +264,5 @@ public class CharaBall : MonoBehaviour
                     count = 0;
                 }
             });
-    }
-
-
-    /// <summary>
-    /// Hpを取得
-    /// </summary>
-    /// <returns></returns>
-    public int GetCharaBallHp() {
-        return hp;
     }
 }

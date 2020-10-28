@@ -20,7 +20,7 @@ public class CueLiner : MonoBehaviour
     public float duration;
     
     //[Header("ゲーム管理クラス")]
-    //public GameMaster gameMaster;
+    public GameMaster gameMaster;
 
     private Vector2 touchPos; //マウスのクリック地点
 
@@ -29,8 +29,8 @@ public class CueLiner : MonoBehaviour
 
     private void Update() {
         //if ((gameMaster.gameState == GAME_STATE.PLAY) || (gameMaster.gameState == GAME_STATE.WARNING)) {
-            // ラインを引く
-            //DrawLine();
+        //    //ラインを引く
+        //    DrawLine();
         //}
 
         if (battleManager.gameState == BattleManager.GameState.Play || battleManager.gameState == BattleManager.GameState.Result) {
