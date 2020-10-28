@@ -12,6 +12,8 @@ public class ItemData {
     public enum ItemEffectType {
         AddBattleTime,
         GainHp,
+        TempSpeedUp,
+        TempAttackUp,
     }
 
     public ItemEffectType itemEffectType;

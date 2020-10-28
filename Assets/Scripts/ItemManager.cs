@@ -30,23 +30,28 @@ public class ItemManager : MonoBehaviour
         item.transform.position = generatePos;
 
         // ランダムな効果を１つ設定
-        int itemNo = Random.Range(0, itemDataList.Count);
+        //int itemNo = Random.Range(0, itemDataList.Count);
+        ItemData.ItemEffectType itemEffectType = (ItemData.ItemEffectType)Random.Range(0, itemDataList.Count);
 
         // アイテムの設定
-        item.SetUpItemDetail(itemNo, GetItemEffect(itemNo));
+        item.SetUpItemDetail((int)itemEffectType, GetItemEffect(itemEffectType));
     }
 
     /// <summary>
-    /// 
+    /// アイテムの効果用のメソッドを判定して戻す
     /// </summary>
-    /// <param name="getItemNo"></param>
+    /// <param name="itemEffectType"></param>
     /// <returns></returns>
-    private UnityAction GetItemEffect(int getItemNo) {
-        switch (getItemNo) {
-            case 0:
+    private UnityAction GetItemEffect(ItemData.ItemEffectType itemEffectType) {
+        switch (itemEffectType) {
+            case ItemData.ItemEffectType.AddBattleTime:
                 return AddBattleTime;
-            case 1:
+            case ItemData.ItemEffectType.GainHp:
                 return GainHp;
+            case ItemData.ItemEffectType.TempSpeedUp:
+                return TempSpeedUp;
+            case ItemData.ItemEffectType.TempAttackUp:
+                return TempAttackUp;
             default:
                 return null;
         }
@@ -68,13 +73,23 @@ public class ItemManager : MonoBehaviour
         battleManager.uiManager.UpdateDisplayIconRemainingBall(battleManager.CharaBall.Hp);
     }
 
+    /// <summary>
+    /// 速度アップ
+    /// </summary>
     public void TempSpeedUp() {
-        // TODO Conditionクラスをアタッチ
+        // TODO Conditionクラスをアタッチ 重複チェックは不要
+        battleManager.CharaBall.gameObject.AddComponent<ConditionSpeedUp>();
 
+        Debug.Log("速度アップ 付与");
     }
 
+    /// <summary>
+    /// 攻撃力アップ
+    /// </summary>
     public void TempAttackUp() {
+        battleManager.CharaBall.gameObject.AddComponent<ConditionAttackPowerUp>();
 
+        Debug.Log("攻撃力アップ 付与");
     }
 
     public void TempInvincible() {

@@ -54,7 +54,10 @@ public class UIManager : MonoBehaviour
     /// </summary>
     /// <param name="amount"></param>
     public void UpdateDisplayIconRemainingBall(int amount) {
+
+        // 手球の最大値が増える場合
         if (iconRemainingBallList.Count < amount) {
+       　　　// 差分だけ手球のアイコンを作成
             int value = amount - iconRemainingBallList.Count;
             for (int i = 0; i < value; i++) {
                 GameObject icon = Instantiate(iconRemainingBallPrefab, remainingBallTran, false);
