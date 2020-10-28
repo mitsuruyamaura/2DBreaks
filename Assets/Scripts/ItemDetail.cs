@@ -7,26 +7,27 @@ using UnityEngine.Events;
 
 public class ItemDetail : MonoBehaviour
 {
-    public ItemData itemData;   // TODO 多分もっていないくていい
+    [SerializeField]
+    private Image imgItem;
 
-    public Image imgItem;
+    private UnityEvent unityEventItemEffect;
 
-    private UnityEvent unityEvent;
-
-    private BattleManager gameManager;
-
-
-    public void SetUpItemDetail(ItemData itemData, BattleManager gameManager) {
-        this.itemData = itemData;
-        this.gameManager = gameManager;
-
+    /// <summary>
+    /// アイテムの設定
+    /// </summary>
+    /// <param name="itemEffect"></param>
+    public void SetUpItemDetail(int itemNo, UnityAction itemEffect) {
+        
         // TODO Image Resource.Load
+        // イメージをアイテムに合わせて設定
 
-        unityEvent = new UnityEvent();
+        // UnityEvent初期化
+        unityEventItemEffect = new UnityEvent();
 
-        unityEvent.AddListener(GetItemEffect(this.itemData.itemNo));
+        // アイテムの効果(メソッド)を登録
+        unityEventItemEffect.AddListener(itemEffect);
 
-        Debug.Log("SetUp End Item");
+        Debug.Log("SetUp ItemDetail");
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
@@ -35,49 +36,23 @@ public class ItemDetail : MonoBehaviour
         }
 
         if (col.gameObject.tag == "CharaBall") {
-            // TODO CharaBall取得して、引数で渡す(HPなどを参照できるように。GameDataで管理するなら不要)
 
+            // アイテムの効果発動
             TriggerItemEffect();
-            Debug.Log("Trigger");
+            Debug.Log("Trigger ItemEffect");
         }
     }
 
+    /// <summary>
+    /// アイテムの効果発動
+    /// </summary>
     private void TriggerItemEffect() {
-        unityEvent.Invoke();
+
+        // アイテムに応じた効果のメソッドを実行
+        unityEventItemEffect.Invoke();
 
         // TODO Dotween 取得エフェクト
 
         Destroy(gameObject, 0.5f);
-    }
-
-    public UnityAction GetItemEffect(int getItemNo) {
-        switch (getItemNo) {
-            case 0:
-                return AddBattleTime;
-            default:
-                return null;
-        }
-    }
-
-    public void GainHp() {
-
-    }
-
-    public void AddBattleTime() {
-        gameManager.currentTime += (int)itemData.effectiveValue;
-        Debug.Log("時間延長 : " + (int)itemData.effectiveValue);
-    }
-
-    public void TempSpeedUp() {
-        // TODO Conditionクラスをアタッチ
-
-    }
-
-    public void TempAttackUp() {
-
-    }
-
-    public void TempInvincible() {
-
     }
 }

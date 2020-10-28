@@ -24,19 +24,15 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text txtMoney;
 
-
-    // 未
-
-
-
-    [SerializeField, HideInInspector]
+    [SerializeField]
     private Text txtStageInfo;
 
-    [SerializeField, HideInInspector]
+    [SerializeField]
+    private CanvasGroup canvasGroupStageInfo;
+
+    [SerializeField]
     private Text txtPhaseCount;
 
-    [SerializeField, HideInInspector]
-    private CanvasGroup phaseCountCanvasGroup;
 
 
     /// <summary>
@@ -50,7 +46,6 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
             GameObject icon = Instantiate(iconRemainingBallPrefab, remainingBallTran, false);
             iconRemainingBallList.Add(icon);
-
         }
     }
 
@@ -59,6 +54,14 @@ public class UIManager : MonoBehaviour
     /// </summary>
     /// <param name="amount"></param>
     public void UpdateDisplayIconRemainingBall(int amount) {
+        if (iconRemainingBallList.Count < amount) {
+            int value = amount - iconRemainingBallList.Count;
+            for (int i = 0; i < value; i++) {
+                GameObject icon = Instantiate(iconRemainingBallPrefab, remainingBallTran, false);
+                iconRemainingBallList.Add(icon);
+            }
+        }
+
         for (int i = 0; i < iconRemainingBallList.Count; i++) {
             if (i < amount) {
                 iconRemainingBallList[i].SetActive(true);
@@ -85,12 +88,35 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Phase数の表示を更新
+    /// ステージクリア表示
+    /// </summary>
+    public void DisplayStageClear() {
+        txtStageInfo.transform.localScale = Vector3.one * 5;
+        txtStageInfo.text = "Stage Clear!!";
+
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(canvasGroupStageInfo.DOFade(1.0f, 0.5f));
+
+        sequence.Join(txtStageInfo.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.Linear));
+        sequence.Append(txtStageInfo.transform.DOScale(Vector3.one * 1.25f, 0.15f));
+        sequence.Append(txtStageInfo.transform.DOScale(Vector3.one, 0.15f));
+    }
+
+    /// <summary>
+    /// ゲームオーバー表示
+    /// </summary>
+    public void DisplayGameOver() {
+        canvasGroupStageInfo.DOFade(1.0f, 0.5f);
+        txtStageInfo.DOText("GameOver...", 1.5f).SetEase(Ease.Linear);
+    }
+
+    /// <summary>
+    /// Phase数の表示を更新(現在フェーズ数 / 最大フェーズ数)
     /// </summary>
     /// <param name="currentPhaseCount"></param>
     public void UpdateDisplayPhaseCount(int currentPhaseCount, int maxPhaseCount) {
         txtPhaseCount.text = currentPhaseCount.ToString();
-        txtPhaseCount.text += " / " + maxPhaseCount.ToString();
+        txtPhaseCount.text += "/" + maxPhaseCount;
     }
 
     /// <summary>
@@ -101,7 +127,7 @@ public class UIManager : MonoBehaviour
         txtStageInfo.text = "Phase " + currentPhaseCount.ToString() + "\n";
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(phaseCountCanvasGroup.DOFade(1.0f, 0.5f));
+        sequence.Append(canvasGroupStageInfo.DOFade(1.0f, 0.5f));
         
         yield return new WaitForSeconds(1.5f);
         sequence.Append(txtStageInfo.DOText("", 0f).SetEase(Ease.Linear));
@@ -111,19 +137,9 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         sequence.Append(txtStageInfo.DOText("GO!!", 0f).SetEase(Ease.Linear));
         sequence.Join(txtStageInfo.transform.DOScale(new Vector3(3.0f, 3.0f, 3.0f), 1.0f).SetEase(Ease.Linear));
-        sequence.Join(phaseCountCanvasGroup.DOFade(0f, 1.0f));
+        sequence.Join(canvasGroupStageInfo.DOFade(0f, 1.0f));
 
         yield return new WaitForSeconds(1.5f);
         txtStageInfo.transform.localScale = Vector3.one;
-    }
-
-    public void DisplayGameOver() {
-        phaseCountCanvasGroup.DOFade(1.0f, 0.5f);
-        txtStageInfo.DOText("GameOver...", 1.5f).SetEase(Ease.Linear);
-    }
-
-    public void DisplayStageClear() {
-        phaseCountCanvasGroup.DOFade(1.0f, 0.5f);
-        txtStageInfo.DOText("Stage Clear!!", 1.5f).SetEase(Ease.Linear);
     }
 }

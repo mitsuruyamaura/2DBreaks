@@ -23,6 +23,23 @@ public class Chara : MonoBehaviour {
     private CapsuleCollider2D capsuleCol;
 
 
+    /// <summary>
+    /// hp用プロパティ
+    /// </summary>
+    /// <returns></returns>
+    public int Hp {
+        set 
+        {
+            hp = value;
+        }
+
+        get 
+        {
+            return hp;
+        }
+    }
+
+
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
         //ShotBall();
@@ -102,9 +119,15 @@ public class Chara : MonoBehaviour {
         if (hp <= 0) {
             hp = 0;
 
-            rb.velocity *= 0.96f;
+            //rb.velocity *= 0.96f;
+
+            // 手球を停止
+            StopMoveBall();
 
             Debug.Log("Game Over");
+
+            // ゲームオーバー処理
+            battleManager.GameUp();
         }
     }
 
@@ -125,13 +148,5 @@ public class Chara : MonoBehaviour {
     /// <param name="isSwitch"></param>
     public void ChangeActivateCollider(bool isSwitch) {
         capsuleCol.enabled = isSwitch;
-    }
-
-    /// <summary>
-    /// Hpを取得
-    /// </summary>
-    /// <returns></returns>
-    public int GetCharaBallHp() {
-        return hp;
     }
 }
