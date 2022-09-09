@@ -53,7 +53,12 @@ public class ExitPopUp : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         seq.Append(rectTran.DOScale(new Vector3(5f, 5f), 0.15f).SetEase(Ease.Linear));
         seq.Append(rectTran.DOScale(new Vector3(3f, 3f), 0.35f).SetEase(Ease.Linear));
-        seq.Join(canvasGroup.DOFade(alpha, 0.5f).SetEase(Ease.Linear));
+        seq.Join(canvasGroup.DOFade(alpha, 0.5f).SetEase(Ease.Linear))
+            .OnComplete(() =>
+            {
+                canvasGroup.blocksRaycasts = alpha == 0 ? false : true;
+                isSelectBtn = false;
+            });
     }
 
     /// <summary>
@@ -110,13 +115,13 @@ public class ExitPopUp : MonoBehaviour
         if (!isSelectBtn) {
             isSelectBtn = true;
             AnimePopup(0f);
-            Destroy(gameObject, 0.5f);
-            TransitionManager.instance.openBtn.interactable = true;
+            //Destroy(gameObject, 0.5f);
+            //TransitionManager.instance.openBtn.interactable = true;
 
             // バトル中ならバトルを再開
-            if (TransitionManager.instance.sceneState == SCENE_STATE.Stage) {
-                ReturnBattle();
-            }
+            //if (TransitionManager.instance.sceneState == SCENE_STATE.Stage) {
+            //    ReturnBattle();
+            //}
         }
     }
 }
