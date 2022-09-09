@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 164467538}
   - component: {fileID: 164467537}
   m_Layer: 0
-  m_Name: Chara_2
+  m_Name: Chara_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  myStageNo: 2
+  myStageNo: 1
   eventTrigger: {fileID: 164467537}
 --- !u!50 &164467539
 Rigidbody2D:
@@ -979,7 +979,7 @@ GameObject:
   - component: {fileID: 1565364265}
   - component: {fileID: 1565364266}
   m_Layer: 0
-  m_Name: Chara_1
+  m_Name: Chara_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  myStageNo: 1
+  myStageNo: 0
   eventTrigger: {fileID: 1565364266}
 --- !u!114 &1565364266
 MonoBehaviour:
@@ -1136,7 +1136,7 @@ GameObject:
   - component: {fileID: 1629949177}
   - component: {fileID: 1629949176}
   m_Layer: 0
-  m_Name: Chara_3
+  m_Name: Chara_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  myStageNo: 3
+  myStageNo: 2
   eventTrigger: {fileID: 1629949176}
 --- !u!50 &1629949178
 Rigidbody2D:

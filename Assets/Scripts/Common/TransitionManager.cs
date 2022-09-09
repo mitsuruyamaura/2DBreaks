@@ -46,7 +46,7 @@ public class TransitionManager : MonoBehaviour {
         // フェイドイン処理
         TransFadeIn(fadeInTime);
         // 終了確認ボタン登録
-        openBtn.onClick.AddListener(OnClickOpenExitPopup);
+        //openBtn.onClick.AddListener(OnClickOpenExitPopup);
     }
 
     /// <summary>
@@ -83,8 +83,8 @@ public class TransitionManager : MonoBehaviour {
     /// <returns></returns>
     private IEnumerator ActiveReturnBtn(float time) {
         yield return new WaitForSeconds(time + 0.2f);
-        openBtnImage.enabled = true;
-        openBtn.interactable = true;
+        //openBtnImage.enabled = true;
+        //openBtn.interactable = true;
     }
     /// <summary>
     /// マスク画像を非表示にする
@@ -98,7 +98,7 @@ public class TransitionManager : MonoBehaviour {
     /// </summary>
     /// <param name="time"></param>
 	public void TransFadeOut(float time) {
-        fade.FadeIn(0.7f, () =>
+        fade.FadeIn(1.0f, () =>
         {
             fade.FadeOut(time);
         });
@@ -111,7 +111,7 @@ public class TransitionManager : MonoBehaviour {
     public IEnumerator MoveNextScene(SCENE_STATE nextSceneName) {
         // フェイドアウト処理
         TransFadeOut(fadeInTime);
-        openBtnImage.enabled = false;
+        //openBtnImage.enabled = false;
         yield return new WaitForSeconds(fadeInTime);
         
         // イベントハンドラーに次のシーンを登録し、シーン遷移後にイベント処理を行うようにする
@@ -144,10 +144,10 @@ public class TransitionManager : MonoBehaviour {
         }
     }
 
-    private void Update() {
-        if ((Input.GetKeyDown(KeyCode.Escape)) && (openBtn.interactable)) {
-            // 端末のリターンボタンでも終了できるようにしておく
-            OnClickOpenExitPopup();
-        }
-    }
+    //private void Update() {
+        //if ((Input.GetKeyDown(KeyCode.Escape)) && (openBtn.interactable)) {
+        //    // 端末のリターンボタンでも終了できるようにしておく
+        //    OnClickOpenExitPopup();
+        //}
+    //}
 }
