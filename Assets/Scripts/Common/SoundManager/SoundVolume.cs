@@ -1,4 +1,5 @@
-﻿public class SoundVolume{
+﻿[System.Serializable]
+public class SoundVolume{
 	public float BGM = 1.0f;
 	public float Voice = 1.0f;
 	public float SE = 1.0f;
