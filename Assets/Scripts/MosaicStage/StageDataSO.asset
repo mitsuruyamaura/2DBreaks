@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45da2d2d9a4f54419f7106d705e9c96, type: 3}
+  m_Name: StageDataSO
+  m_EditorClassIdentifier: 
+  stageDataList:
+  - stageNo: 0
+    normalCharaSprite: {fileID: 21300000, guid: 6f49260a505ec414c8b813101eaa37a8,
+      type: 3}
+    rareCharaSprite: {fileID: 21300000, guid: e2bd03afbe3bf4926b4a5c9d0dcaa14c, type: 3}
+    obstacleCount: 2
+    obstacleSpeeds:
+    - 3.5
+    - 6.5
+    stageOpenPoint: 0
+    charaIcon: {fileID: 21300000, guid: 4743f01337f704231b81ca55f81c858a, type: 3}
+  - stageNo: 1
+    normalCharaSprite: {fileID: 21300000, guid: 5a57c6cde9364054b84157a372dbfd48,
+      type: 3}
+    rareCharaSprite: {fileID: 21300000, guid: b206c487e87174aa08eecfe7fb562f1a, type: 3}
+    obstacleCount: 3
+    obstacleSpeeds:
+    - 5.25
+    - 8.75
+    stageOpenPoint: 300
+    charaIcon: {fileID: 21300000, guid: bf6b5a83c16104f158cdba8597caac52, type: 3}
+  - stageNo: 2
+    normalCharaSprite: {fileID: 21300000, guid: 0354a9e072c4edc4f95f097bc0dfd84d,
+      type: 3}
+    rareCharaSprite: {fileID: 21300000, guid: 408bd88d4137643b1818abe7a0628f07, type: 3}
+    obstacleCount: 4
+    obstacleSpeeds:
+    - 7
+    - 11
+    stageOpenPoint: 800
+    charaIcon: {fileID: 21300000, guid: 8281fc15339fa416585c7eb0bd212474, type: 3}

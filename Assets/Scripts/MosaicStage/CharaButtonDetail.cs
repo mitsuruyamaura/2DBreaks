@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using UniRx;
 
 public class CharaButtonDetail : MonoBehaviour
 {
@@ -11,44 +10,76 @@ public class CharaButtonDetail : MonoBehaviour
     [SerializeField]
     private Image imgChara;
 
-    //[SerializeField]
+    [SerializeField]
+    private Text txtStageOpenPoint;
+
+    [SerializeField]   //　インスペクターでの Debug 用。確認が済んだら SerializeField 属性の付与を外す
     private int stageNo;
-    private Menu menu;
+
 
     /// <summary>
     /// 初期設定
     /// </summary>
     /// <param name="stageNo"></param>
     /// <param name="menu"></param>
-    public void SetUpCharaButtonDetail(int stageNo, Menu menu, Sprite charaSprite) {
+    public void SetUpCharaButtonDetail(int stageNo, Sprite charaSprite) {
         this.stageNo = stageNo;
-        this.menu = menu;
-
         imgChara.sprite = charaSprite;
-
-        btnChara.OnClickAsObservable()
-            .ThrottleFirst(System.TimeSpan.FromSeconds(1.0f))
-            .Subscribe(_ => 
-            {
-                SelectStage.stageNo = stageNo;
-
-                btnChara.transform.DOShakeScale(0.3f).SetEase(Ease.InQuart).SetLink(gameObject);
-
-                SoundManager.Instance.PlaySE(SoundManager.SE_TYPE.Submit);
-
-                // 他のボタンも押せない状態にする
-                menu.InactiveAllCharaButtons();
-
-                // シーン遷移とフェイドアウト処理
-                StartCoroutine(TransitionManager.instance.MoveNextScene(SCENE_STATE.Stage));
-            })
-            .AddTo(gameObject);          
+        txtStageOpenPoint.text = "ステージ " + (stageNo + 1) + "\r\n";
     }
 
     /// <summary>
-    /// ボタン非活性化
+    /// マウスをホバーしたときの処理
+    /// </summary>
+    private void ResponseHoverButton() {
+        if (!btnChara.enabled) {
+            return;
+        }
+        transform.DOShakeScale(0.25f, 0.5f, 4).SetEase(Ease.InQuart).SetLink(gameObject).OnComplete(() => transform.localScale = Vector3.one);
+    }
+
+    /// <summary>
+    /// ステージ開放に必要なポイント表示
+    /// </summary>
+    /// <param name="openPoint"></param>
+    public void DisplayStageOpenPoint(int openPoint) {
+        txtStageOpenPoint.text += openPoint + " で開放";
+    }
+
+    /// <summary>
+    /// キャラボタン押下時の処理
+    /// </summary>
+    public void OnClickCharaButton() {
+        SelectStage.stageNo = stageNo;
+
+        btnChara.transform.DOShakeScale(0.3f).SetEase(Ease.InQuart).SetLink(gameObject);
+
+        SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
+
+        // シーン遷移とフェイドアウト処理
+        StartCoroutine(TransitionManager.instance.MoveNextScene(SCENE_STATE.Stage));
+    }
+
+    /// <summary>
+    /// ボタン非活性化　←　不要
     /// </summary>
     public void InactibeCharaButton() {
         btnChara.interactable = false;
+    }
+
+    /// <summary>
+    /// ボタンの取得
+    /// </summary>
+    /// <returns></returns>
+    public Button GetButton() {
+        return btnChara;
+    }
+
+    /// <summary>
+    /// キャラボタンをロック
+    /// </summary>
+    public void LockCharaButton() {
+        btnChara.enabled = false;  // ineractable だと Dsabled Color になるため
+        imgChara.color = new(0, 0, 0, 0.6f);
     }
 }
