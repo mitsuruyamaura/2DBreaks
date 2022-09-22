@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class TileGridDetail : MonoBehaviour
 {
     public TileGridType tileGridType;
-
     public bool IsSelected;
-
     public int Num;
-
     public SpriteRenderer spriteTileGrid;
+
 
     /// <summary>
     /// ‰ŠúÝ’è
@@ -31,9 +26,9 @@ public class TileGridDetail : MonoBehaviour
         return colorNo switch {
             0 => Color.black,
             1 => Color.red,
-            2 => Color.white,
-            3 => Color.blue,
-            4 => Color.green,
+            2 => Color.blue,
+            3 => Color.green,
+            4 => Color.white,
             _ => Color.gray,
         };
     }
