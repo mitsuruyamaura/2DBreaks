@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using Cysharp.Threading.Tasks;
+using System.Linq;
 
 public class UserData : MonoBehaviour
 {
@@ -77,11 +78,20 @@ public class UserData : MonoBehaviour
     }
 
     /// <summary>
-    /// ギャラリーの開放判定
+    /// ポイントによるギャラリーの開放判定
     /// </summary>
     /// <returns></returns>
-    public bool CheckOpenGallary() {
+    public bool CheckOpenGallaryPoint() {
         return isOpenGallary = MosaicCount.Value >= openGallaryPoint ? true : false;
+    }
+
+    /// <summary>
+    /// ノーミスクリアによるギャラリーの開放判定
+    /// すべてのステージでノーミスクリアなら開放
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckOpenGalleryAllNoMissClears() {
+        return achievementStageDataList.Select(x => x.noMissClearCount).All(x => x > 0);
     }
 
     /// <summary>
