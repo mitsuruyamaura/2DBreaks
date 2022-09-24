@@ -42,6 +42,7 @@ public class ExitPopUp : MonoBehaviour
     /// ポップアップを表示する
     /// </summary>
     public void ActivePopup() {
+        gameObject.SetActive(true);
         AnimePopup(1.0f);
     }
 
@@ -58,7 +59,11 @@ public class ExitPopUp : MonoBehaviour
             {
                 canvasGroup.blocksRaycasts = alpha == 0 ? false : true;
                 isSelectBtn = false;
-            });
+
+                if (alpha == 0) {
+                    gameObject.SetActive(false);
+                }
+            }).SetLink(gameObject);
     }
 
     /// <summary>
@@ -68,6 +73,7 @@ public class ExitPopUp : MonoBehaviour
         if (!isSelectBtn) {
             isSelectBtn = true;
             StartCoroutine(TransitionManager.instance.MoveNextScene(SCENE_STATE.Menu));
+            SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
         }
     }
 
@@ -97,13 +103,10 @@ public class ExitPopUp : MonoBehaviour
             //  ゲームの実行状況に合わせて処理を行う
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-
 #elif UNITY_WEBGL
-        Application.OpenURL("https://www.yahoo.co.jp/");
-
-#else //UNITY_STANDALONE
+        Application.OpenURL("https://unityroom.com/");
+#else
         Application.Quit();
-
 #endif
         }
     }
@@ -115,6 +118,9 @@ public class ExitPopUp : MonoBehaviour
         if (!isSelectBtn) {
             isSelectBtn = true;
             AnimePopup(0f);
+
+            SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Cancel);
+
             //Destroy(gameObject, 0.5f);
             //TransitionManager.instance.openBtn.interactable = true;
 

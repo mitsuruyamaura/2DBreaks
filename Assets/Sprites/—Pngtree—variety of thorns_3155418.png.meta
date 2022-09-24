@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -80,9 +81,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -103,6 +104,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -494,6 +497,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      "\u2014Pngtree\u2014variety of thorns_3155418_14": 6336683478171986210
+      "\u2014Pngtree\u2014variety of thorns_3155418_3": -4745527309059690144
+      "\u2014Pngtree\u2014variety of thorns_3155418_15": -4610818987462151594
+      "\u2014Pngtree\u2014variety of thorns_3155418_8": 9085344324446681786
+      "\u2014Pngtree\u2014variety of thorns_3155418_5": 6700729585611343625
+      "\u2014Pngtree\u2014variety of thorns_3155418_4": -1926008998180178009
+      "\u2014Pngtree\u2014variety of thorns_3155418_2": -6956452726865200618
+      "\u2014Pngtree\u2014variety of thorns_3155418_10": -3103438886063904626
+      "\u2014Pngtree\u2014variety of thorns_3155418_12": -6978061145488363825
+      "\u2014Pngtree\u2014variety of thorns_3155418_13": -1529111507496036613
+      "\u2014Pngtree\u2014variety of thorns_3155418_7": -1081082459100640291
+      "\u2014Pngtree\u2014variety of thorns_3155418_1": 3074329157311322398
+      "\u2014Pngtree\u2014variety of thorns_3155418_9": -4931098661543539195
+      "\u2014Pngtree\u2014variety of thorns_3155418_11": 544725937448170289
+      "\u2014Pngtree\u2014variety of thorns_3155418_0": -550518357058911909
+      "\u2014Pngtree\u2014variety of thorns_3155418_6": 9023051933577056200
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
