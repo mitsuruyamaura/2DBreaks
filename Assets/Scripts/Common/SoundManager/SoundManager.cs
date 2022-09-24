@@ -100,8 +100,9 @@ public class SoundManager : MonoBehaviour {
         public float loopTime;
         public float endTime;
     }
-	
-	public void Init (){
+
+
+    public void Init (float defaultMasterVolume) {
         //// BGM AudioSource  ->  SerializeField属性にてインスペクターで登録済
         //BGMsources[0] = gameObject.AddComponent<AudioSource>();
         //BGMsources[1] = gameObject.AddComponent<AudioSource>();
@@ -322,6 +323,41 @@ public class SoundManager : MonoBehaviour {
 			source.clip = null;
 		}  
 	}
+
+    /// <summary>
+    /// 指定した AudioGroup の音量変更
+    /// Slider の値(0 - 1.0f)を AudioMixer のデジベルに変換して適用
+    /// </summary>
+    /// <param name="mixerGroupName"></param>
+    /// <param name="linearVolume"></param>
+    public void SetLinearVolumeToMixerGroup(string mixerGroupName, float linearVolume) {
+        float decibel = 20.0f * Mathf.Log10(linearVolume);
+
+        if (float.IsNegativeInfinity(decibel)) {
+            decibel = -96f;  // 無音は -80f ではなくて -96f にする
+        }
+
+        audioMixerGroups[0].audioMixer.SetFloat(mixerGroupName, decibel);
+    }
+
+    public float GetLinearVolumeFromMixerGroup(string mixerGroupName) {
+        float decibel;
+
+        // Master
+        audioMixerGroups[2].audioMixer.GetFloat(mixerGroupName, out decibel);
+
+        return Mathf.Pow(10f, decibel / 20f);
+    }
+
+
+    // 使えなくはないが、上の方がよい
+    //public float ConvertVolumeToDb(float sliderValue) {
+    //    return Mathf.Clamp(Mathf.Log10(Mathf.Clamp(sliderValue, 0f, 1f)) * 20f, -80f, 0f);
+    //}
+
+    //public void SetMasterVolume(float sliderValue) {
+    //    audioMixerGroups[0].audioMixer.SetFloat("Master", ConvertVolumeToDb(sliderValue));
+    //}
 
     ///// <summary>
     ///// AudioMixerのボリューム設定
