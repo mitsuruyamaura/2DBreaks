@@ -107,7 +107,11 @@ public class AchievementPopUp : MonoBehaviour
     /// ポップアップを閉じる
     /// </summary>
     public void ClosePopup() {
-        AnimePopup(0f);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(btnClose.transform.DOScale(Vector3.one * 0.8f, 0.15f).SetEase(Ease.InOutQuart)).SetLink(gameObject);
+        sequence.Append(btnClose.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.Linear)).SetLink(gameObject)
+            .OnComplete(() => AnimePopup(0f));
+
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Cancel);
     }
 
