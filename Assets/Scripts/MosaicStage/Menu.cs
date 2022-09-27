@@ -46,8 +46,6 @@ public class Menu : MonoBehaviour
         SoundManager.instance.SetLinearVolumeToMixerGroup(masterAudioName, EntryPoint.instance.masterVolume);
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.Menu);
 
-        DOTween.Init();
-
         // モザイクカウントによるステージ開放の判定
         UserData.instance.CheckOpenStageFromPoint();
 
