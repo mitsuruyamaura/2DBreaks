@@ -74,7 +74,7 @@ public class MosaicManager : MonoBehaviour
     public ReactiveProperty<float> GameTime = new();
 
     [SerializeField]
-    private Text txtGameTime;
+    private Text[] txtGameTimes;
 
     [SerializeField]
     private GameObject lifeIconPrefab;
@@ -183,7 +183,14 @@ public class MosaicManager : MonoBehaviour
             .AddTo(this);
 
         // ゲーム時間の監視
-        GameTime.Subscribe(x => txtGameTime.text = x.ToString("F2")).AddTo(this);
+        GameTime.Subscribe(x =>
+        {
+            // 小数点以下は小さく表示
+            string time = x.ToString("F2");
+            string[] part = time.Split('.');
+            txtGameTimes[0].text = part[0] + ".";
+            txtGameTimes[1].text = part[1];// "<size=30>part[1]</size>";  // HTML のタグが変数に対応していない。リテラルのみ。
+        }).AddTo(this);
 
         // 壊したグリッドの監視
         TotalErasePoint
@@ -224,17 +231,20 @@ public class MosaicManager : MonoBehaviour
 
         //Debug.Log(a);
         //Debug.Log(b);
+        // 数字のアニメ時間の設定。フィーバーした際には長くなる
+        float duration = newValue == 0 ? (float)feverDuraiton / 1000 : 0.25f;
 
-        txtValue.DOCounter(a, b, 0.25f).SetEase(Ease.Linear).SetLink(txtValue.gameObject)
-            .OnComplete(() => 
-            {
-                // 満タンになったら
-                if (newValue == targetFeverPoint) {
-                    // アニメ演出
-                    float scale = txtValue.transform.localScale.x;
-                    txtValue.transform.DOShakeScale(0.5f).SetEase(Ease.InQuart).SetLink(txtValue.gameObject).OnComplete(() => txtValue.transform.localScale = Vector3.one * scale);                   
-                }
-            });
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(txtValue.DOCounter(a, b, duration).SetEase(Ease.Linear)).SetLink(txtValue.gameObject);
+
+        // 満タンになったら
+        if (newValue == targetFeverPoint) {
+            // 100％ の数字を見せるアニメ演出を追加
+            float scale = txtValue.transform.localScale.x;
+            sequence.Append( 
+            txtValue.transform.DOPunchScale(txtValue.transform.localScale * 1.25f, 0.25f).SetEase(Ease.InQuart).SetLink(txtValue.gameObject)
+                .OnComplete(() => txtValue.transform.localScale = Vector3.one * scale));
+        }
     }
 
     /// <summary>
@@ -257,6 +267,10 @@ public class MosaicManager : MonoBehaviour
     /// <param name="newValue"></param>
     private void UpdateMosaicCount(int oldValue, int newValue) {
         txtMosaicCount.DOCounter(oldValue, newValue, 0.5f).SetEase(Ease.Linear);
+        // 左上のキャラアイコンをアニメ
+        imgCharaIcon.transform.DOPunchScale(Vector3.one * 1.25f, 0.25f)
+            .SetEase(Ease.InQuart)
+            .SetLink(gameObject);
     }
 
     /// <summary>
@@ -457,12 +471,18 @@ public class MosaicManager : MonoBehaviour
         // 障害物の移動速度を低速にし、途中での速度アップもなしにする
         SlowDownAllObstacles();
 
-        sliderFever.value = targetFeverPoint;
+        // 100％ のアニメ演出が終わるまで待機
         var token = this.GetCancellationTokenOnDestroy();
+        await UniTask.Delay(500, cancellationToken: token);
+
+        sliderFever.value = targetFeverPoint;       
         sliderFever.DOValue(0, (float)feverDuraiton / 1000).SetEase(Ease.Linear).SetLink(gameObject);
+        
+        // ゲージに合わせて、数字も 100% -> 0% にする
+        FeverPoint.Value = 0;
+
         await UniTask.Delay(feverDuraiton, false, PlayerLoopTiming.Update, token);
         IsFeverTime.Value = false;
-        FeverPoint.Value = 0;
         //Debug.Log("フィーバータイム終了");
 
         // 障害物の移動速度を戻す
