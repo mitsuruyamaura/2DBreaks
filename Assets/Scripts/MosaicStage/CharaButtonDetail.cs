@@ -52,7 +52,10 @@ public class CharaButtonDetail : MonoBehaviour
     public void OnClickCharaButton() {
         SelectStage.stageNo = stageNo;
 
-        btnChara.transform.DOShakeScale(0.3f).SetEase(Ease.InQuart).SetLink(gameObject);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(btnChara.transform.DOScale(Vector3.one * 0.8f, 0.15f).SetEase(Ease.InOutQuart)).SetLink(gameObject);
+        sequence.Append(btnChara.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.Linear)).SetLink(gameObject);
+        //btnChara.transform.DOShakeScale(0.3f).SetEase(Ease.InQuart).SetLink(gameObject);
 
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
 
