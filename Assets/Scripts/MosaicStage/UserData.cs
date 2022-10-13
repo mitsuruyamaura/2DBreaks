@@ -4,7 +4,7 @@ using UniRx;
 using Cysharp.Threading.Tasks;
 using System.Linq;
 
-public class UserData : MonoBehaviour
+public class UserData : MonoBehaviour, IEntryRun
 {
     public static UserData instance;
 
@@ -31,7 +31,22 @@ public class UserData : MonoBehaviour
 
     private const string SAVE_KEY = "SaveData";        // SaveData クラス用の Key
 
+    /// <summary>
+    /// ゲーム起動時の処理
+    /// </summary>
+    public void EntryRun() {
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+            //Init();　　// ボイス再生のタイミング上、EntryPoint で初期化
+        } else {
+            Destroy(this.gameObject);
+        }
+    }
 
+    /// <summary>
+    /// 初期設定
+    /// </summary>
     public void Init() {
         // セーブデータがある場合
         if (PlayerPrefsHelper.ExistsData(SAVE_KEY)) {
@@ -148,7 +163,7 @@ public class UserData : MonoBehaviour
     public void SetSaveData() {
 
         // セーブ用のデータを作成
-        SaveData saveData = new SaveData {
+        SaveData saveData = new() {
 
             // 各値を SaveData クラスの変数に設定
             mozaicPoint = MosaicCount.Value,
@@ -198,7 +213,7 @@ public class UserData : MonoBehaviour
         achievementStageDataList.Clear();
 
         var token = this.GetCancellationTokenOnDestroy();
-        await UniTask.Delay(1000, false, PlayerLoopTiming.Update, token);
+        await UniTask.Delay(1000, cancellationToken : token);
 
         Init();
     }

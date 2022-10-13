@@ -4,5 +4,6 @@
 public enum SCENE_STATE{
     Title,
     Menu,
-    Stage
+    Stage,
+    Start
 }
