@@ -49,4 +49,6 @@ MonoBehaviour:
     value: 0
   clearStageNoList: 
   isOpenGallary: 0
-  openGallaryPoint: 0
+  openGallaryPoint: 2000
+  beforePoint: 0
+  achievementStageDataList: []

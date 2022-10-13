@@ -88,6 +88,8 @@ MonoBehaviour:
   audioMixerGroups:
   - {fileID: 3621902603824327085, guid: 1c34ad940cdc345438165e94be8c6f81, type: 2}
   - {fileID: -8530934414774975222, guid: 1c34ad940cdc345438165e94be8c6f81, type: 2}
+  - {fileID: 24300002, guid: 1c34ad940cdc345438165e94be8c6f81, type: 2}
+  masterVolume: 0
 --- !u!82 &1704853488
 AudioSource:
   m_ObjectHideFlags: 0

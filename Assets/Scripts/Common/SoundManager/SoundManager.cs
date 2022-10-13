@@ -8,8 +8,7 @@ using DG.Tweening;
 /// <summary>
 /// 音管理クラス
 /// </summary>
-public class SoundManager : MonoBehaviour {
-
+public class SoundManager : MonoBehaviour, IEntryRun {
 
     public static SoundManager instance;
 	
@@ -76,7 +75,7 @@ public class SoundManager : MonoBehaviour {
 	// SE
 	private AudioSource[] SEsources = new AudioSource[16];
 	// 音声
-	private AudioSource[] VoiceSources = new AudioSource[10];
+	private AudioSource[] VoiceSources = new AudioSource[4];
 	
 	// === AudioClip ===
 	// BGM
@@ -93,6 +92,8 @@ public class SoundManager : MonoBehaviour {
 
     int currentBgmIndex = 999;
 
+    public float masterVolume;
+
 
     [System.Serializable]
     public class BGMDatas {
@@ -102,7 +103,24 @@ public class SoundManager : MonoBehaviour {
     }
 
 
-    public void Init (float defaultMasterVolume) {
+    /// <summary>
+    /// ゲーム起動時の処理
+    /// </summary>
+    public void EntryRun() {
+        if (instance == null) {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+            Init(ConstData.DEFAULT_MASTER_VOLUME);
+        } else {
+            Destroy(this.gameObject);
+        }
+    }
+
+    /// <summary>
+    /// 初期設定
+    /// </summary>
+    /// <param name="newMasterVolume"></param>
+    public void Init (float newMasterVolume) {
         //// BGM AudioSource  ->  SerializeField属性にてインスペクターで登録済
         //BGMsources[0] = gameObject.AddComponent<AudioSource>();
         //BGMsources[1] = gameObject.AddComponent<AudioSource>();
@@ -119,6 +137,10 @@ public class SoundManager : MonoBehaviour {
 			VoiceSources[i] = gameObject.AddComponent<AudioSource>();
             VoiceSources[i].outputAudioMixerGroup = audioMixerGroups[1];
         }
+        // 初期音量設定
+        SetMasterVolume(newMasterVolume);
+
+        DOTween.Init();
     }
 
     void Update () {
@@ -330,8 +352,8 @@ public class SoundManager : MonoBehaviour {
     /// </summary>
     /// <param name="mixerGroupName"></param>
     /// <param name="linearVolume"></param>
-    public void SetLinearVolumeToMixerGroup(string mixerGroupName, float linearVolume) {
-        float decibel = 20.0f * Mathf.Log10(linearVolume);
+    public void SetLinearVolumeToMixerGroup(string mixerGroupName, float linerVolume) {
+        float decibel = 20.0f * Mathf.Log10(linerVolume);
 
         if (float.IsNegativeInfinity(decibel)) {
             decibel = -96f;  // 無音は -80f ではなくて -96f にする
@@ -340,6 +362,11 @@ public class SoundManager : MonoBehaviour {
         audioMixerGroups[0].audioMixer.SetFloat(mixerGroupName, decibel);
     }
 
+    /// <summary>
+    /// 指定した AudioGroup の音量を float で取得
+    /// </summary>
+    /// <param name="mixerGroupName"></param>
+    /// <returns></returns>
     public float GetLinearVolumeFromMixerGroup(string mixerGroupName) {
         float decibel;
 
@@ -387,6 +414,14 @@ public class SoundManager : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    /// <summary>
+    /// マスターボリュームの設定値更新
+    /// </summary>
+    /// <param name="newVolume"></param>
+    public void SetMasterVolume(float newVolume) {
+        masterVolume = newVolume;
     }
 
     // ***** 音声再生 *****

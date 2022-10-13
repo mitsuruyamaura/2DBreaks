@@ -20,8 +20,6 @@ public class GameInitPopUp : MonoBehaviour
     [SerializeField]
     private Text txtVolumeValue;
 
-    private string masterAudioName = "Master";
-
 
     /// <summary>
     /// 初期設定
@@ -32,7 +30,7 @@ public class GameInitPopUp : MonoBehaviour
             .Subscribe(_ => 
             {
                 // 現在の Slider の Value 値を保持
-                EntryPoint.instance.SetMasterVolume(volumeSlider.value);
+                SoundManager.instance.SetMasterVolume(volumeSlider.value);
                 ClosePopup();
             })
             .AddTo(gameObject);
@@ -45,13 +43,13 @@ public class GameInitPopUp : MonoBehaviour
         volumeSlider.OnValueChangedAsObservable()
             .Subscribe(x =>
             {
-                SoundManager.instance.SetLinearVolumeToMixerGroup(masterAudioName, x);
+                SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, x);
                 UpdateVolumeValue(x); 
             })
             .AddTo(gameObject);
 
         // スライダーの Value に現在のボリューム設定
-        volumeSlider.value = EntryPoint.instance.masterVolume;
+        volumeSlider.value = SoundManager.instance.masterVolume;
 
         canvasGroup.alpha = 0;
 
