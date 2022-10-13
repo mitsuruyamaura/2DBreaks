@@ -14,10 +14,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Stage.unity
     guid: 1022648d7ec8246f28df688aa468a1d2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StageSelect.unity
     guid: 9668631306432f24abb3b1fe0ce01545
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Battle.unity
     guid: 78d23fee3a12de14db6867a52b0c1618
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Mosaic/Start.unity
+    guid: 451fafc30b996654aafd86974d687ed2
+  - enabled: 1
+    path: Assets/Scenes/Mosaic/Menu.unity
+    guid: 97123a49e7e88004084bf63f9a6c5357
+  - enabled: 1
+    path: Assets/Scenes/Mosaic/Stage.unity
+    guid: b517108e761ef5f4d9d13d5eae99ea6d
   m_configObjects: {}

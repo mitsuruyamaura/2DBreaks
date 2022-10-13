@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
 
-public class Menu : MonoBehaviour
+public class Menu : MonoBehaviour, IEntryRun
 {
     [SerializeField]
     private Text txtMozaicCount;
@@ -37,13 +37,13 @@ public class Menu : MonoBehaviour
 
     private GalleryPopUp galleryPopUp;
 
-    private string masterAudioName = "Master";   // AudioMixer の AudioGroup の名前で指定できる。AudioMixer 側のスクリプトでの制御許可の設定が必要
 
-
-    void Start()
-    {
+    /// <summary>
+    /// ゲーム起動時の処理
+    /// </summary>
+    public void EntryRun() {
         // マスター音量の初期値設定
-        SoundManager.instance.SetLinearVolumeToMixerGroup(masterAudioName, EntryPoint.instance.masterVolume);
+        SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, SoundManager.instance.masterVolume);
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.Menu);
 
         // モザイクカウントによるステージ開放の判定
@@ -66,7 +66,7 @@ public class Menu : MonoBehaviour
 
         // ギャラリーモード未開放の場合
         if (!btnGallery.enabled) {
-            txtGallery.text +=  "【全ステージノーミスクリアか" + "\r\n" + UserData.instance.openGallaryPoint + " で開放】";   
+            txtGallery.text += "【全ステージノーミスクリアか" + "\r\n" + UserData.instance.openGallaryPoint + " で開放】";
         }
 
         // アチーブメントボタンの購読
@@ -81,6 +81,48 @@ public class Menu : MonoBehaviour
             .Subscribe(_ => PrepareGalleryPopUp())
             .AddTo(gameObject);
     }
+
+    //void Start()
+    //{
+    //    // マスター音量の初期値設定
+    //    SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, SoundManager.instance.masterVolume);
+    //    SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.Menu);
+
+    //    // モザイクカウントによるステージ開放の判定
+    //    UserData.instance.CheckOpenStageFromPoint();
+
+    //    // キャラボタンの生成
+    //    CreateCharaButtons();
+
+    //    // MozaicCount 購読
+    //    UserData.instance.MosaicCount
+    //        .Zip(UserData.instance.MosaicCount.Skip(1), (oldValue, newValue) => (oldValue, newValue))
+    //        .Subscribe(x => UpdateDisplayMosaicCount(UserData.instance.beforePoint, x.newValue))   // 前の値との差分で表示更新する
+    //        .AddTo(gameObject);
+
+    //    // 初期値表示更新
+    //    UserData.instance.MosaicCount.SetValueAndForceNotify(UserData.instance.MosaicCount.Value);
+
+    //    // ギャラリーモード開放の確認。短絡評価して、どちらかが true であれば評価されるので、1つの目の評価が true なら2つ目にはいかないで終わる
+    //    btnGallery.enabled = UserData.instance.CheckOpenGallaryPoint() || UserData.instance.CheckOpenGalleryAllNoMissClears();
+
+    //    // ギャラリーモード未開放の場合
+    //    if (!btnGallery.enabled) {
+    //        txtGallery.text +=  "【全ステージノーミスクリアか" + "\r\n" + UserData.instance.openGallaryPoint + " で開放】";   
+    //    }
+
+    //    // アチーブメントボタンの購読
+    //    btnAchieve.OnClickAsObservable()
+    //        .ThrottleFirst(System.TimeSpan.FromSeconds(1))
+    //        .Subscribe(_ => PrepareAchievementPopUp())
+    //        .AddTo(gameObject);
+
+    //    // ギャラリーボタンの購読
+    //    btnGallery.OnClickAsObservable()
+    //        .ThrottleFirst(System.TimeSpan.FromSeconds(2))
+    //        .Subscribe(_ => PrepareGalleryPopUp())
+    //        .AddTo(gameObject);
+    //}
 
     /// <summary>
     /// MosaicCount の表示更新
