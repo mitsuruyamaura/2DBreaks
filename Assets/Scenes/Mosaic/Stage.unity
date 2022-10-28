@@ -1219,7 +1219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1349159988
 Transform:
   m_ObjectHideFlags: 0
@@ -1838,6 +1838,145 @@ RectTransform:
   m_AnchoredPosition: {x: 4.799988, y: 0}
   m_SizeDelta: {x: -12.6, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1767711314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767711320}
+  - component: {fileID: 1767711319}
+  - component: {fileID: 1767711318}
+  - component: {fileID: 1767711317}
+  - component: {fileID: 1767711315}
+  - component: {fileID: 1767711316}
+  m_Layer: 0
+  m_Name: GameLifetimeScope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1767711315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767711314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084a17bb7306b0f4297cab01a086ca36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileGridPrefab: {fileID: 825411838235146900, guid: 04a5aa561ea9bf747af6da882774d42a,
+    type: 3}
+  eraseEffectPrefab: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
+  tileGridSetTran: {fileID: 1305452661}
+  rowCount: 10
+  columnCount: 10
+  tileGridSize: 0.68
+  tileGridList: []
+--- !u!114 &1767711316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767711314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e51c68cb02b83f40bf3d5ae53a49d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleBallPrefab: {fileID: 7818118710464897894, guid: cff0e6eaa6b5c1b419098e35534eb8a0,
+    type: 3}
+  obstacleBallTrans:
+  - {fileID: 1265673202}
+  - {fileID: 1912147347}
+  obstacleList: []
+--- !u!114 &1767711317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767711314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ac1ece0060b5042937e366b67eacae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtGameTimes:
+  - {fileID: 8504946060591075325}
+  - {fileID: 4490186414777721365}
+  txtMosaicCount: {fileID: 5212911760536609480}
+  sliderFever: {fileID: 2113592318}
+  txtValue: {fileID: 1919200510}
+  txtInfo: {fileID: 1789756443}
+  imgCharaIcon: {fileID: 3392398189837350184}
+  imgExcellentLogo: {fileID: 999001386}
+  imgGameInfo: {fileID: 55320008}
+  gameInfoLogos:
+  - {fileID: 21300000, guid: 571117d1341eb154c8979deff15e464d, type: 3}
+  - {fileID: 21300000, guid: d8314adcff693274aa58325107abd61a, type: 3}
+  normalChara: {fileID: 1098051248}
+  rareChara: {fileID: 1965004761}
+--- !u!114 &1767711318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767711314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23ecad153cc10548b48711fa80faeb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeIconPrefab: {fileID: 8286819235866154871, guid: ca024162043e4104a892b942d518aafb,
+    type: 3}
+  lifeSetTran: {fileID: 5212911761759595138}
+  lifeIconlist: []
+  flushScreen: {fileID: 1114881063}
+--- !u!114 &1767711319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767711314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a23f60496511b4bae69124ab20cdbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  obstacleBallPrefab: {fileID: 7818118710464897894, guid: cff0e6eaa6b5c1b419098e35534eb8a0,
+    type: 3}
+  obstacleBallTrans:
+  - {fileID: 1265673202}
+  - {fileID: 1912147347}
+--- !u!4 &1767711320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767711314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1789756440
 GameObject:
   m_ObjectHideFlags: 0
