@@ -66,7 +66,7 @@ public class Menu : MonoBehaviour, IEntryRun
 
         // ギャラリーモード未開放の場合
         if (!btnGallery.enabled) {
-            txtGallery.text += "【全ステージノーミスクリアか" + "\r\n" + UserData.instance.openGallaryPoint + " で開放】";
+            txtGallery.text += "【全ステージ" + "\r\n" + "ノーミスクリアか" + "\r\n" + UserData.instance.openGallaryPoint + " で開放】";
         }
 
         // アチーブメントボタンの購読

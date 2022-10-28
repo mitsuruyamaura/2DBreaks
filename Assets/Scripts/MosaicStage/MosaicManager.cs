@@ -9,6 +9,7 @@ using DG.Tweening;
 using System.Linq;
 using System;
 
+// DI コンテナ採用により現在は使用しない
 public class MosaicManager : MonoBehaviour
 {
     [SerializeField]
@@ -183,14 +184,7 @@ public class MosaicManager : MonoBehaviour
             .AddTo(this);
 
         // ゲーム時間の監視
-        GameTime.Subscribe(x =>
-        {
-            // 小数点以下は小さく表示
-            string time = x.ToString("F2");
-            string[] part = time.Split('.');
-            txtGameTimes[0].text = part[0] + ".";
-            txtGameTimes[1].text = part[1];// "<size=30>part[1]</size>";  // HTML のタグが変数に対応していない。リテラルのみ。
-        }).AddTo(this);
+        GameTime.Subscribe(x => UpdateGameTime(x)).AddTo(this);
 
         // 壊したグリッドの監視
         TotalErasePoint
@@ -209,6 +203,18 @@ public class MosaicManager : MonoBehaviour
             .Zip(FeverPoint.Skip(1), (oldValue, newValue) => (oldValue, newValue))
             .Subscribe(x => UpdateDisplayValue(x.oldValue, x.newValue))
             .AddTo(sliderFever.gameObject);
+    }
+
+    /// <summary>
+    /// ゲーム時間の表示更新
+    /// </summary>
+    /// <param name="amount"></param>
+    public void UpdateGameTime(float amount) {
+        // 小数点以下は小さく表示
+        string time = amount.ToString("F2");
+        string[] part = time.Split('.');
+        txtGameTimes[0].text = part[0] + ".";
+        txtGameTimes[1].text = part[1];
     }
 
     /// <summary>

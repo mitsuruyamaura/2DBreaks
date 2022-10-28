@@ -392,7 +392,7 @@ MonoBehaviour:
   - {fileID: 2028547901}
   - {fileID: 460250292}
   - {fileID: 413877773}
-  achievementPopUpPrefab: {fileID: 6118105631373598371, guid: 3bc2597ece7685e468cbde0d1940642c,
+  achievementPopUpPrefab: {fileID: 5914049887256803629, guid: 40c760cde5d6e014fbb6f4f13a31f881,
     type: 3}
   btnAchieve: {fileID: 1436620941}
   galleryPopUpPrefab: {fileID: 5307539400443513937, guid: 24a69433184709b488a377b691f568f4,
@@ -671,10 +671,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.0004748404
-    width: 1
-    height: 0.9990503
+    x: 0.3418163
+    y: 0
+    width: 0.31636742
+    height: 1
   near clip plane: 0.3
   far clip plane: 10
   field of view: 60
@@ -831,9 +831,9 @@ RectTransform:
   m_Father: {fileID: 2017772788}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 166, y: -155}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -395, y: -140}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436620941

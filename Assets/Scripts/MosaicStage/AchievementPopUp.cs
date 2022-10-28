@@ -112,7 +112,7 @@ public class AchievementPopUp : MonoBehaviour
         sequence.Append(btnClose.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.Linear)).SetLink(gameObject)
             .OnComplete(() => AnimePopup(0f));
 
-        SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Cancel);
+        SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Cancel);        
     }
 
     /// <summary>

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Model ‚Æ View ‚É•ª‚¯‚é•K—v‚È‚µ
+/// </summary>
 public class TileGridDetail : MonoBehaviour
 {
     public TileGridType tileGridType;

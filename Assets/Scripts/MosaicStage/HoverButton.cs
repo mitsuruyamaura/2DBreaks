@@ -40,7 +40,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler
         }
         isSelected = true;
         
-        transform.DOShakeScale(0.25f, 0.5f, 4)
+        transform.DOShakeScale(0.25f, 0.5f, 2)
             .SetEase(Ease.InQuart)
             .SetLink(gameObject)
             .OnComplete(() =>

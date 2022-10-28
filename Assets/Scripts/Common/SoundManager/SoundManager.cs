@@ -73,9 +73,9 @@ public class SoundManager : MonoBehaviour, IEntryRun {
     [SerializeField]
 	private AudioSource[] BGMsources = new AudioSource[2];
 	// SE
-	private AudioSource[] SEsources = new AudioSource[16];
+	private AudioSource[] SEsources = new AudioSource[24];
 	// 音声
-	private AudioSource[] VoiceSources = new AudioSource[4];
+	private AudioSource[] VoiceSources = new AudioSource[8];
 	
 	// === AudioClip ===
 	// BGM
