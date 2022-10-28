@@ -104,6 +104,11 @@ public class TransitionManager : MonoBehaviour {
         });
     }
 
+
+    public void PrepareNextScene(SCENE_STATE nextSceneName) {
+        StartCoroutine(MoveNextScene(nextSceneName));
+    }
+
     /// <summary>
     /// フェイドアウトしながらシーン遷移する
     /// </summary>
