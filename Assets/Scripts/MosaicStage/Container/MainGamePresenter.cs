@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -8,17 +8,17 @@ using System.Threading;
 using System.Linq;
 using DG.Tweening;
 
-public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // PackageManager Œo—R‚Å UniTask ‚ğ“ü‚ê‚È‚¢‚ÆˆË‘¶ŠÖŒW‚ª“K—p‚³‚ê‚È‚¢‚à‚Ì‚ª‚ ‚é
+public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // PackageManager çµŒç”±ã§ UniTask ã‚’å…¥ã‚Œãªã„ã¨ä¾å­˜é–¢ä¿‚ãŒé©ç”¨ã•ã‚Œãªã„ã‚‚ã®ãŒã‚ã‚‹
 
-    // View ƒNƒ‰ƒX
+    // View ã‚¯ãƒ©ã‚¹
     private MainGameInfoView mainGameInfoView;
     private LifeView lifeView;
 
-    // Model ƒsƒ…ƒAƒNƒ‰ƒX
+    // Model ãƒ”ãƒ¥ã‚¢ã‚¯ãƒ©ã‚¹
     private LifeModel lifeModel;
     private GridCalculator gridCalculator;
 
-    // Model MonoBehaviour ƒNƒ‰ƒX
+    // Model MonoBehaviour ã‚¯ãƒ©ã‚¹
     private MainGameManager mainGameManager;
     private TileGridBehaviour tileGridBehaviour;
     private ObstacleBehaviour obstacleBehaviour;
@@ -52,7 +52,15 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
 
     void IDisposable.Dispose() => disposables.Dispose();
 
+
     public void Tick() {
+        if (mainGameManager.State.Value != GameState.Play) {
+            return;
+        }
+
+        mainGameManager.GameTime.Value += Time.deltaTime;
+
+        // Grid ã®ã‚¹ãƒ¯ã‚¤ãƒ—æ©Ÿèƒ½ã‚’å®Ÿè¡Œ  ->  GridCalculator å†…ã« Setup ã‚’ã¤ãã£ã¦ UpdateAsObservable ã—ã¦ã‚‚ã„ã„
         ((ITickable)gridCalculator).Tick();
     }
 
@@ -68,96 +76,96 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         //mainGameManager.State.Value = GameState.Ready;
         
 
-        // ƒXƒe[ƒW‚²‚Æ‚Ì BGM Ä¶
+        // ã‚¹ãƒ†ãƒ¼ã‚¸ã”ã¨ã® BGM å†ç”Ÿ
         SoundManager.instance?.PlayBGM((SoundManager.BGM_TYPE)Enum.Parse(typeof(SoundManager.BGM_TYPE), "Stage_" + SelectStage.stageNo));
 
         //mainGameManager.CurrentAchievementStageData = new AchievementStageData(SelectStage.stageNo);
         mainGameInfoView.HideGameUpInfo();
 
-        // ƒXƒe[ƒWî•ñ‚Ìæ“¾
+        // ã‚¹ãƒ†ãƒ¼ã‚¸æƒ…å ±ã®å–å¾—
         mainGameManager.SetUpStageData();
 
         //Debug.Log(mainGameManager.GetCurrentStageData());
 
-        // ƒLƒƒƒ‰‰æ‘œ‚Ìİ’è
+        // ã‚­ãƒ£ãƒ©ç”»åƒã®è¨­å®š
         mainGameInfoView.SetCharaSprite(mainGameManager.GetCurrentStageData());
 
-        // ƒOƒŠƒbƒh‚Ì¶¬
+        // ã‚°ãƒªãƒƒãƒ‰ã®ç”Ÿæˆ
         tileGridBehaviour.CreateTileGrids();
 
-        // áŠQ•¨‚Ì¶¬(‚±‚±‚¾‚Æ UpdateAsObservable ‚ª³í‚É‹@”\‚µ‚È‚¢)
+        // éšœå®³ç‰©ã®ç”Ÿæˆ(ã“ã“ã ã¨ UpdateAsObservable ãŒæ­£å¸¸ã«æ©Ÿèƒ½ã—ãªã„)
         //obstacleBehaviour.CreateObstacles(mainGameManager.GetCurrentStageData().obstacleCount, mainGameManager.GetCurrentStageData().obstacleSpeeds, mainGameManager, lifeModel, this);
 
-        // ƒ‰ƒCƒtƒAƒCƒRƒ“‚Ì¶¬
+        // ãƒ©ã‚¤ãƒ•ã‚¢ã‚¤ã‚³ãƒ³ã®ç”Ÿæˆ
         lifeModel.SetLifeCount();
         lifeView.CreateLifeIconAsync(lifeModel.LifeCount.Value, token).Forget();
 
 
-        // ƒ‰ƒCƒt‚Ìw“Ç
+        // ãƒ©ã‚¤ãƒ•ã®è³¼èª­
         lifeModel.LifeCount
             .Where(_ => mainGameManager.State.Value == GameState.Play)
             .Subscribe(_ => {
                 // SE
                 SoundManager.instance?.PlaySE(SoundManager.SE_TYPE.Miss);
 
-                // ƒ‰ƒCƒtƒAƒCƒRƒ“XV‚Æ‰æ–Ê‚ğÔ‚­‚·‚éƒGƒtƒFƒNƒgÄ¶
+                // ãƒ©ã‚¤ãƒ•ã‚¢ã‚¤ã‚³ãƒ³æ›´æ–°ã¨ç”»é¢ã‚’èµ¤ãã™ã‚‹ã‚¨ãƒ•ã‚§ã‚¯ãƒˆå†ç”Ÿ
                 lifeView.ReduceLife();
 
                 OnDamage(token);
             })
             .AddTo(token);
 
-        // ƒXƒe[ƒg‚ª€”õ’†‚Ì‚Æ‚«‚¾‚¯ƒQ[ƒ€ŠJn‚É•ÏX
+        // ã‚¹ãƒ†ãƒ¼ãƒˆãŒæº–å‚™ä¸­ã®ã¨ãã ã‘ã‚²ãƒ¼ãƒ é–‹å§‹ã«å¤‰æ›´
         if (mainGameManager.State.Value == GameState.Ready) {
             mainGameManager.State.Value = GameState.Play;
         }
 
-        // ƒQ[ƒ€ŠÔ‚ÌŠÄ‹
+        // ã‚²ãƒ¼ãƒ æ™‚é–“ã®ç›£è¦–
         mainGameManager.GameTime.Subscribe(x => mainGameInfoView.UpdateGameTime(x)).AddTo(disposables);
 
-        // ‰ó‚µ‚½ƒOƒŠƒbƒh‚ÌŠÄ‹
+        // å£Šã—ãŸã‚°ãƒªãƒƒãƒ‰ã®ç›£è¦–
         mainGameManager.TotalErasePoint
             .Zip(mainGameManager.TotalErasePoint.Skip(1), (oldValue, newValue) => (oldValue, newValue))
             .Subscribe(x => mainGameInfoView.UpdateMosaicCount(x.oldValue, x.newValue)).AddTo(disposables);
 
-        // ‰Šú’lƒZƒbƒg
+        // åˆæœŸå€¤ã‚»ãƒƒãƒˆ
         mainGameManager.TotalErasePoint.SetValueAndForceNotify(0);
 
-        // ƒtƒB[ƒo[ƒQ[ƒW‚Ìİ’è
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚²ãƒ¼ã‚¸ã®è¨­å®š
         mainGameInfoView.SetUpSliderValue(mainGameManager.GetTargetFeverPoint());
 
-        // ƒtƒB[ƒo[ƒ|ƒCƒ“ƒg‚Ìw“Ç(ƒtƒB[ƒo[‚µ‚Ä‚¢‚È‚¢‚¾‚¯‰ÁZ‚³‚ê‚é’l)
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ãƒã‚¤ãƒ³ãƒˆã®è³¼èª­(ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã—ã¦ã„ãªã„æ™‚ã ã‘åŠ ç®—ã•ã‚Œã‚‹å€¤)
         mainGameManager.FeverPoint
             .Zip(mainGameManager.FeverPoint.Skip(1), (oldValue, newValue) => (oldValue, newValue))
             .Subscribe(x =>
             {
-                // ƒtƒB[ƒo[‚Ìƒp[ƒZƒ“ƒg•\¦XV
+                // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã®ãƒ‘ãƒ¼ã‚»ãƒ³ãƒˆè¡¨ç¤ºæ›´æ–°
                 mainGameInfoView.UpdateDisplayValue(x.oldValue, x.newValue, mainGameManager.GetTargetFeverPoint(), mainGameManager.GetFeverDuration());
 
-                // ƒtƒB[ƒo[’†‚Ìê‡(–ß‚è’l‚Å‚Í•]‰¿‚µ‚È‚¢BƒtƒB[ƒo[’†‚àƒ|ƒCƒ“ƒg‚ªŒ¸­‚µ‚Ä‚¢‚é‚½‚ßA–ß‚è’l‚Å IsFeverTime ’l‚ğXV‚µ‚Ä‚µ‚Ü‚¤‚Æ false ‚É‚È‚é)
+                // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ä¸­ã®å ´åˆ(æˆ»ã‚Šå€¤ã§ã¯è©•ä¾¡ã—ãªã„ã€‚ãƒ•ã‚£ãƒ¼ãƒãƒ¼ä¸­ã‚‚ãƒã‚¤ãƒ³ãƒˆãŒæ¸›å°‘ã—ã¦ã„ã‚‹ãŸã‚ã€æˆ»ã‚Šå€¤ã§ IsFeverTime å€¤ã‚’æ›´æ–°ã—ã¦ã—ã¾ã†ã¨ false ã«ãªã‚‹)
                 if (mainGameManager.IsFeverTime.Value) {                    
                     return;
                 }
 
-                // ƒtƒB[ƒo[‚ÌŠm”F
+                // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã®ç¢ºèª
                 if (!mainGameManager.CheckFeverTime()) {       
-                    // ƒtƒB[ƒo[‚Å‚È‚¯‚ê‚ÎƒQ[ƒW‘‰Á
+                    // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã§ãªã‘ã‚Œã°ã‚²ãƒ¼ã‚¸å¢—åŠ 
                     mainGameInfoView.UpdateFeverSlider(mainGameManager.FeverPoint.Value, 0.25f);
                 } else {
                     //Debug.Log(mainGameManager.CheckFeverTime());
-                    // ƒtƒB[ƒo[ŠÄ‹
+                    // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ç›£è¦–
                     ObserveFeverTimeAsync(token).Forget();
                 }               
             })
             .AddTo(disposables);
 
-        // ƒOƒŠƒbƒh‚Ì”‚Ìw“Ç
+        // ã‚°ãƒªãƒƒãƒ‰ã®æ•°ã®è³¼èª­
         tileGridBehaviour.TileGridList            
             .ObserveCountChanged()
             .Where(x => x != 0)
             .Subscribe((int count) => 
             {
-                // c‚è2ŒÂˆÈ‰º‚È‚ç‚·‚×‚Äíœ‚µ‚ÄƒNƒŠƒA
+                // æ®‹ã‚Š2å€‹ä»¥ä¸‹ãªã‚‰ã™ã¹ã¦å‰Šé™¤ã—ã¦ã‚¯ãƒªã‚¢
                 if (count <= 2) {
                     //Debug.Log("Game Clear");
                     tileGridBehaviour.AllEraseTileGird();
@@ -173,7 +181,7 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
 
         await UniTask.Yield();
 
-        // áŠQ•¨‚Ì¶¬
+        // éšœå®³ç‰©ã®ç”Ÿæˆ
         obstacleBehaviour.CreateObstacles(mainGameManager.GetCurrentStageData().obstacleCount, mainGameManager.GetCurrentStageData().obstacleSpeeds, mainGameManager, lifeModel);
 
 
@@ -182,13 +190,13 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
             if (x == GameState.Ready) {
                 OnDamage(token);
             }           
-            //Debug.Log("Œ»İ‚Ì State : " + mainGameManager.State.Value);         
+            //Debug.Log("ç¾åœ¨ã® State : " + mainGameManager.State.Value);         
         });
     }
 
     public void OnDamage(CancellationToken token) {
 
-        // ƒQ[ƒ€ƒI[ƒo[”»’è
+        // ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼åˆ¤å®š
         if (lifeModel.IsNotLifeLeft()) {
 
             mainGameManager.State.Value = GameState.GameUp;
@@ -196,91 +204,91 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
             obstacleBehaviour.StopAllObstacles();
             //Debug.Log("Game Over");
 
-            // ´Z
+            // æ¸…ç®—
             Result(false, token);
-            //Debug.Log("ˆÚ“®’â~ : " + mainGameManager.State.Value);
+            //Debug.Log("ç§»å‹•åœæ­¢ : " + mainGameManager.State.Value);
         } else {
-            // áŠQ•¨‚ÉÚG‚µ‚½Û‚ÌƒOƒŠƒbƒh‚Ìˆ—
+            // éšœå®³ç‰©ã«æ¥è§¦ã—ãŸéš›ã®ã‚°ãƒªãƒƒãƒ‰ã®å‡¦ç†
             gridCalculator.TriggerObstacle();
 
-            // ‚·‚×‚Ä‚ÌáŠQ•¨‚ÌÄˆÚ“®ŠJn
+            // ã™ã¹ã¦ã®éšœå®³ç‰©ã®å†ç§»å‹•é–‹å§‹
             obstacleBehaviour.RestartAllObstacles();
 
             mainGameManager.State.Value = GameState.Play;
-            //Debug.Log("ˆÚ“®ÄŠJ : " + mainGameManager.State.Value);
+            //Debug.Log("ç§»å‹•å†é–‹ : " + mainGameManager.State.Value);
         }
     }
 
     /// <summary>
-    /// ƒtƒB[ƒo[ƒ^ƒCƒ€‚ÌŠÄ‹
+    /// ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚¿ã‚¤ãƒ ã®ç›£è¦–
     /// </summary>
     /// <returns></returns>
     public async UniTask ObserveFeverTimeAsync(CancellationToken token) {
-        // áŠQ•¨‚ÌˆÚ“®‘¬“x‚ğ’á‘¬‚É‚µA“r’†‚Å‚Ì‘¬“xƒAƒbƒv‚à‚È‚µ‚É‚·‚é
+        // éšœå®³ç‰©ã®ç§»å‹•é€Ÿåº¦ã‚’ä½é€Ÿã«ã—ã€é€”ä¸­ã§ã®é€Ÿåº¦ã‚¢ãƒƒãƒ—ã‚‚ãªã—ã«ã™ã‚‹
         obstacleBehaviour.SlowDownAllObstacles();
 
-        // 100“ ‚ÌƒAƒjƒ‰‰o‚ªI‚í‚é‚Ü‚Å‘Ò‹@
+        // 100ï¼… ã®ã‚¢ãƒ‹ãƒ¡æ¼”å‡ºãŒçµ‚ã‚ã‚‹ã¾ã§å¾…æ©Ÿ
         await UniTask.Delay(500, cancellationToken: token);
 
         mainGameInfoView.SetFeverTime(mainGameManager.GetTargetFeverPoint(), mainGameManager.GetFeverDuration());
 
-        // ƒQ[ƒW‚É‡‚í‚¹‚ÄA”š‚à 100% -> 0% ‚É‚·‚é
+        // ã‚²ãƒ¼ã‚¸ã«åˆã‚ã›ã¦ã€æ•°å­—ã‚‚ 100% -> 0% ã«ã™ã‚‹
         mainGameManager.FeverPoint.Value = 0;
 
         await UniTask.Delay(mainGameManager.GetFeverDuration(), cancellationToken: token);
         //Debug.Log(mainGameManager.IsFeverTime.Value);
         mainGameManager.IsFeverTime.Value = false;
-        //Debug.Log("ƒtƒB[ƒo[ƒ^ƒCƒ€I—¹");
+        //Debug.Log("ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚¿ã‚¤ãƒ çµ‚äº†");
 
-        // áŠQ•¨‚ÌˆÚ“®‘¬“x‚ğ–ß‚·
+        // éšœå®³ç‰©ã®ç§»å‹•é€Ÿåº¦ã‚’æˆ»ã™
         obstacleBehaviour.RestartAllObstacles();
     }
 
     /// <summary>
-    /// ƒQ[ƒ€“à—e‚Ì´Z
+    /// ã‚²ãƒ¼ãƒ å†…å®¹ã®æ¸…ç®—
     /// </summary>
     /// <param name="isClear"></param>
     private void Result(bool isClear, CancellationToken token) {
-        // ¡‰ñ‚ÌÁ‚µ‚½ƒuƒƒbƒN‚Ìƒ|ƒCƒ“ƒg‚ğ‰ÁZ
+        // ä»Šå›ã®æ¶ˆã—ãŸãƒ–ãƒ­ãƒƒã‚¯ã®ãƒã‚¤ãƒ³ãƒˆã‚’åŠ ç®—
         UserData.instance.MosaicCount.Value += mainGameManager.TotalErasePoint.Value;
 
-        // Å‘å’l‚Æ‚µ‚Äˆê’U•Û
+        // æœ€å¤§å€¤ã¨ã—ã¦ä¸€æ—¦ä¿æŒ
         mainGameManager.CurrentAchievementStageData.maxMosaicCount = mainGameManager.TotalErasePoint.Value;
 
-        // ƒ`ƒƒƒŒƒ“ƒW‰ñ”‰ÁZ
+        // ãƒãƒ£ãƒ¬ãƒ³ã‚¸å›æ•°åŠ ç®—
         mainGameManager.CurrentAchievementStageData.challengeCount++;
 
-        // ƒQ[ƒ€ƒI[ƒo[‚Ìê‡
+        // ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼ã®å ´åˆ
         if (!isClear) {
-            // ƒQ[ƒ€ƒI[ƒo[‰ñ”‰ÁZ
+            // ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼å›æ•°åŠ ç®—
             mainGameManager.CurrentAchievementStageData.failureCount++;
 
-            // ÀÑ‚ÌXVŠm”F
+            // å®Ÿç¸¾ã®æ›´æ–°ç¢ºèª
             UserData.instance.CheckUpdateAchievementStageData(mainGameManager.CurrentAchievementStageData);
 
             GameOverAsync(token).Forget();
             return;
         }
 
-        // ƒNƒŠƒA‚µ‚½ƒXƒe[ƒW‚ªÅIƒXƒe[ƒW‚Å‚Í‚È‚­‚ÄA‰ƒNƒŠƒA‚ÌƒXƒe[ƒW‚Ìê‡
+        // ã‚¯ãƒªã‚¢ã—ãŸã‚¹ãƒ†ãƒ¼ã‚¸ãŒæœ€çµ‚ã‚¹ãƒ†ãƒ¼ã‚¸ã§ã¯ãªãã¦ã€åˆã‚¯ãƒªã‚¢ã®ã‚¹ãƒ†ãƒ¼ã‚¸ã®å ´åˆ
         if (mainGameManager.GetCurrentStageData().stageNo != 2 && !UserData.instance.clearStageNoList.Contains(mainGameManager.GetCurrentStageData().stageNo + 1)) {
-            // Ÿ‚ÌƒXƒe[ƒW‚ğ’Ç‰Á
+            // æ¬¡ã®ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’è¿½åŠ 
             UserData.instance.AddClearStageNoList(mainGameManager.GetCurrentStageData().stageNo + 1);
         }
-        // ƒNƒŠƒA‰ñ”‰ÁZ
+        // ã‚¯ãƒªã‚¢å›æ•°åŠ ç®—
         mainGameManager.CurrentAchievementStageData.clearCount++;
 
-        // ƒm[ƒ~ƒXƒNƒŠƒA‚Ìê‡
+        // ãƒãƒ¼ãƒŸã‚¹ã‚¯ãƒªã‚¢ã®å ´åˆ
         if (lifeModel.IsNoMissClear()) {
             mainGameManager.CurrentAchievementStageData.noMissClearCount++;
         }
-        // ÀÑ‚ÌXVŠm”F
+        // å®Ÿç¸¾ã®æ›´æ–°ç¢ºèª
         UserData.instance.CheckUpdateAchievementStageData(mainGameManager.CurrentAchievementStageData);
         GameClearAsync(token).Forget();
     }
 
     /// <summary>
-    /// ƒQ[ƒ€ƒI[ƒo[‰‰o
+    /// ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼æ¼”å‡º
     /// </summary>
     /// <returns></returns>
     private async UniTask GameOverAsync(CancellationToken token) {
@@ -290,19 +298,19 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         mainGameInfoView.ShowGameOver();
 
         await UniTask.Delay(1000, cancellationToken: token);
-        SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ƒQ[ƒ€ƒI[ƒo[);
+        SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼);
 
-        // ƒNƒŠƒbƒN‘Ò‚¿
+        // ã‚¯ãƒªãƒƒã‚¯å¾…ã¡
         await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
 
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
 
-        // ƒV[ƒ“‘JˆÚ
+        // ã‚·ãƒ¼ãƒ³é·ç§»
         TransitionManager.instance.PrepareNextScene(SCENE_STATE.Menu);
     }
 
     /// <summary>
-    /// ƒQ[ƒ€ƒNƒŠƒA‰‰o
+    /// ã‚²ãƒ¼ãƒ ã‚¯ãƒªã‚¢æ¼”å‡º
     /// </summary>
     /// <returns></returns>
     private async UniTask GameClearAsync(CancellationToken token) {
@@ -313,40 +321,40 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
 
         await UniTask.Delay(1000, cancellationToken: token);
 
-        SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ƒNƒŠƒA_1);
+        SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ã‚¯ãƒªã‚¢_1);
 
         await UniTask.Delay(1000, cancellationToken: token);
 
-        // ƒNƒŠƒbƒN‘Ò‚¿
+        // ã‚¯ãƒªãƒƒã‚¯å¾…ã¡
         await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
-        SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ƒNƒŠƒA_2);
+        SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ã‚¯ãƒªã‚¢_2);
 
-        // ƒm[ƒ~ƒXƒNƒŠƒA
+        // ãƒãƒ¼ãƒŸã‚¹ã‚¯ãƒªã‚¢
         if (lifeModel.IsNoMissClear()) {
             SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Excellent);
 
             mainGameInfoView.ShowExcellentLogo();
             await UniTask.Delay(1500, cancellationToken: token);
 
-            // ƒNƒŠƒbƒN‘Ò‚¿
+            // ã‚¯ãƒªãƒƒã‚¯å¾…ã¡
             await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
 
             SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Fever);
 
-            // ƒGƒNƒZƒŒƒ“ƒg‚ÌƒƒS‚ğÁ‚µAƒŒƒA‰æ‘œ‚ÌƒAƒjƒ•\¦
+            // ã‚¨ã‚¯ã‚»ãƒ¬ãƒ³ãƒˆã®ãƒ­ã‚´ã‚’æ¶ˆã—ã€ãƒ¬ã‚¢ç”»åƒã®ã‚¢ãƒ‹ãƒ¡è¡¨ç¤º
             mainGameInfoView.HideExcellentLogo();
 
             await UniTask.Delay(1500, cancellationToken: token);
 
-            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ƒGƒNƒZƒŒƒ“ƒg);
+            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ã‚¨ã‚¯ã‚»ãƒ¬ãƒ³ãƒˆ);
 
-            // ƒNƒŠƒbƒN‘Ò‚¿
+            // ã‚¯ãƒªãƒƒã‚¯å¾…ã¡
             await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
         }
-        // ƒ{ƒCƒX‚ğÅŒã‚Ü‚Å—¬‚µ‚½‚¢‚½‚ß
+        // ãƒœã‚¤ã‚¹ã‚’æœ€å¾Œã¾ã§æµã—ãŸã„ãŸã‚
         await UniTask.Delay(1000, cancellationToken: token);
 
-        // ƒV[ƒ“‘JˆÚ
+        // ã‚·ãƒ¼ãƒ³é·ç§»
         TransitionManager.instance.PrepareNextScene(SCENE_STATE.Menu);
     }
 }

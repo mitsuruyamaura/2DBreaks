@@ -1,4 +1,4 @@
-#pragma warning disable 0649
+ï»¿#pragma warning disable 0649
 #pragma warning disable 0414
 
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System;
 using DG.Tweening;
 
 /// <summary>
-/// ƒOƒŠƒbƒh‚ğ‚Â‚È‚°‚½‚èA‚Â‚È‚ª‚Á‚Ä‚¢‚éƒOƒŠƒbƒh‚ğŒvZ‚µ‚Ä§Œä‚µ‚ÄATileGridBehaivour ‚É’ñ‹Ÿ‚·‚éƒNƒ‰ƒX
+/// ã‚°ãƒªãƒƒãƒ‰ã‚’ã¤ãªã’ãŸã‚Šã€ã¤ãªãŒã£ã¦ã„ã‚‹ã‚°ãƒªãƒƒãƒ‰ã‚’è¨ˆç®—ã—ã¦åˆ¶å¾¡ã—ã¦ã€TileGridBehaivour ã«æä¾›ã™ã‚‹ã‚¯ãƒ©ã‚¹
 /// </summary>
 public class GridCalculator : ITickable, IDisposable {
 
@@ -41,37 +41,49 @@ public class GridCalculator : ITickable, IDisposable {
 
 
     /// <summary>
-    /// Presenter ‚©‚ç Entry ‚³‚¹‚é
+    /// Presenter ã‹ã‚‰ Entry ã•ã›ã‚‹
     /// </summary>
     void ITickable.Tick() {
-        if (mainGameManager == null) {
-            return;
+        // MainGameManager ã‚’ã“ã®ä¸­ã§ä½¿ã‚ãªããªã£ãŸã®ã§ä¸è¦ 
+        //if (mainGameManager == null) {
+        //    return;
+        //}
+
+        // Tick ã« Subscribe ã ã¨ã€Update å†…ã§ Subscribe ã—ã¦ã„ã‚‹ã®ã¨åŒã˜ã«ãªã‚‹ã®ã§ã€æ™®é€šã« Update å†…ã«å¿…è¦ãªå‡¦ç†ã ã‘ã‚’æ›¸ã
+        // ã‚²ãƒ¼ãƒ ã®çŠ¶æ…‹ã«ã¤ã„ã¦ã¯ã€Presenter å´ã§è¦‹ã¦ã„ã‚‹ã®ã§ã€ã“ã“ã§ã®ãƒã‚§ãƒƒã‚¯ã¯ä¸è¦
+        // ã‚°ãƒªãƒƒãƒ‰ã‚’ã¤ãªã’ã‚‹å‡¦ç†
+        if (Input.GetMouseButtonDown(0) && firstSelectTileGrid == null) {
+            OnStartDrag();
+        } else if (Input.GetMouseButtonUp(0)) {
+            OnEndDrag();
+        } else if (firstSelectTileGrid != null) {
+            OnDragging();
         }
 
-        mainGameManager.State
-            .Where(state => state == GameState.Play)
-            .Subscribe(_ => {
-                // ƒOƒŠƒbƒh‚ğ‚Â‚È‚°‚éˆ—
-                if (Input.GetMouseButtonDown(0) && firstSelectTileGrid == null) {
-                    OnStartDrag();
-                } else if (Input.GetMouseButtonUp(0)) {
-                    OnEndDrag();
-                } else if (firstSelectTileGrid != null) {
-                    OnDragging();
-                }
-                mainGameManager.GameTime.Value += Time.deltaTime;
-            })
-            .AddTo(disposables);
+        //mainGameManager.State// <- Update ã§å‘¼ã³ã¾ãã£ã¦ã„ã‚‹ã®ã§ä¸å…·åˆãŒèµ·ã“ã‚‹
+        //    .Where(state => state == GameState.Play)
+        //    .Subscribe(_ => {
+        //        // ã‚°ãƒªãƒƒãƒ‰ã‚’ã¤ãªã’ã‚‹å‡¦ç†
+        //        if (Input.GetMouseButtonDown(0) && firstSelectTileGrid == null) {
+        //            OnStartDrag();
+        //        } else if (Input.GetMouseButtonUp(0)) {
+        //            OnEndDrag();
+        //        } else if (firstSelectTileGrid != null) {
+        //            OnDragging();
+        //        }
+        //        mainGameManager.GameTime.Value += Time.deltaTime;
+        //    })
+        //    .AddTo(disposables);
     }
 
     /// <summary>
-    /// ƒOƒŠƒbƒh‚ğÅ‰‚Éƒhƒ‰ƒbƒO‚µ‚½Û‚Ìˆ—
+    /// ã‚°ãƒªãƒƒãƒ‰ã‚’æœ€åˆã«ãƒ‰ãƒ©ãƒƒã‚°ã—ãŸéš›ã®å‡¦ç†
     /// </summary>
     private void OnStartDrag() {
-        //Debug.Log("ƒhƒ‰ƒbƒOŠJn");
+        //Debug.Log("ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹");
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero); //  Camera.main.ScreenToWorldPoint
 
-        // ƒOƒŠƒbƒh‚ª‚Â‚È‚ª‚Á‚Ä‚¢‚é”‚ğ‰Šú‰»
+        // ã‚°ãƒªãƒƒãƒ‰ãŒã¤ãªãŒã£ã¦ã„ã‚‹æ•°ã‚’åˆæœŸåŒ–
         linkCount = 0;
 
         if (hit.collider != null) {
@@ -92,22 +104,22 @@ public class GridCalculator : ITickable, IDisposable {
     }
 
     /// <summary>
-    /// ƒOƒŠƒbƒh‚Ìƒhƒ‰ƒbƒO’†iƒXƒƒCƒvjˆ—
+    /// ã‚°ãƒªãƒƒãƒ‰ã®ãƒ‰ãƒ©ãƒƒã‚°ä¸­ï¼ˆã‚¹ãƒ¯ã‚¤ãƒ—ï¼‰å‡¦ç†
     /// </summary>
     private void OnDragging() {
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null && hit.collider.gameObject.TryGetComponent(out TileGridDetail dragTileGrid)) {
 
-            // TileGrid ˆÈŠO‚ÌêŠ‚Ìê‡‚É‚Í‰½‚à‚µ‚È‚¢
+            // TileGrid ä»¥å¤–ã®å ´æ‰€ã®å ´åˆã«ã¯ä½•ã‚‚ã—ãªã„
             if (currentTileGridType == null) {
                 return;
             }
 
-            // ƒhƒ‰ƒbƒO‚µ‚½æ‚ÌƒOƒŠƒbƒh‚ªŒ»İ‘I‘ğ‚µ‚Ä‚¢‚éƒOƒŠƒbƒh‚Ìƒ^ƒCƒv‚©‚ÂA‘I‘ğÏ‚Å‚È‚¢ê‡
+            // ãƒ‰ãƒ©ãƒƒã‚°ã—ãŸå…ˆã®ã‚°ãƒªãƒƒãƒ‰ãŒç¾åœ¨é¸æŠã—ã¦ã„ã‚‹ã‚°ãƒªãƒƒãƒ‰ã®ã‚¿ã‚¤ãƒ—ã‹ã¤ã€é¸æŠæ¸ˆã§ãªã„å ´åˆ
             if (dragTileGrid.tileGridType == currentTileGridType && lastSelectTileGrid != dragTileGrid && !dragTileGrid.IsSelected) {
                 float distance = Vector2.Distance(dragTileGrid.transform.position, lastSelectTileGrid.transform.position);
 
-                // ƒOƒŠƒbƒh‚ÆƒOƒŠƒbƒh‚Ì‹——£‚ª‚Â‚È‚ª‚é”ÍˆÍ“à‚È‚ç
+                // ã‚°ãƒªãƒƒãƒ‰ã¨ã‚°ãƒªãƒƒãƒ‰ã®è·é›¢ãŒã¤ãªãŒã‚‹ç¯„å›²å†…ãªã‚‰
                 if (distance < tileGridDistance) {
                     dragTileGrid.IsSelected = true;
 
@@ -125,16 +137,16 @@ public class GridCalculator : ITickable, IDisposable {
             if (eraseTileGridList.Count > 1) {
                 //Debug.Log(dragTileGrid.Num);
 
-                // íœƒŠƒXƒg‚ÌƒOƒŠƒbƒh‚ªÅŒã‚É‘I‘ğ‚µ‚Ä‚¢‚éƒOƒŠƒbƒh‚Å‚Í‚È‚­Aíœ‘ÎÛ‚Ì”Ô†‚Æ“¯‚¶‚Å‘I‘ğÏ‚Ìê‡(‚P‚Âè‘O‚É–ß‚µ‚½ê‡)
+                // å‰Šé™¤ãƒªã‚¹ãƒˆã®ã‚°ãƒªãƒƒãƒ‰ãŒæœ€å¾Œã«é¸æŠã—ã¦ã„ã‚‹ã‚°ãƒªãƒƒãƒ‰ã§ã¯ãªãã€å‰Šé™¤å¯¾è±¡ã®ç•ªå·ã¨åŒã˜ã§é¸æŠæ¸ˆã®å ´åˆ(ï¼‘ã¤æ‰‹å‰ã«æˆ»ã—ãŸå ´åˆ)
                 if (eraseTileGridList[linkCount - 1] != lastSelectTileGrid && eraseTileGridList[linkCount - 1].Num == dragTileGrid.Num && dragTileGrid.IsSelected) {
 
-                    // ‘I‘ğ’†‚ÌƒOƒŠƒbƒh‚ğæ‚èœ‚­ 
+                    // é¸æŠä¸­ã®ã‚°ãƒªãƒƒãƒ‰ã‚’å–ã‚Šé™¤ã 
                     RemoveEraseTileGridList(lastSelectTileGrid);
 
-                    // –¢‘I‘ğ‚É–ß‚·
+                    // æœªé¸æŠã«æˆ»ã™
                     lastSelectTileGrid.GetComponent<TileGridDetail>().IsSelected = false;
 
-                    // ÅŒã‚ÌƒOƒŠƒbƒh‚Ìî•ñ‚ğA‘O‚ÌƒOƒŠƒbƒh‚Ìî•ñ‚É–ß‚·
+                    // æœ€å¾Œã®ã‚°ãƒªãƒƒãƒ‰ã®æƒ…å ±ã‚’ã€å‰ã®ã‚°ãƒªãƒƒãƒ‰ã®æƒ…å ±ã«æˆ»ã™
                     lastSelectTileGrid = dragTileGrid;
                     linkCount--;
 
@@ -145,40 +157,40 @@ public class GridCalculator : ITickable, IDisposable {
     }
 
     /// <summary>
-    /// ƒOƒŠƒbƒh‚Ìƒhƒ‰ƒbƒO‚ğ‚â‚ß‚½iw‚ğ‰æ–Ê‚©‚ç—£‚µ‚½jÛ‚Ìˆ—
+    /// ã‚°ãƒªãƒƒãƒ‰ã®ãƒ‰ãƒ©ãƒƒã‚°ã‚’ã‚„ã‚ãŸï¼ˆæŒ‡ã‚’ç”»é¢ã‹ã‚‰é›¢ã—ãŸï¼‰éš›ã®å‡¦ç†
     /// </summary>
     private void OnEndDrag() {
-        // 3‚ÂˆÈãƒOƒŠƒbƒh‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚éê‡
+        // 3ã¤ä»¥ä¸Šã‚°ãƒªãƒƒãƒ‰ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹å ´åˆ
         if (eraseTileGridList.Count >= 3) {
 
-            // íœ‘ÎÛ‚Æ‚µ‚Ä‘I‘ğ‚³‚ê‚Ä‚¢‚é(ƒŠƒXƒg‚É“o˜^‚³‚ê‚Ä‚¢‚é)ƒOƒŠƒbƒh‚ğÁ‚·
+            // å‰Šé™¤å¯¾è±¡ã¨ã—ã¦é¸æŠã•ã‚Œã¦ã„ã‚‹(ãƒªã‚¹ãƒˆã«ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹)ã‚°ãƒªãƒƒãƒ‰ã‚’æ¶ˆã™
             tileGridBehaviour.EraseTileGrids(eraseTileGridList);
 
-            // Á‚µ‚½ƒOƒŠƒbƒh‚Ì”‚Ì‰ÁZ
+            // æ¶ˆã—ãŸã‚°ãƒªãƒƒãƒ‰ã®æ•°ã®åŠ ç®—
             mainGameManager.UpdateTotalErasePoint(eraseTileGridList.Count);
 
-            // ƒtƒB[ƒo[ƒ|ƒCƒ“ƒg‚Ì‰ÁZ
+            // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ãƒã‚¤ãƒ³ãƒˆã®åŠ ç®—
             mainGameManager.UpdateFeverPoint(eraseTileGridList.Count);
 
 
         } else {
-            // íœŒó•â‚ÌƒOƒŠƒbƒh‚Ì‘I‘ğ‚ğ‰ğœ
+            // å‰Šé™¤å€™è£œã®ã‚°ãƒªãƒƒãƒ‰ã®é¸æŠã‚’è§£é™¤
             ReleaseTileGrids();
 
             SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Cancel);
         }
-        // íœ‘ÎÛƒŠƒXƒg‚ğƒNƒŠƒA
+        // å‰Šé™¤å¯¾è±¡ãƒªã‚¹ãƒˆã‚’ã‚¯ãƒªã‚¢
         eraseTileGridList.Clear();
 
-        // ‰Šú‰»
+        // åˆæœŸåŒ–
         ResetSelectTileGrid();
 
-        // c‚è‚ÌƒOƒŠƒbƒh”‚ğŠm”FBF‚ğ•Ï‚¦‚Ä‚¨‚ç‚¸A12ŒÂˆÈ‰º‚Ìê‡‚É‚ÍAƒ‰ƒ“ƒ_ƒ€‚È1F‚É‚·‚é
+        // æ®‹ã‚Šã®ã‚°ãƒªãƒƒãƒ‰æ•°ã‚’ç¢ºèªã€‚è‰²ã‚’å¤‰ãˆã¦ãŠã‚‰ãšã€12å€‹ä»¥ä¸‹ã®å ´åˆã«ã¯ã€ãƒ©ãƒ³ãƒ€ãƒ ãª1è‰²ã«ã™ã‚‹
         tileGridBehaviour.CheckLastColor();     
     }
 
     /// <summary>
-    /// ‚Â‚È‚ª‚Á‚½ƒOƒŠƒbƒh‚ğíœ—\’è‚ÌƒŠƒXƒg‚É’Ç‰Á
+    /// ã¤ãªãŒã£ãŸã‚°ãƒªãƒƒãƒ‰ã‚’å‰Šé™¤äºˆå®šã®ãƒªã‚¹ãƒˆã«è¿½åŠ 
     /// </summary>
     /// <param name="dragTileGrid"></param>
     private void AddEraseTileGridlList(TileGridDetail dragTileGrid) {
@@ -187,24 +199,24 @@ public class GridCalculator : ITickable, IDisposable {
     }
 
     /// <summary>
-    /// ‘O‚ÌƒOƒŠƒbƒh‚É–ß‚Á‚½Û‚Éíœ—\’è‚ÌƒŠƒXƒg‚©‚çíœ
+    /// å‰ã®ã‚°ãƒªãƒƒãƒ‰ã«æˆ»ã£ãŸéš›ã«å‰Šé™¤äºˆå®šã®ãƒªã‚¹ãƒˆã‹ã‚‰å‰Šé™¤
     /// </summary>
     /// <param name="dragTileGrid"></param>
     private void RemoveEraseTileGridList(TileGridDetail dragTileGrid) {
         eraseTileGridList.Remove(dragTileGrid);
 
-        // F‚à–ß‚·
+        // è‰²ã‚‚æˆ»ã™
         ChangeTileGridAlpha(dragTileGrid, 1.0f);
 
-        // –¢‘I‘ğ‚Ìó‘Ô‚É–ß‚·
+        // æœªé¸æŠã®çŠ¶æ…‹ã«æˆ»ã™
         if (dragTileGrid.IsSelected) {
             dragTileGrid.IsSelected = false;
         }
     }
 
     /// <summary>
-    /// íœ—\’è‚ÌƒOƒŠƒbƒh‚ÌƒAƒ‹ƒtƒ@‚ğ•ÏX
-    /// ‘I‘ğ’†‚Ì‚à‚Ì‚Í”¼“§–¾B–¢‘I‘ğ‚É‚È‚Á‚½‚à‚Ì‚ÍŒ³‚ÌƒAƒ‹ƒtƒ@‚É–ß‚·
+    /// å‰Šé™¤äºˆå®šã®ã‚°ãƒªãƒƒãƒ‰ã®ã‚¢ãƒ«ãƒ•ã‚¡ã‚’å¤‰æ›´
+    /// é¸æŠä¸­ã®ã‚‚ã®ã¯åŠé€æ˜ã€‚æœªé¸æŠã«ãªã£ãŸã‚‚ã®ã¯å…ƒã®ã‚¢ãƒ«ãƒ•ã‚¡ã«æˆ»ã™
     /// </summary>
     /// <param name="dragTileGrid"></param>
     /// <param name="alphaValue"></param>
@@ -217,42 +229,42 @@ public class GridCalculator : ITickable, IDisposable {
     }
 
     /// <summary>
-    /// ‘I‘ğ’†‚ÌƒOƒŠƒbƒh‚Ì‘I‘ğ‰ğœ
+    /// é¸æŠä¸­ã®ã‚°ãƒªãƒƒãƒ‰ã®é¸æŠè§£é™¤
     /// </summary>
     private void ReleaseTileGrids() {
         for (int i = 0; i < eraseTileGridList.Count; i++) {
-            // ‘I‚ñ‚¾”‚©2ŒÂˆÈ‰º‚Ìê‡@ŠeƒOƒŠƒbƒh‚Ì‘I‘ğó‘Ô‚ğ‰ğœ‚·‚é
+            // é¸ã‚“ã æ•°ã‹2å€‹ä»¥ä¸‹ã®å ´åˆã€€å„ã‚°ãƒªãƒƒãƒ‰ã®é¸æŠçŠ¶æ…‹ã‚’è§£é™¤ã™ã‚‹
             eraseTileGridList[i].IsSelected = false;
-            // F‚à–ß‚·
+            // è‰²ã‚‚æˆ»ã™
             ChangeTileGridAlpha(eraseTileGridList[i], 1.0f);
         }
     }
 
     /// <summary>
-    /// ‘I‘ğ‚µ‚½ƒOƒŠƒbƒh‚ğ‰Šú‰»
+    /// é¸æŠã—ãŸã‚°ãƒªãƒƒãƒ‰ã‚’åˆæœŸåŒ–
     /// </summary>
     private void ResetSelectTileGrid() {
-        // ‰Šú‰»
+        // åˆæœŸåŒ–
         firstSelectTileGrid = null;
         lastSelectTileGrid = null;
         currentTileGridType = null;
     }
 
     /// <summary>
-    /// áŠQ•¨‚ÉÚG‚µ‚½Û‚ÌƒOƒŠƒbƒh‚Ìˆ—
+    /// éšœå®³ç‰©ã«æ¥è§¦ã—ãŸéš›ã®ã‚°ãƒªãƒƒãƒ‰ã®å‡¦ç†
     /// </summary>
     public void TriggerObstacle() {
-        // íœŒó•â‚ÌƒOƒŠƒbƒh‚Ì‘I‘ğ‚ğ‰ğœ
+        // å‰Šé™¤å€™è£œã®ã‚°ãƒªãƒƒãƒ‰ã®é¸æŠã‚’è§£é™¤
         ReleaseTileGrids();
 
-        // íœ‘ÎÛƒŠƒXƒg‚ğƒNƒŠƒA
+        // å‰Šé™¤å¯¾è±¡ãƒªã‚¹ãƒˆã‚’ã‚¯ãƒªã‚¢
         eraseTileGridList.Clear();
         //Debug.Log(eraseTileGridList.Count);
 
-        // ‘I‘ğ‚µ‚½ƒOƒŠƒbƒh‚ğ‰Šú‰»
+        // é¸æŠã—ãŸã‚°ãƒªãƒƒãƒ‰ã‚’åˆæœŸåŒ–
         ResetSelectTileGrid();
         //Debug.Log(firstSelectTileGrid);
 
-        //Debug.Log("‘I‘ğ‰ğœ");
+        //Debug.Log("é¸æŠè§£é™¤");
     }
 }
