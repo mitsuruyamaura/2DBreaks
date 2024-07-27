@@ -1590,6 +1590,14 @@ MonoBehaviour:
     effectiveValue: 1
     duration: 0
     itemEffectType: 1
+  - itemNo: 1
+    effectiveValue: 0
+    duration: 0
+    itemEffectType: 2
+  - itemNo: 1
+    effectiveValue: 1
+    duration: 0
+    itemEffectType: 3
   itemDetailPrefab: {fileID: 4091242005741798139, guid: 24868027264461240b67394a9ed6e015,
     type: 3}
 --- !u!4 &358106224
