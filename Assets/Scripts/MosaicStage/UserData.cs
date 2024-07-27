@@ -20,7 +20,7 @@ public class UserData : MonoBehaviour, IEntryRun
 
 
     /// <summary>
-    /// ƒZ[ƒuEƒ[ƒh—p‚ÌƒNƒ‰ƒX
+    /// ã‚»ãƒ¼ãƒ–ãƒ»ãƒ­ãƒ¼ãƒ‰ç”¨ã®ã‚¯ãƒ©ã‚¹
     /// </summary>
     [System.Serializable]
     public class SaveData {
@@ -29,46 +29,47 @@ public class UserData : MonoBehaviour, IEntryRun
         public List<AchievementStageData> achievementStageDataList = new();
     }
 
-    private const string SAVE_KEY = "SaveData";        // SaveData ƒNƒ‰ƒX—p‚Ì Key
+    private const string SAVE_KEY = "SaveData";        // SaveData ã‚¯ãƒ©ã‚¹ç”¨ã® Key
 
     /// <summary>
-    /// ƒQ[ƒ€‹N“®‚Ìˆ—
+    /// ã‚²ãƒ¼ãƒ èµ·å‹•æ™‚ã®å‡¦ç†
     /// </summary>
     public void EntryRun() {
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
-            //Init();@@// ƒ{ƒCƒXÄ¶‚Ìƒ^ƒCƒ~ƒ“ƒOãAEntryPoint ‚Å‰Šú‰»
+            //Init();ã€€ã€€// ãƒœã‚¤ã‚¹å†ç”Ÿã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ä¸Šã€EntryPoint ã§åˆæœŸåŒ–
         } else {
             Destroy(this.gameObject);
         }
+        //Debug.Log("UserData Entry çµ‚äº†");
     }
 
     /// <summary>
-    /// ‰Šúİ’è
+    /// åˆæœŸè¨­å®š
     /// </summary>
     public void Init() {
-        // ƒZ[ƒuƒf[ƒ^‚ª‚ ‚éê‡
+        // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚‹å ´åˆ
         if (PlayerPrefsHelper.ExistsData(SAVE_KEY)) {
             GetSaveData();
-            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ˆ¥A_2‰ñ–ÚˆÈ~);
+            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.æŒ¨æ‹¶_2å›ç›®ä»¥é™);
             return;
         }
 
-        // ‰‰ñ‹N“®
+        // åˆå›èµ·å‹•æ™‚
         if (clearStageNoList.Count == 0) {
             AddClearStageNoList(0);
 
             for (int i = 0; i < stageDataSO.stageDataList.Count; i++) {
                 achievementStageDataList.Add(new AchievementStageData(stageDataSO.stageDataList[i].stageNo));
             }
-            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ˆ¥A_‰‰ñ);
-            //Debug.Log("‰‰ñ‹N“®");
+            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.æŒ¨æ‹¶_åˆå›);
+            //Debug.Log("åˆå›èµ·å‹•");
         }
     }
 
     /// <summary>
-    /// ƒNƒŠƒA‚µ‚½ƒXƒe[ƒW‚Ì”Ô†‚ğƒŠƒXƒg‚É’Ç‰Á
+    /// ã‚¯ãƒªã‚¢ã—ãŸã‚¹ãƒ†ãƒ¼ã‚¸ã®ç•ªå·ã‚’ãƒªã‚¹ãƒˆã«è¿½åŠ 
     /// </summary>
     /// <param name="no"></param>
     public void AddClearStageNoList(int no) {
@@ -76,7 +77,7 @@ public class UserData : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// ƒXƒe[ƒW‚Ì”‚Ìæ“¾
+    /// ã‚¹ãƒ†ãƒ¼ã‚¸ã®æ•°ã®å–å¾—
     /// </summary>
     /// <returns></returns>
     public int GetStageCount() {
@@ -84,7 +85,7 @@ public class UserData : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// StageData ‚Ìæ“¾
+    /// StageData ã®å–å¾—
     /// </summary>
     /// <param name="searchStageNo"></param>
     /// <returns></returns>
@@ -93,7 +94,7 @@ public class UserData : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// ƒ|ƒCƒ“ƒg‚É‚æ‚éƒMƒƒƒ‰ƒŠ[‚ÌŠJ•ú”»’è
+    /// ãƒã‚¤ãƒ³ãƒˆã«ã‚ˆã‚‹ã‚®ãƒ£ãƒ©ãƒªãƒ¼ã®é–‹æ”¾åˆ¤å®š
     /// </summary>
     /// <returns></returns>
     public bool CheckOpenGallaryPoint() {
@@ -101,8 +102,8 @@ public class UserData : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// ƒm[ƒ~ƒXƒNƒŠƒA‚É‚æ‚éƒMƒƒƒ‰ƒŠ[‚ÌŠJ•ú”»’è
-    /// ‚·‚×‚Ä‚ÌƒXƒe[ƒW‚Åƒm[ƒ~ƒXƒNƒŠƒA‚È‚çŠJ•ú
+    /// ãƒãƒ¼ãƒŸã‚¹ã‚¯ãƒªã‚¢ã«ã‚ˆã‚‹ã‚®ãƒ£ãƒ©ãƒªãƒ¼ã®é–‹æ”¾åˆ¤å®š
+    /// ã™ã¹ã¦ã®ã‚¹ãƒ†ãƒ¼ã‚¸ã§ãƒãƒ¼ãƒŸã‚¹ã‚¯ãƒªã‚¢ãªã‚‰é–‹æ”¾
     /// </summary>
     /// <returns></returns>
     public bool CheckOpenGalleryAllNoMissClears() {
@@ -110,16 +111,16 @@ public class UserData : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// ƒ‚ƒUƒCƒNƒJƒEƒ“ƒg‚É‚æ‚éƒXƒe[ƒWŠJ•ú”»’è
+    /// ãƒ¢ã‚¶ã‚¤ã‚¯ã‚«ã‚¦ãƒ³ãƒˆã«ã‚ˆã‚‹ã‚¹ãƒ†ãƒ¼ã‚¸é–‹æ”¾åˆ¤å®š
     /// </summary>
     public void CheckOpenStageFromPoint() {
         for (int i = 0; i < stageDataSO.stageDataList.Count; i++) {
-            // ‚·‚Å‚ÉƒNƒŠƒAÏ‚Ìê‡
+            // ã™ã§ã«ã‚¯ãƒªã‚¢æ¸ˆã®å ´åˆ
             if (clearStageNoList.Contains(stageDataSO.stageDataList[i].stageNo)) {
                 continue;
             }
 
-            // ƒ|ƒCƒ“ƒg‚ª’´‚¦‚Ä‚¢‚éê‡
+            // ãƒã‚¤ãƒ³ãƒˆãŒè¶…ãˆã¦ã„ã‚‹å ´åˆ
             if (MosaicCount.Value >= stageDataSO.stageDataList[i].stageOpenPoint) {
                 clearStageNoList.Add(stageDataSO.stageDataList[i].stageNo);
             }
@@ -127,7 +128,7 @@ public class UserData : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// ÀÑ‚ÌXVŠm”F
+    /// å®Ÿç¸¾ã®æ›´æ–°ç¢ºèª
     /// </summary>
     /// <param name="currentAchievementStageData"></param>
     public void CheckUpdateAchievementStageData(AchievementStageData currentAchievementStageData) {
@@ -145,52 +146,52 @@ public class UserData : MonoBehaviour, IEntryRun
             if (currentAchievementStageData.maxMosaicCount > achievementStageDataList[i].maxMosaicCount) achievementStageDataList[i].maxMosaicCount = currentAchievementStageData.maxMosaicCount;
             if (currentAchievementStageData.maxLinkCount > achievementStageDataList[i].maxLinkCount) achievementStageDataList[i].maxLinkCount = currentAchievementStageData.maxLinkCount;
 
-            // ‰‰ñ‚ÍƒNƒŠƒAŠÔ‚ğXV‚µ‚Ä‰Šú’l‚Æ‚·‚é
+            // åˆå›ã¯ã‚¯ãƒªã‚¢æ™‚é–“ã‚’æ›´æ–°ã—ã¦åˆæœŸå€¤ã¨ã™ã‚‹
             if (achievementStageDataList[i].fastestClearTime == 0) achievementStageDataList[i].fastestClearTime = currentAchievementStageData.fastestClearTime;
-            // 2‰ñ–ÚˆÈ~‚Í¬‚³‚¢(ƒNƒŠƒA‚ª‘‚¢)‚Ì‚İXV
+            // 2å›ç›®ä»¥é™ã¯å°ã•ã„(ã‚¯ãƒªã‚¢ãŒæ—©ã„)æ™‚ã®ã¿æ›´æ–°
             if (currentAchievementStageData.fastestClearTime < achievementStageDataList[i].fastestClearTime) achievementStageDataList[i].fastestClearTime = currentAchievementStageData.fastestClearTime;
             break;         
         }
 
-        // ƒZ[ƒu
+        // ã‚»ãƒ¼ãƒ–
         SetSaveData();
     }
 
     /// <summary>
-    /// ƒZ[ƒu‚·‚é’l‚ğ SaveData ‚Éİ’è‚µ‚ÄƒZ[ƒu
-    /// ƒZ[ƒu‚·‚éƒ^ƒCƒ~ƒ“ƒO‚ÍAƒXƒe[ƒWƒNƒŠƒAAƒLƒƒƒ‰Œ_–ñ
+    /// ã‚»ãƒ¼ãƒ–ã™ã‚‹å€¤ã‚’ SaveData ã«è¨­å®šã—ã¦ã‚»ãƒ¼ãƒ–
+    /// ã‚»ãƒ¼ãƒ–ã™ã‚‹ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã¯ã€ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¯ãƒªã‚¢æ™‚ã€ã‚­ãƒ£ãƒ©å¥‘ç´„æ™‚
     /// </summary>
     public void SetSaveData() {
 
-        // ƒZ[ƒu—p‚Ìƒf[ƒ^‚ğì¬
+        // ã‚»ãƒ¼ãƒ–ç”¨ã®ãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆ
         SaveData saveData = new() {
 
-            // Še’l‚ğ SaveData ƒNƒ‰ƒX‚Ì•Ï”‚Éİ’è
+            // å„å€¤ã‚’ SaveData ã‚¯ãƒ©ã‚¹ã®å¤‰æ•°ã«è¨­å®š
             mozaicPoint = MosaicCount.Value,
             clearStageNoList = clearStageNoList,
             achievementStageDataList = achievementStageDataList,
         };
 
-        // SaveData ƒNƒ‰ƒX‚Æ‚µ‚Ä SAVE_KEY ‚Ì–¼‘O‚ÅƒZ[ƒu
+        // SaveData ã‚¯ãƒ©ã‚¹ã¨ã—ã¦ SAVE_KEY ã®åå‰ã§ã‚»ãƒ¼ãƒ–
         PlayerPrefsHelper.SaveSetObjectData(SAVE_KEY, saveData);
     }
 
     /// <summary>
-    /// SaveData ‚ğƒ[ƒh‚µ‚ÄAŠe’l‚Éİ’è
+    /// SaveData ã‚’ãƒ­ãƒ¼ãƒ‰ã—ã¦ã€å„å€¤ã«è¨­å®š
     /// </summary>
     public void GetSaveData() {
 
-        // SaveData ‚Æ‚µ‚Äƒ[ƒh
+        // SaveData ã¨ã—ã¦ãƒ­ãƒ¼ãƒ‰
         SaveData saveData = PlayerPrefsHelper.LoadGetObjectData<SaveData>(SAVE_KEY);
 
-        // Še’l‚É SaveData “à‚Ì’l‚ğİ’è
+        // å„å€¤ã« SaveData å†…ã®å€¤ã‚’è¨­å®š
         MosaicCount = new(saveData.mozaicPoint);
         clearStageNoList = saveData.clearStageNoList;
         achievementStageDataList = saveData.achievementStageDataList;
     }
 
     /// <summary>
-    /// ƒZ[ƒu—p‚ÌƒL[‚Ìæ“¾
+    /// ã‚»ãƒ¼ãƒ–ç”¨ã®ã‚­ãƒ¼ã®å–å¾—
     /// </summary>
     /// <returns></returns>
     public string GetSaveDataKey() {
@@ -198,14 +199,14 @@ public class UserData : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// ‰Šú‰»€”õ
+    /// åˆæœŸåŒ–æº–å‚™
     /// </summary>
     public void PrepareReset() {
         ResetDataAsync().Forget();
     }
 
     /// <summary>
-    /// ‰Šú‰»
+    /// åˆæœŸåŒ–
     /// </summary>
     public async UniTask ResetDataAsync() {
         MosaicCount.Value = 0;
