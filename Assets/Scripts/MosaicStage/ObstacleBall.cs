@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 using Cysharp.Threading.Tasks;
@@ -17,7 +17,7 @@ public class ObstacleBall : MonoBehaviour {
 
 
     /// <summary>
-    /// DI ƒRƒ“ƒeƒi—˜—p
+    /// DI ã‚³ãƒ³ãƒ†ãƒŠåˆ©ç”¨æ™‚
     /// </summary>
     /// <param name="speeds"></param>
     /// <param name="mainGameManager"></param>
@@ -26,16 +26,16 @@ public class ObstacleBall : MonoBehaviour {
         minSpeed = speeds[0];
         maxSpeed = speeds[1];
 
-        // Às‚Ìƒ^ƒCƒ~ƒ“ƒO‚ª‘‚¢‚ÆŠÄ‹‚Ìˆ—‚Ì Where ‚ÌğŒ‚ªİ’è‚³‚ê‚È‚¢(QÆ‚Í null ‚Å‚Í‚È‚¢‚ªAŠÄ‹‚ÌÛ‚É‚·‚è”²‚¯‚é)
+        // å®Ÿè¡Œã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ãŒæ—©ã„ã¨ç›£è¦–ã®å‡¦ç†ã® Where ã®æ¡ä»¶ãŒè¨­å®šã•ã‚Œãªã„(å‚ç…§ã¯ null ã§ã¯ãªã„ãŒã€ç›£è¦–ã®éš›ã«ã™ã‚ŠæŠœã‘ã‚‹)
 
-        // ƒtƒB[ƒo[ƒ^ƒCƒ€‚Å‚Í‚È‚­AƒvƒŒƒC’†‚Ì‚Æ‚«‚É‚ÍAˆê’èŠÔ‚²‚Æ‚Éƒ‰ƒ“ƒ_ƒ€ˆÚ“®‚ğŒJ‚è•Ô‚·
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚¿ã‚¤ãƒ ã§ã¯ãªãã€ãƒ—ãƒ¬ã‚¤ä¸­ã®ã¨ãã«ã¯ã€ä¸€å®šæ™‚é–“ã”ã¨ã«ãƒ©ãƒ³ãƒ€ãƒ ç§»å‹•ã‚’ç¹°ã‚Šè¿”ã™
         this.UpdateAsObservable()
             .Where(_ => !mainGameManager.IsFeverTime.Value)
             .Where(_ => mainGameManager.State.Value == GameState.Play)
             .Subscribe(_ => RandomShot())
             .AddTo(this);
 
-        // ƒtƒB[ƒo[ƒ^ƒCƒ€‚Å‚Í‚È‚­AƒvƒŒƒC’†‚Ì‚Æ‚«‚É‚ÍA‘I‘ğ’†‚ÌƒOƒŠƒbƒh‚ÉÚG‚µ‚½ê‡AƒAƒEƒg‚É‚·‚é
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚¿ã‚¤ãƒ ã§ã¯ãªãã€ãƒ—ãƒ¬ã‚¤ä¸­ã®ã¨ãã«ã¯ã€é¸æŠä¸­ã®ã‚°ãƒªãƒƒãƒ‰ã«æ¥è§¦ã—ãŸå ´åˆã€ã‚¢ã‚¦ãƒˆã«ã™ã‚‹
         this.OnTriggerEnter2DAsObservable()
             .Where(_ => !mainGameManager.IsFeverTime.Value)
             .Where(_ => mainGameManager.State.Value == GameState.Play)
@@ -49,34 +49,39 @@ public class ObstacleBall : MonoBehaviour {
 
                         StopMoveBall();
 
+                        // é‡è¤‡åˆ¤å®šé˜²æ­¢(ã“ã“ã«å…¥ã‚Œã¦ãŠã‹ãªã„ã¨2å›åˆ¤å®šãŒèµ·ã“ã‚‹)
+                        if (mainGameManager.State.Value != GameState.Play) {
+                            return;
+                        }
+
                         mainGameManager.State.Value = GameState.Ready;
-                        //Debug.Log("ÚG");
+                        //Debug.Log("æ¥è§¦");
                     }
                 }
             })
             .AddTo(this);
 
         if (TryGetComponent(out rb)) {
-            // ƒ{[ƒ‹‚ğ”­Ë
+            // ãƒœãƒ¼ãƒ«ã‚’ç™ºå°„
             ShotBall(false);
         }
     }
 
     /// <summary>
-    /// áŠQ•¨‚Ì‰Šúİ’è(MosaicManager —˜—p)
+    /// éšœå®³ç‰©ã®åˆæœŸè¨­å®š(MosaicManager åˆ©ç”¨æ™‚)
     /// </summary>
     /// <param name="mosaicManager"></param>
     public void SetUpObstacleBall(MosaicManager mosaicManager, float[] speeds) {
         minSpeed = speeds[0];
         maxSpeed = speeds[1];
 
-        // ƒtƒB[ƒo[ƒ^ƒCƒ€‚Å‚Í‚È‚­AƒvƒŒƒC’†‚Ì‚Æ‚«‚É‚ÍAˆê’èŠÔ‚²‚Æ‚Éƒ‰ƒ“ƒ_ƒ€ˆÚ“®‚ğŒJ‚è•Ô‚·
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚¿ã‚¤ãƒ ã§ã¯ãªãã€ãƒ—ãƒ¬ã‚¤ä¸­ã®ã¨ãã«ã¯ã€ä¸€å®šæ™‚é–“ã”ã¨ã«ãƒ©ãƒ³ãƒ€ãƒ ç§»å‹•ã‚’ç¹°ã‚Šè¿”ã™
         this.UpdateAsObservable()
             .Where(_ => !mosaicManager.IsFeverTime.Value && mosaicManager.gameState == MosaicManager.GameState.Play)
             .Subscribe(_ => RandomShot())
             .AddTo(this);
 
-        // ƒtƒB[ƒo[ƒ^ƒCƒ€‚Å‚Í‚È‚­AƒvƒŒƒC’†‚Ì‚Æ‚«‚É‚ÍA‘I‘ğ’†‚ÌƒOƒŠƒbƒh‚ÉÚG‚µ‚½ê‡AƒAƒEƒg‚É‚·‚é
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚¿ã‚¤ãƒ ã§ã¯ãªãã€ãƒ—ãƒ¬ã‚¤ä¸­ã®ã¨ãã«ã¯ã€é¸æŠä¸­ã®ã‚°ãƒªãƒƒãƒ‰ã«æ¥è§¦ã—ãŸå ´åˆã€ã‚¢ã‚¦ãƒˆã«ã™ã‚‹
         this.OnTriggerEnter2DAsObservable()
             .Where(_ => !mosaicManager.IsFeverTime.Value && mosaicManager.gameState == MosaicManager.GameState.Play)
             .Subscribe(collision => {
@@ -88,7 +93,7 @@ public class ObstacleBall : MonoBehaviour {
                 if (collision.TryGetComponent(out TileGridDetail tileGridDetail)) {
                     //Debug.Log(collision.gameObject.name);
                     if (tileGridDetail.IsSelected) {
-                        //Debug.Log("ƒAƒEƒg");
+                        //Debug.Log("ã‚¢ã‚¦ãƒˆ");
                         StopMoveBall();
 
                         mosaicManager.FailureErase();
@@ -98,14 +103,14 @@ public class ObstacleBall : MonoBehaviour {
             .AddTo(this);
 
         if (TryGetComponent(out rb)) {
-            // ƒ{[ƒ‹‚ğ”­Ë
+            // ãƒœãƒ¼ãƒ«ã‚’ç™ºå°„
             ShotBall(false);
         }
     }
 
     /// <summary>
-    /// áŠQ•¨‚ÌˆÚ“®‚ğÄ“xs‚¢AˆÚ“®æ‚ğƒ‰ƒ“ƒ_ƒ€‰»
-    /// •Ç‚ÌŠÔ‚ğs‚Á‚½‚è—ˆ‚½‚è‚µ‚Ä‚µ‚Ü‚¤‚±‚Æ‚à–h‚®
+    /// éšœå®³ç‰©ã®ç§»å‹•ã‚’å†åº¦è¡Œã„ã€ç§»å‹•å…ˆã‚’ãƒ©ãƒ³ãƒ€ãƒ åŒ–
+    /// å£ã®é–“ã‚’è¡Œã£ãŸã‚Šæ¥ãŸã‚Šã—ã¦ã—ã¾ã†ã“ã¨ã‚‚é˜²ã
     /// </summary>
     private void RandomShot() {
         timer += Time.deltaTime;
@@ -117,24 +122,24 @@ public class ObstacleBall : MonoBehaviour {
     }
 
     /// <summary>
-    /// ƒ{[ƒ‹‚ğ”­Ë
+    /// ãƒœãƒ¼ãƒ«ã‚’ç™ºå°„
     /// </summary>
     public void ShotBall(bool isSlowDown) {
         speed = isSlowDown ? slowSpeed : Random.Range(minSpeed, maxSpeed);
 
-        // Šp“x‚É‚æ‚Á‚Ä‘¬“x‚ª•Ï‰»‚µ‚Ä‚µ‚Ü‚¤‚Ì‚Ånormalized‚Å³‹K‰»‚µ‚Ä“¯‚¶‘¬“xƒxƒNƒgƒ‹‚É‚·‚é
+        // è§’åº¦ã«ã‚ˆã£ã¦é€Ÿåº¦ãŒå¤‰åŒ–ã—ã¦ã—ã¾ã†ã®ã§normalizedã§æ­£è¦åŒ–ã—ã¦åŒã˜é€Ÿåº¦ãƒ™ã‚¯ãƒˆãƒ«ã«ã™ã‚‹
         Vector2 direction = new Vector2(Random.Range(-2.5f, 2.5f), 1).normalized;
 
-        // ƒ{[ƒ‹‚ğ‘Å‚¿o‚·(–€C‚â‹ó‹C’ïRAd—Í‚ğØ‚Á‚Ä‚ ‚é‚Ì‚ÅA‚¸‚Á‚Æ“¯‚¶‘¬“x‚Å“®‚«‘±‚¯‚é)
+        // ãƒœãƒ¼ãƒ«ã‚’æ‰“ã¡å‡ºã™(æ‘©æ“¦ã‚„ç©ºæ°—æŠµæŠ—ã€é‡åŠ›ã‚’åˆ‡ã£ã¦ã‚ã‚‹ã®ã§ã€ãšã£ã¨åŒã˜é€Ÿåº¦ã§å‹•ãç¶šã‘ã‚‹)
         rb.velocity = -direction * speed * transform.localScale.x;
-        //Debug.Log("ˆÚ“®");
+        //Debug.Log("ç§»å‹•");
     }
 
     /// <summary>
-    /// ƒ{[ƒ‹‚ğ~‚ß‚é
+    /// ãƒœãƒ¼ãƒ«ã‚’æ­¢ã‚ã‚‹
     /// </summary>
     public void StopMoveBall() {
-        // ƒ{[ƒ‹‚Ì‘¬“xƒxƒNƒgƒ‹‚ğ0‚É‚µ‚Ä~‚ß‚é
+        // ãƒœãƒ¼ãƒ«ã®é€Ÿåº¦ãƒ™ã‚¯ãƒˆãƒ«ã‚’0ã«ã—ã¦æ­¢ã‚ã‚‹
         rb.velocity = Vector2.zero;
     }
 }

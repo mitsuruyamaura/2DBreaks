@@ -257,6 +257,7 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
 
         // チャレンジ回数加算
         mainGameManager.CurrentAchievementStageData.challengeCount++;
+        Debug.Log(mainGameManager.CurrentAchievementStageData.challengeCount);
 
         // ゲームオーバーの場合
         if (!isClear) {
