@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -22,7 +22,7 @@ public class Menu : MonoBehaviour, IEntryRun
     private Transform[] charaButtonSetTrans;
 
     private List<CharaButtonDetail> charaButtonList = new();
-    private BoolReactiveProperty sharedGate = new(true);@@@//@BindToOnClick ‚É‚Ä—˜—p‚·‚é
+    private BoolReactiveProperty sharedGate = new(true);ã€€ã€€ã€€//ã€€BindToOnClick ã«ã¦åˆ©ç”¨ã™ã‚‹
 
     [SerializeField]
     private AchievementPopUp achievementPopUpPrefab;
@@ -39,43 +39,43 @@ public class Menu : MonoBehaviour, IEntryRun
 
 
     /// <summary>
-    /// ƒQ[ƒ€‹N“®‚Ìˆ—
+    /// ã‚²ãƒ¼ãƒ èµ·å‹•æ™‚ã®å‡¦ç†
     /// </summary>
     public void EntryRun() {
-        // ƒ}ƒXƒ^[‰¹—Ê‚Ì‰Šú’lİ’è
+        // ãƒã‚¹ã‚¿ãƒ¼éŸ³é‡ã®åˆæœŸå€¤è¨­å®š
         SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, SoundManager.instance.masterVolume);
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.Menu);
 
-        // ƒ‚ƒUƒCƒNƒJƒEƒ“ƒg‚É‚æ‚éƒXƒe[ƒWŠJ•ú‚Ì”»’è
+        // ãƒ¢ã‚¶ã‚¤ã‚¯ã‚«ã‚¦ãƒ³ãƒˆã«ã‚ˆã‚‹ã‚¹ãƒ†ãƒ¼ã‚¸é–‹æ”¾ã®åˆ¤å®š
         UserData.instance.CheckOpenStageFromPoint();
 
-        // ƒLƒƒƒ‰ƒ{ƒ^ƒ“‚Ì¶¬
+        // ã‚­ãƒ£ãƒ©ãƒœã‚¿ãƒ³ã®ç”Ÿæˆ
         CreateCharaButtons();
 
-        // MozaicCount w“Ç
+        // MozaicCount è³¼èª­
         UserData.instance.MosaicCount
             .Zip(UserData.instance.MosaicCount.Skip(1), (oldValue, newValue) => (oldValue, newValue))
-            .Subscribe(x => UpdateDisplayMosaicCount(UserData.instance.beforePoint, x.newValue))   // ‘O‚Ì’l‚Æ‚Ì·•ª‚Å•\¦XV‚·‚é
+            .Subscribe(x => UpdateDisplayMosaicCount(UserData.instance.beforePoint, x.newValue))   // å‰ã®å€¤ã¨ã®å·®åˆ†ã§è¡¨ç¤ºæ›´æ–°ã™ã‚‹
             .AddTo(gameObject);
 
-        // ‰Šú’l•\¦XV
+        // åˆæœŸå€¤è¡¨ç¤ºæ›´æ–°
         UserData.instance.MosaicCount.SetValueAndForceNotify(UserData.instance.MosaicCount.Value);
 
-        // ƒMƒƒƒ‰ƒŠ[ƒ‚[ƒhŠJ•ú‚ÌŠm”FB’Z—•]‰¿‚µ‚ÄA‚Ç‚¿‚ç‚©‚ª true ‚Å‚ ‚ê‚Î•]‰¿‚³‚ê‚é‚Ì‚ÅA1‚Â‚Ì–Ú‚Ì•]‰¿‚ª true ‚È‚ç2‚Â–Ú‚É‚Í‚¢‚©‚È‚¢‚ÅI‚í‚é
+        // ã‚®ãƒ£ãƒ©ãƒªãƒ¼ãƒ¢ãƒ¼ãƒ‰é–‹æ”¾ã®ç¢ºèªã€‚çŸ­çµ¡è©•ä¾¡ã—ã¦ã€ã©ã¡ã‚‰ã‹ãŒ true ã§ã‚ã‚Œã°è©•ä¾¡ã•ã‚Œã‚‹ã®ã§ã€1ã¤ã®ç›®ã®è©•ä¾¡ãŒ true ãªã‚‰2ã¤ç›®ã«ã¯ã„ã‹ãªã„ã§çµ‚ã‚ã‚‹
         btnGallery.enabled = UserData.instance.CheckOpenGallaryPoint() || UserData.instance.CheckOpenGalleryAllNoMissClears();
 
-        // ƒMƒƒƒ‰ƒŠ[ƒ‚[ƒh–¢ŠJ•ú‚Ìê‡
+        // ã‚®ãƒ£ãƒ©ãƒªãƒ¼ãƒ¢ãƒ¼ãƒ‰æœªé–‹æ”¾ã®å ´åˆ
         if (!btnGallery.enabled) {
-            txtGallery.text += "y‘SƒXƒe[ƒW" + "\r\n" + "ƒm[ƒ~ƒXƒNƒŠƒA‚©" + "\r\n" + UserData.instance.openGallaryPoint + " ‚ÅŠJ•úz";
+            txtGallery.text += "ã€å…¨ã‚¹ãƒ†ãƒ¼ã‚¸" + "\r\n" + "ãƒãƒ¼ãƒŸã‚¹ã‚¯ãƒªã‚¢ã‹" + "\r\n" + UserData.instance.openGallaryPoint + " ã§é–‹æ”¾ã€‘";
         }
 
-        // ƒAƒ`[ƒuƒƒ“ƒgƒ{ƒ^ƒ“‚Ìw“Ç
+        // ã‚¢ãƒãƒ¼ãƒ–ãƒ¡ãƒ³ãƒˆãƒœã‚¿ãƒ³ã®è³¼èª­
         btnAchieve.OnClickAsObservable()
             .ThrottleFirst(System.TimeSpan.FromSeconds(1))
             .Subscribe(_ => PrepareAchievementPopUp())
             .AddTo(gameObject);
 
-        // ƒMƒƒƒ‰ƒŠ[ƒ{ƒ^ƒ“‚Ìw“Ç
+        // ã‚®ãƒ£ãƒ©ãƒªãƒ¼ãƒœã‚¿ãƒ³ã®è³¼èª­
         btnGallery.OnClickAsObservable()
             .ThrottleFirst(System.TimeSpan.FromSeconds(2))
             .Subscribe(_ => PrepareGalleryPopUp())
@@ -84,40 +84,40 @@ public class Menu : MonoBehaviour, IEntryRun
 
     //void Start()
     //{
-    //    // ƒ}ƒXƒ^[‰¹—Ê‚Ì‰Šú’lİ’è
+    //    // ãƒã‚¹ã‚¿ãƒ¼éŸ³é‡ã®åˆæœŸå€¤è¨­å®š
     //    SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, SoundManager.instance.masterVolume);
     //    SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.Menu);
 
-    //    // ƒ‚ƒUƒCƒNƒJƒEƒ“ƒg‚É‚æ‚éƒXƒe[ƒWŠJ•ú‚Ì”»’è
+    //    // ãƒ¢ã‚¶ã‚¤ã‚¯ã‚«ã‚¦ãƒ³ãƒˆã«ã‚ˆã‚‹ã‚¹ãƒ†ãƒ¼ã‚¸é–‹æ”¾ã®åˆ¤å®š
     //    UserData.instance.CheckOpenStageFromPoint();
 
-    //    // ƒLƒƒƒ‰ƒ{ƒ^ƒ“‚Ì¶¬
+    //    // ã‚­ãƒ£ãƒ©ãƒœã‚¿ãƒ³ã®ç”Ÿæˆ
     //    CreateCharaButtons();
 
-    //    // MozaicCount w“Ç
+    //    // MozaicCount è³¼èª­
     //    UserData.instance.MosaicCount
     //        .Zip(UserData.instance.MosaicCount.Skip(1), (oldValue, newValue) => (oldValue, newValue))
-    //        .Subscribe(x => UpdateDisplayMosaicCount(UserData.instance.beforePoint, x.newValue))   // ‘O‚Ì’l‚Æ‚Ì·•ª‚Å•\¦XV‚·‚é
+    //        .Subscribe(x => UpdateDisplayMosaicCount(UserData.instance.beforePoint, x.newValue))   // å‰ã®å€¤ã¨ã®å·®åˆ†ã§è¡¨ç¤ºæ›´æ–°ã™ã‚‹
     //        .AddTo(gameObject);
 
-    //    // ‰Šú’l•\¦XV
+    //    // åˆæœŸå€¤è¡¨ç¤ºæ›´æ–°
     //    UserData.instance.MosaicCount.SetValueAndForceNotify(UserData.instance.MosaicCount.Value);
 
-    //    // ƒMƒƒƒ‰ƒŠ[ƒ‚[ƒhŠJ•ú‚ÌŠm”FB’Z—•]‰¿‚µ‚ÄA‚Ç‚¿‚ç‚©‚ª true ‚Å‚ ‚ê‚Î•]‰¿‚³‚ê‚é‚Ì‚ÅA1‚Â‚Ì–Ú‚Ì•]‰¿‚ª true ‚È‚ç2‚Â–Ú‚É‚Í‚¢‚©‚È‚¢‚ÅI‚í‚é
+    //    // ã‚®ãƒ£ãƒ©ãƒªãƒ¼ãƒ¢ãƒ¼ãƒ‰é–‹æ”¾ã®ç¢ºèªã€‚çŸ­çµ¡è©•ä¾¡ã—ã¦ã€ã©ã¡ã‚‰ã‹ãŒ true ã§ã‚ã‚Œã°è©•ä¾¡ã•ã‚Œã‚‹ã®ã§ã€1ã¤ã®ç›®ã®è©•ä¾¡ãŒ true ãªã‚‰2ã¤ç›®ã«ã¯ã„ã‹ãªã„ã§çµ‚ã‚ã‚‹
     //    btnGallery.enabled = UserData.instance.CheckOpenGallaryPoint() || UserData.instance.CheckOpenGalleryAllNoMissClears();
 
-    //    // ƒMƒƒƒ‰ƒŠ[ƒ‚[ƒh–¢ŠJ•ú‚Ìê‡
+    //    // ã‚®ãƒ£ãƒ©ãƒªãƒ¼ãƒ¢ãƒ¼ãƒ‰æœªé–‹æ”¾ã®å ´åˆ
     //    if (!btnGallery.enabled) {
-    //        txtGallery.text +=  "y‘SƒXƒe[ƒWƒm[ƒ~ƒXƒNƒŠƒA‚©" + "\r\n" + UserData.instance.openGallaryPoint + " ‚ÅŠJ•úz";   
+    //        txtGallery.text +=  "ã€å…¨ã‚¹ãƒ†ãƒ¼ã‚¸ãƒãƒ¼ãƒŸã‚¹ã‚¯ãƒªã‚¢ã‹" + "\r\n" + UserData.instance.openGallaryPoint + " ã§é–‹æ”¾ã€‘";   
     //    }
 
-    //    // ƒAƒ`[ƒuƒƒ“ƒgƒ{ƒ^ƒ“‚Ìw“Ç
+    //    // ã‚¢ãƒãƒ¼ãƒ–ãƒ¡ãƒ³ãƒˆãƒœã‚¿ãƒ³ã®è³¼èª­
     //    btnAchieve.OnClickAsObservable()
     //        .ThrottleFirst(System.TimeSpan.FromSeconds(1))
     //        .Subscribe(_ => PrepareAchievementPopUp())
     //        .AddTo(gameObject);
 
-    //    // ƒMƒƒƒ‰ƒŠ[ƒ{ƒ^ƒ“‚Ìw“Ç
+    //    // ã‚®ãƒ£ãƒ©ãƒªãƒ¼ãƒœã‚¿ãƒ³ã®è³¼èª­
     //    btnGallery.OnClickAsObservable()
     //        .ThrottleFirst(System.TimeSpan.FromSeconds(2))
     //        .Subscribe(_ => PrepareGalleryPopUp())
@@ -125,7 +125,7 @@ public class Menu : MonoBehaviour, IEntryRun
     //}
 
     /// <summary>
-    /// MosaicCount ‚Ì•\¦XV
+    /// MosaicCount ã®è¡¨ç¤ºæ›´æ–°
     /// </summary>
     /// <param name="oldValue"></param>
     /// <param name="newValue"></param>
@@ -134,7 +134,7 @@ public class Menu : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// ƒLƒƒƒ‰ƒ{ƒ^ƒ“‚Ì¶¬
+    /// ã‚­ãƒ£ãƒ©ãƒœã‚¿ãƒ³ã®ç”Ÿæˆ
     /// </summary>
     private void CreateCharaButtons() {
         for (int i = 0; i < UserData.instance.GetStageCount(); i++) {
@@ -143,36 +143,37 @@ public class Menu : MonoBehaviour, IEntryRun
             CharaButtonDetail charaButton = Instantiate(charaButtonPrefab, charaButtonSetTrans[i], false);
             charaButton.SetUpCharaButtonDetail(stageData.stageNo, stageData.charaIcon);
 
-            // ƒƒbƒN‚³‚ê‚Ä‚¢‚éƒXƒe[ƒW‚Ìê‡
+            // ãƒ­ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¸ã®å ´åˆ
             if (!UserData.instance.clearStageNoList.Contains(stageData.stageNo)) {
-                // ƒLƒƒƒ‰‚ğƒVƒ‹ƒGƒbƒg•\¦‚µ‚Äƒ{ƒ^ƒ“‚ğ‰Ÿ‚¹‚È‚¢ó‘Ô‚É‚·‚é
+                // ã‚­ãƒ£ãƒ©ã‚’ã‚·ãƒ«ã‚¨ãƒƒãƒˆè¡¨ç¤ºã—ã¦ãƒœã‚¿ãƒ³ã‚’æŠ¼ã›ãªã„çŠ¶æ…‹ã«ã™ã‚‹
                 charaButton.LockCharaButton();
 
-                // ƒXƒe[ƒWŠJ•ú‚É•K—v‚Èƒ|ƒCƒ“ƒg•\¦
+                // ã‚¹ãƒ†ãƒ¼ã‚¸é–‹æ”¾ã«å¿…è¦ãªãƒã‚¤ãƒ³ãƒˆè¡¨ç¤º
                 charaButton.DisplayStageOpenPoint(stageData.stageOpenPoint);
             }
 
-            // •¡”‚Ìƒ{ƒ^ƒ“‚ğ BoolReactiveProperty ‚ğw“Ç‚µ‚ÄA‚P‚Â‚Ìƒ{ƒ^ƒ“‚É˜A“®‚µ‚Ä§Œä‚Å‚«‚é
-            // “à•”‚Å AsyncReactiveCommand ‚ª©“®¶¬‚³‚ê‚éBsharedGate ‚ª true ‚È‚Ì‚ÅA‚»‚ê‚ª false ‚É‚È‚é‚ÆA‚·‚×‚Ä‚Ìƒ{ƒ^ƒ“‚Ì interactable ‚É false ‚Ìˆ—‚ª“Í‚­
-            charaButton.GetButton().BindToOnClick(sharedGate, _ =>
+            // è¤‡æ•°ã®ãƒœã‚¿ãƒ³ã‚’ BoolReactiveProperty ã‚’è³¼èª­ã—ã¦ã€ï¼‘ã¤ã®ãƒœã‚¿ãƒ³ã«é€£å‹•ã—ã¦åˆ¶å¾¡ã§ãã‚‹
+            // å†…éƒ¨ã§ AsyncReactiveCommand ãŒè‡ªå‹•ç”Ÿæˆã•ã‚Œã‚‹ã€‚sharedGate ãŒ true ãªã®ã§ã€ãã‚ŒãŒ false ã«ãªã‚‹ã¨ã€ã™ã¹ã¦ã®ãƒœã‚¿ãƒ³ã® interactable ã« false ã®å‡¦ç†ãŒå±Šã
+            charaButton.GetButton()
+                .BindToOnClick(sharedGate, _ =>
                 {
                     charaButton.OnClickCharaButton();
 
                     UserData.instance.beforePoint = UserData.instance.MosaicCount.Value;
 
-                    // 5•bŠÔ‰Ÿ‚¹‚È‚¢ƒ{ƒ^ƒ“
+                    // 5ç§’é–“æŠ¼ã›ãªã„ãƒœã‚¿ãƒ³
                     return Observable.Timer(System.TimeSpan.FromSeconds(5)).AsUnitObservable();
                 });
 
-            // ã‚Ìˆ—‚ÅA‚P‚Â‚¸‚Â‚Ìƒ{ƒ^ƒ“‚ğ§Œä‚µ‚È‚­‚Ä‚à‚·‚×‚Ä‚Ìƒ{ƒ^ƒ“‚ğ interactable ‚É‚Å‚«‚é
-            //// ƒ{ƒ^ƒ“‚Ìw“Ç
+            // ä¸Šã®å‡¦ç†ã§ã€ï¼‘ã¤ãšã¤ã®ãƒœã‚¿ãƒ³ã‚’åˆ¶å¾¡ã—ãªãã¦ã‚‚ã™ã¹ã¦ã®ãƒœã‚¿ãƒ³ã‚’ interactable ã«ã§ãã‚‹
+            //// ãƒœã‚¿ãƒ³ã®è³¼èª­
             //charaButton.GetButton().OnClickAsObservable()
             //    .ThrottleFirst(System.TimeSpan.FromSeconds(1.0f))
             //    .Subscribe(_ => 
             //    {
             //        charaButton.OnClickCharaButton();
 
-            //        // ‚·‚×‚Ä‚ÌƒLƒƒƒ‰ƒ{ƒ^ƒ“‚Ì”ñŠˆ«‰»
+            //        // ã™ã¹ã¦ã®ã‚­ãƒ£ãƒ©ãƒœã‚¿ãƒ³ã®éæ´»æ€§åŒ–
             //        InactiveAllCharaButtons();
 
             //        UserData.instance.beforePoint = UserData.instance.MosaicCount.Value;
@@ -181,12 +182,12 @@ public class Menu : MonoBehaviour, IEntryRun
 
             charaButtonList.Add(charaButton);
         }
-        // ƒ{ƒ^ƒ“‚Í Subscribe ‚µ‚Ä‚¢‚È‚¢‚Ì‚ÅAReactiveProperty ‚Ì•û‚ğ~‚ß‚é
+        // ãƒœã‚¿ãƒ³ã¯ Subscribe ã—ã¦ã„ãªã„ã®ã§ã€ReactiveProperty ã®æ–¹ã‚’æ­¢ã‚ã‚‹
         sharedGate.AddTo(gameObject);
     }
 
     /// <summary>
-    /// ‚·‚×‚Ä‚ÌƒLƒƒƒ‰ƒ{ƒ^ƒ“‚ğ”ñŠˆ«‰»@©@•s—v
+    /// ã™ã¹ã¦ã®ã‚­ãƒ£ãƒ©ãƒœã‚¿ãƒ³ã‚’éæ´»æ€§åŒ–ã€€â†ã€€ä¸è¦
     /// </summary>
     public void InactiveAllCharaButtons() {
         for (int i = 0; i < charaButtonList.Count; i++) {
@@ -195,23 +196,23 @@ public class Menu : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// ƒAƒ`[ƒuƒƒ“ƒgƒ|ƒbƒvƒAƒbƒv‚Ì¶¬‚ÆƒI[ƒvƒ“
+    /// ã‚¢ãƒãƒ¼ãƒ–ãƒ¡ãƒ³ãƒˆãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã®ç”Ÿæˆã¨ã‚ªãƒ¼ãƒ—ãƒ³
     /// </summary>
     private void PrepareAchievementPopUp() {
-        // ƒ|ƒbƒvƒAƒbƒv‚ª¶¬‚³‚ê‚Ä‚¢‚È‚¯‚ê‚Î
+        // ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãŒç”Ÿæˆã•ã‚Œã¦ã„ãªã‘ã‚Œã°
         if (!achievementPopUp) {
-            // ¶¬‚µ‚Ä‰Šúİ’è‚µ‚Ä‚©‚çŠJ‚­
+            // ç”Ÿæˆã—ã¦åˆæœŸè¨­å®šã—ã¦ã‹ã‚‰é–‹ã
             achievementPopUp = Instantiate(achievementPopUpPrefab);
             achievementPopUp.Setup();
         } else {
-            // ƒ|ƒbƒvƒAƒbƒv‚ğŠJ‚­
+            // ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’é–‹ã
             achievementPopUp.OpenPopup();
         }
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
     }
 
     /// <summary>
-    /// ƒMƒƒƒ‰ƒŠ[ƒ|ƒbƒvƒAƒbƒv‚Ì¶¬‚ÆƒI[ƒvƒ“
+    /// ã‚®ãƒ£ãƒ©ãƒªãƒ¼ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã®ç”Ÿæˆã¨ã‚ªãƒ¼ãƒ—ãƒ³
     /// </summary>
     private void PrepareGalleryPopUp() {
         if (!galleryPopUp) {

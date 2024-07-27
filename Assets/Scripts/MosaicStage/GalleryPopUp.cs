@@ -25,7 +25,7 @@ public class GalleryPopUp : MonoBehaviour
     private Transform zoomTran;
 
     private List<GalleryIconDetail> galleryIconList = new();
-    private BoolReactiveProperty sharedGate = new(true);@@@//@BindToOnClick ‚É‚Ä—˜—p‚·‚é
+    private BoolReactiveProperty sharedGate = new(true);ã€€ã€€ã€€//ã€€BindToOnClick ã«ã¦åˆ©ç”¨ã™ã‚‹
 
 
     public void SetUp() {
@@ -34,17 +34,17 @@ public class GalleryPopUp : MonoBehaviour
             .Subscribe(_ => ClosePopup())
             .AddTo(gameObject);
 
-        // ƒMƒƒƒ‰ƒŠ[—pƒLƒƒƒ‰ƒAƒCƒRƒ“‚Ìƒ{ƒ^ƒ“¶¬
+        // ã‚®ãƒ£ãƒ©ãƒªãƒ¼ç”¨ã‚­ãƒ£ãƒ©ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒœã‚¿ãƒ³ç”Ÿæˆ
         CreateGalleryIcons();
 
         canvasGroup.alpha = 0;
 
-        // ƒ|ƒbƒvƒAƒbƒv•\¦
+        // ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—è¡¨ç¤º
         OpenPopup();
     }
 
     /// <summary>
-    /// ƒ|ƒbƒvƒAƒbƒv‚ğ•\¦‚·‚é
+    /// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
     /// </summary>
     public void OpenPopup() {
         gameObject.SetActive(true);
@@ -52,7 +52,7 @@ public class GalleryPopUp : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ|ƒbƒvƒAƒbƒv‚ğ•Â‚¶‚é
+    /// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’é–‰ã˜ã‚‹
     /// </summary>
     public void ClosePopup() {
         Sequence sequence = DOTween.Sequence();
@@ -64,11 +64,11 @@ public class GalleryPopUp : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ|ƒbƒvƒAƒbƒv‚ğƒAƒjƒ‚³‚¹‚é
+    /// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’ã‚¢ãƒ‹ãƒ¡ã•ã›ã‚‹
     /// </summary>
     /// <param name="alpha"></param>
     private void AnimePopup(float alpha) {
-        canvasGroup.DOFade(alpha, 0.5f).SetEase(Ease.Linear)
+        canvasGroup.DOFade(alpha, 0.5f).SetEase(Ease.Linear)  // .SetLoops(-1, LoopType.Yoyo)
             .OnComplete(() => {
                 canvasGroup.blocksRaycasts = alpha == 0 ? false : true;
 
@@ -79,7 +79,7 @@ public class GalleryPopUp : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒMƒƒƒ‰ƒŠ[—pƒLƒƒƒ‰ƒAƒCƒRƒ“‚Ìƒ{ƒ^ƒ“¶¬
+    /// ã‚®ãƒ£ãƒ©ãƒªãƒ¼ç”¨ã‚­ãƒ£ãƒ©ã‚¢ã‚¤ã‚³ãƒ³ã®ãƒœã‚¿ãƒ³ç”Ÿæˆ
     /// </summary>
     private void CreateGalleryIcons() {
         int index = 0;
@@ -92,16 +92,16 @@ public class GalleryPopUp : MonoBehaviour
                 galleryIcon.SetUp(charaSprite, frameSprites[j], zoomTran.position);
 
                 galleryIcon.GetButton().BindToOnClick(sharedGate, _ => {
-                    // ƒY[ƒ€’†‚È‚ç
+                    // ã‚ºãƒ¼ãƒ ä¸­ãªã‚‰
                     if (galleryIcon.IsZoomIn) {
-                        // Œ³‚ÉˆÊ’u‚É–ß‚·
+                        // å…ƒã«ä½ç½®ã«æˆ»ã™
                         galleryIcon.ZoomOutGalleryIcon();
                     } else {
-                        // ƒY[ƒ€
+                        // ã‚ºãƒ¼ãƒ 
                         galleryIcon.ZoomInGalleryIcon();
                     }
 
-                    // 1•bŠÔ‰Ÿ‚¹‚È‚¢ƒ{ƒ^ƒ“
+                    // 1ç§’é–“æŠ¼ã›ãªã„ãƒœã‚¿ãƒ³
                     return Observable.Timer(System.TimeSpan.FromSeconds(0.75f)).AsUnitObservable();
                 });
                 galleryIconList.Add(galleryIcon);

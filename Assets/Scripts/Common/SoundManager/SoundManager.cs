@@ -86,7 +86,8 @@ public class SoundManager : MonoBehaviour, IEntryRun {
 	public AudioClip[] Voice;
 
     // SE用AudioMixer
-    public AudioMixerGroup[] audioMixerGroups;
+    [SerializeField]
+    private AudioMixerGroup[] audioMixerGroups;
 
     bool isXFading = false;
 
@@ -114,6 +115,7 @@ public class SoundManager : MonoBehaviour, IEntryRun {
         } else {
             Destroy(this.gameObject);
         }
+        //Debug.Log("SoundManager Entry 終了");
     }
 
     /// <summary>
@@ -141,6 +143,7 @@ public class SoundManager : MonoBehaviour, IEntryRun {
         SetMasterVolume(newMasterVolume);
 
         DOTween.Init();
+        //Debug.Log("SoundManager Init");
     }
 
     void Update () {
