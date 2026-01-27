@@ -31,7 +31,7 @@ public class TileGridDetail : MonoBehaviour
             1 => Color.red,
             2 => Color.blue,
             3 => Color.green,
-            4 => Color.white,
+            4 => Color.yellow,
             _ => Color.gray,
         };
     }

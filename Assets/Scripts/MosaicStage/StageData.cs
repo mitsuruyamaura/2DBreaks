@@ -1,18 +1,21 @@
-using UnityEngine;
+ï»¿using UnityEngine;
+using UnityEngine.Video;
 
 namespace yamap {
 
     /// <summary>
-    /// ƒXƒe[ƒW‚Ìî•ñ
+    /// ã‚¹ãƒ†ãƒ¼ã‚¸ã®æƒ…å ±
     /// </summary>
     [System.Serializable]
     public class StageData {
+        public StageType stageType;        // ã‚¹ãƒ†ãƒ¼ã‚¸ã®é›£æ˜“åº¦
         public int stageNo;
-        public Sprite normalCharaSprite;   // ’Êí‚ÌƒLƒƒƒ‰ŠG
-        public Sprite rareCharaSprite;     // — ‚É‰B‚ê‚Ä‚¢‚éƒLƒƒƒ‰ŠG
-        public int obstacleCount;          // ¶¬‚·‚éáŠQ•¨‚Ì”
-        public float[] obstacleSpeeds;     // áŠQ•¨‚ÌˆÚ“®‘¬“x‚ÌÅ¬’l‚ÆÅ‘å’l
-        public int stageOpenPoint;    @@ // ƒXƒe[ƒWŠJ•ú‚É•K—v‚Èƒ|ƒCƒ“ƒg
-        public Sprite charaIcon;           // ƒLƒƒƒ‰ƒAƒCƒRƒ“
+        public Sprite normalCharaSprite;   // é€šå¸¸ã®ã‚­ãƒ£ãƒ©çµµ
+        public Sprite rareCharaSprite;     // è£ã«éš ã‚Œã¦ã„ã‚‹ã‚­ãƒ£ãƒ©çµµ
+        public int obstacleCount;          // ç”Ÿæˆã™ã‚‹éšœå®³ç‰©ã®æ•°
+        public float[] obstacleSpeeds;     // éšœå®³ç‰©ã®ç§»å‹•é€Ÿåº¦ã®æœ€å°å€¤ã¨æœ€å¤§å€¤
+        public int stageOpenPoint;    ã€€ã€€ // ã‚¹ãƒ†ãƒ¼ã‚¸é–‹æ”¾ã«å¿…è¦ãªãƒã‚¤ãƒ³ãƒˆ
+        public Sprite charaIcon;           // ã‚­ãƒ£ãƒ©ã‚¢ã‚¤ã‚³ãƒ³
+        public VideoClip videoClip;        // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¯ãƒªã‚¢æ™‚ã®å‹•ç”»
     }
 }

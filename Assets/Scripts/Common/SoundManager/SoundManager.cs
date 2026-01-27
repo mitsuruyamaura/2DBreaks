@@ -55,8 +55,8 @@ public class SoundManager : MonoBehaviour, IEntryRun {
     public enum VOICE_TYPE {
         挨拶_初回,
         挨拶_2回目以降,
-        クリア_1,
-        クリア_2,
+        クリア_1, // Yeah
+        クリア_2, // やったね
         エクセレント,
         ゲームオーバー,
         フィーバー,

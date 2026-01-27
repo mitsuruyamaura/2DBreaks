@@ -1,8 +1,10 @@
-using System.Collections.Generic;
-using UnityEngine;
-using UniRx;
 using Cysharp.Threading.Tasks;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using UniRx;
+using UnityEngine;
+using UnityEngine.Video;
 
 public class UserData : MonoBehaviour, IEntryRun
 {
@@ -60,9 +62,16 @@ public class UserData : MonoBehaviour, IEntryRun
         if (clearStageNoList.Count == 0) {
             AddClearStageNoList(0);
 
-            for (int i = 0; i < stageDataSO.stageDataList.Count; i++) {
-                achievementStageDataList.Add(new AchievementStageData(stageDataSO.stageDataList[i].stageNo));
+            // 以前のもの。ステージ番号での実績データを初期化して追加
+            //for (int i = 0; i < stageDataSO.stageDataList.Count; i++) {
+            //    achievementStageDataList.Add(new AchievementStageData(stageDataSO.stageDataList[i].stageNo));     
+            //}
+
+            // ステージタイプを基に実績データを初期化して追加
+            foreach (StageType stageType in Enum.GetValues(typeof(StageType))) {
+                achievementStageDataList.Add(new AchievementStageData((int)stageType));
             }
+
             SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.挨拶_初回);
             //Debug.Log("初回起動");
         }
@@ -84,11 +93,20 @@ public class UserData : MonoBehaviour, IEntryRun
         return stageDataSO.stageDataList.Count;
     }
 
+
+    public int GetStageTypeCount => Enum.GetValues(typeof(StageType)).Length;
+
     /// <summary>
     /// StageData の取得
     /// </summary>
+    /// <param name="searchStageType"></param>
     /// <param name="searchStageNo"></param>
     /// <returns></returns>
+    public yamap.StageData GetStageData(StageType searchStageType, int searchStageNo) {
+        return stageDataSO.stageDataList.Find(x => x.stageType == searchStageType && x.stageNo == searchStageNo);
+    }
+
+
     public yamap.StageData GetStageData(int searchStageNo) {
         return stageDataSO.stageDataList.Find(x => x.stageNo == searchStageNo);
     }
@@ -217,5 +235,9 @@ public class UserData : MonoBehaviour, IEntryRun
         await UniTask.Delay(1000, cancellationToken : token);
 
         Init();
+    }
+
+    public VideoClip GetVideoData(int searchStageNo) {
+        return stageDataSO.stageDataList.FirstOrDefault(x => x.stageNo == searchStageNo).videoClip;
     }
 }

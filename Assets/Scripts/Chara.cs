@@ -53,10 +53,10 @@ public class Chara : MonoBehaviour {
         Vector2 direction = new Vector2(Random.Range(-2.5f, 2.5f), 1).normalized;
 
         // ボールを打ち出す(摩擦や空気抵抗、重力を切ってあるので、ずっと同じ速度で動き続ける)
-        rb.velocity = direction * speed;
+        rb.linearVelocity = direction * speed;
 
         // 次の計算用にVelocityの値を保持しておく
-        procVelocity = rb.velocity;
+        procVelocity = rb.linearVelocity;
     }
 
     /// <summary>
@@ -73,10 +73,10 @@ public class Chara : MonoBehaviour {
             Vector2 reflectVector = Vector2.Reflect(procVelocity, normalVector);
 
             // 速度を更新
-            rb.velocity = reflectVector;
+            rb.linearVelocity = reflectVector;
 
             // 次の計算用にVelocityの値を保持しておく
-            procVelocity = rb.velocity;
+            procVelocity = rb.linearVelocity;
         }
 
         // Linerで弾いた場合
@@ -85,10 +85,10 @@ public class Chara : MonoBehaviour {
             Vector2 dir = transform.position - col.gameObject.transform.position;
 
             // ボールに速度を加える
-            rb.velocity = dir * speed;    //  * transform.localScale.x   // （混乱したらRandomな速度で跳ね返す） * Random.Range(1.0f, 2.0f) 
+            rb.linearVelocity = dir * speed;    //  * transform.localScale.x   // （混乱したらRandomな速度で跳ね返す） * Random.Range(1.0f, 2.0f) 
 
             // 次の計算用にVelocityの値を保持しておく
-            procVelocity = rb.velocity;
+            procVelocity = rb.linearVelocity;
         }
     }
 
@@ -136,7 +136,7 @@ public class Chara : MonoBehaviour {
     /// </summary>
     public void StopMoveBall() {
         // ボールの速度ベクトルを0にして止める
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
 
         // ボールを弾けないようにする
         ChangeActivateCollider(false);

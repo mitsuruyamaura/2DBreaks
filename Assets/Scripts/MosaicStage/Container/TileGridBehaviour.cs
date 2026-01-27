@@ -1,9 +1,10 @@
+ï»¿using System;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
 /// <summary>
-/// TileGrid ‚Ì¶¬E‚Â‚È‚ª‚Á‚½ƒOƒŠƒbƒh‚Ìíœ‚âAc‚Á‚½ƒOƒŠƒbƒh‚ÌŠÇ——pƒNƒ‰ƒX
+/// TileGrid ã®ç”Ÿæˆãƒ»ã¤ãªãŒã£ãŸã‚°ãƒªãƒƒãƒ‰ã®å‰Šé™¤ã‚„ã€æ®‹ã£ãŸã‚°ãƒªãƒƒãƒ‰ã®ç®¡ç†ç”¨ã‚¯ãƒ©ã‚¹
 /// </summary>
 public class TileGridBehaviour : MonoBehaviour
 {
@@ -16,16 +17,16 @@ public class TileGridBehaviour : MonoBehaviour
     [SerializeField]
     private Transform tileGridSetTran;
 
-    [SerializeField, Header("s")]
+    [SerializeField, Header("è¡Œ")]
     private int rowCount;
 
-    [SerializeField, Header("—ñ")]
+    [SerializeField, Header("åˆ—")]
     private int columnCount;
 
     [SerializeField]
     private float tileGridSize;
 
-    [SerializeField, Header("¶¬‚³‚ê‚½ Grid ‚ÌƒŠƒXƒg")]
+    [SerializeField, Header("ç”Ÿæˆã•ã‚ŒãŸ Grid ã®ãƒªã‚¹ãƒˆ")]
     public List<TileGridDetail> tileGridList = new();
 
     public ReactiveCollection<TileGridDetail> TileGridList = new();
@@ -39,22 +40,22 @@ public class TileGridBehaviour : MonoBehaviour
 
 
     /// <summary>
-    /// ƒOƒŠƒbƒh‚ğ¶¬
+    /// ã‚°ãƒªãƒƒãƒ‰ã‚’ç”Ÿæˆ
     /// </summary>
     /// <param name="count"></param>
     /// <returns></returns>
     public void CreateTileGrids() {
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < columnCount; j++) {
-                // TileGridDetail ƒvƒŒƒtƒ@ƒu‚ğ¶¬
+                // TileGridDetail ãƒ—ãƒ¬ãƒ•ã‚¡ãƒ–ã‚’ç”Ÿæˆ
                 TileGridDetail tileGrid = Instantiate(tileGridPrefab, tileGridSetTran, true);
 
-                // ƒTƒCƒY•ÏX‚ÆˆÊ’u•ÏX‚µ‚Ä•À‚×‚é
+                // ã‚µã‚¤ã‚ºå¤‰æ›´ã¨ä½ç½®å¤‰æ›´ã—ã¦ä¸¦ã¹ã‚‹
                 tileGrid.transform.localScale = Vector3.one * tileGridSize;
                 tileGrid.transform.localPosition = new(j * tileGridSize, i * tileGridSize, 0);
 
-                // ƒOƒŠƒbƒh‚Ì‰Šúİ’èBƒOƒŠƒbƒh‚ÌF‚ğƒ‰ƒ“ƒ_ƒ€‚É‚P‚Â‘I‘ğ
-                tileGrid.SetUpTileGridDetail(UnityEngine.Random.Range(0, (int)TileGridType.Count));
+                // ã‚°ãƒªãƒƒãƒ‰ã®åˆæœŸè¨­å®šã€‚ã‚°ãƒªãƒƒãƒ‰ã®è‰²ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã«ï¼‘ã¤é¸æŠ
+                tileGrid.SetUpTileGridDetail(UnityEngine.Random.Range(0, Enum.GetValues(typeof(TileGridType)).Length));
 
                 tileGridList.Add(tileGrid);
             }
@@ -64,50 +65,50 @@ public class TileGridBehaviour : MonoBehaviour
     }
 
     /// <summary>
-    /// ‚Â‚È‚ª‚Á‚Ä‚¢‚éƒOƒŠƒbƒhŒQ‚ğ‚Ü‚Æ‚ß‚Äíœ
+    /// ã¤ãªãŒã£ã¦ã„ã‚‹ã‚°ãƒªãƒƒãƒ‰ç¾¤ã‚’ã¾ã¨ã‚ã¦å‰Šé™¤
     /// </summary>
     /// <param name="eraseTileGridList"></param>
     public void EraseTileGrids(List<TileGridDetail> eraseTileGridList) {
 
         for (int i = 0; i < eraseTileGridList.Count; i++) {
 
-            // ƒŠƒXƒg‚©‚çæ‚èœ‚­
+            // ãƒªã‚¹ãƒˆã‹ã‚‰å–ã‚Šé™¤ã
             tileGridList.Remove(eraseTileGridList[i]);
             TileGridList.Remove(eraseTileGridList[i]);
 
-            // ƒGƒtƒFƒNƒg‚ÌƒvƒŒƒtƒ@ƒu‚ª—pˆÓ‚³‚ê‚Ä‚¢‚éê‡
+            // ã‚¨ãƒ•ã‚§ã‚¯ãƒˆã®ãƒ—ãƒ¬ãƒ•ã‚¡ãƒ–ãŒç”¨æ„ã•ã‚Œã¦ã„ã‚‹å ´åˆ
             if (eraseEffectPrefab) {
-                //Debug.Log("ƒGƒtƒFƒNƒg¶¬");
-                // ƒGƒtƒFƒNƒg¶¬
+                //Debug.Log("ã‚¨ãƒ•ã‚§ã‚¯ãƒˆç”Ÿæˆ");
+                // ã‚¨ãƒ•ã‚§ã‚¯ãƒˆç”Ÿæˆ
                 GameObject effect = Instantiate(eraseEffectPrefab, eraseTileGridList[i].gameObject.transform);
                 effect.transform.SetParent(tileGridSetTran);
                 Destroy(effect, 0.6f);
             }
 
-            // ƒOƒŠƒbƒh‚ğíœ
+            // ã‚°ãƒªãƒƒãƒ‰ã‚’å‰Šé™¤
             Destroy(eraseTileGridList[i].gameObject);
         }
     }
 
     /// <summary>
-    /// ‹l‚Ü‚È‚¢‚æ‚¤‚Éc‚è‚ÌƒOƒŠƒbƒh‚ª­‚È‚­‚È‚Á‚½‚©Šm”F‚·‚é
+    /// è©°ã¾ãªã„ã‚ˆã†ã«æ®‹ã‚Šã®ã‚°ãƒªãƒƒãƒ‰ãŒå°‘ãªããªã£ãŸã‹ç¢ºèªã™ã‚‹
     /// </summary>
     public void CheckLastColor() {
         if (!isLastColor && tileGridList.Count < 12) {
             isLastColor = true;
 
-            // c‚Á‚½ƒOƒŠƒbƒh‚ÌF‚ğ‚PF‚É•Ï‚¦‚é
+            // æ®‹ã£ãŸã‚°ãƒªãƒƒãƒ‰ã®è‰²ã‚’ï¼‘è‰²ã«å¤‰ãˆã‚‹
             ChangeTileGridsColor();
         }
     }
 
     /// <summary>
-    /// c‚Á‚½ƒOƒŠƒbƒh‚ÌF‚ğ‚PF‚É•Ï‚¦‚é
-    /// c‚è‚ªw’è”ˆÈ‰º‚É‚È‚Á‚½‚Æ‚«‚É—˜—p‚µ‚ÄAƒQ[ƒ€‚ª‹l‚Şó‘Ô‚ğ‚È‚­‚·
+    /// æ®‹ã£ãŸã‚°ãƒªãƒƒãƒ‰ã®è‰²ã‚’ï¼‘è‰²ã«å¤‰ãˆã‚‹
+    /// æ®‹ã‚ŠãŒæŒ‡å®šæ•°ä»¥ä¸‹ã«ãªã£ãŸã¨ãã«åˆ©ç”¨ã—ã¦ã€ã‚²ãƒ¼ãƒ ãŒè©°ã‚€çŠ¶æ…‹ã‚’ãªãã™
     /// </summary>
     private void ChangeTileGridsColor() {
-        // ”’ˆÈŠO‚É‚·‚é
-        int randomColorNo = UnityEngine.Random.Range(0, (int)TileGridType.”’);
+        // ç™½ä»¥å¤–ã«ã™ã‚‹
+        int randomColorNo = UnityEngine.Random.Range(0, Enum.GetValues(typeof(TileGridType)).Length);
         for (int i = 0; i < tileGridList.Count; i++) {
             tileGridList[i].SetTileGridTile(randomColorNo);
             tileGridList[i].SetColor(randomColorNo);
@@ -117,7 +118,7 @@ public class TileGridBehaviour : MonoBehaviour
     }
 
     /// <summary>
-    /// c‚Á‚Ä‚¢‚éƒOƒŠƒbƒh‚ğ‚·‚×‚Äíœ
+    /// æ®‹ã£ã¦ã„ã‚‹ã‚°ãƒªãƒƒãƒ‰ã‚’ã™ã¹ã¦å‰Šé™¤
     /// </summary>
     public void AllEraseTileGird() {
         for (int i = 0; i < tileGridList.Count; i++) {

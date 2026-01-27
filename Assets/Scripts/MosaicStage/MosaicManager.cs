@@ -142,11 +142,11 @@ public class MosaicManager : MonoBehaviour
         // ステージごとの BGM 再生
         SoundManager.instance?.PlayBGM((SoundManager.BGM_TYPE)Enum.Parse(typeof(SoundManager.BGM_TYPE), "Stage_" + SelectStage.stageNo));
 
-        currentAchievementStageData = new AchievementStageData(SelectStage.stageNo);
+        currentAchievementStageData = new AchievementStageData((int)SelectStage.stageType);
         txtInfo.gameObject.SetActive(false);
 
         // ステージ情報の取得
-        currentStageData = UserData.instance.GetStageData(SelectStage.stageNo);
+        currentStageData = UserData.instance.GetStageData(SelectStage.stageType, SelectStage.stageNo);
 
         // キャラ画像の設定
         SetCharaSprite();
@@ -511,7 +511,7 @@ public class MosaicManager : MonoBehaviour
                 tileGrid.transform.localPosition = new(j * tileGridSize, i * tileGridSize, 0);
 
                 // グリッドの初期設定。グリッドの色をランダムに１つ選択
-                tileGrid.SetUpTileGridDetail(UnityEngine.Random.Range(0, (int)TileGridType.Count));
+                tileGrid.SetUpTileGridDetail(UnityEngine.Random.Range(0, Enum.GetValues(typeof(TileGridType)).Length));
 
                 tileGridList.Add(tileGrid);
             }
@@ -559,7 +559,7 @@ public class MosaicManager : MonoBehaviour
     /// </summary>
     private void ChangeTileGridsColor() {
         // 白以外にする
-        int randomColorNo = UnityEngine.Random.Range(0, (int)TileGridType.白);
+        int randomColorNo = UnityEngine.Random.Range(0, Enum.GetValues(typeof(TileGridType)).Length);
         for (int i = 0; i < tileGridList.Count; i++) {
             tileGridList[i].SetTileGridTile(randomColorNo);
             tileGridList[i].SetColor(randomColorNo);

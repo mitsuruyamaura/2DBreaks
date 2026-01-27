@@ -1,19 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+ï»¿/// <summary>
+/// ã‚¹ãƒ†ãƒ¼ã‚¸1ï½3ã®å®Ÿç¸¾ãƒ‡ãƒ¼ã‚¿ã‚’ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¿ã‚¤ãƒ—ã®å®Ÿç¸¾ãƒ‡ãƒ¼ã‚¿ã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹ã«å¤‰ãˆã‚‹
+/// </summary>
 [System.Serializable]
-public class AchievementStageData
-{
+public class AchievementStageData {
+    public StageType stageType;
     public int stageNo;
     public int challengeCount;
     public int clearCount;
     public int failureCount;
     public int maxFeverCount;
     public int noMissClearCount;
-    public int maxMosaicCount;      // ‚PƒQ[ƒ€“–‚½‚è‚ÌÅ‚Šl“¾ƒ|ƒCƒ“ƒg
-    public int maxLinkCount;        // ‚PƒQ[ƒ€“–‚½‚è‚ÅAˆê“x‚É‚Ü‚Æ‚ß‚ÄÁ‚µ‚½ƒuƒƒbƒN‚ÌÅ‚”
-    public float fastestClearTime;    // ‚PƒQ[ƒ€‚É‚¨‚¯‚éAÅ‚à‘‚¢ƒNƒŠƒAƒ^ƒCƒ€
+    public int maxMosaicCount;        // ï¼‘ã‚²ãƒ¼ãƒ å½“ãŸã‚Šã®æœ€é«˜ç²å¾—ãƒã‚¤ãƒ³ãƒˆ
+    public int maxLinkCount;          // ï¼‘ã‚²ãƒ¼ãƒ å½“ãŸã‚Šã§ã€ä¸€åº¦ã«ã¾ã¨ã‚ã¦æ¶ˆã—ãŸãƒ–ãƒ­ãƒƒã‚¯ã®æœ€é«˜æ•°
+    public float fastestClearTime;    // ï¼‘ã‚²ãƒ¼ãƒ ã«ãŠã‘ã‚‹ã€æœ€ã‚‚æ—©ã„ã‚¯ãƒªã‚¢ã‚¿ã‚¤ãƒ 
 
 
     public AchievementStageData(int stageNo) {

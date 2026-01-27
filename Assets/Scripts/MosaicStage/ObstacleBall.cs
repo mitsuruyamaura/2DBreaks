@@ -131,7 +131,7 @@ public class ObstacleBall : MonoBehaviour {
         Vector2 direction = new Vector2(Random.Range(-2.5f, 2.5f), 1).normalized;
 
         // ボールを打ち出す(摩擦や空気抵抗、重力を切ってあるので、ずっと同じ速度で動き続ける)
-        rb.velocity = -direction * speed * transform.localScale.x;
+        rb.linearVelocity = -direction * speed * transform.localScale.x;
         //Debug.Log("移動");
     }
 
@@ -140,6 +140,6 @@ public class ObstacleBall : MonoBehaviour {
     /// </summary>
     public void StopMoveBall() {
         // ボールの速度ベクトルを0にして止める
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
@@ -13,23 +13,27 @@ public class CharaButtonDetail : MonoBehaviour
     [SerializeField]
     private Text txtStageOpenPoint;
 
-    [SerializeField]   //@ƒCƒ“ƒXƒyƒNƒ^[‚Å‚Ì Debug —pBŠm”F‚ªÏ‚ñ‚¾‚ç SerializeField ‘®«‚Ì•t—^‚ğŠO‚·
+    [SerializeField]   //ã€€ã‚¤ãƒ³ã‚¹ãƒšã‚¯ã‚¿ãƒ¼ã§ã® Debug ç”¨ã€‚ç¢ºèªãŒæ¸ˆã‚“ã ã‚‰ SerializeField å±æ€§ã®ä»˜ä¸ã‚’å¤–ã™
     private int stageNo;
+
+    [SerializeField]
+    private StageType stageType;
 
 
     /// <summary>
-    /// ‰Šúİ’è
+    /// åˆæœŸè¨­å®š
     /// </summary>
     /// <param name="stageNo"></param>
     /// <param name="menu"></param>
-    public void SetUpCharaButtonDetail(int stageNo, Sprite charaSprite) {
+    public void SetUpCharaButtonDetail(int stageNo, Sprite charaSprite, StageType stageType) {
         this.stageNo = stageNo;
+        this.stageType = stageType;
         imgChara.sprite = charaSprite;
-        txtStageOpenPoint.text = "ƒXƒe[ƒW " + (stageNo + 1) + "\r\n";
+        txtStageOpenPoint.text = "ã‚¹ãƒ†ãƒ¼ã‚¸ " + (stageNo + 1) + "\r\n";
     }
 
     /// <summary>
-    /// ƒ}ƒEƒX‚ğƒzƒo[‚µ‚½‚Æ‚«‚Ìˆ—
+    /// ãƒã‚¦ã‚¹ã‚’ãƒ›ãƒãƒ¼ã—ãŸã¨ãã®å‡¦ç†
     /// </summary>
     private void ResponseHoverButton() {
         if (!btnChara.enabled) {
@@ -39,18 +43,19 @@ public class CharaButtonDetail : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒXƒe[ƒWŠJ•ú‚É•K—v‚Èƒ|ƒCƒ“ƒg•\¦
+    /// ã‚¹ãƒ†ãƒ¼ã‚¸é–‹æ”¾ã«å¿…è¦ãªãƒã‚¤ãƒ³ãƒˆè¡¨ç¤º
     /// </summary>
     /// <param name="openPoint"></param>
     public void DisplayStageOpenPoint(int openPoint) {
-        txtStageOpenPoint.text += openPoint + " ‚ÅŠJ•ú";
+        txtStageOpenPoint.text += openPoint + " ã§é–‹æ”¾";
     }
 
     /// <summary>
-    /// ƒLƒƒƒ‰ƒ{ƒ^ƒ“‰Ÿ‰º‚Ìˆ—
+    /// ã‚­ãƒ£ãƒ©ãƒœã‚¿ãƒ³æŠ¼ä¸‹æ™‚ã®å‡¦ç†
     /// </summary>
     public void OnClickCharaButton() {
         SelectStage.stageNo = stageNo;
+        SelectStage.stageType = stageType;
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(btnChara.transform.DOScale(Vector3.one * 0.8f, 0.15f).SetEase(Ease.InOutQuart)).SetLink(gameObject);
@@ -59,19 +64,19 @@ public class CharaButtonDetail : MonoBehaviour
 
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
 
-        // ƒV[ƒ“‘JˆÚ‚ÆƒtƒFƒCƒhƒAƒEƒgˆ—
+        // ã‚·ãƒ¼ãƒ³é·ç§»ã¨ãƒ•ã‚§ã‚¤ãƒ‰ã‚¢ã‚¦ãƒˆå‡¦ç†
         StartCoroutine(TransitionManager.instance.MoveNextScene(SCENE_STATE.Stage));
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“”ñŠˆ«‰»@©@•s—v
+    /// ãƒœã‚¿ãƒ³éæ´»æ€§åŒ–ã€€â†ã€€ä¸è¦
     /// </summary>
     public void InactibeCharaButton() {
         btnChara.interactable = false;
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“‚Ìæ“¾
+    /// ãƒœã‚¿ãƒ³ã®å–å¾—
     /// </summary>
     /// <returns></returns>
     public Button GetButton() {
@@ -79,10 +84,10 @@ public class CharaButtonDetail : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒLƒƒƒ‰ƒ{ƒ^ƒ“‚ğƒƒbƒN
+    /// ã‚­ãƒ£ãƒ©ãƒœã‚¿ãƒ³ã‚’ãƒ­ãƒƒã‚¯
     /// </summary>
     public void LockCharaButton() {
-        btnChara.enabled = false;  // ineractable ‚¾‚Æ Dsabled Color ‚É‚È‚é‚½‚ß
+        btnChara.enabled = false;  // ineractable ã ã¨ Dsabled Color ã«ãªã‚‹ãŸã‚
         imgChara.color = new(0, 0, 0, 0.6f);
     }
 }
