@@ -141,7 +141,7 @@ public class Menu : MonoBehaviour, IEntryRun
             yamap.StageData stageData = UserData.instance.GetStageData(i);
 
             CharaButtonDetail charaButton = Instantiate(charaButtonPrefab, charaButtonSetTrans[i], false);
-            charaButton.SetUpCharaButtonDetail(stageData.stageNo, stageData.charaIcon);
+            charaButton.SetUpCharaButtonDetail(stageData.stageNo, stageData.charaIcon, stageData.stageType);
 
             // ロックされているステージの場合
             if (!UserData.instance.clearStageNoList.Contains(stageData.stageNo)) {

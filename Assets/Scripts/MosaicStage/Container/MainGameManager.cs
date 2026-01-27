@@ -1,4 +1,4 @@
-using UniRx;
+ï»¿using UniRx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -20,7 +20,7 @@ public class MainGameManager  // : IInitializable
 
     public AchievementStageData CurrentAchievementStageData;
 
-    // ƒQƒbƒ^[ //
+    // ã‚²ãƒƒã‚¿ãƒ¼ //
 
     public yamap.StageData GetCurrentStageData() => currentStageData;
 
@@ -34,69 +34,73 @@ public class MainGameManager  // : IInitializable
 
     public void SetUpStageData() {
         State.Value = GameState.Ready;
-        
-        CurrentAchievementStageData = new AchievementStageData(SelectStage.stageNo);
 
-        // ƒXƒe[ƒWî•ñ‚Ìæ“¾
-        currentStageData = UserData.instance.GetStageData(SelectStage.stageNo);
+        // ä»¥å‰ã®ã‚‚ã®ã€‚ ã‚¹ãƒ†ãƒ¼ã‚¸ç•ªå·ã§ã®å®Ÿç¸¾ãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆ
+        //CurrentAchievementStageData = new AchievementStageData(SelectStage.stageNo);
+
+        // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¿ã‚¤ãƒ—ã§ã®å®Ÿç¸¾ãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆ
+        CurrentAchievementStageData = new AchievementStageData((int)SelectStage.stageType);
+
+        // ã‚¹ãƒ†ãƒ¼ã‚¸æƒ…å ±ã®å–å¾—
+        currentStageData = UserData.instance.GetStageData(SelectStage.stageType, SelectStage.stageNo);
         //Debug.Log(currentStageData.stageNo);
 
         //Debug.Log("Stage SetUp");
     }
 
     /// <summary>
-    /// Á‚µ‚½ƒOƒŠƒbƒh‚Ì”‚Ì‰ÁZ 
+    /// æ¶ˆã—ãŸã‚°ãƒªãƒƒãƒ‰ã®æ•°ã®åŠ ç®— 
     /// </summary>
     /// <param name="eraseTileGridCount"></param>
     public void UpdateTotalErasePoint(int eraseTileGridCount) {
-        // Á‚µ‚½ƒOƒŠƒbƒh‚Ì”‚Ì‰ÁZBƒtƒB[ƒo[’†‚Í3 - 5”{
+        // æ¶ˆã—ãŸã‚°ãƒªãƒƒãƒ‰ã®æ•°ã®åŠ ç®—ã€‚ãƒ•ã‚£ãƒ¼ãƒãƒ¼ä¸­ã¯3 - 5å€
         TotalErasePoint.Value += IsFeverTime.Value ? eraseTileGridCount * (3 + currentStageData.stageNo) : eraseTileGridCount;
 
-        // Á‚µ‚½ƒOƒŠƒbƒh”‚ÌÅ‘å’l‚ÌXVŠm”F
+        // æ¶ˆã—ãŸã‚°ãƒªãƒƒãƒ‰æ•°ã®æœ€å¤§å€¤ã®æ›´æ–°ç¢ºèª
         if (eraseTileGridCount > CurrentAchievementStageData.maxLinkCount) CurrentAchievementStageData.maxLinkCount = eraseTileGridCount;
     }
 
     /// <summary>
-    /// ƒtƒB[ƒo[ƒ|ƒCƒ“ƒg‚Ì‰ÁZ
+    /// ãƒ•ã‚£ãƒ¼ãƒãƒ¼ãƒã‚¤ãƒ³ãƒˆã®åŠ ç®—
     /// </summary>
     /// <param name="eraseTileGridCount"></param>
     public void UpdateFeverPoint(int eraseTileGridCount) {
-        // ƒtƒB[ƒo[’†‚Ìê‡
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ä¸­ã®å ´åˆ
         if (IsFeverTime.Value) {
-            // ƒtƒB[ƒo[’† SE
+            // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ä¸­ SE
             SoundManager.instance?.PlaySE(SoundManager.SE_TYPE.Fever);
             return;
         }
 
-        // ƒtƒB[ƒo[‚µ‚Ä‚¢‚È‚¢ê‡
-        // Å‘å’l‚ğ’´‚¦‚È‚¢‚æ‚¤‚ÉƒtƒB[ƒo[ƒ|ƒCƒ“ƒg‰ÁZ@Á‚µ‚½” - 2
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã—ã¦ã„ãªã„å ´åˆ
+        // æœ€å¤§å€¤ã‚’è¶…ãˆãªã„ã‚ˆã†ã«ãƒ•ã‚£ãƒ¼ãƒãƒ¼ãƒã‚¤ãƒ³ãƒˆåŠ ç®—ã€€æ¶ˆã—ãŸæ•° - 2
         FeverPoint.Value = Mathf.Min(targetFeverPoint, FeverPoint.Value += CalculateFeverPoint(eraseTileGridCount));
         //Debug.Log(FeverPoint.Value);
 
-        // ƒtƒB[ƒo[‚ÌŠm”F
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã®ç¢ºèª
         if (CheckFeverTime()) {
             //Debug.Log(IsFeverTime.Value);
-            // ƒtƒB[ƒo[‰ñ”‰ÁZ
+            // ãƒ•ã‚£ãƒ¼ãƒãƒ¼å›æ•°åŠ ç®—
             CurrentAchievementStageData.maxFeverCount++;
-            //Debug.Log("Fever “Ë“ü :" + FeverPoint.Value);
+            //Debug.Log("Fever çªå…¥ :" + FeverPoint.Value);
 
-            // ƒtƒB[ƒo[ Voice
-            SoundManager.instance?.PlayVoice(SoundManager.VOICE_TYPE.ƒtƒB[ƒo[);
+            // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ Voice
+            SoundManager.instance?.PlayVoice(SoundManager.VOICE_TYPE.ãƒ•ã‚£ãƒ¼ãƒãƒ¼);
         } else {
-            // ’Êí‚ÌíœSE
+            // é€šå¸¸ã®å‰Šé™¤SE
             SoundManager.instance?.PlaySE(SoundManager.SE_TYPE.Erase);
         }
     }
 
     /// <summary>
-    /// ƒtƒB[ƒo[ƒ|ƒCƒ“ƒg‚ÌŒvZ
+    /// ãƒ•ã‚£ãƒ¼ãƒãƒ¼ãƒã‚¤ãƒ³ãƒˆã®è¨ˆç®—
     /// </summary>
     /// <param name="point"></param>
     /// <returns></returns>
     private int CalculateFeverPoint(int point) => point - 2;
 
     /// <summary>
-    /// ƒtƒB[ƒo[‚Ì”»’è
+    /// ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã®åˆ¤å®š
     /// </summary>
     /// <returns></returns>
     public bool CheckFeverTime() {
@@ -107,7 +111,7 @@ public class MainGameManager  // : IInitializable
         //Debug.Log("Game Clear");
         State.Value = GameState.GameUp;
 
-        // ƒNƒŠƒAƒ^ƒCƒ€‚Ì•Û
+        // ã‚¯ãƒªã‚¢ã‚¿ã‚¤ãƒ ã®ä¿æŒ
         CurrentAchievementStageData.fastestClearTime = GameTime.Value;
     }
 }

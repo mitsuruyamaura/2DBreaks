@@ -144,9 +144,9 @@ public class CharaBall : MonoBehaviour
     /// </summary>
     public void StopMoveBall()
     {
-        breakDirection = rb.velocity;
+        breakDirection = rb.linearVelocity;
         // ボールの速度ベクトルを0にして止める
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
 
         // ボールを弾けないようにする
         ChangeActivateCollider(false);
@@ -165,7 +165,7 @@ public class CharaBall : MonoBehaviour
     /// </summary>
     public void RestartMoveBall()
     {
-        rb.velocity = breakDirection;
+        rb.linearVelocity = breakDirection;
     }
 
     /// <summary>
@@ -181,10 +181,10 @@ public class CharaBall : MonoBehaviour
             Vector2 dir = transform.position - col.gameObject.transform.position;
 
             // ボールに速度を加える
-            rb.velocity = dir * speed;    //  * transform.localScale.x   // （混乱したらRandomな速度で跳ね返す） * Random.Range(1.0f, 2.0f) 
+            rb.linearVelocity = dir * speed;    //  * transform.localScale.x   // （混乱したらRandomな速度で跳ね返す） * Random.Range(1.0f, 2.0f) 
 
             // 次の計算用にVelocityの値を保持しておく
-            procVelocity = rb.velocity;
+            procVelocity = rb.linearVelocity;
         }
 
         // 的球や壁に接触した場合
@@ -197,10 +197,10 @@ public class CharaBall : MonoBehaviour
             Vector2 reflectVector = Vector2.Reflect(procVelocity, normalVector);
 
             // 速度を更新
-            rb.velocity = reflectVector;
+            rb.linearVelocity = reflectVector;
 
             // 次の計算用にVelocityの値を保持しておく
-            procVelocity = rb.velocity;
+            procVelocity = rb.linearVelocity;
         }
     }
 

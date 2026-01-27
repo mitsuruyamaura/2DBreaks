@@ -38,7 +38,7 @@ public class BallController : MonoBehaviour
             Vector2 direction = new Vector2(Random.Range(-2.5f, 2.5f), 1).normalized;          
 
             // ボールを打ち出す(摩擦や空気抵抗、重力を切ってあるので、ずっと同じ速度で動き続ける)
-            rb.velocity = -direction * speed * transform.localScale.x;
+            rb.linearVelocity = -direction * speed * transform.localScale.x;
 
             gameMaster.gameState = GAME_STATE.PLAY;
         }
@@ -48,16 +48,16 @@ public class BallController : MonoBehaviour
     /// ボールを止める
     /// </summary>
     public void StopMoveBall() {
-        breakDirection = rb.velocity;
+        breakDirection = rb.linearVelocity;
         // ボールの速度ベクトルを0にして止める
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
     }
 
     /// <summary>
     /// ボールを同じ速度で再度動かす
     /// </summary>
     public void RestartMoveBall() {
-        rb.velocity = breakDirection;
+        rb.linearVelocity = breakDirection;
     }
 
     private void OnCollisionEnter2D(Collision2D col) {
@@ -66,7 +66,7 @@ public class BallController : MonoBehaviour
             Vector2 dir = transform.position - col.gameObject.transform.position;
 
             // ボールに速度を加える（Randomな速度で跳ね返す）
-            rb.velocity = dir * speed * Random.Range(1.0f, 2.0f) * transform.localScale.x;
+            rb.linearVelocity = dir * speed * Random.Range(1.0f, 2.0f) * transform.localScale.x;
         }
     }
 }
