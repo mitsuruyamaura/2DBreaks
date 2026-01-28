@@ -1,8 +1,9 @@
+using DG.Tweening;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using UniRx;
+using yamap;
 
 public class GalleryPopUp : MonoBehaviour
 {
@@ -84,11 +85,14 @@ public class GalleryPopUp : MonoBehaviour
     private void CreateGalleryIcons() {
         int index = 0;
         for (int i = 0; i < UserData.instance.GetStageCount(); i++) {
+            // StageData を順番に取得
+            yamap.StageData stageData = UserData.instance.GetStageDataByStageNo(i);
+
             for (int j = 0; j < frameSprites.Length; j++) {
                 GalleryIconDetail galleryIcon = Instantiate(galleryIconPrefab, galleryIconTrans[index], false);
                 index++;
 
-                Sprite charaSprite = j == 0 ? UserData.instance.GetStageData(i).normalCharaSprite : UserData.instance.GetStageData(i).rareCharaSprite;
+                Sprite charaSprite = j == 0 ? stageData.normalCharaSprite : stageData.rareCharaSprite;
                 galleryIcon.SetUp(charaSprite, frameSprites[j], zoomTran.position);
 
                 galleryIcon.GetButton().BindToOnClick(sharedGate, _ => {

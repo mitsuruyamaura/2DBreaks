@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UniRx;
+using System;
 
 public class Menu : MonoBehaviour, IEntryRun
 {
@@ -37,13 +38,16 @@ public class Menu : MonoBehaviour, IEntryRun
 
     private GalleryPopUp galleryPopUp;
 
+    [SerializeField]
+    private StageSelectPopup stageSelectPopupprefab;
+
 
     /// <summary>
     /// ゲーム起動時の処理
     /// </summary>
     public void EntryRun() {
         // マスター音量の初期値設定
-        SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, SoundManager.instance.masterVolume);
+        //SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, SoundManager.instance.masterVolume);
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.Menu);
 
         // モザイクカウントによるステージ開放の判定
@@ -137,11 +141,11 @@ public class Menu : MonoBehaviour, IEntryRun
     /// キャラボタンの生成
     /// </summary>
     private void CreateCharaButtons() {
-        for (int i = 0; i < UserData.instance.GetStageCount(); i++) {
-            yamap.StageData stageData = UserData.instance.GetStageData(i);
+        for (int i = 0; i < Enum.GetValues(typeof(StageType)).Length; i++) {
+            yamap.StageData stageData = UserData.instance.GetStageDataByStageNo(i);
 
             CharaButtonDetail charaButton = Instantiate(charaButtonPrefab, charaButtonSetTrans[i], false);
-            charaButton.SetUpCharaButtonDetail(stageData.stageNo, stageData.charaIcon, stageData.stageType);
+            charaButton.SetUpCharaButtonDetail(stageData.stageNo, stageData.charaIcon, (StageType)i, PrepareStageSelectPopUp);
 
             // ロックされているステージの場合
             if (!UserData.instance.clearStageNoList.Contains(stageData.stageNo)) {
@@ -154,16 +158,18 @@ public class Menu : MonoBehaviour, IEntryRun
 
             // 複数のボタンを BoolReactiveProperty を購読して、１つのボタンに連動して制御できる
             // 内部で AsyncReactiveCommand が自動生成される。sharedGate が true なので、それが false になると、すべてのボタンの interactable に false の処理が届く
-            charaButton.GetButton()
-                .BindToOnClick(sharedGate, _ =>
-                {
-                    charaButton.OnClickCharaButton();
+            //charaButton.GetButton()
+            //    .BindToOnClick(sharedGate, _ =>
+            //    {
+            //        //charaButton.OnClickCharaButton();
 
-                    UserData.instance.beforePoint = UserData.instance.MosaicCount.Value;
 
-                    // 5秒間押せないボタン
-                    return Observable.Timer(System.TimeSpan.FromSeconds(5)).AsUnitObservable();
-                });
+
+            //        UserData.instance.beforePoint = UserData.instance.MosaicCount.Value;
+
+            //        // 5秒間押せないボタン
+            //        return Observable.Timer(System.TimeSpan.FromSeconds(2)).AsUnitObservable();
+            //    });
 
             // 上の処理で、１つずつのボタンを制御しなくてもすべてのボタンを interactable にできる
             //// ボタンの購読
@@ -183,7 +189,7 @@ public class Menu : MonoBehaviour, IEntryRun
             charaButtonList.Add(charaButton);
         }
         // ボタンは Subscribe していないので、ReactiveProperty の方を止める
-        sharedGate.AddTo(gameObject);
+        //sharedGate.AddTo(gameObject);
     }
 
     /// <summary>
@@ -221,6 +227,18 @@ public class Menu : MonoBehaviour, IEntryRun
         } else {
             galleryPopUp.OpenPopup();
         }
+        SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
+    }
+
+    /// <summary>
+    /// ギャラリーポップアップの生成とオープン
+    /// </summary>
+    private void PrepareStageSelectPopUp(StageType stageType) {
+        List<yamap.StageData> stageDataList = UserData.instance.GetStageDataListByStageType(stageType);
+
+        StageSelectPopup stageSelectPopup = Instantiate(stageSelectPopupprefab);
+        stageSelectPopup.Setup(stageDataList);
+
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
     }
 }

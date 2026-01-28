@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UniRx;
+using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
-using DG.Tweening;
 
 public class CharaButtonDetail : MonoBehaviour
 {
@@ -25,11 +27,17 @@ public class CharaButtonDetail : MonoBehaviour
     /// </summary>
     /// <param name="stageNo"></param>
     /// <param name="menu"></param>
-    public void SetUpCharaButtonDetail(int stageNo, Sprite charaSprite, StageType stageType) {
+    public void SetUpCharaButtonDetail(int stageNo, Sprite charaSprite, StageType stageType, UnityAction<StageType> btnAction) {
         this.stageNo = stageNo;
         this.stageType = stageType;
         imgChara.sprite = charaSprite;
-        txtStageOpenPoint.text = "ステージ " + (stageNo + 1) + "\r\n";
+        txtStageOpenPoint.text = $"{stageType}";
+
+        btnChara.OnClickAsObservable()
+                    .ThrottleFirst(System.TimeSpan.FromSeconds(1.5f))
+                    .Subscribe(_ => {
+                        btnAction.Invoke(stageType);
+                    });
     }
 
     /// <summary>
@@ -52,6 +60,7 @@ public class CharaButtonDetail : MonoBehaviour
 
     /// <summary>
     /// キャラボタン押下時の処理
+    /// 現在未使用
     /// </summary>
     public void OnClickCharaButton() {
         SelectStage.stageNo = stageNo;

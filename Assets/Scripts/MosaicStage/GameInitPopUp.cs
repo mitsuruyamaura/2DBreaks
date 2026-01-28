@@ -1,7 +1,7 @@
+ï»¿using DG.Tweening;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using UniRx;
 
 public class GameInitPopUp : MonoBehaviour
 {
@@ -20,16 +20,21 @@ public class GameInitPopUp : MonoBehaviour
     [SerializeField]
     private Text txtVolumeValue;
 
+    [SerializeField]
+    private Toggle[] toggleLanguages;
+
+    [SerializeField]
+    private Toggle[] toggleColorAssistances;
+
 
     /// <summary>
-    /// ‰Šúİ’è
+    /// åˆæœŸè¨­å®š
     /// </summary>
     public void SetUp() {
         btnCancel.OnClickAsObservable()
             .ThrottleFirst(System.TimeSpan.FromSeconds(2))
-            .Subscribe(_ => 
-            {
-                // Œ»İ‚Ì Slider ‚Ì Value ’l‚ğ•Û
+            .Subscribe(_ => {
+                // ç¾åœ¨ã® Slider ã® Value å€¤ã‚’ä¿æŒ
                 SoundManager.instance.SetMasterVolume(volumeSlider.value);
                 ClosePopup();
             })
@@ -41,24 +46,67 @@ public class GameInitPopUp : MonoBehaviour
             .AddTo(gameObject);
 
         volumeSlider.OnValueChangedAsObservable()
-            .Subscribe(x =>
-            {
+            .Subscribe(x => {
                 SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, x);
-                UpdateVolumeValue(x); 
+                UpdateVolumeValue(x);
             })
             .AddTo(gameObject);
 
-        // ƒXƒ‰ƒCƒ_[‚Ì Value ‚ÉŒ»İ‚Ìƒ{ƒŠƒ…[ƒ€İ’è
+        // ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã® Value ã«ç¾åœ¨ã®ãƒœãƒªãƒ¥ãƒ¼ãƒ è¨­å®š
         volumeSlider.value = SoundManager.instance.masterVolume;
+
+        // ç¾åœ¨ã®è¨€èªã«åˆã‚ã›ã¦ãƒˆã‚°ãƒ«ã‚’ã‚ªãƒ³ã«ã™ã‚‹(å…ˆã«è¨­å®šã—ãªã„ã¨ã€OnValueChangedAsObservable ã§ä¸Šæ›¸ãã•ã‚Œã¦ã—ã¾ã†)
+        Language currentLanguage = UserData.instance.CurrentLanguage.Value;
+        Debug.Log($"Language : {currentLanguage}");
+        toggleLanguages[(int)currentLanguage].isOn = true;
+
+        // è¨€èªé¸æŠç”¨ã®ãƒˆã‚°ãƒ«è¨­å®š
+        for (int i = 0; i < toggleLanguages.Length; i++) {
+            int index = i;
+
+            Toggle toggle = toggleLanguages[index];
+
+            toggle.OnValueChangedAsObservable()
+                .DistinctUntilChanged()
+                .Subscribe(isOn => {
+                    if (isOn) {
+                        Language language = (Language)index;
+                        UserData.instance.ChangeLanguage(language);
+                    }
+                })
+                .AddTo(gameObject);
+        }
+
+        // ç¾åœ¨ã®è‰²è¦šã‚µãƒãƒ¼ãƒˆè¨­å®šã«åˆã‚ã›ã¦ãƒˆã‚°ãƒ«ã‚’ã‚ªãƒ³ã«ã™ã‚‹(å…ˆã«è¨­å®šã—ãªã„ã¨ã€OnValueChangedAsObservable ã§ä¸Šæ›¸ãã•ã‚Œã¦ã—ã¾ã†)
+        ColorAssistanceState currentColorAssistanceState = UserData.instance.CurrentColorAssistanceState.Value;
+        Debug.Log($"ColorAssistanceState : {currentColorAssistanceState}");
+        toggleColorAssistances[(int)currentColorAssistanceState].isOn = true;
+
+        // è‰²è¦šã‚µãƒãƒ¼ãƒˆé¸æŠç”¨ã®ãƒˆã‚°ãƒ«è¨­å®š
+        for (int i = 0; i < toggleColorAssistances.Length; i++) {
+            int index = i;
+
+            Toggle toggle = toggleColorAssistances[index];
+
+            toggle.OnValueChangedAsObservable()
+                .DistinctUntilChanged()
+                .Subscribe(isOn => {
+                    if (isOn) {
+                        ColorAssistanceState colorAssistanceState = (ColorAssistanceState)index;
+                        UserData.instance.ChangeColorAssistanceState(colorAssistanceState);
+                    }
+                })
+                .AddTo(gameObject);
+        }
 
         canvasGroup.alpha = 0;
 
-        // ƒ|ƒbƒvƒAƒbƒv•\¦
+        // ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—è¡¨ç¤º
         OpenPopup();
     }
 
     /// <summary>
-    /// ƒ|ƒbƒvƒAƒbƒv‚ğ•\¦‚·‚é
+    /// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
     /// </summary>
     public void OpenPopup() {
         gameObject.SetActive(true);
@@ -66,9 +114,11 @@ public class GameInitPopUp : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ|ƒbƒvƒAƒbƒv‚ğ•Â‚¶‚é
+    /// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’é–‰ã˜ã‚‹
     /// </summary>
     public void ClosePopup() {
+        UserData.instance.SetSaveData();  // è¨­å®šã‚’ä¿å­˜
+
         Sequence sequence = DOTween.Sequence();
         sequence.Append(btnCancel.transform.DOScale(Vector3.one * 0.8f, 0.15f).SetEase(Ease.InOutQuart)).SetLink(gameObject);
         sequence.Append(btnCancel.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.Linear)).SetLink(gameObject)
@@ -78,7 +128,7 @@ public class GameInitPopUp : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ|ƒbƒvƒAƒbƒv‚ğƒAƒjƒ‚³‚¹‚é
+    /// ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’ã‚¢ãƒ‹ãƒ¡ã•ã›ã‚‹
     /// </summary>
     /// <param name="alpha"></param>
     private void AnimePopup(float alpha) {
@@ -93,7 +143,7 @@ public class GameInitPopUp : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒQ[ƒ€‚Ì‰Šú‰»
+    /// ã‚²ãƒ¼ãƒ ã®åˆæœŸåŒ–
     /// </summary>
     private void InitGame() {
         Sequence sequence = DOTween.Sequence();
@@ -102,18 +152,18 @@ public class GameInitPopUp : MonoBehaviour
 
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
 
-        // w’è‚µ‚½ƒL[‚ÌƒZ[ƒuƒf[ƒ^íœ
+        // æŒ‡å®šã—ãŸã‚­ãƒ¼ã®ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿å‰Šé™¤
         PlayerPrefsHelper.RemoveObjectData(UserData.instance.GetSaveDataKey());
 
-        // î•ñƒŠƒZƒbƒg
+        // æƒ…å ±ãƒªã‚»ãƒƒãƒˆ
         UserData.instance.PrepareReset();
 
-        // ƒV[ƒ“Ä“Ç‚İ‚İ
+        // ã‚·ãƒ¼ãƒ³å†èª­ã¿è¾¼ã¿
         StartCoroutine(TransitionManager.instance.MoveNextScene(SCENE_STATE.Menu));
     }
 
     /// <summary>
-    /// ƒ{ƒŠƒ…[ƒ€ “ •\¦‚ÌXV
+    /// ãƒœãƒªãƒ¥ãƒ¼ãƒ  ï¼… è¡¨ç¤ºã®æ›´æ–°
     /// </summary>
     /// <param name="value"></param>
     private void UpdateVolumeValue(float value) {

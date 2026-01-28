@@ -1,20 +1,21 @@
-using UniRx;
+ï»¿using UniRx;
 
 public class LifeModel
 {
-    private int lifeCount = 3;
-    public ReactiveProperty<int> LifeCount = new();@@//@w“Ç
+    private readonly int lifeCount = 3;
+    private readonly int oneMissCount = 2;
+    public ReactiveProperty<int> LifeCount = new();ã€€ã€€//ã€€è³¼èª­
 
 
     /// <summary>
-    /// ƒ‰ƒCƒt‚Ì‰Šúİ’è
+    /// ãƒ©ã‚¤ãƒ•ã®åˆæœŸè¨­å®š
     /// </summary>
     public void SetLifeCount() {
         LifeCount.Value = lifeCount;
     }
     
     /// <summary>
-    /// ƒm[ƒ~ƒXƒNƒŠƒA”»’èBtrue ‚È‚çƒm[ƒ~ƒXƒNƒŠƒAB
+    /// ãƒãƒ¼ãƒŸã‚¹ã‚¯ãƒªã‚¢åˆ¤å®šã€‚true ãªã‚‰ãƒãƒ¼ãƒŸã‚¹ã‚¯ãƒªã‚¢ã€‚
     /// </summary>
     /// <returns></returns>
     public bool IsNoMissClear() {
@@ -22,7 +23,15 @@ public class LifeModel
     }
 
     /// <summary>
-    /// ƒ‰ƒCƒt‚ªc‚Á‚Ä‚¢‚È‚¢‚©”»’èBtrue ‚È‚çc‚Á‚Ä‚¢‚È‚¢‚½‚ßAƒQ[ƒ€ƒI[ƒo[‚ÉŒq‚°‚é
+    /// ãƒ¯ãƒ³ãƒŸã‚¹ã‚¯ãƒªã‚¢åˆ¤å®šã€‚true ãªã‚‰ãƒ¯ãƒ³ãƒŸã‚¹ã‚¯ãƒªã‚¢ã€‚
+    /// </summary>
+    /// <returns></returns>
+    public bool IsOnMissClear() {
+        return LifeCount.Value >= oneMissCount ? true : false;
+    }
+
+    /// <summary>
+    /// ãƒ©ã‚¤ãƒ•ãŒæ®‹ã£ã¦ã„ãªã„ã‹åˆ¤å®šã€‚true ãªã‚‰æ®‹ã£ã¦ã„ãªã„ãŸã‚ã€ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼ã«ç¹‹ã’ã‚‹
     /// </summary>
     /// <returns></returns>
     public bool IsNotLifeLeft() {

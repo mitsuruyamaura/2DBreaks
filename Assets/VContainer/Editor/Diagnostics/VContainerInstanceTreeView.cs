@@ -8,6 +8,7 @@ using VContainer.Diagnostics;
 
 namespace VContainer.Editor.Diagnostics
 {
+    [Obsolete]
     public sealed class VContainerInstanceTreeView : TreeView
     {
         static int idSeed;
@@ -24,6 +25,7 @@ namespace VContainer.Editor.Diagnostics
 
         public DiagnosticsInfo CurrentDiagnosticsInfo { get; set; }
 
+        [Obsolete]
         public VContainerInstanceTreeView() : base(new TreeViewState())
         {
             Reload();
@@ -50,6 +52,7 @@ namespace VContainer.Editor.Diagnostics
             return root;
         }
 
+        [Obsolete]
         void AddProperties(object instance, TreeViewItem parent)
         {
             if (instance == null) return;
