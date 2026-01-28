@@ -20,6 +20,9 @@ public class UserData : MonoBehaviour, IEntryRun
     public int beforePoint;
     public List<AchievementStageData> achievementStageDataList = new();
 
+    public ReactiveProperty<ColorAssistanceState> CurrentColorAssistanceState = new(ColorAssistanceState.Off);
+    public ReactiveProperty<Language> CurrentLanguage = new(Language.jp);
+
 
     /// <summary>
     /// セーブ・ロード用のクラス
@@ -29,6 +32,9 @@ public class UserData : MonoBehaviour, IEntryRun
         public int mozaicPoint;
         public List<int> clearStageNoList = new();
         public List<AchievementStageData> achievementStageDataList = new();
+        public Language language;
+        public ColorAssistanceState colorAssistanceState;
+        public float masterVolume;
     }
 
     private const string SAVE_KEY = "SaveData";        // SaveData クラス用の Key
@@ -106,9 +112,12 @@ public class UserData : MonoBehaviour, IEntryRun
         return stageDataSO.stageDataList.Find(x => x.stageType == searchStageType && x.stageNo == searchStageNo);
     }
 
+    public yamap.StageData GetStageDataByStageNo(int searchStageNo) {
+        return stageDataSO.stageDataList[searchStageNo];
+    }
 
-    public yamap.StageData GetStageData(int searchStageNo) {
-        return stageDataSO.stageDataList.Find(x => x.stageNo == searchStageNo);
+    public List<yamap.StageData> GetStageDataListByStageType(StageType searchStageType) {
+        return stageDataSO.stageDataList.Where(data => data.stageType == searchStageType).ToList();
     }
 
     /// <summary>
@@ -177,18 +186,21 @@ public class UserData : MonoBehaviour, IEntryRun
 
     /// <summary>
     /// セーブする値を SaveData に設定してセーブ
-    /// セーブするタイミングは、ステージクリア時、キャラ契約時
+    /// セーブするタイミングは、ステージクリア時、ゲームオーバー時、設定変更時
     /// </summary>
     public void SetSaveData() {
-
         // セーブ用のデータを作成
         SaveData saveData = new() {
-
             // 各値を SaveData クラスの変数に設定
             mozaicPoint = MosaicCount.Value,
             clearStageNoList = clearStageNoList,
             achievementStageDataList = achievementStageDataList,
+            language = CurrentLanguage.Value,
+            colorAssistanceState = CurrentColorAssistanceState.Value,
+            masterVolume = SoundManager.instance.masterVolume,
         };
+
+        Debug.Log($"SaveData masterVolume : {SoundManager.instance.masterVolume}");
 
         // SaveData クラスとして SAVE_KEY の名前でセーブ
         PlayerPrefsHelper.SaveSetObjectData(SAVE_KEY, saveData);
@@ -198,7 +210,6 @@ public class UserData : MonoBehaviour, IEntryRun
     /// SaveData をロードして、各値に設定
     /// </summary>
     public void GetSaveData() {
-
         // SaveData としてロード
         SaveData saveData = PlayerPrefsHelper.LoadGetObjectData<SaveData>(SAVE_KEY);
 
@@ -206,6 +217,10 @@ public class UserData : MonoBehaviour, IEntryRun
         MosaicCount = new(saveData.mozaicPoint);
         clearStageNoList = saveData.clearStageNoList;
         achievementStageDataList = saveData.achievementStageDataList;
+        CurrentLanguage = new(saveData.language);
+        CurrentColorAssistanceState = new(saveData.colorAssistanceState);
+        SoundManager.instance.masterVolume = saveData.masterVolume;
+        SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, saveData.masterVolume);
     }
 
     /// <summary>
@@ -239,5 +254,21 @@ public class UserData : MonoBehaviour, IEntryRun
 
     public VideoClip GetVideoData(int searchStageNo) {
         return stageDataSO.stageDataList.FirstOrDefault(x => x.stageNo == searchStageNo).videoClip;
+    }
+
+    /// <summary>
+    /// 言語変更
+    /// </summary>
+    /// <param name="newLanguage"></param>
+    public void ChangeLanguage(Language newLanguage) {
+        CurrentLanguage.Value = newLanguage;
+    }
+
+    /// <summary>
+    /// 色覚サポート状態の変更
+    /// </summary>
+    /// <param name="newState"></param>
+    public void ChangeColorAssistanceState(ColorAssistanceState newState) {
+        CurrentColorAssistanceState.Value = newState;
     }
 }

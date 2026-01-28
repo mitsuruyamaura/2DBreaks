@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5917866674b64e43b5871a4a86cc600, type: 3}
+  m_Name: LocalizeDataSO
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizeDataSO
+  localizeDataList:
+  - key: achievements
+    jp: "\u5B9F\u7E3E"
+    en: Achievements
+  - key: easy
+    jp: "\u30A4\u30FC\u30B8\u30FC"
+    en: Easy
+  - key: normal
+    jp: "\u30CE\u30FC\u30DE\u30EB"
+    en: Normal
+  - key: hard
+    jp: "\u30CF\u30FC\u30C9"
+    en: Hard
+  - key: gallery
+    jp: "\u30AE\u30E3\u30E9\u30EA\u30FC"
+    en: Gallery
+  - key: menu_info_1
+    jp: "\u30AD\u30E3\u30E9\u3092\u30AF\u30EA\u30C3\u30AF:\u30B9\u30C6\u30FC\u30B8\u9078\u629E"
+    en: 'Click on the chara: Select stage'
+  - key: menu_info_2
+    jp: "Esc \u30AD\u30FC:\u30B2\u30FC\u30E0\u7D42\u4E86"
+    en: 'Esc key: End game'
+  - key: challengeCount
+    jp: "\u6311\u6226\u56DE\u6570 :"
+    en: 'ChallengeCount:'
+  - key: clearCount
+    jp: "\u30AF\u30EA\u30A2\u56DE\u6570 :"
+    en: 'ClearCount:'
+  - key: gameOverCount
+    jp: "\u30B2\u30FC\u30E0\u30AA\u30FC\u30D0\u30FC\u56DE\u6570 :"
+    en: 'GameOverCount:'
+  - key: feverCount
+    jp: "\u30D5\u30A3\u30FC\u30D0\u30FC\u56DE\u6570 :"
+    en: 'FeverCount:'
+  - key: excellentCount
+    jp: "\u30CE\u30FC\u30DF\u30B9\u30AF\u30EA\u30A2\u56DE\u6570 :"
+    en: 'ExcellentCount:'
+  - key: maxGetCount
+    jp: "\u6700\u5927\u7372\u5F97\u30DD\u30A4\u30F3\u30C8 :"
+    en: 'MaxGetCount:'
+  - key: maxNumberOfErases
+    jp: "\u307E\u3068\u3081\u6D88\u3057\u6700\u9AD8\u6570/1\u56DE :"
+    en: 'MaxNumberOfErases:'
+  - key: fastestClearTime
+    jp: "\u6700\u901F\u30AF\u30EA\u30A2\u30BF\u30A4\u30E0 :"
+    en: 'Fastest clear time:'
+  - key: volumeSetting
+    jp: "\u3010\u30DC\u30EA\u30E5\u30FC\u30E0\u8A2D\u5B9A\u3011"
+    en: '[Volume Setting]'
+  - key: audio_info
+    jp: "\u203B\u3000\u30AA\u30FC\u30C7\u30A3\u30AA\u306E\u6700\u9069\u5316\u3092\u884C\u3063\u3066\u3044\u307E\u3059\u3002
+      SE \u304C\u9CF4\u308B\u3068 BGM \u304C\u81EA\u52D5\u7684\u306B\u4E0B\u304C\u308A\u307E\u3059\u3002
+      \u305D\u306E\u305F\u3081\u500B\u3005\u306E\u8A2D\u5B9A\u3067\u306F\u306A\u304F
+      \u30DE\u30B9\u30BF\u30FC\u30DC\u30EA\u30E5\u30FC\u30E0\u306E\u307F\u306E\u8A2D\u5B9A\u306B\u306A\u308A\u307E\u3059\u3002"
+    en: Audio optimization is being performed.
+  - key: langSetting
+    jp: "\u3010\u8A00\u8A9E\u8A2D\u5B9A\u3011"
+    en: '[Language Setting]'
+  - key: initGame
+    jp: "\u3010\u30B2\u30FC\u30E0\u306E\u521D\u671F\u5316\u3011"
+    en: '[Game initialization]'
+  - key: initGameInfo
+    jp: "\u30B2\u30FC\u30E0\u306E\u521D\u671F\u5316\u3092 \u884C\u3046\u3053\u3068\u304C\u3067\u304D\u307E\u3059\u3002 
+      \u30B2\u30FC\u30E0\u306E\u521D\u671F\u5316\u3092\u884C\u3046\u3068 \u5B9F\u7E3E\u306A\u3069\u306E\u3059\u3079\u3066\u306E\u30C7\u30FC\u30BF\u304C
+      \u524A\u9664\u3055\u308C\u307E\u3059\u3002  \u521D\u671F\u5316\u3059\u308B\u3068\u30B2\u30FC\u30E0\u3092\u518D\u8D77\u52D5\u3057\u307E\u3059\u3002"
+    en: ' You can initialize the game. Initializing the game will delete all data,
+      including achievements. Initializing will restart the game.'
+  - key: initializationExecution
+    jp: "\u521D\u671F\u5316\u5B9F\u884C"
+    en: Initialization execution
+  - key: closeWindow
+    jp: "\u30A6\u30A4\u30F3\u30C9\u30A6\u3092\u9589\u3058\u307E\u3059 (\u8A2D\u5B9A\u53CD\u6620\u3057\u307E\u3059)"
+    en: Close the window (settings will be applied)
+  - key: colorSetting
+    jp: "\u3010\u8272\u899A\u30B5\u30DD\u30FC\u30C8\u8A2D\u5B9A\u3011"
+    en: '[Color Assistance Setting]'
+  - key: off
+    jp: "\u30AA\u30D5"
+    en: off
+  - key: redGreen
+    jp: "\u8D64\u7DD1\u7CFB"
+    en: RedGreen
+  - key: blueYellow
+    jp: "\u9752\u9EC4\u7CFB"
+    en: BlueYellow

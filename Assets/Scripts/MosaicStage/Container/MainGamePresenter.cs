@@ -78,8 +78,9 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         //SoundManager.instance?.PlayBGM((SoundManager.BGM_TYPE)Enum.Parse(typeof(SoundManager.BGM_TYPE), "Stage_" + SelectStage.stageNo));
 
         // ランダム BGM 再生
-        SoundManager.BGM_TYPE bGM_TYPE = (SoundManager.BGM_TYPE)Enum.Parse(typeof(SoundManager.BGM_TYPE), "Stage_" + UnityEngine.Random.Range(0, 3));
-
+        SoundManager.BGM_TYPE bgmType = (SoundManager.BGM_TYPE)Enum.Parse(typeof(SoundManager.BGM_TYPE), "Stage_" + UnityEngine.Random.Range(0, 3));
+        SoundManager.instance?.PlayBGM(bgmType);
+            
         //mainGameManager.CurrentAchievementStageData = new AchievementStageData(SelectStage.stageNo);
         mainGameInfoView.HideGameUpInfo();
 
@@ -327,47 +328,39 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
 
         await UniTask.Delay(1000, cancellationToken: token);
 
-        // ノーミスクリア
-        if (lifeModel.IsNoMissClear()) {
-            SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Excellent);
+        // ワンミスクリア
+        bool isOneMissClear = lifeModel.IsOnMissClear();
+        if (isOneMissClear) {
+            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.クリア_2);
 
-            //mainGameInfoView.ShowExcellentLogo();
-            //await UniTask.Delay(1500, cancellationToken: token);
-
-            //// クリック待ち
-            //await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
-
-            //SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Fever);
+            // クリック待ち
+            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
 
             // エクセレントのロゴを消し、レア画像のアニメ表示
-            //mainGameInfoView.HideExcellentLogo();
-
-            //await UniTask.Delay(1500, cancellationToken: token);
-
-
-
-            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.エクセレント);
-
-            await UniTask.Delay(1000, cancellationToken: token);
-
-            // エクセレント演出動画再生(タップでスキップ可)
-            await VideoClipManager.instance.PlayVideoAsync(videoNo: SelectStage.stageNo, token);
-
-
-            // クリック待ち
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
-        } else {
-            // クリック待ち
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
-            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.クリア_2);
+            mainGameInfoView.HideExcellentLogo();
 
             // ボイスを最後まで流したいため
             await UniTask.Delay(1000, cancellationToken: token);
         }
 
+        // ノーミスクリア
+        bool isNoMissClear = lifeModel.IsNoMissClear();
+        if (isNoMissClear) {
+            SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Excellent);
+            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.エクセレント);
 
-        // ボイスを最後まで流したいため
-        //await UniTask.Delay(1000, cancellationToken: token);
+            // ボイスを最後まで流したいため
+            await UniTask.Delay(1000, cancellationToken: token);
+
+            // クリック待ち
+            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+
+            // エクセレント演出動画再生(タップでスキップ可)
+            await VideoClipManager.instance.PlayVideoAsync(videoNo: SelectStage.stageNo, token);
+        }
+
+        // クリック待ち
+        await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
 
         // シーン遷移
         TransitionManager.instance.PrepareNextScene(SCENE_STATE.Menu);

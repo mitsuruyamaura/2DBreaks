@@ -140,7 +140,7 @@ public class SoundManager : MonoBehaviour, IEntryRun {
             VoiceSources[i].outputAudioMixerGroup = audioMixerGroups[1];
         }
         // 初期音量設定
-        SetMasterVolume(newMasterVolume);
+        //SetMasterVolume(newMasterVolume);
 
         DOTween.Init();
         //Debug.Log("SoundManager Init");

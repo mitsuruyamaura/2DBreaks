@@ -50,7 +50,9 @@ namespace VContainer.Editor.Diagnostics
             }
         }
 
+        [Obsolete]
         VContainerDiagnosticsInfoTreeView treeView;
+        [Obsolete]
         VContainerInstanceTreeView instanceTreeView;
         SearchField searchField;
 
@@ -60,12 +62,14 @@ namespace VContainer.Editor.Diagnostics
         Vector2 detailsScrollPosition;
         Vector2 instanceScrollPosition;
 
+        [Obsolete]
         public void Reload(IObjectResolver resolver)
         {
             treeView.ReloadAndSort();
             Repaint();
         }
 
+        [Obsolete]
         void OnEnable()
         {
             window = this; // set singleton.
@@ -78,11 +82,13 @@ namespace VContainer.Editor.Diagnostics
             DiagnositcsContext.OnContainerBuilt += Reload;
         }
 
+        [Obsolete]
         void OnDisable()
         {
             DiagnositcsContext.OnContainerBuilt -= Reload;
         }
 
+        [Obsolete]
         void OnGUI()
         {
             RenderHeadPanel();
@@ -101,6 +107,7 @@ namespace VContainer.Editor.Diagnostics
             SplitterGUILayout.EndVerticalSplit();
         }
 
+        [Obsolete]
         void RenderHeadPanel()
         {
             using (new EditorGUILayout.VerticalScope())
@@ -126,6 +133,7 @@ namespace VContainer.Editor.Diagnostics
             }
         }
 
+        [Obsolete]
         void RenderBuildPanel()
         {
             using (new EditorGUILayout.VerticalScope(TableListStyle))
@@ -144,6 +152,7 @@ namespace VContainer.Editor.Diagnostics
             }
         }
 
+        [Obsolete]
         void RenderInstancePanel()
         {
             if (!VContainerSettings.DiagnosticsEnabled)
@@ -175,6 +184,7 @@ namespace VContainer.Editor.Diagnostics
             }
         }
 
+        [Obsolete]
         void RenderStackTracePanel()
         {
             var message = "";

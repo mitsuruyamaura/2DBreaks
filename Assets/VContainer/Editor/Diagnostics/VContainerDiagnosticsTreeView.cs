@@ -9,6 +9,7 @@ using VContainer.Unity;
 
 namespace VContainer.Editor.Diagnostics
 {
+    [Obsolete]
     public sealed class DiagnosticsInfoTreeViewItem : TreeViewItem
     {
         public string ScopeName { get; set; }
@@ -75,6 +76,7 @@ namespace VContainer.Editor.Diagnostics
         }
     }
 
+    [Obsolete]
     public sealed class VContainerDiagnosticsInfoTreeView : TreeView
     {
         static readonly MultiColumnHeaderState.Column[] Columns =

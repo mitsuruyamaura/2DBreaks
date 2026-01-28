@@ -86,7 +86,7 @@ namespace VContainer.Unity
 
         static LifetimeScope Find(Type type)
         {
-           return (LifetimeScope)FindObjectOfType(type);
+           return (LifetimeScope)FindFirstObjectByType(type);
         }
 
         static void EnqueueExtra(IInstaller installer)
