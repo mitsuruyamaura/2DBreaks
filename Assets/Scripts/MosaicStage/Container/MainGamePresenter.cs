@@ -273,21 +273,34 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
             return;
         }
 
-        // クリアしたステージが最終ステージではなくて、初クリアのステージの場合
-        if (mainGameManager.GetCurrentStageData().stageNo != 2 && !UserData.instance.clearStageNoList.Contains(mainGameManager.GetCurrentStageData().stageNo + 1)) {
-            // 次のステージを追加
-            UserData.instance.AddClearStageNoList(mainGameManager.GetCurrentStageData().stageNo + 1);
-        }
+        //クリアしたステージが最終ステージではなくて、初クリアのステージの場合
+        //if (mainGameManager.GetCurrentStageData().stageNo != 2 && !UserData.instance.clearStageNoList.Contains(mainGameManager.GetCurrentStageData().stageNo + 1)) {
+        //    次のステージを追加
+        //    UserData.instance.AddClearStageNoList(mainGameManager.GetCurrentStageData().stageNo + 1);
+        //}
+
         // クリア回数加算
         mainGameManager.CurrentAchievementStageData.clearCount++;
 
+        // ワンミスクリア
+        bool isOneMissClear = lifeModel.IsOnMissClear();
+
         // ノーミスクリアの場合
-        if (lifeModel.IsNoMissClear()) {
+        bool isNoMissClear = lifeModel.IsNoMissClear();
+
+        // 初クリアのステージの場合
+        if (!UserData.instance.stageClearDataList.Exists(data => data.stageType == SelectStage.stageType && data.stageNo == SelectStage.stageNo)) {
+            // クリアしたステージ情報を追加
+            UserData.instance.AddClearStageDataList(SelectStage.stageType, SelectStage.stageNo, isOneMissClear, isNoMissClear);
+        }
+
+        // ノーミスクリアの場合
+        if (isNoMissClear) {
             mainGameManager.CurrentAchievementStageData.noMissClearCount++;
         }
         // 実績の更新確認
         UserData.instance.CheckUpdateAchievementStageData(mainGameManager.CurrentAchievementStageData);
-        GameClearAsync(token).Forget();
+        GameClearAsync(isOneMissClear, isNoMissClear, token).Forget();
     }
 
     /// <summary>
@@ -316,7 +329,7 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
     /// ゲームクリア演出
     /// </summary>
     /// <returns></returns>
-    private async UniTask GameClearAsync(CancellationToken token) {
+    private async UniTask GameClearAsync(bool isOneMissClear, bool isNoMissClear, CancellationToken token) {
         SoundManager.instance.StopBGM();
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.GameClear);
 
@@ -328,13 +341,12 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
 
         await UniTask.Delay(1000, cancellationToken: token);
 
-        // ワンミスクリア
-        bool isOneMissClear = lifeModel.IsOnMissClear();
+        // ワンミスクリアの場合
         if (isOneMissClear) {
-            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.クリア_2);
-
             // クリック待ち
             await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+
+            SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.クリア_2);
 
             // エクセレントのロゴを消し、レア画像のアニメ表示
             mainGameInfoView.HideExcellentLogo();
@@ -343,17 +355,16 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
             await UniTask.Delay(1000, cancellationToken: token);
         }
 
-        // ノーミスクリア
-        bool isNoMissClear = lifeModel.IsNoMissClear();
+        // ノーミスクリアの場合
         if (isNoMissClear) {
+            // クリック待ち
+            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+
             SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Excellent);
             SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.エクセレント);
 
             // ボイスを最後まで流したいため
             await UniTask.Delay(1000, cancellationToken: token);
-
-            // クリック待ち
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
 
             // エクセレント演出動画再生(タップでスキップ可)
             await VideoClipManager.instance.PlayVideoAsync(videoNo: SelectStage.stageNo, token);

@@ -740,10 +740,11 @@ public class MosaicManager : MonoBehaviour
         }
 
         // クリアしたステージが最終ステージではなくて、初クリアのステージの場合
-        if (currentStageData.stageNo != 2 && !UserData.instance.clearStageNoList.Contains(currentStageData.stageNo + 1)) {
-            // 次のステージを追加
-            UserData.instance.AddClearStageNoList(currentStageData.stageNo + 1);
-        }
+        //if (currentStageData.stageNo != 2 && !UserData.instance.clearStageNoList.Contains(currentStageData.stageNo + 1)) {
+        //    // 次のステージを追加
+        //    UserData.instance.AddClearStageNoList(currentStageData.stageNo + 1);
+        //}
+
         // クリア回数加算
         currentAchievementStageData.clearCount++;
 

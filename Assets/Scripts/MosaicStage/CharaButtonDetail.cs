@@ -27,17 +27,21 @@ public class CharaButtonDetail : MonoBehaviour
     /// </summary>
     /// <param name="stageNo"></param>
     /// <param name="menu"></param>
-    public void SetUpCharaButtonDetail(int stageNo, Sprite charaSprite, StageType stageType, UnityAction<StageType> btnAction) {
+    public void SetUpCharaButtonDetail(int stageNo, Sprite charaSprite, StageType stageType, UnityAction<StageType> btnAction, bool isOpenStage, int openPoint) {
         this.stageNo = stageNo;
         this.stageType = stageType;
         imgChara.sprite = charaSprite;
-        txtStageOpenPoint.text = $"{stageType}";
-
-        btnChara.OnClickAsObservable()
-                    .ThrottleFirst(System.TimeSpan.FromSeconds(1.5f))
-                    .Subscribe(_ => {
-                        btnAction.Invoke(stageType);
-                    });
+        
+        if (isOpenStage) {
+            txtStageOpenPoint.text = string.Empty;
+            btnChara.OnClickAsObservable()
+                        .ThrottleFirst(System.TimeSpan.FromSeconds(1.5f))
+                        .Subscribe(_ => {
+                            btnAction.Invoke(stageType);
+                        });
+        } else {
+            DisplayStageOpenPoint(openPoint);
+        }
     }
 
     /// <summary>
@@ -55,7 +59,7 @@ public class CharaButtonDetail : MonoBehaviour
     /// </summary>
     /// <param name="openPoint"></param>
     public void DisplayStageOpenPoint(int openPoint) {
-        txtStageOpenPoint.text += openPoint + " で開放";
+        txtStageOpenPoint.text = $"{openPoint} で開放";
     }
 
     /// <summary>

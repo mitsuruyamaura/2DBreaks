@@ -177,6 +177,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: UserData
       objectReference: {fileID: 0}
+    - target: {fileID: 6441136773932916221, guid: da570331e9495214a99dc8c694caf65a,
+        type: 3}
+      propertyPath: stageDifficultyDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 2659089a6bd50434cad87afbe3554b02,
+        type: 2}
     - target: {fileID: 6441136773932916222, guid: da570331e9495214a99dc8c694caf65a,
         type: 3}
       propertyPath: m_RootOrder
