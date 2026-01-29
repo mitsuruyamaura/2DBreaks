@@ -38,12 +38,6 @@ public class StageSelectPopup : MonoBehaviour {
             // 内部で AsyncReactiveCommand が自動生成される。sharedGate が true なので、それが false になると、すべてのボタンの interactable に false の処理が届く
             stageSelectIconView.GetButton()
                 .BindToOnClick(sharedGate, _ => {
-                    //charaButton.OnClickCharaButton();
-
-
-
-                    //UserData.instance.beforePoint = UserData.instance.MosaicCount.Value;
-
                     // 5秒間押せないボタン
                     return Observable.Timer(System.TimeSpan.FromSeconds(2)).AsUnitObservable();
                 });
@@ -96,13 +90,7 @@ public class StageSelectPopup : MonoBehaviour {
     /// ポップアップを閉じる
     /// </summary>
     public void ClosePopup() {
-        //Sequence sequence = DOTween.Sequence();
-        //sequence.Append(btnClose.transform.DOScale(Vector3.one * 0.8f, 0.15f).SetEase(Ease.InOutQuart)).SetLink(gameObject);
-        //sequence.Append(btnClose.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.Linear)).SetLink(gameObject)
-        //    .OnComplete(() => AnimePopup(0f));
-
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Cancel);
-
         Destroy(gameObject);
     }
 }

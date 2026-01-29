@@ -57,7 +57,7 @@ public class GameInitPopUp : MonoBehaviour
 
         // 現在の言語に合わせてトグルをオンにする(先に設定しないと、OnValueChangedAsObservable で上書きされてしまう)
         Language currentLanguage = UserData.instance.CurrentLanguage.Value;
-        Debug.Log($"Language : {currentLanguage}");
+        //Debug.Log($"Language : {currentLanguage}");
         toggleLanguages[(int)currentLanguage].isOn = true;
 
         // 言語選択用のトグル設定
@@ -79,7 +79,7 @@ public class GameInitPopUp : MonoBehaviour
 
         // 現在の色覚サポート設定に合わせてトグルをオンにする(先に設定しないと、OnValueChangedAsObservable で上書きされてしまう)
         ColorAssistanceState currentColorAssistanceState = UserData.instance.CurrentColorAssistanceState.Value;
-        Debug.Log($"ColorAssistanceState : {currentColorAssistanceState}");
+        //Debug.Log($"ColorAssistanceState : {currentColorAssistanceState}");
         toggleColorAssistances[(int)currentColorAssistanceState].isOn = true;
 
         // 色覚サポート選択用のトグル設定

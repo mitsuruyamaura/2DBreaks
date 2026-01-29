@@ -51,10 +51,10 @@ public class Menu : MonoBehaviour, IEntryRun
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.Menu);
 
         // モザイクカウントによるステージ開放の判定
-        UserData.instance.CheckOpenStageFromPoint();
+        (bool[] isOpenStages, int[] openPoints) = UserData.instance.CheckOpenStageDifficultyFromPoint();
 
         // キャラボタンの生成
-        CreateCharaButtons();
+        CreateCharaButtons(isOpenStages, openPoints);
 
         // MozaicCount 購読
         UserData.instance.MosaicCount
@@ -140,21 +140,25 @@ public class Menu : MonoBehaviour, IEntryRun
     /// <summary>
     /// キャラボタンの生成
     /// </summary>
-    private void CreateCharaButtons() {
+    private void CreateCharaButtons(bool[] isOpenStages, int[] openPoints) {
         for (int i = 0; i < Enum.GetValues(typeof(StageType)).Length; i++) {
             yamap.StageData stageData = UserData.instance.GetStageDataByStageNo(i);
 
             CharaButtonDetail charaButton = Instantiate(charaButtonPrefab, charaButtonSetTrans[i], false);
-            charaButton.SetUpCharaButtonDetail(stageData.stageNo, stageData.charaIcon, (StageType)i, PrepareStageSelectPopUp);
+            Sprite btnCharaSprite = UserData.instance.GetBtnChara((StageType)i);
+            charaButton.SetUpCharaButtonDetail(stageData.stageNo, btnCharaSprite, (StageType)i, PrepareStageSelectPopUp, isOpenStages[i], openPoints[i]);
+
+            // TODO　難易度は変える。Easy 3つ以上クリアで Normal 開放など。
+
 
             // ロックされているステージの場合
-            if (!UserData.instance.clearStageNoList.Contains(stageData.stageNo)) {
-                // キャラをシルエット表示してボタンを押せない状態にする
-                charaButton.LockCharaButton();
+            //if (!UserData.instance.clearStageNoList.Contains(stageData.stageNo)) {
+            //    // キャラをシルエット表示してボタンを押せない状態にする
+            //    charaButton.LockCharaButton();
 
-                // ステージ開放に必要なポイント表示
-                charaButton.DisplayStageOpenPoint(stageData.stageOpenPoint);
-            }
+            //    // ステージ開放に必要なポイント表示
+            //    charaButton.DisplayStageOpenPoint(stageData.stageOpenPoint);
+            //}
 
             // 複数のボタンを BoolReactiveProperty を購読して、１つのボタンに連動して制御できる
             // 内部で AsyncReactiveCommand が自動生成される。sharedGate が true なので、それが false になると、すべてのボタンの interactable に false の処理が届く

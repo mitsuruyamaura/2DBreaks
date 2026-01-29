@@ -6,15 +6,32 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Video;
 
+/// <summary>
+/// このデータが存在する時点で、そのステージはクリア済であることが保証される
+/// </summary>
+[System.Serializable]
+public class StageClearData {
+    public StageType stageType;
+    public int stageNo;
+    public bool isOneMissClear;   // ワンミス以内達成
+    public bool isNoMissClear;    // ノーミス達成
+
+    public StageClearData(StageType stageType, int stageNo, bool isOneMissClear, bool isNoMissClear) {
+        this.stageType = stageType;
+        this.stageNo = stageNo;
+        this.isOneMissClear = isOneMissClear;
+        this.isNoMissClear = isNoMissClear;
+    }
+}
+
 public class UserData : MonoBehaviour, IEntryRun
 {
     public static UserData instance;
 
-    [SerializeField]
-    private yamap.StageDataSO stageDataSO;
+    [SerializeField] private yamap.StageDataSO stageDataSO;
+    [SerializeField] private StageDifficultyDataSO stageDifficultyDataSO;
 
     public ReactiveProperty<int> MosaicCount = new();
-    public List<int> clearStageNoList = new();
     public bool isOpenGallary;
     public int openGallaryPoint;
     public int beforePoint;
@@ -22,7 +39,7 @@ public class UserData : MonoBehaviour, IEntryRun
 
     public ReactiveProperty<ColorAssistanceState> CurrentColorAssistanceState = new(ColorAssistanceState.Off);
     public ReactiveProperty<Language> CurrentLanguage = new(Language.jp);
-
+    public List<StageClearData> stageClearDataList = new();
 
     /// <summary>
     /// セーブ・ロード用のクラス
@@ -30,11 +47,12 @@ public class UserData : MonoBehaviour, IEntryRun
     [System.Serializable]
     public class SaveData {
         public int mozaicPoint;
-        public List<int> clearStageNoList = new();
+        //public List<int> clearStageNoList = new();
         public List<AchievementStageData> achievementStageDataList = new();
         public Language language;
         public ColorAssistanceState colorAssistanceState;
         public float masterVolume;
+        public List<StageClearData> stageClearDataList = new();
     }
 
     private const string SAVE_KEY = "SaveData";        // SaveData クラス用の Key
@@ -65,8 +83,8 @@ public class UserData : MonoBehaviour, IEntryRun
         }
 
         // 初回起動時
-        if (clearStageNoList.Count == 0) {
-            AddClearStageNoList(0);
+        if (stageClearDataList.Count == 0) {
+            //AddClearStageNoList(0);
 
             // 以前のもの。ステージ番号での実績データを初期化して追加
             //for (int i = 0; i < stageDataSO.stageDataList.Count; i++) {
@@ -87,8 +105,13 @@ public class UserData : MonoBehaviour, IEntryRun
     /// クリアしたステージの番号をリストに追加
     /// </summary>
     /// <param name="no"></param>
-    public void AddClearStageNoList(int no) {
-        clearStageNoList.Add(no);
+    //public void AddClearStageNoList(int no) {
+    //    clearStageNoList.Add(no);
+    //}
+
+    public void AddClearStageDataList(StageType stageType, int stageNo, bool isOneMissClear, bool isNoMissClear) {
+        StageClearData stageClearData = new(stageType, stageNo, isOneMissClear, isNoMissClear);
+        stageClearDataList.Add(stageClearData);
     }
 
     /// <summary>
@@ -140,18 +163,20 @@ public class UserData : MonoBehaviour, IEntryRun
     /// <summary>
     /// モザイクカウントによるステージ開放判定
     /// </summary>
-    public void CheckOpenStageFromPoint() {
-        for (int i = 0; i < stageDataSO.stageDataList.Count; i++) {
-            // すでにクリア済の場合
-            if (clearStageNoList.Contains(stageDataSO.stageDataList[i].stageNo)) {
-                continue;
-            }
+    public (bool[], int[]) CheckOpenStageDifficultyFromPoint() {
+        bool[] isOpenStages = new bool[] { false, false, false };
+        int[] openPoints = new int[] { 0, 0, 0 };
 
+        for (int i = 0; i < stageDifficultyDataSO.stageDifficultyDataList.Count; i++) {
             // ポイントが超えている場合
-            if (MosaicCount.Value >= stageDataSO.stageDataList[i].stageOpenPoint) {
-                clearStageNoList.Add(stageDataSO.stageDataList[i].stageNo);
+            int stageOpenPoint = stageDifficultyDataSO.stageDifficultyDataList[i].stageOpenPoint;
+            if (MosaicCount.Value >= stageOpenPoint) {
+                isOpenStages[i] = true;
             }
+            openPoints[i] = stageOpenPoint;
         }
+
+        return (isOpenStages, openPoints);
     }
 
     /// <summary>
@@ -193,14 +218,14 @@ public class UserData : MonoBehaviour, IEntryRun
         SaveData saveData = new() {
             // 各値を SaveData クラスの変数に設定
             mozaicPoint = MosaicCount.Value,
-            clearStageNoList = clearStageNoList,
             achievementStageDataList = achievementStageDataList,
             language = CurrentLanguage.Value,
             colorAssistanceState = CurrentColorAssistanceState.Value,
             masterVolume = SoundManager.instance.masterVolume,
+            stageClearDataList = stageClearDataList,
         };
 
-        Debug.Log($"SaveData masterVolume : {SoundManager.instance.masterVolume}");
+        //Debug.Log($"SaveData masterVolume : {SoundManager.instance.masterVolume}");
 
         // SaveData クラスとして SAVE_KEY の名前でセーブ
         PlayerPrefsHelper.SaveSetObjectData(SAVE_KEY, saveData);
@@ -215,10 +240,11 @@ public class UserData : MonoBehaviour, IEntryRun
 
         // 各値に SaveData 内の値を設定
         MosaicCount = new(saveData.mozaicPoint);
-        clearStageNoList = saveData.clearStageNoList;
         achievementStageDataList = saveData.achievementStageDataList;
         CurrentLanguage = new(saveData.language);
         CurrentColorAssistanceState = new(saveData.colorAssistanceState);
+        stageClearDataList = saveData.stageClearDataList;
+
         SoundManager.instance.masterVolume = saveData.masterVolume;
         SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, saveData.masterVolume);
     }
@@ -243,8 +269,8 @@ public class UserData : MonoBehaviour, IEntryRun
     /// </summary>
     public async UniTask ResetDataAsync() {
         MosaicCount.Value = 0;
-        clearStageNoList.Clear();
         achievementStageDataList.Clear();
+        stageClearDataList.Clear();
 
         var token = this.GetCancellationTokenOnDestroy();
         await UniTask.Delay(1000, cancellationToken : token);
@@ -270,5 +296,24 @@ public class UserData : MonoBehaviour, IEntryRun
     /// <param name="newState"></param>
     public void ChangeColorAssistanceState(ColorAssistanceState newState) {
         CurrentColorAssistanceState.Value = newState;
+    }
+
+    /// <summary>
+    /// ステージクリアデータの取得
+    /// </summary>
+    /// <param name="searchStageType"></param>
+    /// <param name="searchStageNo"></param>
+    /// <returns></returns>
+    public StageClearData GetStageClearData(StageType searchStageType, int searchStageNo) {
+        return stageClearDataList.FirstOrDefault(data => data.stageType == searchStageType && data.stageNo == searchStageNo);
+    }
+
+    /// <summary>
+    /// ボタン用キャラ画像の取得
+    /// </summary>
+    /// <param name="searchStageType"></param>
+    /// <returns></returns>
+    public Sprite GetBtnChara(StageType searchStageType) {
+        return stageDifficultyDataSO.stageDifficultyDataList.FirstOrDefault(data => data.stageType == searchStageType).btnCharaSprite;
     }
 }

@@ -2016,6 +2016,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d8314adcff693274aa58325107abd61a, type: 3}
   normalChara: {fileID: 1098051248}
   rareChara: {fileID: 1965004761}
+  difficultySprites:
+  - {fileID: 7410714790319184193, guid: c4e7c255fd47e8047bd45a483013cd7a, type: 3}
+  - {fileID: 4606157284126940538, guid: 48025a560c9816b4da3248558938e170, type: 3}
+  - {fileID: 2577327768951602612, guid: b652f9924826c2640be7751c15a3557e, type: 3}
 --- !u!114 &1767711318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2970,13 +2974,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 0
 --- !u!222 &5212911760536609481
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3021,8 +3025,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -278.6, y: -69.08545}
-  m_SizeDelta: {x: 791.2701, y: 232.5443}
+  m_AnchoredPosition: {x: -386, y: -69}
+  m_SizeDelta: {x: 790, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5212911760536609487
 MonoBehaviour:
@@ -3591,7 +3595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &8504946060591075322
 CanvasRenderer:
   m_ObjectHideFlags: 0

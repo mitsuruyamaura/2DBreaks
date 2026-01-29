@@ -1,4 +1,4 @@
-using DG.Tweening;
+ï»¿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,21 +39,21 @@ public class MainGameInfoView : MonoBehaviour
 
 
     /// <summary>
-    /// ƒXƒ‰ƒCƒ_[‚Ì‰Šúİ’è
+    /// ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®åˆæœŸè¨­å®š
     /// </summary>
     /// <param name="targetFeverPoint"></param>
     public void SetUpSliderValue(int targetFeverPoint) {
-        // ƒtƒB[ƒo[ƒQ[ƒW‚Ìİ’è
+        // ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚²ãƒ¼ã‚¸ã®è¨­å®š
         sliderFever.maxValue = targetFeverPoint;
         sliderFever.value = 0;
     }
 
     /// <summary>
-    /// ƒQ[ƒ€ŠÔ‚Ì•\¦XV
+    /// ã‚²ãƒ¼ãƒ æ™‚é–“ã®è¡¨ç¤ºæ›´æ–°
     /// </summary>
     /// <param name="amount"></param>
     public void UpdateGameTime(float amount) {
-        // ¬”“_ˆÈ‰º‚Í¬‚³‚­•\¦
+        // å°æ•°ç‚¹ä»¥ä¸‹ã¯å°ã•ãè¡¨ç¤º
         string time = amount.ToString("F2");
         string[] part = time.Split('.');
         txtGameTimes[0].text = part[0] + ".";
@@ -61,20 +61,20 @@ public class MainGameInfoView : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰ó‚µ‚½ƒOƒŠƒbƒh‚Ì”‚Ì•\¦XV
+    /// å£Šã—ãŸã‚°ãƒªãƒƒãƒ‰ã®æ•°ã®è¡¨ç¤ºæ›´æ–°
     /// </summary>
     /// <param name="oldValue"></param>
     /// <param name="newValue"></param>
     public void UpdateMosaicCount(int oldValue, int newValue) {
         txtMosaicCount.DOCounter(oldValue, newValue, 0.5f).SetEase(Ease.Linear);
-        // ¶ã‚ÌƒLƒƒƒ‰ƒAƒCƒRƒ“‚ğƒAƒjƒ
+        // å·¦ä¸Šã®ã‚­ãƒ£ãƒ©ã‚¢ã‚¤ã‚³ãƒ³ã‚’ã‚¢ãƒ‹ãƒ¡
         imgCharaIcon.transform.DOPunchScale(Vector3.one * 1.25f, 0.25f)
             .SetEase(Ease.InQuart)
             .SetLink(gameObject);
     }
 
     /// <summary>
-    /// ƒtƒB[ƒo[ƒQ[ƒW‚Ì•\¦XV
+    /// ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚²ãƒ¼ã‚¸ã®è¡¨ç¤ºæ›´æ–°
     /// </summary>
     /// <param name="feverPoint"></param>
     /// <param name="duration"></param>
@@ -83,7 +83,7 @@ public class MainGameInfoView : MonoBehaviour
     }
 
     /// <summary>
-    /// Slider ‚Ìã‚Ì % •\¦‚ÌXV
+    /// Slider ã®ä¸Šã® % è¡¨ç¤ºã®æ›´æ–°
     /// </summary>
     /// <param name="oldValue"></param>
     /// <param name="newValue"></param>
@@ -102,15 +102,15 @@ public class MainGameInfoView : MonoBehaviour
 
         //Debug.Log(a);
         //Debug.Log(b);
-        // ”š‚ÌƒAƒjƒŠÔ‚Ìİ’èBƒtƒB[ƒo[‚µ‚½Û‚É‚Í’·‚­‚È‚é
+        // æ•°å­—ã®ã‚¢ãƒ‹ãƒ¡æ™‚é–“ã®è¨­å®šã€‚ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã—ãŸéš›ã«ã¯é•·ããªã‚‹
         float duration = newValue == 0 ? (float)feverDuraiton / 1000 : 0.25f;
 
         Sequence sequence = DOTween.Sequence();
         sequence.Append(txtValue.DOCounter(a, b, duration).SetEase(Ease.Linear)).SetLink(txtValue.gameObject);
 
-        // –ƒ^ƒ“‚É‚È‚Á‚½‚ç
+        // æº€ã‚¿ãƒ³ã«ãªã£ãŸã‚‰
         if (newValue == targetFeverPoint) {
-            // 100“ ‚Ì”š‚ğŒ©‚¹‚éƒAƒjƒ‰‰o‚ğ’Ç‰Á
+            // 100ï¼… ã®æ•°å­—ã‚’è¦‹ã›ã‚‹ã‚¢ãƒ‹ãƒ¡æ¼”å‡ºã‚’è¿½åŠ 
             float scale = txtValue.transform.localScale.x;
             sequence.Append(
             txtValue.transform.DOPunchScale(txtValue.transform.localScale * 1.25f, 0.25f).SetEase(Ease.InQuart).SetLink(txtValue.gameObject)
@@ -119,21 +119,21 @@ public class MainGameInfoView : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒQ[ƒ€ƒAƒbƒv‚ÌƒCƒ“ƒtƒH‚ğ”ñ•\¦
+    /// ã‚²ãƒ¼ãƒ ã‚¢ãƒƒãƒ—æ™‚ã®ã‚¤ãƒ³ãƒ•ã‚©ã‚’éè¡¨ç¤º
     /// </summary>
     public void HideGameUpInfo() => txtInfo.gameObject.SetActive(false);
 
     /// <summary>
-    /// ƒQ[ƒ€ƒAƒbƒv‚ÌƒCƒ“ƒtƒH•\¦
+    /// ã‚²ãƒ¼ãƒ ã‚¢ãƒƒãƒ—æ™‚ã®ã‚¤ãƒ³ãƒ•ã‚©è¡¨ç¤º
     /// </summary>
     public void ShowGameUpInfo() {
-        // ƒNƒŠƒbƒN“±ü
+        // ã‚¯ãƒªãƒƒã‚¯å°ç·š
         txtInfo.gameObject.SetActive(true);
         txtInfo.DOFade(0, 1.5f).SetEase(Ease.Linear).SetLink(txtInfo.gameObject).SetLoops(-1, LoopType.Yoyo);
     }
 
     /// <summary>
-    /// ƒGƒNƒZƒŒƒ“ƒg‚Ì•\¦
+    /// ã‚¨ã‚¯ã‚»ãƒ¬ãƒ³ãƒˆã®è¡¨ç¤º
     /// </summary>
     public void ShowExcellentLogo() {
         imgExcellentLogo.DOFade(1.0f, 2.0f).SetEase(Ease.Linear);
@@ -141,7 +141,7 @@ public class MainGameInfoView : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒGƒNƒZƒŒƒ“ƒg‚Ì”ñ•\¦
+    /// ã‚¨ã‚¯ã‚»ãƒ¬ãƒ³ãƒˆã®éè¡¨ç¤º
     /// </summary>
     public void HideExcellentLogo() {
         imgExcellentLogo.DOFade(0f, 0.5f).SetEase(Ease.Linear);
@@ -151,14 +151,14 @@ public class MainGameInfoView : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒGƒNƒZƒŒƒ“ƒgƒ{[ƒiƒX—p‚Ì‰æ‘œ•\¦
+    /// ã‚¨ã‚¯ã‚»ãƒ¬ãƒ³ãƒˆãƒœãƒ¼ãƒŠã‚¹ç”¨ã®ç”»åƒè¡¨ç¤º
     /// </summary>
     private void ShowExcellentBonusChara() {
         normalChara.material.DOFloat(-1, "_Flip", 1.5f).SetEase(Ease.Linear).SetLink(normalChara.gameObject);
     }
 
     /// <summary>
-    /// ƒQ[ƒ€ƒNƒŠƒA
+    /// ã‚²ãƒ¼ãƒ ã‚¯ãƒªã‚¢
     /// </summary>
     public void ShowGameClear() {
         imgGameInfo.sprite = gameInfoLogos[1];
@@ -172,7 +172,7 @@ public class MainGameInfoView : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒQ[ƒ€ƒI[ƒo[
+    /// ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼
     /// </summary>
     public void ShowGameOver() {
         imgGameInfo.sprite = gameInfoLogos[0];
@@ -182,17 +182,19 @@ public class MainGameInfoView : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒXƒe[ƒW‚²‚Æ‚ÌƒƒCƒ“ƒLƒƒƒ‰(”wŒi)‰æ‘œ‚Ìİ’è
+    /// ã‚¹ãƒ†ãƒ¼ã‚¸ã”ã¨ã®ãƒ¡ã‚¤ãƒ³ã‚­ãƒ£ãƒ©(èƒŒæ™¯)ç”»åƒã®è¨­å®š
     /// </summary>
     public void SetCharaSprite(yamap.StageData currentStageData) {
         normalChara.sprite = currentStageData.normalCharaSprite;
         rareChara.sprite = currentStageData.rareCharaSprite;
 
-        SetUpCharaIcon(currentStageData.charaIcon);
+        // TODO ç”»é¢å·¦ä¸Šã®ãƒãƒ“ã‚­ãƒ£ãƒ©ã®è¨­å®šã€‚ä¸€æ—¦æ­¢ã‚ã‚‹
+        //Sprite charaIcon = UserData.instance.GetBtnChara(currentStageData.stageType);
+        //SetUpCharaIcon(charaIcon);
     }
 
     /// <summary>
-    /// ‰æ–Ê¶ã‚ÌƒLƒƒƒ‰ƒAƒCƒRƒ“‚ğƒXƒe[ƒW‚É‡‚í‚¹‚Äİ’è
+    /// ç”»é¢å·¦ä¸Šã®ã‚­ãƒ£ãƒ©ã‚¢ã‚¤ã‚³ãƒ³ã‚’ã‚¹ãƒ†ãƒ¼ã‚¸ã«åˆã‚ã›ã¦è¨­å®š
     /// </summary>
     /// <param name="charaIcon"></param>
     public void SetUpCharaIcon(Sprite charaIcon) {
@@ -204,7 +206,7 @@ public class MainGameInfoView : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒtƒB[ƒo[ƒ^ƒCƒ€ŠJn
+    /// ãƒ•ã‚£ãƒ¼ãƒãƒ¼ã‚¿ã‚¤ãƒ é–‹å§‹
     /// </summary>
     /// <param name="targetFeverPoint"></param>
     /// <param name="feverDuraiton"></param>

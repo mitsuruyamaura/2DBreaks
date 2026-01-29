@@ -6,27 +6,25 @@ using UnityEngine.UI;
 
 
 public class StageSelectIconView : MonoBehaviour {
-    [SerializeField]
-    private Button btnChara;
 
-    [SerializeField]
-    private Image imgChara;
-
-    [SerializeField]
-    private Text txtStageNo;
-
-    [SerializeField]
-    private int stageNo;
-
-    [SerializeField]
-    private StageType stageType;
-
+    [SerializeField] private Button btnChara;
+    [SerializeField] private Image imgChara;
+    [SerializeField] private Text txtStageNo;
+    [SerializeField] private int stageNo;
+    [SerializeField] private StageType stageType;
+    [SerializeField] private Image imgGlassShade;
 
     public void Setup(int stageNo, Sprite charaSprite, StageType stageType, UnityAction<int, StageType> btnAction) {
         this.stageNo = stageNo;
         this.stageType = stageType;
         imgChara.sprite = charaSprite;
         txtStageNo.text = "ステージ " + (stageNo + 1);
+
+        // クリア済のステージの場合、ガラスシェードを外す
+        StageClearData stageClearData = UserData.instance.GetStageClearData(stageType, stageNo);
+        if(stageClearData != null) {
+            imgGlassShade.enabled = false;
+        }
 
         btnChara.OnClickAsObservable()
             .ThrottleFirst(System.TimeSpan.FromSeconds(1.5f))

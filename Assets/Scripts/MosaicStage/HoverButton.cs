@@ -1,5 +1,5 @@
-using UnityEngine;
-using UnityEngine.EventSystems;  // IPointerEnterHandler ‚É•K—v
+ï»¿using UnityEngine;
+using UnityEngine.EventSystems;  // IPointerEnterHandler ã«å¿…è¦
 using UnityEngine.UI;
 using DG.Tweening;
 
@@ -7,32 +7,40 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler
 {
     private Button btnHover;
     private bool isSelected;
+    private float defaultSize;
 
 
     void Start() {
         TryGetComponent(out btnHover);
+        defaultSize = transform.localScale.x;
 
-        // UI ‚Í”½‰‚µ‚È‚¢‚Ì‚ÅAOnPointerEnter ‚ğg‚¤
+        // UI ã¯åå¿œã—ãªã„ã®ã§ã€OnPointerEnter ã‚’ä½¿ã†
         //this.OnMouseEnterAsObservable()
         //    .Subscribe(_ => ResponseButton())
         //    .AddTo(gameObject);
     }
 
-    // UI ‚Å‚ÍƒRƒ‰ƒCƒ_[‚ğƒAƒ^ƒbƒ`‚µ‚Ä‚à“®ì‚µ‚È‚¢
+    // UI ã§ã¯ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼ã‚’ã‚¢ã‚¿ãƒƒãƒã—ã¦ã‚‚å‹•ä½œã—ãªã„
     //private void OnMouseEnter() {
     //    Debug.Log("Enter");
     //}
 
-    // ‘ã‚í‚è‚É‚±‚¿‚ç‚ğg‚¤
+    // ä»£ã‚ã‚Šã«ã“ã¡ã‚‰ã‚’ä½¿ã†
     public void OnPointerEnter(PointerEventData eventData) {
         if (btnHover == null) {
             return;
         }
+
+        //// ä¸Šã« UI ãŒé–‹ã„ã¦ã„ã‚‹ã¨ãã¯ç„¡è¦–ã™ã‚‹
+        //if (EventSystem.current.IsPointerOverGameObject()) {
+        //    return;
+        //}
+
         ResponseHoverButton();
     }
 
     /// <summary>
-    /// ƒ}ƒEƒX‚ğƒzƒo[‚µ‚½‚Æ‚«‚Ìˆ—
+    /// ãƒã‚¦ã‚¹ã‚’ãƒ›ãƒãƒ¼ã—ãŸã¨ãã®å‡¦ç†
     /// </summary>
     private void ResponseHoverButton() {
         if (!btnHover.enabled || isSelected) {
@@ -45,7 +53,7 @@ public class HoverButton : MonoBehaviour, IPointerEnterHandler
             .SetLink(gameObject)
             .OnComplete(() =>
             {
-                transform.localScale = Vector3.one;
+                transform.localScale = Vector3.one * defaultSize;
                 isSelected = false;            
             });
     }
