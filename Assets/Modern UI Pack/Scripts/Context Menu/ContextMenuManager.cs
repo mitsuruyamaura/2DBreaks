@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
-using UnityEngine.InputSystem;
-#endif
 
 namespace Michsky.UI.ModernUIPack
 {

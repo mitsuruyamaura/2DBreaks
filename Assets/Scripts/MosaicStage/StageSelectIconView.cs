@@ -13,17 +13,27 @@ public class StageSelectIconView : MonoBehaviour {
     [SerializeField] private int stageNo;
     [SerializeField] private StageType stageType;
     [SerializeField] private Image imgGlassShade;
+    [SerializeField] private Image imgExcellentIcon;
+    [SerializeField] private Image imgOneMissClearIcon;
 
     public void Setup(int stageNo, Sprite charaSprite, StageType stageType, UnityAction<int, StageType> btnAction) {
         this.stageNo = stageNo;
         this.stageType = stageType;
         imgChara.sprite = charaSprite;
-        txtStageNo.text = "ステージ " + (stageNo + 1);
+        txtStageNo.text = "stage " + (stageNo + 1);
 
         // クリア済のステージの場合、ガラスシェードを外す
         StageClearData stageClearData = UserData.instance.GetStageClearData(stageType, stageNo);
-        if(stageClearData != null) {
+        if (stageClearData != null) {
             imgGlassShade.enabled = false;
+
+            // エクセレントの場合
+            if (stageClearData.isNoMissClear) {
+                imgExcellentIcon.enabled = true;
+            } else if (stageClearData.isOneMissClear) {
+                // ワンミスクリアの場合
+                imgOneMissClearIcon.enabled = true;
+            }
         }
 
         btnChara.OnClickAsObservable()

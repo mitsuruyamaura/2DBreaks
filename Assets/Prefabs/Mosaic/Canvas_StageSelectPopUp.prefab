@@ -185,13 +185,13 @@ MonoBehaviour:
   m_Padding:
     m_Left: 21
     m_Right: 0
-    m_Top: 59
-    m_Bottom: 0
+    m_Top: 50
+    m_Bottom: 50
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 266.2, y: 475.2}
-  m_Spacing: {x: 40, y: 60}
+  m_Spacing: {x: 40, y: 95}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &8635673096986526038
@@ -526,7 +526,7 @@ Canvas:
   m_GameObject: {fileID: 1769863466425540888}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -609,6 +609,7 @@ MonoBehaviour:
   stageSelectIconViewPrefab: {fileID: 3871862520095470426, guid: 4bcb7d03c7b034a4bb24824fd01b50aa,
     type: 3}
   iconViewTran: {fileID: 1587669399206831035}
+  canvas: {fileID: 3433632756920231553}
 --- !u!1 &1890819831174942039
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
 ﻿using DG.Tweening;
+using System;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,6 +38,20 @@ public class MainGameInfoView : MonoBehaviour
 
     [SerializeField]
     private SpriteRenderer rareChara;
+
+    [SerializeField]
+    private Button btnExcellnet;
+    public IObservable<Unit> OnExcellentClicked => btnExcellnet.OnClickAsObservable();
+
+    [SerializeField]
+    private Button btnOneMissClear;
+    public IObservable<Unit> OnOneMissClicke => btnOneMissClear.OnClickAsObservable();
+
+    //[SerializeField]
+    //private Image imgNormalChara;   // SpriteRenderer ではなくて Image でやる場合(その場合、ほかの修正も必要になる)
+
+    //[SerializeField]
+    //private Image imgRareChara;
 
 
     /// <summary>
@@ -155,6 +171,7 @@ public class MainGameInfoView : MonoBehaviour
     /// </summary>
     private void ShowExcellentBonusChara() {
         normalChara.material.DOFloat(-1, "_Flip", 1.5f).SetEase(Ease.Linear).SetLink(normalChara.gameObject);
+        //imgNormalChara.material.DOFloat(-1, "_Flip", 1.5f).SetEase(Ease.Linear).SetLink(imgNormalChara.gameObject);
     }
 
     /// <summary>
@@ -187,6 +204,9 @@ public class MainGameInfoView : MonoBehaviour
     public void SetCharaSprite(yamap.StageData currentStageData) {
         normalChara.sprite = currentStageData.normalCharaSprite;
         rareChara.sprite = currentStageData.rareCharaSprite;
+
+        //imgNormalChara.sprite = currentStageData.normalCharaSprite;
+        //imgRareChara.sprite = currentStageData.rareCharaSprite;
 
         // TODO 画面左上のチビキャラの設定。一旦止める
         //Sprite charaIcon = UserData.instance.GetBtnChara(currentStageData.stageType);

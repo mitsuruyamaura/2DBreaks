@@ -31,6 +31,9 @@ public class GameInitPopUp : MonoBehaviour
     /// 初期設定
     /// </summary>
     public void SetUp() {
+        // スライダーの Value に現在のボリューム設定
+        volumeSlider.value = SoundManager.instance.masterVolume;
+
         btnCancel.OnClickAsObservable()
             .ThrottleFirst(System.TimeSpan.FromSeconds(2))
             .Subscribe(_ => {
@@ -51,9 +54,6 @@ public class GameInitPopUp : MonoBehaviour
                 UpdateVolumeValue(x);
             })
             .AddTo(gameObject);
-
-        // スライダーの Value に現在のボリューム設定
-        volumeSlider.value = SoundManager.instance.masterVolume;
 
         // 現在の言語に合わせてトグルをオンにする(先に設定しないと、OnValueChangedAsObservable で上書きされてしまう)
         Language currentLanguage = UserData.instance.CurrentLanguage.Value;

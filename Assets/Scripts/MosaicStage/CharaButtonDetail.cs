@@ -21,6 +21,8 @@ public class CharaButtonDetail : MonoBehaviour
     [SerializeField]
     private StageType stageType;
 
+    [SerializeField]
+    private HoverButton hoverButton;
 
     /// <summary>
     /// 初期設定
@@ -41,6 +43,7 @@ public class CharaButtonDetail : MonoBehaviour
                         });
         } else {
             DisplayStageOpenPoint(openPoint);
+            hoverButton.enabled = false;
         }
     }
 
@@ -59,7 +62,7 @@ public class CharaButtonDetail : MonoBehaviour
     /// </summary>
     /// <param name="openPoint"></param>
     public void DisplayStageOpenPoint(int openPoint) {
-        txtStageOpenPoint.text = $"{openPoint} で開放";
+        txtStageOpenPoint.text = $"Unlocked at {openPoint} pt.";
     }
 
     /// <summary>

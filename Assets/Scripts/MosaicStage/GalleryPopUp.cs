@@ -3,33 +3,22 @@ using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using yamap;
 
-public class GalleryPopUp : MonoBehaviour
-{
-    [SerializeField]
-    private CanvasGroup canvasGroup;
+public class GalleryPopUp : MonoBehaviour {
 
-    [SerializeField]
-    private Button btnClose;
-
-    [SerializeField]
-    private GalleryIconDetail galleryIconPrefab;
-
-    [SerializeField]
-    private Transform[] galleryIconTrans;
-
-    [SerializeField]
-    private Sprite[] frameSprites;
-
-    [SerializeField]
-    private Transform zoomTran;
+    [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private Button btnClose;
+    [SerializeField] private Transform zoomTran;
+    [SerializeField] private GalleryTabView[] galleryTabViews;
+    [SerializeField] private Toggle[] toggleTabViews;
 
     private List<GalleryIconDetail> galleryIconList = new();
     private BoolReactiveProperty sharedGate = new(true);　　　//　BindToOnClick にて利用する
 
 
     public void SetUp() {
+        GalleryZoomViewer.instance.SetOverlayRoot(zoomTran);
+
         btnClose.OnClickAsObservable()
             .ThrottleFirst(System.TimeSpan.FromSeconds(2))
             .Subscribe(_ => ClosePopup())
@@ -38,10 +27,71 @@ public class GalleryPopUp : MonoBehaviour
         // ギャラリー用キャラアイコンのボタン生成
         CreateGalleryIcons();
 
+        // タブ用トグルの設定
+        for (int i = 0; i < toggleTabViews.Length; i++) {
+            int index = i;
+
+            Toggle toggle = toggleTabViews[index];
+            GalleryTabView galleryTabView = galleryTabViews[index];
+
+            toggle.OnValueChangedAsObservable()
+                .DistinctUntilChanged()
+                .Subscribe(isOn => {
+                    if (isOn) {
+                        galleryTabView.ShowTabView();
+                    } else {
+                        galleryTabView.HideTabView();
+                    }
+                })
+                .AddTo(gameObject);
+        }
+
         canvasGroup.alpha = 0;
 
         // ポップアップ表示
         OpenPopup();
+    }
+
+    /// <summary>
+    /// ギャラリー用キャラアイコンのボタン生成
+    /// クリアしたステージの分だけ並べる
+    /// </summary>
+    private void CreateGalleryIcons() {
+        int index = 0;
+
+        // GalleryTabView の設定
+        for (int i = 0; i < galleryTabViews.Length; i++) {
+            // 難易度ごとのステージデータのリスト作成
+            //List<yamap.StageData> stageDataList = UserData.instance.GetStageDataListByStageType((StageType)index);
+
+            // クリアしているステージデータのリスト作成
+            List<StageClearData> stageClearDataList = UserData.instance.GetStageClearDataListByStageType((StageType)index);
+
+            List<GalleryIconDetail> galleryIconDetailList = galleryTabViews[i].Setup(index, stageClearDataList);
+            galleryIconList.AddRange(galleryIconDetailList);
+            index++;
+        }
+
+        // すべてのアイコンに同じ処理を施す
+        for (int i = 0; i < galleryIconList.Count; i++) {
+            GalleryIconDetail galleryIcon = galleryIconList[i];
+            galleryIcon.SetZoomInPosition(zoomTran.position);
+
+            galleryIcon.GetButton().BindToOnClick(sharedGate, _ => {
+                // ズーム中ではないなら
+                if (!galleryIcon.IsZoomIn) {
+                    // ズームイン(クローン作成)
+                    GalleryZoomViewer.instance.Show(galleryIcon);
+                }
+                // ズームアウトはクローン時に登録した処理で行う(GalleryIconDetail の SetZoomOutBtnByClone)
+
+                // 1秒間押せないボタン
+                return Observable.Timer(System.TimeSpan.FromSeconds(1.5f)).AsUnitObservable();
+            });
+        }
+
+        // 購読削除設定
+        sharedGate.AddTo(gameObject);
     }
 
     /// <summary>
@@ -50,18 +100,6 @@ public class GalleryPopUp : MonoBehaviour
     public void OpenPopup() {
         gameObject.SetActive(true);
         AnimePopup(1.0f);
-    }
-
-    /// <summary>
-    /// ポップアップを閉じる
-    /// </summary>
-    public void ClosePopup() {
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(btnClose.transform.DOScale(Vector3.one * 0.8f, 0.15f).SetEase(Ease.InOutQuart)).SetLink(gameObject);
-        sequence.Append(btnClose.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.Linear)).SetLink(gameObject)
-            .OnComplete(() => AnimePopup(0f));
-
-        SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Cancel);        
     }
 
     /// <summary>
@@ -80,37 +118,15 @@ public class GalleryPopUp : MonoBehaviour
     }
 
     /// <summary>
-    /// ギャラリー用キャラアイコンのボタン生成
+    /// ポップアップを閉じる
     /// </summary>
-    private void CreateGalleryIcons() {
-        int index = 0;
-        for (int i = 0; i < UserData.instance.GetStageCount(); i++) {
-            // StageData を順番に取得
-            yamap.StageData stageData = UserData.instance.GetStageDataByStageNo(i);
+    public void ClosePopup() {
+        Sequence sequence = DOTween.Sequence();
+        sequence.SetLink(gameObject);
 
-            for (int j = 0; j < frameSprites.Length; j++) {
-                GalleryIconDetail galleryIcon = Instantiate(galleryIconPrefab, galleryIconTrans[index], false);
-                index++;
+        sequence.Append(btnClose.transform.DOScale(Vector3.one * 0.8f, 0.15f).SetEase(Ease.InOutQuart));
+        sequence.Append(btnClose.transform.DOScale(Vector3.one, 0.15f).SetEase(Ease.Linear)).OnComplete(() => AnimePopup(0f));
 
-                Sprite charaSprite = j == 0 ? stageData.normalCharaSprite : stageData.rareCharaSprite;
-                galleryIcon.SetUp(charaSprite, frameSprites[j], zoomTran.position);
-
-                galleryIcon.GetButton().BindToOnClick(sharedGate, _ => {
-                    // ズーム中なら
-                    if (galleryIcon.IsZoomIn) {
-                        // 元に位置に戻す
-                        galleryIcon.ZoomOutGalleryIcon();
-                    } else {
-                        // ズーム
-                        galleryIcon.ZoomInGalleryIcon();
-                    }
-
-                    // 1秒間押せないボタン
-                    return Observable.Timer(System.TimeSpan.FromSeconds(0.75f)).AsUnitObservable();
-                });
-                galleryIconList.Add(galleryIcon);
-            }
-        }
-        sharedGate.AddTo(gameObject);
+        SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Cancel);
     }
 }
