@@ -17,11 +17,17 @@ public class StageSelectPopup : MonoBehaviour {
     [SerializeField]
     private Transform iconViewTran;
 
+    [SerializeField]
+    private Canvas canvas;
+
     private List<StageSelectIconView> iconViewList = new();
     private BoolReactiveProperty sharedGate = new(true);　　　//　BindToOnClick にて利用する
 
 
     public void Setup(List<yamap.StageData> stageDataList) {
+        canvas.worldCamera = Camera.main;
+        canvas.planeDistance = 3;
+
         // ボタンの購読
         btnClose.OnClickAsObservable()
             .ThrottleFirst(System.TimeSpan.FromSeconds(1))

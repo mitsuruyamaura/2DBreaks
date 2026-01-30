@@ -97,3 +97,15 @@ MonoBehaviour:
   - key: blueYellow
     jp: "\u9752\u9EC4\u7CFB"
     en: BlueYellow
+  - key: exit
+    jp: "\u30B2\u30FC\u30E0\u3084\u3081\u308B"
+    en: Exit Game
+  - key: close
+    jp: "\u3082\u3069\u308B"
+    en: Return Game
+  - key: gallery_info
+    jp: "\u898B\u305F\u3044\u753B\u50CF\u3092\u30AF\u30EA\u30C3\u30AF"
+    en: Click on the image you want to see.
+  - key: close
+    jp: "\u3082\u3069\u308B"
+    en: Return Game

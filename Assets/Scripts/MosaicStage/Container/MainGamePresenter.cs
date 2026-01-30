@@ -194,6 +194,11 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
             }           
             //Debug.Log("現在の State : " + mainGameManager.State.Value);         
         });
+
+
+        // デバッグ用
+        mainGameInfoView.OnExcellentClicked.Subscribe(_ => GameClearAsync(true, true, token).Forget()).AddTo(disposables);
+        mainGameInfoView.OnOneMissClicke.Subscribe(_ => GameClearAsync(true, false, token).Forget()).AddTo(disposables);
     }
 
     public void OnDamage(CancellationToken token) {
@@ -292,6 +297,12 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         if (!UserData.instance.stageClearDataList.Exists(data => data.stageType == SelectStage.stageType && data.stageNo == SelectStage.stageNo)) {
             // クリアしたステージ情報を追加
             UserData.instance.AddClearStageDataList(SelectStage.stageType, SelectStage.stageNo, isOneMissClear, isNoMissClear);
+        } else {
+            // クリア済のステージで、ワンミスクリアかノーミスクリアした場合
+            StageClearData data = UserData.instance.stageClearDataList.FirstOrDefault(data => data.stageType == SelectStage.stageType && data.stageNo == SelectStage.stageNo);
+
+            // 既存データに今回の結果を反映
+            data.ApplyClearResult(isOneMissClear, isNoMissClear);
         }
 
         // ノーミスクリアの場合
@@ -329,7 +340,7 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
     /// ゲームクリア演出
     /// </summary>
     /// <returns></returns>
-    private async UniTask GameClearAsync(bool isOneMissClear, bool isNoMissClear, CancellationToken token) {
+    public async UniTask GameClearAsync(bool isOneMissClear, bool isNoMissClear, CancellationToken token) {
         SoundManager.instance.StopBGM();
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.GameClear);
 

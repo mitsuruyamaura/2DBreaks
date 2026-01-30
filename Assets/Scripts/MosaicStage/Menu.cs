@@ -65,13 +65,14 @@ public class Menu : MonoBehaviour, IEntryRun
         // 初期値表示更新
         UserData.instance.MosaicCount.SetValueAndForceNotify(UserData.instance.MosaicCount.Value);
 
+        // TODO ギャラリーモード最初からオープンする
         // ギャラリーモード開放の確認。短絡評価して、どちらかが true であれば評価されるので、1つの目の評価が true なら2つ目にはいかないで終わる
-        btnGallery.enabled = UserData.instance.CheckOpenGallaryPoint() || UserData.instance.CheckOpenGalleryAllNoMissClears();
+        //btnGallery.enabled = UserData.instance.CheckOpenGallaryPoint() || UserData.instance.CheckOpenGalleryAllNoMissClears();
 
         // ギャラリーモード未開放の場合
-        if (!btnGallery.enabled) {
-            txtGallery.text += "【全ステージ" + "\r\n" + "ノーミスクリアか" + "\r\n" + UserData.instance.openGallaryPoint + " で開放】";
-        }
+        //if (!btnGallery.enabled) {
+        //    txtGallery.text += "【全ステージ" + "\r\n" + "ノーミスクリアか" + "\r\n" + UserData.instance.openGallaryPoint + " で開放】";
+        //}
 
         // アチーブメントボタンの購読
         btnAchieve.OnClickAsObservable()

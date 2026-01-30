@@ -2,7 +2,6 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,11 +11,9 @@ using UnityEngine.Video;
 public class VideoClipManager : MonoBehaviour {
     public static VideoClipManager instance;
 
-    [SerializeField]
-    private VideoPlayer videoPlayer;
-
-    [SerializeField]
-    private CanvasGroup canvasGroup;
+    [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private CanvasGroup canvasGroup;
+    //[SerializeField] private AspectRatioFitter aspectRatioFitter;
 
     public VideoClip clip;
 
@@ -79,6 +76,15 @@ public class VideoClipManager : MonoBehaviour {
         }
 
         //videoPlayer.prepareCompleted += OnCompletePrepare;
+
+        // Aspect Ratio Fitter 使う場合
+        //videoPlayer.prepareCompleted += vp =>
+        //{
+        //    var tex = vp.texture;
+        //    aspectRatioFitter.aspectRatio = (float)tex.width / tex.height;
+        //    Debug.Log("VideoClip ロード完了");
+        //};
+
         videoPlayer.Prepare();
 
         Debug.Log("VideoClip ロード開始");
@@ -130,12 +136,13 @@ public class VideoClipManager : MonoBehaviour {
 
         canvasGroup.blocksRaycasts = true;
 
-        // ★必ずメインスレッドに戻す
+        // 必ずメインスレッドに戻す
         await UniTask.SwitchToMainThread(token);
 
-        await ShowCinematicBarsAsync();
+        // シネマスコープ演出スライドイン
+        ShowCinematicBarsAsync().Forget();
 
-        // フェードイン
+        // 上記を同時にフェードイン
         await canvasGroup
             .DOFade(1.0f, fadeDuration)
             .AsyncWaitForCompletion();

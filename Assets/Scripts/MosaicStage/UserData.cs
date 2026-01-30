@@ -22,6 +22,19 @@ public class StageClearData {
         this.isOneMissClear = isOneMissClear;
         this.isNoMissClear = isNoMissClear;
     }
+
+    /// <summary>
+    /// クリア結果を反映する(達成済みフラグは上書きしない)
+    /// </summary>
+    public void ApplyClearResult(bool oneMissClear, bool noMissClear) {
+        if (oneMissClear) {
+            isOneMissClear = true;
+        }
+
+        if (noMissClear) {
+            isNoMissClear = true;
+        }
+    }
 }
 
 public class UserData : MonoBehaviour, IEntryRun
@@ -40,6 +53,8 @@ public class UserData : MonoBehaviour, IEntryRun
     public ReactiveProperty<ColorAssistanceState> CurrentColorAssistanceState = new(ColorAssistanceState.Off);
     public ReactiveProperty<Language> CurrentLanguage = new(Language.jp);
     public List<StageClearData> stageClearDataList = new();
+
+    private float defaultMasterVolume = 0.3f;
 
     /// <summary>
     /// セーブ・ロード用のクラス
@@ -96,6 +111,7 @@ public class UserData : MonoBehaviour, IEntryRun
                 achievementStageDataList.Add(new AchievementStageData((int)stageType));
             }
 
+            SoundManager.instance.SetMasterVolume(defaultMasterVolume);
             SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.挨拶_初回);
             //Debug.Log("初回起動");
         }
@@ -121,7 +137,6 @@ public class UserData : MonoBehaviour, IEntryRun
     public int GetStageCount() {
         return stageDataSO.stageDataList.Count;
     }
-
 
     public int GetStageTypeCount => Enum.GetValues(typeof(StageType)).Length;
 
@@ -306,6 +321,15 @@ public class UserData : MonoBehaviour, IEntryRun
     /// <returns></returns>
     public StageClearData GetStageClearData(StageType searchStageType, int searchStageNo) {
         return stageClearDataList.FirstOrDefault(data => data.stageType == searchStageType && data.stageNo == searchStageNo);
+    }
+
+    /// <summary>
+    /// 指定した難易度のステージクリアのリストを取得
+    /// </summary>
+    /// <param name="searchStageType"></param>
+    /// <returns></returns>
+    public List<StageClearData> GetStageClearDataListByStageType(StageType searchStageType) {
+        return stageClearDataList.Where(data => data.stageType == searchStageType).ToList();
     }
 
     /// <summary>

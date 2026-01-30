@@ -1,18 +1,16 @@
+ï»¿using DG.Tweening;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 
+/// <summary>
+/// ã‚®ãƒ£ãƒ©ãƒªãƒ¼ç”¨ã®ã‚¢ã‚¤ã‚³ãƒ³ãƒ“ãƒ¥ãƒ¼
+/// </summary>
+public class GalleryIconDetail : MonoBehaviour {
 
-public class GalleryIconDetail : MonoBehaviour
-{
-    [SerializeField]
-    private Image imgGalleryChara;
-
-    [SerializeField]
-    private Image imgFrame;
-
-    [SerializeField]
-    private Button btnGalleryIcon;
+    [SerializeField] private Image imgGalleryChara;
+    [SerializeField] private Image imgFrame;
+    [SerializeField] private Button btnGalleryIcon;
 
     private bool isZoomIn;
     public bool IsZoomIn { get => isZoomIn; }
@@ -21,58 +19,97 @@ public class GalleryIconDetail : MonoBehaviour
     private Vector3 zoomInPos;
     private HoverButton hoverButton;
 
-    
-    public void SetUp(Sprite charaSprite, Sprite frameSprite, Vector3 zoomInPos) {
-        startPos = transform.localPosition;
+    /// <summary>
+    /// åˆæœŸè¨­å®š
+    /// </summary>
+    /// <param name="charaSprite"></param>
+    /// <param name="frameSprite">null ã§æ¥ã‚‹ã®ã¯ã‚ºãƒ¼ãƒ ç”¨ã®ã‚¯ãƒ­ãƒ¼ãƒ³æƒ³å®š</param>
+    public void SetUp(Sprite charaSprite, Sprite frameSprite) {
+        startPos = ((RectTransform)transform).anchoredPosition;
 
         imgGalleryChara.sprite = charaSprite;
-        imgFrame.sprite = frameSprite;
-        this.zoomInPos = zoomInPos;
 
+        if (frameSprite != null) {
+            imgFrame.sprite = frameSprite;
+        } else {
+            // null ã§æ¥ãŸå ´åˆã«ã¯ãƒ•ãƒ¬ãƒ¼ãƒ å‡ºã•ãªã„
+            imgFrame.enabled = false;
+        }
+        
         TryGetComponent(out hoverButton);
     }
 
+    /// <summary>
+    /// ã‚ºãƒ¼ãƒ ç”¨ã®åº§æ¨™è¨­å®š
+    /// </summary>
+    /// <param name="zoomInPos"></param>
+    public void SetZoomInPosition(Vector3 zoomInPos) {
+        this.zoomInPos = zoomInPos;
+    }
 
     public Button GetButton() {
         return btnGalleryIcon;
     }
 
+    public Sprite GetCharaSprite() => imgGalleryChara.sprite;
+    public Sprite GetFrameSprite() => imgFrame.sprite;
 
-    public void ZoomInGalleryIcon() {
-        isZoomIn = true;
-        // ‰æ‘œ‚Ì—Dæ‡ˆÊ‚ğÅ‘O–Ê‚É•ÏX
-        transform.parent.SetAsLastSibling();
+    /// <summary>
+    /// ãƒ›ãƒãƒ¼ç„¡åŠ¹
+    /// </summary>
+    public void InactivateHoverButton() => hoverButton.enabled = false;
 
-        // ƒ{ƒ^ƒ“‚Ìƒzƒo[‚ğØ‚é
-        hoverButton.enabled = false;
-
-        // Sequence ‚ğ‰Šú‰»‚µ‚Ä—˜—p‚Å‚«‚éó‘Ô‚É‚·‚é
-        Sequence sequence = DOTween.Sequence();
-
-        // ƒ|ƒbƒvƒAƒbƒv‚ğƒ{ƒ^ƒ“‚ÌˆÊ’u‚©‚ç‰æ–Ê‚Ì’†‰›(Canvas ƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚ÌˆÊ’u)‚ÉˆÚ“®‚³‚¹‚Â‚Â
-        sequence.Append(transform.DOMove(zoomInPos, 0.5f).SetEase(Ease.Linear));
-
-        // ƒ|ƒbƒvƒAƒbƒv‚ğ™X‚É‘å‚«‚­‚µ‚È‚ª‚ç•\¦Bw’è‚µ‚½ƒTƒCƒY‚É‚È‚Á‚½‚çAŒ³‚Ìƒ|ƒbƒvƒAƒbƒv‚Ì‘å‚«‚³‚É–ß‚·
-        sequence.Join(transform.DOScale(Vector2.one * 4.2f, 0.5f).SetEase(Ease.InBack)).OnComplete(() => { transform.DOScale(Vector2.one * 3.8f, 0.2f); }).SetLink(gameObject);
+    /// <summary>
+    /// ã‚¯ãƒ­ãƒ¼ãƒ³ç”¨ã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’ç ´æ£„ã™ã‚‹å‡¦ç†ã‚’ç™»éŒ²
+    /// </summary>
+    public void SetZoomOutBtnByClone() {
+        btnGalleryIcon.OnClickAsObservable()
+            .ThrottleFirst(System.TimeSpan.FromSeconds(1.0f))
+            .Subscribe(_ => GalleryZoomViewer.instance.Hide())
+            .AddTo(gameObject);
     }
 
+    /// <summary>
+    /// ã‚¢ã‚¤ã‚³ãƒ³ã‚ºãƒ¼ãƒ ã‚¤ãƒ³(æ­£ç¢ºã«ã¯ã‚¯ãƒ­ãƒ¼ãƒ³ã—ãŸã‚¢ã‚¤ã‚³ãƒ³ã§ä½¿ã£ã¦ã„ã‚‹)
+    /// </summary>
+    public void ZoomInGalleryIcon() {
+        isZoomIn = true;
+        // ç”»åƒã®å„ªå…ˆé †ä½ã‚’æœ€å‰é¢ã«å¤‰æ›´
+        transform.parent.SetAsLastSibling();
 
+        // ãƒœã‚¿ãƒ³ã®ãƒ›ãƒãƒ¼ã‚’åˆ‡ã‚‹
+        hoverButton.enabled = false;
+
+        // Sequence ã‚’åˆæœŸåŒ–ã—ã¦åˆ©ç”¨ã§ãã‚‹çŠ¶æ…‹ã«ã™ã‚‹
+        Sequence sequence = DOTween.Sequence();
+        sequence.SetLink(gameObject);
+
+        // ã‚¢ã‚¤ã‚³ãƒ³ã‚’ãƒœã‚¿ãƒ³ã®ä½ç½®ã‹ã‚‰ç”»é¢ã®ä¸­å¤®(Canvas ã‚²ãƒ¼ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½ç½®)ã«ç§»å‹•ã•ã›ã¤ã¤
+        sequence.Append(transform.DOMove(zoomInPos, 0.5f).SetEase(Ease.Linear));
+
+        // ã‚¢ã‚¤ã‚³ãƒ³ã‚’å¾ã€…ã«å¤§ããã—ãªãŒã‚‰è¡¨ç¤ºã€‚æŒ‡å®šã—ãŸã‚µã‚¤ã‚ºã«ãªã£ãŸã‚‰ã€å…ƒã®ã‚¢ã‚¤ã‚³ãƒ³ã®å¤§ãã•ã«æˆ»ã™
+        sequence.Join(transform.DOScale(Vector2.one * 5.0f, 0.5f).SetEase(Ease.InBack)).OnComplete(() => { transform.DOScale(Vector2.one * 4.8f, 0.2f); });
+    }
+
+    /// <summary>
+    /// ã‚¢ã‚¤ã‚³ãƒ³ã‚ºãƒ¼ãƒ ã‚¢ã‚¦ãƒˆã€‚ã“ã¡ã‚‰ã‚‚ã‚¯ãƒ­ãƒ¼ãƒ³ã—ãŸã‚¢ã‚¤ã‚³ãƒ³ã§ä½¿ã£ã¦ã„ã‚‹
+    /// </summary>
     public void ZoomOutGalleryIcon() {
-
-        // Sequence ‚ğ‰Šú‰»‚µ‚Ä—˜—p‚Å‚«‚éó‘Ô‚É‚·‚é
+        // Sequence ã‚’åˆæœŸåŒ–ã—ã¦åˆ©ç”¨ã§ãã‚‹çŠ¶æ…‹ã«ã™ã‚‹
         Sequence sequence = DOTween.Sequence();
 
-        // ƒ|ƒbƒvƒAƒbƒv‚Ì‘å‚«‚³‚ğ™X‚É 0 ‚É‚µ‚ÄŒ©‚¦‚È‚¢ó‘Ô‚É‚³‚¹‚Â‚Â
+        sequence.SetLink(gameObject);
+
+        // ã‚¢ã‚¤ã‚³ãƒ³ã®å¤§ãã•ã‚’å¾ã€…ã« 0 ã«ã—ã¦è¦‹ãˆãªã„çŠ¶æ…‹ã«ã•ã›ã¤ã¤
         sequence.Append(transform.DOScale(Vector2.one, 0.3f).SetEase(Ease.Linear));
 
-        // ‚»‚ê‚É‡‚í‚¹‚Äƒ|ƒbƒvƒAƒbƒv‚ğƒAƒ‹ƒoƒ€ƒ{ƒ^ƒ“‚ÌˆÊ’u‚ÉˆÚ“®‚³‚¹‚éBˆÚ“®Œã‚Éƒ|ƒbƒvƒAƒbƒv‚ğ”jŠü
-        // DOLocalMove ƒƒ\ƒbƒh‚É‚·‚é‚Æƒ{ƒ^ƒ“‚ÌˆÊ’u‚É–ß‚ç‚È‚¢‚½‚ßADOMove ƒƒ\ƒbƒh‚ğg‚¤
+        // ãã‚Œã«åˆã‚ã›ã¦ã‚¢ã‚¤ã‚³ãƒ³ã‚’ã‚¢ãƒ«ãƒãƒ ãƒœã‚¿ãƒ³ã®ä½ç½®ã«ç§»å‹•ã•ã›ã‚‹ã€‚ç§»å‹•å¾Œã«ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’ç ´æ£„
+        // DOLocalMove ãƒ¡ã‚½ãƒƒãƒ‰ã«ã™ã‚‹ã¨ãƒœã‚¿ãƒ³ã®ä½ç½®ã«æˆ»ã‚‰ãªã„ãŸã‚ã€DOMove ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½¿ã†
         sequence.Join(transform.DOLocalMove(startPos, 0.5f)
             .SetEase(Ease.Linear))
-            .SetLink(gameObject)
             .OnComplete(() => 
             {
-                // ƒY[ƒ€ó‘Ô‚ğ–ß‚µAƒzƒo[‹@”\‚ğ“ü‚ê‚È‚¨‚·
+                // ã‚ºãƒ¼ãƒ çŠ¶æ…‹ã‚’æˆ»ã—ã€ãƒ›ãƒãƒ¼æ©Ÿèƒ½ã‚’å…¥ã‚ŒãªãŠã™
                 isZoomIn = false;
                 hoverButton.enabled = true;
             });
