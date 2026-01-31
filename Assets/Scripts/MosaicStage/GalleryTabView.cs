@@ -2,7 +2,7 @@
 using UnityEngine;
 
 /// <summary>
-/// ギャラリー内のタブに対応したコンテナ
+/// ギャラリーポップアップ内のタブに対応したコンテナ
 /// </summary>
 public class GalleryTabView : MonoBehaviour {
     public int tabIndex;

@@ -17,6 +17,9 @@ public class Menu : MonoBehaviour, IEntryRun
     private Button btnGallery;
 
     [SerializeField]
+    private Button btnMovie;
+
+    [SerializeField]
     private CharaButtonDetail charaButtonPrefab;
 
     [SerializeField]
@@ -39,7 +42,10 @@ public class Menu : MonoBehaviour, IEntryRun
     private GalleryPopUp galleryPopUp;
 
     [SerializeField]
-    private StageSelectPopup stageSelectPopupprefab;
+    private StageSelectPopup stageSelectPopupPrefab;
+
+    [SerializeField]
+    private MoviePopup moviePopupPrefab;
 
 
     /// <summary>
@@ -85,6 +91,14 @@ public class Menu : MonoBehaviour, IEntryRun
             .ThrottleFirst(System.TimeSpan.FromSeconds(2))
             .Subscribe(_ => PrepareGalleryPopUp())
             .AddTo(gameObject);
+
+        // ムービーボタンの購読
+        btnMovie.OnClickAsObservable()
+            .ThrottleFirst(System.TimeSpan.FromSeconds(2))
+            .Subscribe(_ => PrepareMoviePopUp())
+            .AddTo(gameObject);
+
+        
     }
 
     //void Start()
@@ -236,13 +250,23 @@ public class Menu : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
-    /// ギャラリーポップアップの生成とオープン
+    /// ステージ選択ポップアップの生成とオープン
     /// </summary>
     private void PrepareStageSelectPopUp(StageType stageType) {
         List<yamap.StageData> stageDataList = UserData.instance.GetStageDataListByStageType(stageType);
 
-        StageSelectPopup stageSelectPopup = Instantiate(stageSelectPopupprefab);
+        StageSelectPopup stageSelectPopup = Instantiate(stageSelectPopupPrefab);
         stageSelectPopup.Setup(stageDataList);
+
+        SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
+    }
+
+    /// <summary>
+    /// ムービーポップアップの生成とオープン
+    /// </summary>
+    private void PrepareMoviePopUp() {
+        MoviePopup moviePopup = Instantiate(moviePopupPrefab);
+        moviePopup.Setup();
 
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
     }
