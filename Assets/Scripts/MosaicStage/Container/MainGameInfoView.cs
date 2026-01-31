@@ -234,4 +234,13 @@ public class MainGameInfoView : MonoBehaviour
         sliderFever.value = targetFeverPoint;
         sliderFever.DOValue(0, (float)feverDuraiton / 1000).SetEase(Ease.Linear).SetLink(gameObject);
     }
+
+    /// <summary>
+    /// デバッグフラグを見てゲームクリア用のデバッグボタンの表示切り替えを行う
+    /// </summary>
+    /// <param name="isActivate"></param>
+    public void ChangeActivateDebugBtns(bool isActivate) {
+        btnExcellnet.gameObject.SetActive(isActivate);
+        btnOneMissClear.gameObject.SetActive(isActivate);
+    }
 }

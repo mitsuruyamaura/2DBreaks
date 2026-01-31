@@ -43,6 +43,7 @@ public class UserData : MonoBehaviour, IEntryRun
 
     [SerializeField] private yamap.StageDataSO stageDataSO;
     [SerializeField] private StageDifficultyDataSO stageDifficultyDataSO;
+    [SerializeField] private VideoDataSO videoDataSO;
 
     public ReactiveProperty<int> MosaicCount = new();
     public bool isOpenGallary;
@@ -54,6 +55,7 @@ public class UserData : MonoBehaviour, IEntryRun
     public ReactiveProperty<Language> CurrentLanguage = new(Language.jp);
     public List<StageClearData> stageClearDataList = new();
 
+    public bool isDebugClearBtns;
     private float defaultMasterVolume = 0.3f;
 
     /// <summary>
@@ -128,6 +130,9 @@ public class UserData : MonoBehaviour, IEntryRun
     public void AddClearStageDataList(StageType stageType, int stageNo, bool isOneMissClear, bool isNoMissClear) {
         StageClearData stageClearData = new(stageType, stageNo, isOneMissClear, isNoMissClear);
         stageClearDataList.Add(stageClearData);
+
+        // 昇順ソート(難易度 → ステージ番号)
+        stageClearDataList = stageClearDataList.OrderBy(data => data.stageType).ThenBy(data => data.stageNo).ToList();
     }
 
     /// <summary>
@@ -293,10 +298,6 @@ public class UserData : MonoBehaviour, IEntryRun
         Init();
     }
 
-    public VideoClip GetVideoData(int searchStageNo) {
-        return stageDataSO.stageDataList.FirstOrDefault(x => x.stageNo == searchStageNo).videoClip;
-    }
-
     /// <summary>
     /// 言語変更
     /// </summary>
@@ -339,5 +340,44 @@ public class UserData : MonoBehaviour, IEntryRun
     /// <returns></returns>
     public Sprite GetBtnChara(StageType searchStageType) {
         return stageDifficultyDataSO.stageDifficultyDataList.FirstOrDefault(data => data.stageType == searchStageType).btnCharaSprite;
+    }
+
+    /// <summary>
+    /// VideoClip 取得
+    /// </summary>
+    /// <param name="searchVideoId"></param>
+    /// <returns></returns>
+    public VideoClip GetVideoClip(int searchVideoId) {
+        return videoDataSO.videoDataList.FirstOrDefault(data => data.videoId == searchVideoId).videoClip;
+    }
+
+    /// <summary>
+    /// VideoData 取得
+    /// </summary>
+    /// <param name="searchVideoId"></param>
+    /// <returns></returns>
+    public VideoData GetVideoData(int searchVideoId) {
+        return videoDataSO.videoDataList.FirstOrDefault(data => data.videoId == searchVideoId);
+    }
+
+    /// <summary>
+    /// プレイリストの順番に VideoData を取得
+    /// 未使用
+    /// </summary>
+    /// <param name="playlist"></param>
+    /// <returns></returns>
+    public List<VideoClip> GetVideoPlayListData(List<int> playlist) {
+        //return playlist.Select(id => videoDataSO.videoDataList.FirstOrDefault(data => data.videoId == id).videoClip)
+        //    .Where(data => data != null)  // null のものは省く
+        //    .ToList();
+
+        // 上記でも動くが、こちらの方が高速で数が増えたときにも対応できる
+        var dict = videoDataSO.videoDataList.ToDictionary(d => d.videoId);
+
+        // playlist を起点とすることで再生順を保証する
+        return playlist
+            .Where(id => dict.ContainsKey(id))
+            .Select(id => dict[id].videoClip)
+            .ToList();
     }
 }

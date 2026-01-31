@@ -109,3 +109,6 @@ MonoBehaviour:
   - key: close
     jp: "\u3082\u3069\u308B"
     en: Return Game
+  - key: movie
+    jp: "\u30E0\u30FC\u30D3\u30FC"
+    en: Movie

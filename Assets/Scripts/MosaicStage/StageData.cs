@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Video;
 
 namespace yamap {
 
@@ -16,6 +15,6 @@ namespace yamap {
         public float[] obstacleSpeeds;     // 障害物の移動速度の最小値と最大値
         public int stageOpenPoint;    　　 // ステージ開放に必要なポイント
         public Sprite charaIcon;           // キャラアイコン
-        public VideoClip videoClip;        // ステージクリア時の動画
+        public int videoId;                // ステージクリア時の動画のID
     }
 }

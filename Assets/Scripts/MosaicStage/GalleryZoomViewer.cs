@@ -1,7 +1,7 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// ƒMƒƒƒ‰ƒŠ[—pƒY[ƒ€ƒrƒ…[ƒ[
+/// ã‚®ãƒ£ãƒ©ãƒªãƒ¼ç”¨ã‚ºãƒ¼ãƒ ãƒ“ãƒ¥ãƒ¼ãƒ¯ãƒ¼
 /// </summary>
 public class GalleryZoomViewer : MonoBehaviour {
     public static GalleryZoomViewer instance;
@@ -20,7 +20,7 @@ public class GalleryZoomViewer : MonoBehaviour {
     }
 
     /// <summary>
-    /// ƒY[ƒ€ƒCƒ“—p‚ÉƒNƒ[ƒ“‚µ‚½ƒAƒCƒRƒ“‚ğ•\¦‚·‚éêŠ‚Ìİ’è
+    /// ã‚ºãƒ¼ãƒ ã‚¤ãƒ³ç”¨ã«ã‚¯ãƒ­ãƒ¼ãƒ³ã—ãŸã‚¢ã‚¤ã‚³ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹å ´æ‰€ã®è¨­å®š
     /// </summary>
     /// <param name="zoomTran"></param>
     public void SetOverlayRoot(Transform zoomTran) {
@@ -30,18 +30,19 @@ public class GalleryZoomViewer : MonoBehaviour {
     public void Show(GalleryIconDetail source) {
         if (current != null) return;
 
-        // ƒRƒs[‚ğ¶¬‚µ‚ÄƒY[ƒ€•\¦BƒtƒŒ[ƒ€‚Í‰B‚·
+        // ã‚³ãƒ”ãƒ¼ã‚’ç”Ÿæˆã—ã¦ã‚ºãƒ¼ãƒ è¡¨ç¤ºã€‚ãƒ•ãƒ¬ãƒ¼ãƒ ã¯éš ã™
         current = Instantiate(zoomPrefab, overlayRoot);
         current.SetUp(source.GetCharaSprite(), null);
 
         current.transform.position = source.transform.position;
         current.SetZoomInPosition(overlayRoot.position);
+        current.SetGallerySize();
 
-        // ƒ{ƒ^ƒ“‚Ìƒzƒo[‚ğØ‚é
+        // ãƒœã‚¿ãƒ³ã®ãƒ›ãƒãƒ¼ã‚’åˆ‡ã‚‹
         current.InactivateHoverButton();
         current.ZoomInGalleryIcon();
 
-        // ƒ{ƒ^ƒ“‹@”\‚ª“o˜^‚³‚ê‚Ä‚¢‚È‚¢‚Ì‚ÅƒAƒCƒRƒ“‚ğ”jŠü‚·‚éˆ—‚ğ“o˜^‚·‚é
+        // ãƒœã‚¿ãƒ³æ©Ÿèƒ½ãŒç™»éŒ²ã•ã‚Œã¦ã„ãªã„ã®ã§ã‚¢ã‚¤ã‚³ãƒ³ã‚’ç ´æ£„ã™ã‚‹å‡¦ç†ã‚’ç™»éŒ²ã™ã‚‹
         current.SetZoomOutBtnByClone();
     }
 

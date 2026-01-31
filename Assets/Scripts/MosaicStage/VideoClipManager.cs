@@ -1,6 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using System.Collections.Generic;
 using System.Threading;
 using UniRx;
 using UnityEngine;
@@ -12,6 +11,8 @@ public class VideoClipManager : MonoBehaviour {
     public static VideoClipManager instance;
 
     [SerializeField] private VideoPlayer videoPlayer;
+    public VideoPlayer VideoPlayer => videoPlayer;
+
     [SerializeField] private CanvasGroup canvasGroup;
     //[SerializeField] private AspectRatioFitter aspectRatioFitter;
 
@@ -72,7 +73,7 @@ public class VideoClipManager : MonoBehaviour {
         if (videoPlayer.clip == null) {
             videoPlayer.clip = sourceVideoClip != null
                 ? sourceVideoClip
-                : UserData.instance.GetVideoData(setVideoNo);
+                : UserData.instance.GetVideoClip(setVideoNo);
         }
 
         //videoPlayer.prepareCompleted += OnCompletePrepare;

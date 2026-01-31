@@ -72,7 +72,7 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         //gridCalculator.Set(mainGameManager);
 
         //mainGameManager.State.Value = GameState.Ready;
-        
+
 
         // ステージごとの BGM 再生
         //SoundManager.instance?.PlayBGM((SoundManager.BGM_TYPE)Enum.Parse(typeof(SoundManager.BGM_TYPE), "Stage_" + SelectStage.stageNo));
@@ -80,7 +80,7 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         // ランダム BGM 再生
         SoundManager.BGM_TYPE bgmType = (SoundManager.BGM_TYPE)Enum.Parse(typeof(SoundManager.BGM_TYPE), "Stage_" + UnityEngine.Random.Range(0, 3));
         SoundManager.instance?.PlayBGM(bgmType);
-            
+
         //mainGameManager.CurrentAchievementStageData = new AchievementStageData(SelectStage.stageNo);
         mainGameInfoView.HideGameUpInfo();
 
@@ -139,34 +139,32 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         // フィーバーポイントの購読(フィーバーしていない時だけ加算される値)
         mainGameManager.FeverPoint
             .Zip(mainGameManager.FeverPoint.Skip(1), (oldValue, newValue) => (oldValue, newValue))
-            .Subscribe(x =>
-            {
+            .Subscribe(x => {
                 // フィーバーのパーセント表示更新
                 mainGameInfoView.UpdateDisplayValue(x.oldValue, x.newValue, mainGameManager.GetTargetFeverPoint(), mainGameManager.GetFeverDuration());
 
                 // フィーバー中の場合(戻り値では評価しない。フィーバー中もポイントが減少しているため、戻り値で IsFeverTime 値を更新してしまうと false になる)
-                if (mainGameManager.IsFeverTime.Value) {                    
+                if (mainGameManager.IsFeverTime.Value) {
                     return;
                 }
 
                 // フィーバーの確認
-                if (!mainGameManager.CheckFeverTime()) {       
+                if (!mainGameManager.CheckFeverTime()) {
                     // フィーバーでなければゲージ増加
                     mainGameInfoView.UpdateFeverSlider(mainGameManager.FeverPoint.Value, 0.25f);
                 } else {
                     //Debug.Log(mainGameManager.CheckFeverTime());
                     // フィーバー監視
                     ObserveFeverTimeAsync(token).Forget();
-                }               
+                }
             })
             .AddTo(disposables);
 
         // グリッドの数の購読
-        tileGridBehaviour.TileGridList            
+        tileGridBehaviour.TileGridList
             .ObserveCountChanged()
             .Where(x => x != 0)
-            .Subscribe((int count) => 
-            {
+            .Subscribe((int count) => {
                 // 残り2個以下ならすべて削除してクリア
                 if (count <= 2) {
                     //Debug.Log("Game Clear");
@@ -187,18 +185,22 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         obstacleBehaviour.CreateObstacles(mainGameManager.GetCurrentStageData().obstacleCount, mainGameManager.GetCurrentStageData().obstacleSpeeds, mainGameManager, lifeModel);
 
 
-        mainGameManager.State.Subscribe(x => 
-        {
+        mainGameManager.State.Subscribe(x => {
             if (x == GameState.Ready) {
                 OnDamage(token);
-            }           
+            }
             //Debug.Log("現在の State : " + mainGameManager.State.Value);         
         });
 
 
         // デバッグ用
-        mainGameInfoView.OnExcellentClicked.Subscribe(_ => GameClearAsync(true, true, token).Forget()).AddTo(disposables);
-        mainGameInfoView.OnOneMissClicke.Subscribe(_ => GameClearAsync(true, false, token).Forget()).AddTo(disposables);
+        if (UserData.instance.isDebugClearBtns) {
+            mainGameInfoView.OnExcellentClicked.Subscribe(_ => GameClearAsync(true, true, token).Forget()).AddTo(disposables);
+            mainGameInfoView.OnOneMissClicke.Subscribe(_ => GameClearAsync(true, false, token).Forget()).AddTo(disposables);
+            mainGameInfoView.ChangeActivateDebugBtns(true);
+        } else {
+            mainGameInfoView.ChangeActivateDebugBtns(false);
+        }
     }
 
     public void OnDamage(CancellationToken token) {
@@ -377,8 +379,9 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
             // ボイスを最後まで流したいため
             await UniTask.Delay(1000, cancellationToken: token);
 
-            // エクセレント演出動画再生(タップでスキップ可)
-            await VideoClipManager.instance.PlayVideoAsync(videoNo: SelectStage.stageNo, token);
+            // エクセレント演出動画再生
+            yamap.StageData stageData = mainGameManager.GetCurrentStageData();
+            await VideoClipManager.instance.PlayVideoAsync(videoNo: stageData.videoId, token);
         }
 
         // クリック待ち

@@ -179,6 +179,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6441136773932916221, guid: da570331e9495214a99dc8c694caf65a,
         type: 3}
+      propertyPath: videoDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c9773b180bd1d5a4381630aaf5825c46,
+        type: 2}
+    - target: {fileID: 6441136773932916221, guid: da570331e9495214a99dc8c694caf65a,
+        type: 3}
       propertyPath: stageDifficultyDataSO
       value: 
       objectReference: {fileID: 11400000, guid: 2659089a6bd50434cad87afbe3554b02,

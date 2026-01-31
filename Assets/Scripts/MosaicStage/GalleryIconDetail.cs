@@ -18,6 +18,7 @@ public class GalleryIconDetail : MonoBehaviour {
     private Vector3 startPos;
     private Vector3 zoomInPos;
     private HoverButton hoverButton;
+    private Vector2 gallerySize = new(1080, 1920);
 
     /// <summary>
     /// 初期設定
@@ -45,6 +46,13 @@ public class GalleryIconDetail : MonoBehaviour {
     /// <param name="zoomInPos"></param>
     public void SetZoomInPosition(Vector3 zoomInPos) {
         this.zoomInPos = zoomInPos;
+    }
+
+    /// <summary>
+    /// ギャラリー用サイズ。フル画面
+    /// </summary>
+    public void SetGallerySize() {
+        ((RectTransform)transform).sizeDelta = gallerySize;
     }
 
     public Button GetButton() {
@@ -88,7 +96,7 @@ public class GalleryIconDetail : MonoBehaviour {
         sequence.Append(transform.DOMove(zoomInPos, 0.5f).SetEase(Ease.Linear));
 
         // アイコンを徐々に大きくしながら表示。指定したサイズになったら、元のアイコンの大きさに戻す
-        sequence.Join(transform.DOScale(Vector2.one * 5.0f, 0.5f).SetEase(Ease.InBack)).OnComplete(() => { transform.DOScale(Vector2.one * 4.8f, 0.2f); });
+        sequence.Join(transform.DOScale(Vector2.one * 1.1f, 0.5f).SetEase(Ease.InBack)).OnComplete(() => { transform.DOScale(Vector2.one, 0.2f); });
     }
 
     /// <summary>
@@ -101,7 +109,7 @@ public class GalleryIconDetail : MonoBehaviour {
         sequence.SetLink(gameObject);
 
         // アイコンの大きさを徐々に 0 にして見えない状態にさせつつ
-        sequence.Append(transform.DOScale(Vector2.one, 0.3f).SetEase(Ease.Linear));
+        sequence.Append(transform.DOScale(Vector2.one * 0.2f, 0.3f).SetEase(Ease.Linear));
 
         // それに合わせてアイコンをアルバムボタンの位置に移動させる。移動後にポップアップを破棄
         // DOLocalMove メソッドにするとボタンの位置に戻らないため、DOMove メソッドを使う

@@ -25,7 +25,7 @@ MonoBehaviour:
     - 6.5
     stageOpenPoint: 0
     charaIcon: {fileID: 21300000, guid: 4743f01337f704231b81ca55f81c858a, type: 3}
-    videoClip: {fileID: 32900000, guid: e5cd76411ed980d42a632732f85cd0cb, type: 3}
+    videoId: 0
   - stageType: 0
     stageNo: 1
     normalCharaSprite: {fileID: -5227222772699421950, guid: 34a68f44f14a45d40a30cc49fc2f2ae2,
@@ -38,7 +38,7 @@ MonoBehaviour:
     - 8.75
     stageOpenPoint: 300
     charaIcon: {fileID: 21300000, guid: bf6b5a83c16104f158cdba8597caac52, type: 3}
-    videoClip: {fileID: 32900000, guid: 401ebd7d8b993e34abcd8ec2bebbd9ba, type: 3}
+    videoId: 1
   - stageType: 0
     stageNo: 2
     normalCharaSprite: {fileID: -903487987401690617, guid: 39b6c5ef8edc4264882e2b4a8b7d9926,
@@ -51,7 +51,7 @@ MonoBehaviour:
     - 11
     stageOpenPoint: 800
     charaIcon: {fileID: 21300000, guid: 8281fc15339fa416585c7eb0bd212474, type: 3}
-    videoClip: {fileID: 32900000, guid: e0fcd218d9a6e0940a857c5f775fe3b0, type: 3}
+    videoId: 2
   - stageType: 0
     stageNo: 3
     normalCharaSprite: {fileID: -5703066544252432322, guid: 34be038b7b710ba41a25d69d1caefad3,
@@ -64,7 +64,7 @@ MonoBehaviour:
     - 11
     stageOpenPoint: 800
     charaIcon: {fileID: 21300000, guid: 8281fc15339fa416585c7eb0bd212474, type: 3}
-    videoClip: {fileID: 32900000, guid: c43d4b3df4ac3dd469c8702c42c1a7bf, type: 3}
+    videoId: 3
   - stageType: 1
     stageNo: 4
     normalCharaSprite: {fileID: 660231344480255464, guid: 8f143f05b16c4a044bd56c33f965d185,
@@ -77,4 +77,30 @@ MonoBehaviour:
     - 11
     stageOpenPoint: 800
     charaIcon: {fileID: 21300000, guid: 8281fc15339fa416585c7eb0bd212474, type: 3}
-    videoClip: {fileID: 32900000, guid: 9b55551fa70202f4faab50a67eccba89, type: 3}
+    videoId: 10
+  - stageType: 1
+    stageNo: 5
+    normalCharaSprite: {fileID: -2331331626306358868, guid: a97db0dacf864af40b2d47002d72e9d2,
+      type: 3}
+    rareCharaSprite: {fileID: -1426016142646884445, guid: 3cb4ac10ddee3ca4d8d7dbde1c570786,
+      type: 3}
+    obstacleCount: 2
+    obstacleSpeeds:
+    - 7
+    - 11
+    stageOpenPoint: 800
+    charaIcon: {fileID: 21300000, guid: 8281fc15339fa416585c7eb0bd212474, type: 3}
+    videoId: 11
+  - stageType: 1
+    stageNo: 6
+    normalCharaSprite: {fileID: -6516072249726530453, guid: f28f7b9622e854446a91b60fa23dd213,
+      type: 3}
+    rareCharaSprite: {fileID: -4272672344589018439, guid: aa702c87ccfd79844be9159b760d1bab,
+      type: 3}
+    obstacleCount: 2
+    obstacleSpeeds:
+    - 7
+    - 11
+    stageOpenPoint: 800
+    charaIcon: {fileID: 21300000, guid: 8281fc15339fa416585c7eb0bd212474, type: 3}
+    videoId: 12
