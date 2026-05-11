@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45da2d2d9a4f54419f7106d705e9c96, type: 3}
+  m_Name: StageDataSO trial_part2
+  m_EditorClassIdentifier: 
+  stageDataList:
+  - stageType: 0
+    stageNo: 1
+    normalCharaSprite: {fileID: -8310578835852675831, guid: c53b3b7b862f18040bdb034204e6a434,
+      type: 3}
+    rareCharaSprite: {fileID: 4197860276205774954, guid: 9a2f166595917434bbb20128ea0de49b,
+      type: 3}
+    obstacleCount: 2
+    obstacleSpeeds:
+    - 2.5
+    - 4.5
+    videoId: 13

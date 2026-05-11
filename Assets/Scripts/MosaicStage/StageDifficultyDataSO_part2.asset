@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c56cf69059bf6148aa6c8bf3e72088d, type: 3}
+  m_Name: StageDifficultyDataSO_part2
+  m_EditorClassIdentifier: Assembly-CSharp::StageDifficultyDataSO
+  imgBackGround: {fileID: 1173551442969952558, guid: 9aea1bf1f717efc44b2c023f9e066d88,
+    type: 3}
+  stageDifficultyDataList:
+  - stageType: 0
+    stageOpenPoint: 0
+    btnCharaSprite: {fileID: 3760705957286288512, guid: 6f0eae048463bf542b798a5d971813f4,
+      type: 3}
+  - stageType: 1
+    stageOpenPoint: 500
+    btnCharaSprite: {fileID: 374427833606869737, guid: 063a06ea5a31eaf45b69a6e717c35e99,
+      type: 3}
+  - stageType: 2
+    stageOpenPoint: 1500
+    btnCharaSprite: {fileID: -5374184965281328198, guid: 6bad0e19b47796f4487b8085497dbc46,
+      type: 3}
