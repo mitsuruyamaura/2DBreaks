@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45da2d2d9a4f54419f7106d705e9c96, type: 3}
+  m_Name: StageDataSO_part4
+  m_EditorClassIdentifier: 
+  stageDataList:
+  - stageType: 0
+    stageNo: 1
+    normalCharaSprite: {fileID: -8310578835852675831, guid: 99126d35fc5c23344bc1a7e1af70c052,
+      type: 3}
+    rareCharaSprite: {fileID: 4197860276205774954, guid: 39a3b1ae00ccf9745b358792b442acca,
+      type: 3}
+    obstacleCount: 2
+    obstacleSpeeds:
+    - 2.5
+    - 4.5
+    videoId: 0
+  - stageType: 0
+    stageNo: 2
+    normalCharaSprite: {fileID: -8310578835852675831, guid: c69086a30352a5a46bd6c1187614a818,
+      type: 3}
+    rareCharaSprite: {fileID: 4197860276205774954, guid: 066443d4133eb2043baf7222d4f6e69b,
+      type: 3}
+    obstacleCount: 2
+    obstacleSpeeds:
+    - 2.5
+    - 4.5
+    videoId: 1
+  - stageType: 0
+    stageNo: 3
+    normalCharaSprite: {fileID: -8310578835852675831, guid: 0b26d3b7eb6875a46919687e92615db6,
+      type: 3}
+    rareCharaSprite: {fileID: 4197860276205774954, guid: 00c2e2cd5b70fe44695de74117130081,
+      type: 3}
+    obstacleCount: 2
+    obstacleSpeeds:
+    - 2.5
+    - 4.5
+    videoId: 2
+  - stageType: 1
+    stageNo: 1
+    normalCharaSprite: {fileID: -8310578835852675831, guid: d8cfc1d812c5ca146b7511b928e27742,
+      type: 3}
+    rareCharaSprite: {fileID: 4197860276205774954, guid: 5d74c2d8326b886428e58652e5ea8526,
+      type: 3}
+    obstacleCount: 2
+    obstacleSpeeds:
+    - 3.5
+    - 5.5
+    videoId: 10
+  - stageType: 1
+    stageNo: 2
+    normalCharaSprite: {fileID: -8310578835852675831, guid: 6727fe3fdfe449f4ab92d16ef974fcde,
+      type: 3}
+    rareCharaSprite: {fileID: 4197860276205774954, guid: cd05b312599947c40a88041c3597f0d7,
+      type: 3}
+    obstacleCount: 2
+    obstacleSpeeds:
+    - 3.5
+    - 5.5
+    videoId: 11
+  - stageType: 2
+    stageNo: 1
+    normalCharaSprite: {fileID: -8310578835852675831, guid: c802a45bdc9f1884796409c41a7a8f61,
+      type: 3}
+    rareCharaSprite: {fileID: 4197860276205774954, guid: 03dadab3548ad454088be94fb11cb8c6,
+      type: 3}
+    obstacleCount: 3
+    obstacleSpeeds:
+    - 4.5
+    - 6.5
+    videoId: 20
