@@ -24,7 +24,7 @@ public class TileGridBehaviour : MonoBehaviour
     private int columnCount;
 
     [SerializeField]
-    private float tileGridSize;
+    private float tileGridSize;   // SpriteRenderer のときは 0.68。Image のときは 1.0
 
     [SerializeField, Header("生成された Grid のリスト")]
     public List<TileGridDetail> tileGridList = new();
@@ -38,6 +38,13 @@ public class TileGridBehaviour : MonoBehaviour
     public GameObject GetEraseEffect() => eraseEffectPrefab;
     public float GetTileGridSize() => tileGridSize;
 
+    public bool useImageTile;
+
+    [SerializeField] private TileGridDetail tileGridPrefabCanvas;
+
+    [SerializeField] private Transform tileGridSetTranCanvas;
+
+
 
     /// <summary>
     /// グリッドを生成
@@ -48,11 +55,27 @@ public class TileGridBehaviour : MonoBehaviour
         for (int i = 0; i < rowCount; i++) {
             for (int j = 0; j < columnCount; j++) {
                 // TileGridDetail プレファブを生成
-                TileGridDetail tileGrid = Instantiate(tileGridPrefab, tileGridSetTran, true);
+                TileGridDetail tileGrid = null;
 
                 // サイズ変更と位置変更して並べる
-                tileGrid.transform.localScale = Vector3.one * tileGridSize;
-                tileGrid.transform.localPosition = new(j * tileGridSize, i * tileGridSize, 0);
+                //tileGrid.transform.localScale = Vector3.one * tileGridSize;
+
+                // Canvas 内に並べる場合
+                if (useImageTile) {
+                    // TileGridDetail プレファブを生成
+                    tileGrid = Instantiate(tileGridPrefabCanvas, tileGridSetTranCanvas, false);
+
+                    // 並べる
+                    RectTransform tileGridRect = tileGrid.transform as RectTransform;
+                    tileGrid.transform.localPosition = new(j * tileGridRect.sizeDelta.x, i * tileGridRect.sizeDelta.y, 0);
+                } else {
+                    // TileGridDetail プレファブを生成
+                    tileGrid = Instantiate(tileGridPrefab, tileGridSetTran, true);
+
+                    // サイズ変更と位置変更して並べる
+                    tileGrid.transform.localScale = Vector3.one * tileGridSize;
+                    tileGrid.transform.localPosition = new(j * tileGridSize, i * tileGridSize, 0);
+                }
 
                 // グリッドの初期設定。グリッドの色をランダムに１つ選択
                 tileGrid.SetUpTileGridDetail(UnityEngine.Random.Range(0, Enum.GetValues(typeof(TileGridType)).Length));

@@ -19,6 +19,7 @@ public class GameStartLifetimeScope : LifetimeScope
         builder.RegisterComponentInHierarchy<MainGameInfoView>();
         builder.RegisterComponentInHierarchy<TileGridBehaviour>();
         builder.RegisterComponentInHierarchy<ObstacleBehaviour>();
+        builder.RegisterComponentInHierarchy<PointerInputProvider>();
 
         builder.Register<LifeModel>(Lifetime.Singleton);
         builder.Register<MainGameManager>(Lifetime.Singleton);

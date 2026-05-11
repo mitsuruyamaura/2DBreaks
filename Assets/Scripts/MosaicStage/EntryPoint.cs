@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 using TNRD;
 using UnityEngine.SceneManagement;
@@ -16,7 +16,7 @@ public class EntryPoint : MonoBehaviour
 
     private bool isSetResolution;
 
-    // ‹N“®‚ÉÀs‚·‚éŠeƒNƒ‰ƒX‚Ìİ’è
+    // èµ·å‹•æ™‚ã«å®Ÿè¡Œã™ã‚‹å„ã‚¯ãƒ©ã‚¹ã®è¨­å®š
     public List<SerializableInterface<IEntryRun>> entryList = new();
 
     //public float masterVolume;
@@ -31,8 +31,8 @@ public class EntryPoint : MonoBehaviour
         //} else {
         //    Destroy(gameObject);
         //}
-        
-        // w’è‚µ‚½‡”Ô‚ÉŠeƒNƒ‰ƒX‚Ì‰Šúİ’è‚ğs‚¤ 
+        //Debug.Log(Application.persistentDataPath);
+        // æŒ‡å®šã—ãŸé †ç•ªã«å„ã‚¯ãƒ©ã‚¹ã®åˆæœŸè¨­å®šã‚’è¡Œã† 
         foreach (var entry in entryList) {
             entry.Value?.EntryRun();
         }
@@ -67,9 +67,9 @@ public class EntryPoint : MonoBehaviour
 
             var token = this.GetCancellationTokenOnDestroy();
             //await UniTask.WaitUntil(() => SoundManager.instance.isSetUp, cancellationToken: token);
-            await UniTask.Delay(1000, cancellationToken: token);  // ‚ ‚ñ‚Ü‚è’x‚¢‚ÆƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚ª”jŠü‚³‚ê‚ÄA‰º‚Ìˆ—‚És‚©‚È‚­‚È‚é
+            await UniTask.Delay(1000, cancellationToken: token);  // ã‚ã‚“ã¾ã‚Šé…ã„ã¨ã‚²ãƒ¼ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒç ´æ£„ã•ã‚Œã¦ã€ä¸‹ã®å‡¦ç†ã«è¡Œã‹ãªããªã‚‹
 
-            // ƒZ[ƒuƒf[ƒ^—L–³‚ÌŠm”F‚Ææ“¾Aƒ{ƒCƒXÄ¶
+            // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿æœ‰ç„¡ã®ç¢ºèªã¨å–å¾—ã€ãƒœã‚¤ã‚¹å†ç”Ÿ
             UserData.instance.Init();
         }
     }

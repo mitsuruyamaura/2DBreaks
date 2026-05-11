@@ -31,6 +31,22 @@ public class PlaylistDetailView : MonoBehaviour {
         imgThumnail.sprite = videoData.thumbnail;
 
         // ボタン購読(プレイリストからこのムービーを削除)
-        btnPlaylistDetail.OnClickAsObservable().ThrottleFirst(System.TimeSpan.FromSeconds(0.5f)).Subscribe(_ => btnClickAction?.Invoke(this));
+        if (btnClickAction != null) {
+            btnPlaylistDetail.OnClickAsObservable().ThrottleFirst(System.TimeSpan.FromSeconds(0.5f)).Subscribe(_ => btnClickAction?.Invoke(this));
+        }
+    }
+
+    public void ActivateView() {
+        dragThumnail.enabled = false;
+        btnPlaylistDetail.enabled = true;
+    }
+
+    public void InactivateView() {
+        if(TryGetComponent(out dragThumnail)) {
+            dragThumnail.enabled = false;
+        }
+
+        btnPlaylistDetail.enabled = false;
+        canvasGroup.blocksRaycasts = false;
     }
 }

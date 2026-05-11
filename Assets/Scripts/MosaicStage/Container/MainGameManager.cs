@@ -56,6 +56,8 @@ public class MainGameManager  // : IInitializable
         // 消したグリッドの数の加算。フィーバー中は難易度に応じて 3 - 5倍
         TotalErasePoint.Value += IsFeverTime.Value ? eraseTileGridCount * (3 + (int)currentStageData.stageType) : eraseTileGridCount;
 
+        //Debug.Log("Total Erase Point : " + TotalErasePoint.Value);
+
         // 消したグリッド数の最大値の更新確認
         if (eraseTileGridCount > CurrentAchievementStageData.maxLinkCount) CurrentAchievementStageData.maxLinkCount = eraseTileGridCount;
     }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 色覚補助の状態
@@ -18,8 +19,8 @@ public class TileGridDetail : MonoBehaviour
     public TileGridType tileGridType;
     public bool IsSelected;
     public int Num;
-    public SpriteRenderer spriteTileGrid;
-
+    [SerializeField] private SpriteRenderer spriteTileGrid;
+    [SerializeField] private Image imgTile;
 
     /// <summary>
     /// 初期設定
@@ -78,6 +79,33 @@ public class TileGridDetail : MonoBehaviour
     /// </summary>
     /// <param name="colorNo"></param>
     public void SetColor(int colorNo) {
-        spriteTileGrid.color = GetColor(colorNo, UserData.instance.CurrentColorAssistanceState.Value);
+        if (spriteTileGrid != null) {
+            spriteTileGrid.color = GetColor(colorNo, UserData.instance.CurrentColorAssistanceState.Value);
+        }
+
+        if(imgTile != null) {
+            imgTile.color = GetColor(colorNo, UserData.instance.CurrentColorAssistanceState.Value);
+        }
+    }
+
+    /// <summary>
+    /// アルファのみ設定
+    /// </summary>
+    /// <param name="alphaValue"></param>
+    public void SetAlpha(float alphaValue) {
+        if (spriteTileGrid != null) {
+            spriteTileGrid.color = new(spriteTileGrid.color.r, spriteTileGrid.color.g, spriteTileGrid.color.b, alphaValue);
+        }
+
+        if (imgTile != null) {
+            imgTile.color = new(imgTile.color.r, imgTile.color.g, imgTile.color.b, alphaValue);
+        }
+    }
+
+    public Color GetColor() {
+        if (spriteTileGrid != null) return spriteTileGrid.color;
+        if (imgTile != null) return imgTile.color;
+
+        return Color.white;
     }
 }

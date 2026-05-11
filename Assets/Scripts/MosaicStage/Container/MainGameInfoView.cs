@@ -47,11 +47,16 @@ public class MainGameInfoView : MonoBehaviour
     private Button btnOneMissClear;
     public IObservable<Unit> OnOneMissClicke => btnOneMissClear.OnClickAsObservable();
 
-    //[SerializeField]
-    //private Image imgNormalChara;   // SpriteRenderer ではなくて Image でやる場合(その場合、ほかの修正も必要になる)
+    [SerializeField]
+    private Image imgNormalChara;   // SpriteRenderer ではなくて Image でやる場合(その場合、ほかの修正も必要になる)
 
-    //[SerializeField]
-    //private Image imgRareChara;
+    [SerializeField]
+    private Image imgRareChara;
+
+    public bool useImageChara;
+
+    [SerializeField] private Button btnExitStage;
+    public IObservable<Unit> OnExitStage => btnExitStage.OnClickAsObservable();
 
 
     /// <summary>
@@ -163,15 +168,18 @@ public class MainGameInfoView : MonoBehaviour
         imgExcellentLogo.DOFade(0f, 0.5f).SetEase(Ease.Linear);
         imgExcellentLogo.transform.DOLocalMoveX(-1250, 1.0f).SetEase(Ease.InOutBack).SetLink(imgExcellentLogo.gameObject);
 
-        ShowExcellentBonusChara();
+        //ShowExcellentBonusChara();
     }
 
     /// <summary>
     /// エクセレントボーナス用の画像表示
     /// </summary>
-    private void ShowExcellentBonusChara() {
-        normalChara.material.DOFloat(-1, "_Flip", 1.5f).SetEase(Ease.Linear).SetLink(normalChara.gameObject);
-        //imgNormalChara.material.DOFloat(-1, "_Flip", 1.5f).SetEase(Ease.Linear).SetLink(imgNormalChara.gameObject);
+    public void ShowExcellentBonusChara() {
+        if (useImageChara) {
+            imgNormalChara.material.DOFloat(-1, "_Flip", 1.5f).SetEase(Ease.Linear).SetLink(imgNormalChara.gameObject);
+        } else {
+            normalChara.material.DOFloat(-1, "_Flip", 1.5f).SetEase(Ease.Linear).SetLink(normalChara.gameObject);
+        }
     }
 
     /// <summary>
@@ -202,8 +210,16 @@ public class MainGameInfoView : MonoBehaviour
     /// ステージごとのメインキャラ(背景)画像の設定
     /// </summary>
     public void SetCharaSprite(yamap.StageData currentStageData) {
-        normalChara.sprite = currentStageData.normalCharaSprite;
-        rareChara.sprite = currentStageData.rareCharaSprite;
+        if (useImageChara) {
+            imgNormalChara.sprite = currentStageData.normalCharaSprite;
+            imgRareChara.sprite = currentStageData.rareCharaSprite;
+            imgNormalChara.material.SetFloat("_Flip", 1f);
+        } else {
+            normalChara.sprite = currentStageData.normalCharaSprite;
+            rareChara.sprite = currentStageData.rareCharaSprite;
+            normalChara.material.SetFloat("_Flip", 1f);
+        }
+
 
         //imgNormalChara.sprite = currentStageData.normalCharaSprite;
         //imgRareChara.sprite = currentStageData.rareCharaSprite;

@@ -47,6 +47,12 @@ public class Menu : MonoBehaviour, IEntryRun
     [SerializeField]
     private MoviePopup moviePopupPrefab;
 
+    [SerializeField]
+    private MoviePopup movieOnlyPopupPrefab;
+
+    [SerializeField]
+    private Image imgBackGround;
+
 
     /// <summary>
     /// ゲーム起動時の処理
@@ -56,11 +62,35 @@ public class Menu : MonoBehaviour, IEntryRun
         //SoundManager.instance.SetLinearVolumeToMixerGroup(ConstData.MASTER_AUDIO_NAME, SoundManager.instance.masterVolume);
         SoundManager.instance.PlayBGM(SoundManager.BGM_TYPE.Menu);
 
+        // 背景画像の設定
+        Sprite backGroundSprite = UserData.instance.GetMenuBackGroundSprite();
+        if (backGroundSprite != null) {
+            imgBackGround.sprite = backGroundSprite;
+        }
+
+        // 動画オンリーモードの場合は、動画オンリーポップアップを開いて、以降の処理をしないで終わる
+        if (UserData.instance.isMovieOnlyModeOn) {
+            // セーブデータがある場合、クリアしているステージ分も動画として見れるようにする
+            if (PlayerPrefsHelper.ExistsData(UserData.SAVE_KEY)) {
+                MoviePopup moviePopup = Instantiate(moviePopupPrefab);
+                moviePopup.Setup(isMovieOnly: true);
+            } else {
+                MoviePopup moviePopup = Instantiate(movieOnlyPopupPrefab);
+                moviePopup.Setup(isMovieOnly: true);
+            }
+            return;
+        }
+
         // モザイクカウントによるステージ開放の判定
         (bool[] isOpenStages, int[] openPoints) = UserData.instance.CheckOpenStageDifficultyFromPoint();
 
-        // キャラボタンの生成
-        CreateCharaButtons(isOpenStages, openPoints);
+        if (UserData.instance.isDebugClearBtns) {
+            // 体験版用キャラボタンの生成
+            CreateDebugCharaButtons();
+        } else {
+            // キャラボタンの生成
+            CreateCharaButtons(isOpenStages, openPoints);
+        }
 
         // MozaicCount 購読
         UserData.instance.MosaicCount
@@ -97,8 +127,6 @@ public class Menu : MonoBehaviour, IEntryRun
             .ThrottleFirst(System.TimeSpan.FromSeconds(2))
             .Subscribe(_ => PrepareMoviePopUp())
             .AddTo(gameObject);
-
-        
     }
 
     //void Start()
@@ -150,6 +178,16 @@ public class Menu : MonoBehaviour, IEntryRun
     /// <param name="newValue"></param>
     private void UpdateDisplayMosaicCount(int oldValue, int newValue) {
         txtMozaicCount.DOCounter(oldValue, newValue, 2.0f).SetEase(Ease.InQuart).SetLink(gameObject);
+    }
+
+    /// <summary>
+    /// 体験版用キャラボタンの生成
+    /// </summary>
+    private void CreateDebugCharaButtons() {
+        yamap.StageData stageData = UserData.instance.GetStageDataByStageNo(0);
+        CharaButtonDetail charaButton = Instantiate(charaButtonPrefab, charaButtonSetTrans[0], false);
+        Sprite btnCharaSprite = UserData.instance.GetBtnChara((StageType)0);
+        charaButton.SetUpCharaButtonDetail(stageData.stageNo, btnCharaSprite, (StageType)0, PrepareStageSelectPopUp, true, 0);
     }
 
     /// <summary>
@@ -266,7 +304,7 @@ public class Menu : MonoBehaviour, IEntryRun
     /// </summary>
     private void PrepareMoviePopUp() {
         MoviePopup moviePopup = Instantiate(moviePopupPrefab);
-        moviePopup.Setup();
+        moviePopup.Setup(isMovieOnly: false);
 
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
     }

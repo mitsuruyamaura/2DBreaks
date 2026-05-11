@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using UniRx;
 using UniRx.Triggers;
-using Cysharp.Threading.Tasks;
-using System.Threading;
-using DG.Tweening;
-using System.Linq;
-using System;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 // DI コンテナ採用により現在は使用しない
 public class MosaicManager : MonoBehaviour
@@ -134,6 +135,19 @@ public class MosaicManager : MonoBehaviour
     [SerializeField]
     private AchievementStageData currentAchievementStageData;
 
+    // InputSystem 用 
+    bool isPressDown =
+    (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+    (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame);
+
+    bool isPressUp =
+        (Mouse.current != null && Mouse.current.leftButton.wasReleasedThisFrame) ||
+        (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasReleasedThisFrame);
+
+    bool isPressing =
+        (Mouse.current != null && Mouse.current.leftButton.isPressed) ||
+        (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed);
+
 
     void Start()
     {
@@ -171,13 +185,24 @@ public class MosaicManager : MonoBehaviour
             .Subscribe(_ => 
             {
                 // グリッドをつなげる処理
-                if (Input.GetMouseButtonDown(0) && firstSelectTileGrid == null) {
+                //if (Input.GetMouseButtonDown(0) && firstSelectTileGrid == null) {
+                //    OnStartDrag();
+                //} else if (Input.GetMouseButtonUp(0)) {
+                //    OnEndDrag();
+                //} else if (firstSelectTileGrid != null) {
+                //    OnDragging();
+                //}
+
+
+                // InputSystem 版(ドラッグ中 = 押されている間 を明示)
+                if (isPressDown && firstSelectTileGrid == null) {
                     OnStartDrag();
-                } else if (Input.GetMouseButtonUp(0)) {
+                } else if (isPressUp) {
                     OnEndDrag();
-                } else if (firstSelectTileGrid != null) {
+                } else if (isPressing && firstSelectTileGrid != null) {
                     OnDragging();
                 }
+
 
                 GameTime.Value += Time.deltaTime;
             })
@@ -259,7 +284,7 @@ public class MosaicManager : MonoBehaviour
     private void SetCharaSprite() {
         normalChara.sprite = currentStageData.normalCharaSprite;
         rareChara.sprite = currentStageData.rareCharaSprite;
-        imgCharaIcon.sprite = currentStageData.charaIcon;
+        //imgCharaIcon.sprite = currentStageData.charaIcon;
 
         imgCharaIcon.transform.DOShakeScale(0.75f, 1f, 4)
             .SetEase(Ease.InQuart)
@@ -549,7 +574,9 @@ public class MosaicManager : MonoBehaviour
     /// <param name="dragTileGrid"></param>
     /// <param name="alphaValue"></param>
     private void ChangeTileGridAlpha(TileGridDetail dragTileGrid, float alphaValue) {
-        dragTileGrid.spriteTileGrid.color = new (dragTileGrid.spriteTileGrid.color.r, dragTileGrid.spriteTileGrid.color.g, dragTileGrid.spriteTileGrid.color.b, alphaValue);
+        dragTileGrid.SetAlpha(alphaValue);
+
+        //dragTileGrid.spriteTileGrid.color = new (dragTileGrid.spriteTileGrid.color.r, dragTileGrid.spriteTileGrid.color.g, dragTileGrid.spriteTileGrid.color.b, alphaValue);
         dragTileGrid.transform.DOShakeScale(0.15f).SetEase(Ease.InQuart).SetLink(dragTileGrid.gameObject).OnComplete(() => dragTileGrid.transform.localScale = Vector3.one * tileGridSize);
     }
 
@@ -778,7 +805,8 @@ public class MosaicManager : MonoBehaviour
         SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ゲームオーバー);
 
         // クリック待ち
-        await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), PlayerLoopTiming.Update, token);
+        //await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), PlayerLoopTiming.Update, token);
+        await WaitTapAsync(token);
 
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
 
@@ -813,7 +841,9 @@ public class MosaicManager : MonoBehaviour
         await UniTask.Delay(1000, false, PlayerLoopTiming.Update, token);
 
         // クリック待ち
-        await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), PlayerLoopTiming.Update, token);
+        //await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), PlayerLoopTiming.Update, token);
+        await WaitTapAsync(token);
+
         SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.クリア_2);
 
         // ノーミスクリア
@@ -825,7 +855,8 @@ public class MosaicManager : MonoBehaviour
             await UniTask.Delay(1500, false, PlayerLoopTiming.Update, token);
 
             // クリック待ち
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), PlayerLoopTiming.Update, token);
+            //await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), PlayerLoopTiming.Update, token);
+            await WaitTapAsync(token);
 
             SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Fever);
 
@@ -839,12 +870,27 @@ public class MosaicManager : MonoBehaviour
             SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.エクセレント);
 
             // クリック待ち
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), PlayerLoopTiming.Update, token);
+            //await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), PlayerLoopTiming.Update, token);
+            await WaitTapAsync(token);
         }
         // ボイスを最後まで流したいため
         await UniTask.Delay(1000, false, PlayerLoopTiming.Update, token);
 
         // シーン遷移
         await StartCoroutine(TransitionManager.instance.MoveNextScene(SCENE_STATE.Menu));
+    }
+
+    /// <summary>
+    /// クリック/タップ待ち
+    /// </summary>
+    /// <param name="token"></param>
+    /// <returns></returns>
+    private async UniTask WaitTapAsync(CancellationToken token) {
+        await UniTask.WaitUntil(
+            () => //Input.GetMouseButtonDown(0),
+             (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+            (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame),
+            cancellationToken: token
+        );
     }
 }

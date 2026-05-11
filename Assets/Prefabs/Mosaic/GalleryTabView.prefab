@@ -38,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 900, y: 1285}
+  m_AnchoredPosition: {x: 0, y: 0.007814407}
+  m_SizeDelta: {x: 900, y: 1179.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5502872471706474049
 CanvasRenderer:
@@ -792,9 +792,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
   m_Padding:
-    m_Left: 20
+    m_Left: 25
     m_Right: 20
-    m_Top: 20
+    m_Top: 57
     m_Bottom: 20
   m_ChildAlignment: 0
   m_StartCorner: 0

@@ -13,8 +13,8 @@ namespace yamap {
         public Sprite rareCharaSprite;     // 裏に隠れているキャラ絵
         public int obstacleCount;          // 生成する障害物の数
         public float[] obstacleSpeeds;     // 障害物の移動速度の最小値と最大値
-        public int stageOpenPoint;    　　 // ステージ開放に必要なポイント
-        public Sprite charaIcon;           // キャラアイコン
+        //public int stageOpenPoint;    　 // ステージ開放に必要なポイント
+        //public Sprite charaIcon;         // キャラアイコン
         public int videoId;                // ステージクリア時の動画のID
     }
 }

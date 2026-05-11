@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6441136773932916220}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6441136773932916221
 MonoBehaviour:
@@ -45,10 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageDataSO: {fileID: 11400000, guid: 688b6c4a93dd86f47b4163887e23e9be, type: 2}
+  stageDifficultyDataSO: {fileID: 11400000, guid: 2659089a6bd50434cad87afbe3554b02,
+    type: 2}
+  videoDataSO: {fileID: 11400000, guid: c9773b180bd1d5a4381630aaf5825c46, type: 2}
   MosaicCount:
     value: 0
-  clearStageNoList: 
   isOpenGallary: 0
   openGallaryPoint: 2000
   beforePoint: 0
   achievementStageDataList: []
+  CurrentColorAssistanceState:
+    value: 0
+  CurrentLanguage:
+    value: 0
+  stageClearDataList: []
+  isDebugClearBtns: 0

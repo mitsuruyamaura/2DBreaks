@@ -45,6 +45,8 @@ public class UserData : MonoBehaviour, IEntryRun
     [SerializeField] private StageDifficultyDataSO stageDifficultyDataSO;
     [SerializeField] private VideoDataSO videoDataSO;
 
+    public List<VideoDataSO> movieOnlyVideoDataSOList;
+
     public ReactiveProperty<int> MosaicCount = new();
     public bool isOpenGallary;
     public int openGallaryPoint;
@@ -56,6 +58,8 @@ public class UserData : MonoBehaviour, IEntryRun
     public List<StageClearData> stageClearDataList = new();
 
     public bool isDebugClearBtns;
+    public bool isMovieOnlyModeOn;
+
     private float defaultMasterVolume = 0.3f;
 
     /// <summary>
@@ -72,7 +76,7 @@ public class UserData : MonoBehaviour, IEntryRun
         public List<StageClearData> stageClearDataList = new();
     }
 
-    private const string SAVE_KEY = "SaveData";        // SaveData クラス用の Key
+    public const string SAVE_KEY = "SaveData";        // SaveData クラス用の Key
 
     /// <summary>
     /// ゲーム起動時の処理
@@ -156,11 +160,39 @@ public class UserData : MonoBehaviour, IEntryRun
     }
 
     public yamap.StageData GetStageDataByStageNo(int searchStageNo) {
+        //Debug.Log($"GetStageDataByStageNo searchStageNo : {searchStageNo}");
+        //Debug.Log($"GetStageDataByStageNo stageDataSO.stageDataList.Count : {stageDataSO.stageDataList.Count}");
+        //Debug.Log($"GetStageDataByStageNo stageDataSO.stageDataList[searchStageNo] : {stageDataSO.stageDataList[searchStageNo]}");
         return stageDataSO.stageDataList[searchStageNo];
     }
 
     public List<yamap.StageData> GetStageDataListByStageType(StageType searchStageType) {
         return stageDataSO.stageDataList.Where(data => data.stageType == searchStageType).ToList();
+    }
+
+    /// <summary>
+    /// 全ステージクリア済かどうかの判定
+    /// true : 全ステージクリア済 (ワンミス、ノーミス問わず)
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckAllClearStage() {
+        int allStageCount = GetStageCount();
+        int clearedStageCount = GetClearedStageCount();
+        
+        // 全ステージクリア済なら(ワンミス、ノーミス問わず)
+        if (clearedStageCount >= allStageCount) {
+            return true;
+        } else {
+            return false;
+        }        
+    }
+
+    /// <summary>
+    /// ノーミス、ワンミス問わず、ステージをいくつクリアしているかを判定
+    /// </summary>
+    /// <returns></returns>
+    public int GetClearedStageCount() {
+        return stageClearDataList.Count;
     }
 
     /// <summary>
@@ -210,6 +242,8 @@ public class UserData : MonoBehaviour, IEntryRun
                 continue;
             }
 
+            Debug.Log($"currentAchievementStageData.maxMosaicCount : {currentAchievementStageData.maxMosaicCount} /S achievementStageDataList[i].maxMosaicCount : {achievementStageDataList[i].maxMosaicCount}");
+            
             if (currentAchievementStageData.challengeCount != 0) achievementStageDataList[i].challengeCount += currentAchievementStageData.challengeCount;
             if (currentAchievementStageData.clearCount != 0) achievementStageDataList[i].clearCount += currentAchievementStageData.clearCount;
             if (currentAchievementStageData.failureCount != 0) achievementStageDataList[i].failureCount += currentAchievementStageData.failureCount;
@@ -361,6 +395,16 @@ public class UserData : MonoBehaviour, IEntryRun
     }
 
     /// <summary>
+    /// 動画オンリーモード用の VideoData 取得
+    /// </summary>
+    /// <param name="searchVideoId"></param>
+    /// <returns></returns>
+    public VideoData GetMovieOnlyVideoData(int searchVideoId) {
+        // movieOnlyVideoDataSOList(全 ScriptableObject)の videoDataList を結合してから検索する
+        return movieOnlyVideoDataSOList.SelectMany(data => data.videoDataList).FirstOrDefault(data => data.videoId == searchVideoId);
+    }
+
+    /// <summary>
     /// プレイリストの順番に VideoData を取得
     /// 未使用
     /// </summary>
@@ -379,5 +423,9 @@ public class UserData : MonoBehaviour, IEntryRun
             .Where(id => dict.ContainsKey(id))
             .Select(id => dict[id].videoClip)
             .ToList();
+    }
+
+    public Sprite GetMenuBackGroundSprite() {
+        return stageDifficultyDataSO.imgBackGround;
     }
 }

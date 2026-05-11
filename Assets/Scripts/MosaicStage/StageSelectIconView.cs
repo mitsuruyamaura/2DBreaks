@@ -20,7 +20,7 @@ public class StageSelectIconView : MonoBehaviour {
         this.stageNo = stageNo;
         this.stageType = stageType;
         imgChara.sprite = charaSprite;
-        txtStageNo.text = "stage " + (stageNo + 1);
+        txtStageNo.text = "stage " + stageNo;
 
         // クリア済のステージの場合、ガラスシェードを外す
         StageClearData stageClearData = UserData.instance.GetStageClearData(stageType, stageNo);

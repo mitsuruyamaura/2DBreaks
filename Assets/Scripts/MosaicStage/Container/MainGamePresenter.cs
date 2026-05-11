@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
+using System.Linq;
+using System.Threading;
 using UniRx;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using VContainer.Unity;
-using Cysharp.Threading.Tasks;
-using System.Threading;
-using System.Linq;
 
 public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // PackageManager 経由で UniTask を入れないと依存関係が適用されないものがある
 
@@ -127,6 +128,7 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
 
         // 壊したグリッドの監視
         mainGameManager.TotalErasePoint
+            .Where(_ => mainGameManager.State.Value == GameState.Play)  // プレイ中のみ。ラスト2個残し時には画面更新させない
             .Zip(mainGameManager.TotalErasePoint.Skip(1), (oldValue, newValue) => (oldValue, newValue))
             .Subscribe(x => mainGameInfoView.UpdateMosaicCount(x.oldValue, x.newValue)).AddTo(disposables);
 
@@ -192,6 +194,10 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
             //Debug.Log("現在の State : " + mainGameManager.State.Value);         
         });
 
+        // ステージ終了確認ポップアップ表示
+        mainGameInfoView.OnExitStage
+                        .Where(_ => mainGameManager.State.Value == GameState.Play)
+                        .Subscribe(_ => ExitPoint.instance.OnClickOpenExitPopup()).AddTo(disposables);
 
         // デバッグ用
         if (UserData.instance.isDebugClearBtns) {
@@ -208,7 +214,8 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         // ゲームオーバー判定
         if (lifeModel.IsNotLifeLeft()) {
 
-            mainGameManager.State.Value = GameState.GameUp;
+            // Result の中でやる。ゲームクリアも含めるため
+            //mainGameManager.State.Value = GameState.GameUp;
 
             obstacleBehaviour.StopAllObstacles();
             //Debug.Log("Game Over");
@@ -258,6 +265,8 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
     /// </summary>
     /// <param name="isClear"></param>
     private void Result(bool isClear, CancellationToken token) {
+        mainGameManager.State.Value = GameState.GameUp;
+
         // 今回の消したブロックのポイントを加算
         UserData.instance.MosaicCount.Value += mainGameManager.TotalErasePoint.Value;
 
@@ -330,7 +339,8 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.ゲームオーバー);
 
         // クリック待ち
-        await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+        //await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+        await WaitTapAsync(token);
 
         SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Submit);
 
@@ -357,12 +367,13 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         // ワンミスクリアの場合
         if (isOneMissClear) {
             // クリック待ち
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+            //await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+            await WaitTapAsync(token);
+
+            // レア画像表示
+            mainGameInfoView.ShowExcellentBonusChara();
 
             SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.クリア_2);
-
-            // エクセレントのロゴを消し、レア画像のアニメ表示
-            mainGameInfoView.HideExcellentLogo();
 
             // ボイスを最後まで流したいため
             await UniTask.Delay(1000, cancellationToken: token);
@@ -370,14 +381,21 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
 
         // ノーミスクリアの場合
         if (isNoMissClear) {
-            // クリック待ち
-            await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+            // エクセレントのロゴ表示
+            mainGameInfoView.ShowExcellentLogo();
 
             SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Excellent);
             SoundManager.instance.PlayVoice(SoundManager.VOICE_TYPE.エクセレント);
 
-            // ボイスを最後まで流したいため
-            await UniTask.Delay(1000, cancellationToken: token);
+            // SE とボイスを最後まで流したいため
+            await UniTask.Delay(4000, cancellationToken: token);
+
+            // クリック待ち
+            //await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+            await WaitTapAsync(token);
+
+            // エクセレントのロゴ非表示
+            mainGameInfoView.HideExcellentLogo();
 
             // エクセレント演出動画再生
             yamap.StageData stageData = mainGameManager.GetCurrentStageData();
@@ -385,9 +403,24 @@ public class MainGamePresenter : IAsyncStartable, ITickable, IDisposable {  // P
         }
 
         // クリック待ち
-        await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+        //await UniTask.WaitUntil(() => Input.GetMouseButtonDown(0), cancellationToken: token);
+        await WaitTapAsync(token);
 
         // シーン遷移
         TransitionManager.instance.PrepareNextScene(SCENE_STATE.Menu);
+    }
+
+    /// <summary>
+    /// クリック/タップ待ち
+    /// </summary>
+    /// <param name="token"></param>
+    /// <returns></returns>
+    private async UniTask WaitTapAsync(CancellationToken token) {
+        await UniTask.WaitUntil(
+            () => //Input.GetMouseButtonDown(0),
+             (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+            (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame),
+            cancellationToken: token
+        );
     }
 }
