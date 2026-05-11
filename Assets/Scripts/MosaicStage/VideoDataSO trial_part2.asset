@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4b4a8eaa2dcae47ae9cdde7c116ce1, type: 3}
+  m_Name: VideoDataSO trial_part2
+  m_EditorClassIdentifier: Assembly-CSharp::VideoDataSO
+  videoDataList:
+  - videoId: 13
+    videoClip: {fileID: 32900000, guid: 1567d6b37784cb94c920a60d7de5ce4a, type: 3}
+    thumbnail: {fileID: 4197860276205774954, guid: 9a2f166595917434bbb20128ea0de49b,
+      type: 3}
