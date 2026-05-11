@@ -3,6 +3,7 @@ using DG.Tweening;
 using System.Threading;
 using UniRx;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -32,6 +33,12 @@ public class VideoClipManager : MonoBehaviour {
     [SerializeField] float barDefaultHeight = 1100f;
     [SerializeField] float duration = 0.4f;
 
+    /// <summary>
+    /// インプットシステム対応のタップ・クリック検知
+    /// </summary>
+    bool isPressDown =
+    (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+    (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame);
 
 
     void Awake() {
@@ -115,7 +122,8 @@ public class VideoClipManager : MonoBehaviour {
         // 再生終了 or スキップ待ち
         while (videoPlayer.isPlaying) {
 
-            if (Input.GetMouseButtonDown(0)) {
+            //if (Input.GetMouseButtonDown(0)) {
+            if(isPressDown) {
                 SkipVideo();
             }
 
@@ -125,7 +133,13 @@ public class VideoClipManager : MonoBehaviour {
         StopVideo();
     }
 
-
+    /// <summary>
+    /// ムービー再生の開始から終了までの一連の流れ
+    /// </summary>
+    /// <param name="videoNo"></param>
+    /// <param name="token"></param>
+    /// <param name="sourceClip"></param>
+    /// <returns></returns>
     public async UniTask PlayVideoAsync(int videoNo, CancellationToken token, VideoClip sourceClip = null) {
         PrepareVideoClip(videoNo, sourceClip);
 
@@ -192,6 +206,10 @@ public class VideoClipManager : MonoBehaviour {
         Debug.Log("VideoClip 停止");
     }
 
+    /// <summary>
+    /// 画面上下のシネマスコープ演出のスライドイン
+    /// </summary>
+    /// <returns></returns>
     public async UniTask ShowCinematicBarsAsync() {
         // 念のため初期位置
         //topBar.anchoredPosition = new Vector2(0, barHeight);
@@ -203,6 +221,10 @@ public class VideoClipManager : MonoBehaviour {
         await UniTask.Delay((int)(duration * 1000));
     }
 
+    /// <summary>
+    /// 画面上下のシネマスコープ演出のスライドアウト
+    /// </summary>
+    /// <returns></returns>
     public async UniTask HideCinematicBarsAsync() {
         topBar.DOAnchorPosY(barDefaultHeight, duration).SetEase(Ease.InCubic);
         bottomBar.DOAnchorPosY(-barDefaultHeight, duration).SetEase(Ease.InCubic);

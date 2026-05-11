@@ -1,35 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+ï»¿using UnityEngine;
 
-public class ExitPoint : MonoBehaviour
-{
+public class ExitPoint : MonoBehaviour {
+    public static ExitPoint instance;
+
     [SerializeField]
     private ExitPopUp exitPopupPrefab;
 
     private ExitPopUp exitPopUp;
 
+    private void Awake() {
+        if(instance == null) {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            // ’[––‚ÌƒŠƒ^[ƒ“ƒ{ƒ^ƒ“‚Å‚àI—¹‚Å‚«‚é‚æ‚¤‚É‚µ‚Ä‚¨‚­
+            // ç«¯æœ«ã®ãƒªã‚¿ãƒ¼ãƒ³ãƒœã‚¿ãƒ³ã§ã‚‚çµ‚äº†ã§ãã‚‹ã‚ˆã†ã«ã—ã¦ãŠã
             OnClickOpenExitPopup();
         }
     }
 
     /// <summary>
-    /// ƒQ[ƒ€I—¹Šm”F—pƒ|ƒbƒvƒAƒbƒv‚ğŠJ‚­
+    /// ã‚²ãƒ¼ãƒ çµ‚äº†ç¢ºèªç”¨ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã‚’é–‹ã
     /// </summary>
     public void OnClickOpenExitPopup() {
-        // ‚·‚Å‚ÉŠJ‚¢‚Ä‚¢‚éê‡‚É‚Í•Â‚¶‚é
+        // ã™ã§ã«é–‹ã„ã¦ã„ã‚‹å ´åˆã«ã¯é–‰ã˜ã‚‹
         if (exitPopUp && exitPopUp.gameObject.activeSelf) {
             exitPopUp.ClosePopup();
             SoundManager.instance.PlaySE(SoundManager.SE_TYPE.Cancel);
             return;
         }
 
-        // ExitPopup¶¬
+        // ExitPopupç”Ÿæˆ
         if (!exitPopUp) {
             exitPopUp = Instantiate(exitPopupPrefab, Camera.main.transform, false);
             exitPopUp.Setup();

@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
-using VContainer;
+using VContainer;        // MonoBehaviour ã‚’ä½¿ã†ã‚ˆã†ã«ã—ãŸã®ã§ã€ä»Šå›ã¯æœªå¯¾å¿œã€‚å‡¦ç†è‡ªä½“ã¯æ®‹ã—ã¦ã‚ã‚‹
 using VContainer.Unity;
 
 /// <summary>
-/// áŠQ•¨‚Ì¶¬EŠÇ—ƒNƒ‰ƒX
+/// éšœå®³ç‰©ã®ç”Ÿæˆãƒ»ç®¡ç†ã‚¯ãƒ©ã‚¹
 /// </summary>
 public class ObstacleBehaviour : MonoBehaviour//, IStartable
 {
@@ -16,14 +16,25 @@ public class ObstacleBehaviour : MonoBehaviour//, IStartable
 
     public List<ObstacleBall> obstacleList = new();
 
+    [SerializeField]
+    private ObstacleBall obstacleBallPrefabCanvas;
+
+    [SerializeField]
+    private Transform[] obstacleBallTransCanvas;
+
+    [SerializeField]
+    Transform generateObstacleTran;
+
+    public bool useImageObstacle;
+
 
     private MainGameManager mainGameManager;
     private LifeModel lifeModel;
     //private MainGamePresenter mainGamePresenter;
 
-    // Injection ‚·‚é‚ÆASerializeField ‚Ì“à—e‚ª Null ‚É‚È‚é‚Ì‚ÅAƒCƒ“ƒXƒ^ƒ“ƒX‚ğ’“ü‚µ’¼‚·•K—v‚ª‚ ‚é
+    // Injection ã™ã‚‹ã¨ã€SerializeField ã®å†…å®¹ãŒ Null ã«ãªã‚‹ã®ã§ã€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ³¨å…¥ã—ç›´ã™å¿…è¦ãŒã‚ã‚‹
     //[Inject]
-    //public ObstacleBehaviour(MainGameManager mainGameManager, LifeModel lifeModel, ObstacleBall obstacleBall, Transform[] trans) {//, MainGamePresenter mainGamePresenter ˆË‘¶ŠÖŒW‚ÌzŠÂ‚É‚æ‚èAƒGƒ‰[‚É‚È‚é
+    //public ObstacleBehaviour(MainGameManager mainGameManager, LifeModel lifeModel, ObstacleBall obstacleBall, Transform[] trans) {//, MainGamePresenter mainGamePresenter ä¾å­˜é–¢ä¿‚ã®å¾ªç’°ã«ã‚ˆã‚Šã€ã‚¨ãƒ©ãƒ¼ã«ãªã‚‹
     //    this.mainGameManager = mainGameManager;
     //    this.lifeModel = lifeModel;
     //    //this.mainGamePresenter = mainGamePresenter;
@@ -53,20 +64,26 @@ public class ObstacleBehaviour : MonoBehaviour//, IStartable
     //}
 
     /// <summary>
-    /// áŠQ•¨‚Ì¶¬
+    /// éšœå®³ç‰©ã®ç”Ÿæˆ
     /// </summary>
     /// <param name="createCount"></param>
     public void CreateObstacles(int createCount, float[] obstacleSpeeds, MainGameManager mainGameManager, LifeModel lifeModel) {
         for (int i = 0; i < createCount; i++) {
-            ObstacleBall obstacleBall = Instantiate(obstacleBallPrefab, GetObstaclePos(), Quaternion.identity);
-            //obstacleBall.SetUpObstacleBall(this, obstacleSpeeds);
+            ObstacleBall obstacleBall = null;
+            if (useImageObstacle) {
+                obstacleBall = Instantiate(obstacleBallPrefabCanvas, generateObstacleTran, false);
+                obstacleBall.transform.localPosition = GetObstacleCanvasPos();
+            } else {
+                obstacleBall = Instantiate(obstacleBallPrefab, GetObstaclePos(), Quaternion.identity);
+                //obstacleBall.SetUpObstacleBall(this, obstacleSpeeds);
+            }
             obstacleBall.SetUpObstacleBall(obstacleSpeeds, mainGameManager, lifeModel);
             obstacleList.Add(obstacleBall);
         }
     }
 
     /// <summary>
-    /// áŠQ•¨‚Ì¶¬‚·‚éÀ•W‚ğæ“¾
+    /// éšœå®³ç‰©ã®ç”Ÿæˆã™ã‚‹åº§æ¨™ã‚’å–å¾—
     /// </summary>
     /// <returns></returns>
     private Vector3 GetObstaclePos() {
@@ -76,8 +93,15 @@ public class ObstacleBehaviour : MonoBehaviour//, IStartable
             UnityEngine.Random.Range(obstacleBallTrans[0].position.y, obstacleBallTrans[1].position.y), 0);
     }
 
+    private Vector3 GetObstacleCanvasPos() {
+        //Debug.Log(obstacleBallTrans[0]);
+        //Debug.Log(obstacleBallTrans[1]);
+        return new(UnityEngine.Random.Range(obstacleBallTransCanvas[0].localPosition.x, obstacleBallTransCanvas[1].localPosition.x),
+            UnityEngine.Random.Range(obstacleBallTransCanvas[0].localPosition.y, obstacleBallTransCanvas[1].localPosition.y), 0);
+    }
+
     /// <summary>
-    /// ‚·‚×‚Ä‚ÌáŠQ•¨‚ğÄ“x“®‚©‚·
+    /// ã™ã¹ã¦ã®éšœå®³ç‰©ã‚’å†åº¦å‹•ã‹ã™
     /// </summary>
     public void RestartAllObstacles() {
         for (int i = 0; i < obstacleList.Count; i++) {
@@ -86,7 +110,7 @@ public class ObstacleBehaviour : MonoBehaviour//, IStartable
     }
 
     /// <summary>
-    /// ‚·‚×‚Ä‚ÌáŠQ•¨‚ÌˆÚ“®‚ğ’â~
+    /// ã™ã¹ã¦ã®éšœå®³ç‰©ã®ç§»å‹•ã‚’åœæ­¢
     /// </summary>
     public void StopAllObstacles() {
         for (int i = 0; i < obstacleList.Count; i++) {
@@ -95,7 +119,7 @@ public class ObstacleBehaviour : MonoBehaviour//, IStartable
     }
 
     /// <summary>
-    /// ‚·‚×‚Ä‚ÌáŠQ•¨‚ÌˆÚ“®‚ğ’á‘¬‚É
+    /// ã™ã¹ã¦ã®éšœå®³ç‰©ã®ç§»å‹•ã‚’ä½é€Ÿã«
     /// </summary>
     public void SlowDownAllObstacles() {
         for (int i = 0; i < obstacleList.Count; i++) {
@@ -104,7 +128,7 @@ public class ObstacleBehaviour : MonoBehaviour//, IStartable
     }
 
     /// <summary>
-    /// ‚·‚×‚Ä‚ÌáŠQ•¨‚Ì”j‰ó
+    /// ã™ã¹ã¦ã®éšœå®³ç‰©ã®ç ´å£Š
     /// </summary>
     public void DestroyAllObstacles() {
         for (int i = 0; i < obstacleList.Count; i++) {

@@ -1,20 +1,22 @@
 ﻿#pragma warning disable 0649
 #pragma warning disable 0414
 
-using System.Collections.Generic;
-using UnityEngine;
-using UniRx;
-using VContainer.Unity;
-using System;
 using DG.Tweening;
+using System;
+using System.Collections.Generic;
+using UniRx;
+using UnityEngine;
+using VContainer.Unity;
 
 /// <summary>
 /// グリッドをつなげたり、つながっているグリッドを計算して制御して、TileGridBehaivour に提供するクラス
+/// インプットシステム対応(外部クラス(PointerInputProvider)から入力情報を取得)
 /// </summary>
 public class GridCalculator : ITickable, IDisposable {
 
     private MainGameManager mainGameManager;
     private TileGridBehaviour tileGridBehaviour;
+    private PointerInputProvider pointerInputProvider;
 
     private TileGridDetail firstSelectTileGrid;
     private TileGridDetail lastSelectTileGrid;
@@ -29,10 +31,12 @@ public class GridCalculator : ITickable, IDisposable {
     private CompositeDisposable disposables;
 
 
-    public GridCalculator(MainGameManager mainGameManager, TileGridBehaviour tileGridBehaviour) {
+    public GridCalculator(MainGameManager mainGameManager, TileGridBehaviour tileGridBehaviour, PointerInputProvider pointerInputProvider) {
         this.mainGameManager = mainGameManager;
         this.tileGridBehaviour = tileGridBehaviour;
-        //Debug.Log(this.mainGameManager);
+        this.pointerInputProvider = pointerInputProvider;
+
+        //Debug.Log(this.pointerInputProvider);
 
         disposables = new();
     }
@@ -52,13 +56,24 @@ public class GridCalculator : ITickable, IDisposable {
         // Tick に Subscribe だと、Update 内で Subscribe しているのと同じになるので、普通に Update 内に必要な処理だけを書く
         // ゲームの状態については、Presenter 側で見ているので、ここでのチェックは不要
         // グリッドをつなげる処理
-        if (Input.GetMouseButtonDown(0) && firstSelectTileGrid == null) {
+        //if (Input.GetMouseButtonDown(0) && firstSelectTileGrid == null) {
+        //    OnStartDrag();
+        //} else if (Input.GetMouseButtonUp(0)) {
+        //    OnEndDrag();
+        //} else if (firstSelectTileGrid != null) {
+        //    OnDragging();
+        //}
+
+        // InputSystem 版(ドラッグ中 = 押されている間 を明示)
+        // 直接マウスなどの入力感知は取れないので、参照をもらう
+        if (pointerInputProvider.IsPressDown && firstSelectTileGrid == null) {
             OnStartDrag();
-        } else if (Input.GetMouseButtonUp(0)) {
+        } else if (pointerInputProvider.IsPressUp) {
             OnEndDrag();
-        } else if (firstSelectTileGrid != null) {
+        } else if (pointerInputProvider.IsPressing && firstSelectTileGrid != null) {
             OnDragging();
         }
+
 
         //mainGameManager.State// <- Update で呼びまくっているので不具合が起こる
         //    .Where(state => state == GameState.Play)
@@ -81,7 +96,18 @@ public class GridCalculator : ITickable, IDisposable {
     /// </summary>
     private void OnStartDrag() {
         //Debug.Log("ドラッグ開始");
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero); //  Camera.main.ScreenToWorldPoint
+
+        // InputSystem 対応版。スマホか PC かで判定先を分ける
+        if (!pointerInputProvider.TryGetPointerPosition(out var screenPos)) {
+            return;
+        }
+
+        // インプット情報を利用して Ray が正しくあたるようにする
+        Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+
+        //昔の処理
+        //RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero); //  Camera.main.ScreenToWorldPoint
 
         // グリッドがつながっている数を初期化
         linkCount = 0;
@@ -104,10 +130,20 @@ public class GridCalculator : ITickable, IDisposable {
     }
 
     /// <summary>
-    /// グリッドのドラッグ中（スワイプ）処理
+    /// グリッドのドラッグ中(スワイプ)処理
     /// </summary>
     private void OnDragging() {
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        // InputSystem 対応版。スマホか PC かで判定先を分ける
+        if (!pointerInputProvider.TryGetPointerPosition(out var screenPos)) {
+            return;
+        }
+
+        // インプット情報を利用して Ray が正しくあたるようにする
+        Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+
+        // 昔の処理
+        //RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (hit.collider != null && hit.collider.gameObject.TryGetComponent(out TileGridDetail dragTileGrid)) {
 
             // TileGrid 以外の場所の場合には何もしない
@@ -157,22 +193,19 @@ public class GridCalculator : ITickable, IDisposable {
     }
 
     /// <summary>
-    /// グリッドのドラッグをやめた（指を画面から離した）際の処理
+    /// グリッドのドラッグをやめた(指を画面から離した)際の処理
     /// </summary>
     private void OnEndDrag() {
         // 3つ以上グリッドが選択されている場合
         if (eraseTileGridList.Count >= 3) {
-
-            // 削除対象として選択されている(リストに登録されている)グリッドを消す
-            tileGridBehaviour.EraseTileGrids(eraseTileGridList);
-
             // 消したグリッドの数の加算
             mainGameManager.UpdateTotalErasePoint(eraseTileGridList.Count);
 
             // フィーバーポイントの加算
             mainGameManager.UpdateFeverPoint(eraseTileGridList.Count);
 
-
+            // 削除対象として選択されている(リストに登録されている)グリッドを消す(ここが先だと、最後のポイント加算がされない)
+            tileGridBehaviour.EraseTileGrids(eraseTileGridList);
         } else {
             // 削除候補のグリッドの選択を解除
             ReleaseTileGrids();
@@ -221,7 +254,9 @@ public class GridCalculator : ITickable, IDisposable {
     /// <param name="dragTileGrid"></param>
     /// <param name="alphaValue"></param>
     private void ChangeTileGridAlpha(TileGridDetail dragTileGrid, float alphaValue) {
-        dragTileGrid.spriteTileGrid.color = new(dragTileGrid.spriteTileGrid.color.r, dragTileGrid.spriteTileGrid.color.g, dragTileGrid.spriteTileGrid.color.b, alphaValue);
+        //dragTileGrid.spriteTileGrid.color = new(dragTileGrid.spriteTileGrid.color.r, dragTileGrid.spriteTileGrid.color.g, dragTileGrid.spriteTileGrid.color.b, alphaValue);
+        
+        dragTileGrid.SetAlpha(alphaValue);
         dragTileGrid.transform.DOShakeScale(0.15f)
             .SetEase(Ease.InQuart)
             .SetLink(dragTileGrid.gameObject)

@@ -25,11 +25,39 @@ public class MovieTabView : MonoBehaviour {
 
         for (int i = 0; i < stageClearDataList.Count; i++) {
             StageClearData stageClearData = stageClearDataList[i];
+
+            // ノーミスクリアしていない場合にはムービーは一覧に出さない
+            if (!stageClearData.isNoMissClear) {
+                continue;
+            }
+
             yamap.StageData stageData = UserData.instance.GetStageData(stageClearData.stageType, stageClearData.stageNo);
 
             // サムネイル
             MovieDetailView movieThumnail = Instantiate(movieDetailViewPrefab, movieThumnailTran, false);
             VideoData videoData = UserData.instance.GetVideoData(stageData.videoId);
+            movieThumnail.Setup(videoData, thumnailAction);
+            movieThumnailList.Add(movieThumnail);
+        }
+
+        return movieThumnailList;
+    }
+
+    /// <summary>
+    /// 動画オンリーモード用サムネイルボタン生成
+    /// </summary>
+    /// <param name="videoDataList"></param>
+    /// <param name="movieDetailViewPrefab"></param>
+    /// <param name="thumnailAction"></param>
+    /// <returns></returns>
+    public List<MovieDetailView> CreateMovieOnlyThumnails(VideoDataSO videoDataList, MovieDetailView movieDetailViewPrefab, UnityAction<MovieDetailView, int> thumnailAction) {
+        List<MovieDetailView> movieThumnailList = new();
+
+        for (int i = 0; i < videoDataList.videoDataList.Count; i++) {
+            // サムネイル
+            MovieDetailView movieThumnail = Instantiate(movieDetailViewPrefab, movieThumnailTran, false);
+            Debug.Log($"videoId: {videoDataList.videoDataList[i].videoId}");
+            VideoData videoData = UserData.instance.GetMovieOnlyVideoData(videoDataList.videoDataList[i].videoId);
             movieThumnail.Setup(videoData, thumnailAction);
             movieThumnailList.Add(movieThumnail);
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// プレイリストの再生マネージャー
@@ -25,6 +26,8 @@ public class VideoPlaylistPlayer : MonoBehaviour {
     //    playList.Add(videoData);
     //    return true;
     //}
+
+    
 
     /// <summary>
     /// プレイリスト再生
@@ -56,7 +59,9 @@ public class VideoPlaylistPlayer : MonoBehaviour {
     /// <returns></returns>
     private async UniTask WaitTapAsync(CancellationToken token) {
         await UniTask.WaitUntil(
-            () => Input.GetMouseButtonDown(0),
+            () => //Input.GetMouseButtonDown(0),
+             (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) ||
+            (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame), // インプットシステム対応のタップ・クリック検知
             cancellationToken: token
         );
     }
