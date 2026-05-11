@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4b4a8eaa2dcae47ae9cdde7c116ce1, type: 3}
+  m_Name: VideoDataSO part1
+  m_EditorClassIdentifier: Assembly-CSharp::VideoDataSO
+  videoDataList:
+  - videoId: 0
+    videoClip: {fileID: 32900000, guid: 07b8b5bc6f92f594c8cd198729700714, type: 3}
+    thumbnail: {fileID: 2399515945099284913, guid: 5d7b3c2b3de5c56408f12f9018f099a7,
+      type: 3}
+  - videoId: 1
+    videoClip: {fileID: 32900000, guid: 87f61a4ad0a03064da37c045dba302c8, type: 3}
+    thumbnail: {fileID: 7504312691259075449, guid: c46b38e97fdb4a54d8692b2894eabfe4,
+      type: 3}
+  - videoId: 2
+    videoClip: {fileID: 32900000, guid: 25bd6a86d127645428f1f611542a1dcd, type: 3}
+    thumbnail: {fileID: -3656249479224877740, guid: 1bd690bb8362b4c448879b1309c56b5a,
+      type: 3}
+  - videoId: 3
+    videoClip: {fileID: 32900000, guid: 21a7928978576f74bad8c266281c90c4, type: 3}
+    thumbnail: {fileID: -1714439620496914647, guid: 8a1029712c5414447a63414320860feb,
+      type: 3}
+  - videoId: 4
+    videoClip: {fileID: 32900000, guid: 81826c16110dec742bbe3f9620f1382d, type: 3}
+    thumbnail: {fileID: -3888353031009140165, guid: 5059c3418bb79fc4181bc6b91abb50cf,
+      type: 3}
+  - videoId: 5
+    videoClip: {fileID: 32900000, guid: 6cc89dea6eb126844ab9000dde530610, type: 3}
+    thumbnail: {fileID: -6761755581220099581, guid: f116eb929b11c8e46af2c8c15377d0e0,
+      type: 3}
+  - videoId: 10
+    videoClip: {fileID: 32900000, guid: a4a312bec9b352241bb52ae5456f2861, type: 3}
+    thumbnail: {fileID: 2180833138102820062, guid: c46016a5738e00946a3dafe315e82e66,
+      type: 3}
+  - videoId: 11
+    videoClip: {fileID: 32900000, guid: 706488397b5105340921e9f5e94e9a67, type: 3}
+    thumbnail: {fileID: -5814546568050724414, guid: 2dd252df016d24b41bbeb4129e50a7ea,
+      type: 3}
+  - videoId: 12
+    videoClip: {fileID: 32900000, guid: 018e0bbc452bc8c40ab88a33d8dcd86e, type: 3}
+    thumbnail: {fileID: -6122497975442151703, guid: 99ba00cbb5e2b7f419c89cae549ad524,
+      type: 3}
+  - videoId: 13
+    videoClip: {fileID: 32900000, guid: d814f6b42f4954a44a53ceb606d158b5, type: 3}
+    thumbnail: {fileID: 3496039290181540165, guid: 90b217e919775b54bbb1af98a5b4ed29,
+      type: 3}
+  - videoId: 14
+    videoClip: {fileID: 32900000, guid: bd287a3d25181734182db40cec108a24, type: 3}
+    thumbnail: {fileID: 3361989939754455735, guid: 8edc98848f07f9b46a2680265ba7a365,
+      type: 3}
+  - videoId: 15
+    videoClip: {fileID: 32900000, guid: a2aae512d95344d4d9737c501e3e08ee, type: 3}
+    thumbnail: {fileID: 9002619116282492463, guid: 8ac5b379ce0fd2d469a36e416ba3cb52,
+      type: 3}
+  - videoId: 20
+    videoClip: {fileID: 32900000, guid: 651379aaa981bc849886326cd34ebcc7, type: 3}
+    thumbnail: {fileID: -6836859108175258097, guid: 597fa8d08bbb410469cd746bf954d157,
+      type: 3}
+  - videoId: 21
+    videoClip: {fileID: 32900000, guid: 7c9b9ce8575ec704ebb88a637b4c6afa, type: 3}
+    thumbnail: {fileID: -8807178369696471427, guid: 29cd7805cf19ce0468303a5ee64ce2b0,
+      type: 3}
+  - videoId: 22
+    videoClip: {fileID: 32900000, guid: c7df169f47009184daac33502fa2981c, type: 3}
+    thumbnail: {fileID: 4164409311753693989, guid: 798ff6ef40be7344f9248718e131d857,
+      type: 3}
+  - videoId: 23
+    videoClip: {fileID: 32900000, guid: 86f0dfeee1872434e90b0a0070f9effc, type: 3}
+    thumbnail: {fileID: -3972246940174604398, guid: d366fdb9e799b6f4398b87a55c92e07a,
+      type: 3}
+  - videoId: 24
+    videoClip: {fileID: 32900000, guid: 9edec2e3f356d7140bb2cd4af437a43d, type: 3}
+    thumbnail: {fileID: 8408528693622792561, guid: b64e98c198e48184fb2a67108ba5e25b,
+      type: 3}
+  - videoId: 25
+    videoClip: {fileID: 32900000, guid: ca2295ace687a5240ac438af914d8c54, type: 3}
+    thumbnail: {fileID: -6221890813307303932, guid: b58d21c7a48713a46851c98c8995c91f,
+      type: 3}
+  - videoId: 30
+    videoClip: {fileID: 32900000, guid: 89a742ade3ac67c42b1472cd07de78dc, type: 3}
+    thumbnail: {fileID: 6922022498063304481, guid: 3674f11ddcbcda940adf8c6ffcec1764,
+      type: 3}
